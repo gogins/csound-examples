@@ -3,7 +3,7 @@
 ;; without a generated wrapper.
 ;; You can run this example as a script, e.g. "sbcl --load examples/lisp/test.lisp"
 (require "asdf")
-(asdf:make :cffi)
+(asdf:load-system :cffi)
 (cffi:define-foreign-library libcsound64
     (:darwin "libcsound64.dylib")
     (:unix "libcsound64.so")
@@ -239,22 +239,21 @@ i1 45.5 . . 11.04   ;E
 </CsScore>
 </CsoundSynthesizer>
 ")
+(format t "csd text: ~A" csd)
+;; In SBCL setq at global scope causes warnings.
 (defparameter cs 0)
 (defparameter result 0)
 (defparameter csd-pointer 0)
-(progn
-    (format t "csd text: ~A" csd)
-    (setq cs (cffi:foreign-funcall "csoundCreate" :pointer (cffi:null-pointer) :pointer))
-    (format t "csoundCreate returned: ~S~%" cs)
-    (setq csd-pointer (cffi:foreign-string-alloc csd))
-    (setq result (cffi:foreign-funcall "csoundCompileCsdText" :pointer cs :pointer csd-pointer :int))
-    (format t "csoundCompileCsdText returned: ~D~%" result)
-    (setq result (cffi:foreign-funcall "csoundStart" :pointer cs :int))
-    (format t "csoundStart returned: ~D~%" result)
-    (loop
-        (setq result (cffi:foreign-funcall "csoundPerformKsmps" :pointer cs :int))
-        (when (not (equal result 0))(return))
-    )
-    (cffi:foreign-string-free csd-pointer)
-    (format t "Lisp has finished.~%")
+(setq cs (cffi:foreign-funcall "csoundCreate" :pointer (cffi:null-pointer) :pointer))
+(format t "csoundCreate returned: ~S~%" cs)
+(setq csd-pointer (cffi:foreign-string-alloc csd))
+(setq result (cffi:foreign-funcall "csoundCompileCsdText" :pointer cs :pointer csd-pointer :int))
+(format t "csoundCompileCsdText returned: ~S~%" result)
+(setq result (cffi:foreign-funcall "csoundStart" :pointer cs :int))
+(format t "csoundStart returned: ~D~%" result)
+(loop
+	(setq result (cffi:foreign-funcall "csoundPerformKsmps" :pointer cs :int))
+	(when (not (equal result 0))(return))
 )
+(format t "Lisp has finished.~%")
+(quit)

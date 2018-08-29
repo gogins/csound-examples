@@ -1,10 +1,37 @@
 ; This example demonstrates the use of the Csound API from SBCL using CFFI.
 ; This example assumes that CFFI is installed, and uses a CFFI wrapper 
 ; definition, csound.lisp.
-(require 'asdf)
-(asdf:load-system :cffi)
-(load "interfaces/csound.asd")
-(asdf:load-system :csound)
+(require "asdf")
+(asdf:make :csound)
+; L I S P   C F F I   I N T E R F A C E   F O R   C S O U N D . H
+;
+; Copyright (C) 2016 Michael Gogins
+;
+; This file belongs to Csound.
+;
+; This software is free software; you can redistribute it and/or
+; modify it under the terms of the GNU Lesser General Public
+; License as published by the Free Software Foundation; either
+; version 2.1 of the License, or (at your option) any later version.
+;
+; This software is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+; Lesser General Public License for more details.
+;
+; You should have received a copy of the GNU Lesser General Public
+; License along with this software; if not, write to the Free Software
+; Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+;
+; This file is handwritten and should be maintained by keeping it up to date
+; with regard to include/csound.h. This file is not intended to be complete
+; and essentially defines a Lisp interface to a subset of the most useful
+; functions in csound.h. At the present time, only pointers, strings, and
+; other primitive types are used in this interface.
+
+(use-package :csound)
+(in-package :csound)
+
 (defparameter csd "<CsoundSynthesizer>
 <CsOptions>
 -odac
@@ -235,19 +262,23 @@ e
 </CsScore>
 </CsoundSynthesizer>
 ")
+
 (format t "csd text: ~A~%" csd)
-(format t "Csound version: ~A~%" (csound::csoundGetVersion))
+(setq csd-foreign (cffi:foreign-string-alloc csd))
+(format t "Csound version: ~A~%" (csound:csoundGetVersion))
 (defparameter cs 0)
 (defparameter result 0)
-(setq cs (csound::csoundCreate (cffi:null-pointer)))
+(setq cs (csound:csoundCreate (cffi:null-pointer)))
 (format t "csoundCreate returned: ~S~%" cs)
-(setq result (csound::csoundCompileCsdText cs csd))
+(setq result (csound:csoundCompileCsdText cs csd-foreign))
 (format t "csoundCompileCsdText returned: ~D~%" result)
-(setq result (csound::csoundStart cs))
+(setq result (csound:csoundStart cs))
 (format t "csoundStart returned: ~D~%" result)
 (loop 
-    (setq result (csound::csoundPerformKsmps cs))
-	(when (not (equal result 0))(return))
+    (setq result (csound:csoundPerformKsmps cs))
+    (when (not (equal result 0))(return))
 )
-(format t "Lisp has finished.~%")
-(quit)
+(csound:csoundCleanup cs)
+(csound:csoundReset cs)
+(cff:foreign-string-free csd-foreign)
+(format t "Csound has finished.~%")

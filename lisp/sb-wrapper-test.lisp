@@ -1,6 +1,6 @@
 (require :asdf)
-(asdf:load-system :sb-csound)
-(defparameter csd-text #>qqq><CsoundSynthesizer>
+(asdf:make :sb-csound)
+(defparameter csd-text "<CsoundSynthesizer>
 <CsOptions>
 -odac
 </CsOptions>
@@ -228,8 +228,7 @@ i1 45.4 . . 10.11   ;B
 i1 45.5 . . 11.04   ;E
 e
 </CsScore>
-</CsoundSynthesizer>
-qqq)
+</CsoundSynthesizer>")
 ;(format t "csd text: ~A~%" csd-text)
 (let ((result)
     (cs)

@@ -1,3 +1,6 @@
+(require "asdf")
+(asdf:make :sb-csound)
+(asdf:make :cl-heredoc)
 (in-package :cm)
 
 #|
@@ -337,7 +340,9 @@ Lets define a process that plays random triads from the major mode.
              output (new midi :time (now) :keynum k 
                          :amplitude amp)
              wait r)))
-                         
+  
+(set-dispatch-macro-character #\# #\> #'cl-heredoc:read-heredoc)
+  
 (defparameter csd-text #>qqq><CsoundSynthesizer>
 <CsOptions>
 -m0 --m-dB=1 -d -odac
@@ -3523,7 +3528,7 @@ qqq)
 ;;; Translate the score events to "i" statements 
 ;;; and render with the Csound structured data file 
 ;;; defined in the raw string or "here-document" csd-text.
-(render-with-csound csound-seq csd-text 13 5)
+(render-csound csound-seq csd-text 13 5)
           
 (defparameter csound-seq (new seq :name "csound-test"))
 ;;; Generate events into the csound-events seq object.
@@ -3531,7 +3536,7 @@ qqq)
 ;;; Translate the score events to "i" statements 
 ;;; and render with the Csound structured data file 
 ;;; defined in the raw string or "here-document" csd-text.
-(render-with-csound csound-seq csd-text 14 8)
+(render-csound csound-seq csd-text 14 8)
 
 (defparameter stravmode (new mode steps '(2 1 2))) ; also "Shur"
 
@@ -3541,7 +3546,7 @@ qqq)
 ;;; Translate the score events to "i" statements 
 ;;; and render with the Csound structured data file 
 ;;; defined in the raw string or "here-document" csd-text.
-(render-with-csound csound-seq csd-text 16 12)
+(render-csound csound-seq csd-text 16 12)
 
 (quit)
 
