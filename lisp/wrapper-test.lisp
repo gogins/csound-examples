@@ -2,7 +2,7 @@
 ; This example assumes that CFFI is installed, and uses a CFFI wrapper 
 ; definition, csound.lisp.
 (require "asdf")
-(asdf:make :csound)
+(asdf:load-system :csound)
 ; L I S P   C F F I   I N T E R F A C E   F O R   C S O U N D . H
 ;
 ; Copyright (C) 2016 Michael Gogins

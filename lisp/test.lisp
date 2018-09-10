@@ -3,7 +3,7 @@
 ;; without a generated wrapper.
 ;; You can run this example as a script, e.g. "sbcl --load examples/lisp/test.lisp"
 (require "asdf")
-(asdf:make :cffi)
+(asdf:load-system :cffi)
 (cffi:define-foreign-library libcsound64
     (:darwin "libcsound64.dylib")
     (:unix "libcsound64.so")

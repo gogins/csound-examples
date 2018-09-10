@@ -1,5 +1,5 @@
 (require :asdf)
-(asdf:make :sb-csound)
+(asdf:load-system :sb-csound)
 (defparameter csd-text "<CsoundSynthesizer>
 <CsOptions>
 -odac

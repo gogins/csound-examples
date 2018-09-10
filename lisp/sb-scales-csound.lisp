@@ -1,6 +1,6 @@
 (require "asdf")
-(asdf:make :sb-csound)
-(asdf:make :cl-heredoc)
+(asdf:load-system :sb-csound)
+(asdf:load-system :cl-heredoc)
 (in-package :cm)
 
 #|
