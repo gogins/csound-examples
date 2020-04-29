@@ -4,7 +4,7 @@
 lua_opdef "luatest", {{
 local ffi = require("ffi")
 local string = require("string")
-local csoundLibrary = ffi.load('csound64.dll')
+local csoundLibrary = ffi.load('csound64')
 ffi.cdef[[
     int csoundGetKsmps(void *);
     double csoundGetSr(void *);
