@@ -29,7 +29,7 @@ int csoundInitialize (int flags);
 void *csoundCreate(void *hostdata);
 void csoundDestroy(void *csound);
 int csoundSetOption(void *csound, const char *option);
-int csoundCompileOrc(void *csound, const char *orc);
+int csoundCompileCsdText(void *csound, const char *csd);
 int csoundReadScore(void *csound, const char *message);
 int csoundScoreEvent (void *csound, char type, const double *pFields, long numFields);
 int csoundStart(void *csound);
@@ -51,15 +51,17 @@ local voidptr = ffi.new('void *')
 print 'Creating an instance of Csound...'
 local csound = csoundApi.csoundCreate(voidptr)
 print 'Configuring Csound for performance (change output filename as required)...'
-csoundApi.csoundSetOption(csound, '--sample-accurate')
-csoundApi.csoundSetOption(csound, '--output=dac')
-csoundApi.csoundSetOption(csound, '--format=float')
-csoundApi.csoundSetOption(csound, '--nodisplays')
 print 'Compiling the Csound orchestra (note multi-line text in double brackets)...'
-result = csoundApi.csoundCompileOrc(csound, [[
+result = csoundApi.csoundCompileCsdText(csound, [[
+<CsoundSynthesizer>
+<CsOptions>
+-d -m195 -odac:plughw:1,0
+</CsOptions>
+<CsInstruments>
 sr = 48000
-ksmps = 100
+ksmps = 128
 nchnls = 2
+0dbfs = 32768
             ; Define a control channel for the FM carrier.
             chn_k       "kcarrier", 1
             ; Define a simple FM instrument using built-in sine table.
@@ -73,6 +75,11 @@ kindex      line        0, p3, 10
 asignal     foscili     kamplitude, khz, kcarrier, kmodulator, kindex
             outs        asignal, asignal
             endin
+</CsInstruments>
+<CsScore>
+f 0 180
+</CsScore>
+</CsoundSynthesizer>
 ]])
 print 'Defining a difference equation for the logistic map...'
 local c = .93847
@@ -83,6 +90,8 @@ local duration = 0.5
 local insno = 1
 local scoretime = 0.5
 -- local pfields = ffi.new('double[?]', 5)
+print 'Starting the Csound performance...'
+result = csoundApi.csoundStart(csound)
 print 'Iterating a loop to generate score events and send them to Csound...'
 for i = 1, 200 do
     scoretime = scoretime + interval
@@ -91,7 +100,7 @@ for i = 1, 200 do
     local key = math.floor(36 + y * 60)
     local velocity = 80
     local message = string.format('i %d %9.4f %9.4f %9.4f %9.4f', insno, scoretime, duration, key, velocity)
-    -- print(message)
+    print(message)
     csoundApi.csoundReadScore(csound, message)
     -- Note that it would be possible to use csoundScoreEvent, but then performance will not terminate
     -- at the end of the score.
@@ -102,8 +111,6 @@ for i = 1, 200 do
     -- pfields[4] = velocity
     -- csoundApi.csoundScoreEvent(csound, string.byte('i', 1), pfields, 5)
 end
-print 'Having sent the entire score, starting the Csound performance...'
-result = csoundApi.csoundStart(csound)
 print [[Print iterating the performance loop until it returns "completed"...
 This enables the Lua code to send data to Csound during performance 
 via control channels. And Csound could also send data back to Lua this way.]]
