@@ -11,7 +11,7 @@ programs, and extensions that can be used with [csound](https://github.com/csoun
 [csound-extended](https://github.com/gogins/csound-extended), 
 [csound.node](https://github.com/gogins/csound-extended/tree/develop/csound.node), 
 [WebAudio Csound](https://github.com/csound/csound/tree/develop/Emscripten),
-[csound-extended-wasm](https://github.com/gogins/csound-extended/tree/develop/WebAssembly], 
+[csound-extended-wasm](https://github.com/gogins/csound-extended/tree/develop/WebAssembly), 
 and the [Csound for Android](https://github.com/gogins/csound-android) app.
 
 These pieces are segregated by directories named by programming language or 
