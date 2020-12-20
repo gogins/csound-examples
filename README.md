@@ -30,5 +30,7 @@ Not all of these examples or tests actually work. Some are of archival
 interest only.
 
 Many of these examples are included in some of my other Git repositories, 
-so please do not rename or move files or directories. Adding new files is 
-fine.
+so please do not rename or move files or directories. 
+
+Please feel free to contribute new pieces, examples, or extensions by pull 
+request.
