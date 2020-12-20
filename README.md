@@ -9,13 +9,13 @@ http://michaelgogins.tumblr.com
 This repository contains example compositions, some test compositions and 
 programs, and extensions that can be used with: 
  - The canonical release of [csound](https://github.com/csound/csound). 
- - The [csound-aeolus](https://github.com/gogins/csound-aeolus) opcodes.
- - [My collection of extensions for Csound including CsoundAC for algorithmic composition](https://github.com/gogins/csound-extended). 
- - [csound.node](https://github.com/gogins/csound-extended/tree/develop/csound.node) for NW.js.
- - My [csound-extended-wasm](https://github.com/gogins/csound-extended/tree/develop/WebAssembly). 
- - The [Csound VST3 opcodes](https://github.com/gogins/csound-vst3-opcodes).
- - The [Csound for Android](https://github.com/gogins/csound-android) app.
  - The canonical [WebAudio Csound](https://github.com/csound/csound/tree/develop/Emscripten).
+ - My [csound-aeolus](https://github.com/gogins/csound-aeolus) opcodes.
+ - [My collection of extensions for Csound including CsoundAC for algorithmic composition](https://github.com/gogins/csound-extended). 
+ - My [csound.node](https://github.com/gogins/csound-extended/tree/develop/csound.node) for NW.js.
+ - My [csound-extended-wasm](https://github.com/gogins/csound-extended/tree/develop/WebAssembly) including Csound and CsoundAC for WebAssembly. 
+ - My [Csound VST3 opcodes](https://github.com/gogins/csound-vst3-opcodes).
+ - My [Csound for Android](https://github.com/gogins/csound-android) app.
 
 These pieces are more or less segregated by directories named by programming 
 language or Csound runtime environment.
