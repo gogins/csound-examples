@@ -1,4 +1,4 @@
-<CsoundSynthesizer>
+ <CsoundSynthesizer>
 <CsOptions>
 -d -R -W -Z -f -o xanadu-high.wav
 </CsOptions>
