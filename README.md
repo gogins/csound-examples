@@ -21,7 +21,7 @@ The unit tests used in the canonical build of Csound are _not_ included here.
 
 For more information, please read the examples themselves.
 
-PLEASE NOTE! 
+### Please note!
 
 Not all of these examples or tests actually work. Some are of archival 
 interest only.
