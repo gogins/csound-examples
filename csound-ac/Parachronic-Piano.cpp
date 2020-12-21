@@ -11,7 +11,6 @@
 #define PI      (3.141592653589793238462643383279502884197)
 #define TWO_PI  (6.283185307179586476925286766559005768394)
 
-
 /**
  * Generators are lambdas with the same signature as the following example.
  * The pen is the current position of a "pen" in the score. The pen is
@@ -223,14 +222,13 @@ int main(int argc, const char **argv)
     std::cout << "Final duration:         " << score.getDuration() << std::endl;
 
     model.setCsoundOrchestra(R"(
-sr     = 44100
-ksmps  = 20
-nchnls = 2 ; Changed for WebAssembly output from: = 2
-    
+sr     = 48000
+ksmps  = 128
+nchnls = 2 
                 alwayson        "PianoOut"
     
                 ; Load the Pianoteq into memory.
-gipianoteq      vstinit         "/home/mkg/pianoteq_linux_v630/Pianoteq\ 6/amd64/Pianoteq\ 6.so", 0
+gipianoteq      vstinit         "/home/mkg/Pianoteq 7/x86-64bit/Pianoteq 7.so"
                 
                 ; Print information about the Pianoteq, such as parameter names and numbers.
                 vstinfo         gipianoteq
