@@ -2,17 +2,15 @@
 # with an embedded Csound CSD file.
 # Note the use of Python's triple quotes to embed literal text within the script.
 # Author: Michael Gogins
-
-import csnd6
-
+import ctcsound
 # Create an instance of Csound (actually, CppSound).
-csound = csnd6.Csound()
+csound = ctcsound.Csound()
 # Set the Csound file.
-print "OK"
-csound.CompileCsdText('''
+print(help(csound))
+csound.compileCsdText('''
 <CsoundSynthesizer>
 <CsOptions>
--odac
+-odac:plughw:1,0
 </CsOptions>
 <CsInstruments>
 ;============================================================================;
@@ -691,6 +689,6 @@ e
 </CsoundSynthesizer>
 ''')
 # Perform the exported orchestra and score.
-csound.Start()
-csound.Perform()
+csound.start()
+csound.perform()
 

@@ -1,6 +1,6 @@
  <CsoundSynthesizer>
 <CsOptions>
--d -R -W -Z -f -odac:plughw:1,0
+-d -R -W -Z -f -odac
 </CsOptions>
 <CsInstruments>
 sr          =           88200
