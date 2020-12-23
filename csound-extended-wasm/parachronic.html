@@ -941,9 +941,9 @@ var generate = function() {
      * no operations, but may still be used to define replacement rules.
      */
     lindenmayer = new CsoundAC.ChordLindenmayer();
-    lindenmayer.setAxiom("(seed P 3928394)(R P 60)(= N[d] 3)(Sc P)(A)");
-    lindenmayer.addRule("(A)", "(A)(W N)(+ N[k] 20 R)(C Sd 5 R)(W C R)(- Sd 2)([)(+ N[k] 7)(/ S[t] 1.025)(/ S[d] 1.025)(F N 1)(A)(])(uni V 1 24)(uni N[x] 0 1)(+ N[t] 1)(W C R)(C Sd 3)(uni N[i] 1 5)(M Sc 3 0)(Sc P)(W N)(A)(- N[k] 2)(+ N[t] 1)(W N)(A)");
-    lindenmayer.setIterationCount(3);
+    lindenmayer.setAxiom("(seed P 3928394)(= P 60)(= N[d] 3)(Sc P)(A)");
+    lindenmayer.addRule("(A)", "(A)(W N)(+ N[k] 20 R)(C Sd 5 R)(W C R)(- Sd 2)(+ N[k] 2.1 R)([)(+ N[k] 7 R)(/ S[t] 1.025)(/ S[d] 1.025)(F N 1)(A)(])(uni V 1 24)(uni N[x] 0 1)(+ N[t] 1)(W C R)(C Sd 3)(uni N[i] 1 5)(M Sc 3 0)(Sc P)(W N)(A)(- N[k] .1 R)(+ N[t] 1)(W N)(A)");
+    lindenmayer.setIterationCount(4);
     csound.Message("lindenmayer: " + lindenmayer);
     var rescale = new CsoundAC.Rescale();
     rescale.setRescale(0, true, false, 1., 0.);

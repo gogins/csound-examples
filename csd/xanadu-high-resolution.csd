@@ -1,6 +1,6 @@
  <CsoundSynthesizer>
 <CsOptions>
--d -R -W -Z -f -o xanadu-high.wav
+-d -R -W -Z -f -odac:plughw:1,0
 </CsOptions>
 <CsInstruments>
 sr          =           88200
