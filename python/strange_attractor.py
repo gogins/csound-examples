@@ -2,13 +2,15 @@
 # Tutorial demonstrating a MusicModel composition
 # based on translating the orbit of a chaotic attractor to a score.
 
+import ctcsound
 import CsoundAC
 import time
 
+csound = ctcsound.Csound()
+print(help(csound))
 CsoundAC.Random_seed(int(time.time()))
 
 model = CsoundAC.MusicModel()
-csound.setPythonMessageCallback()
 strangeAttractor = CsoundAC.StrangeAttractor()
 strangeAttractor.reset()
 strangeAttractor.setDimensionCount(4)
@@ -39,7 +41,7 @@ random.setElement(8, 11, 1)
 rescale = CsoundAC.Rescale()
 print('rescale:', rescale)
 rescale.setRescale( 0, True, True,  0,     300)
-rescale.setRescale( 1, True, False,  2,       4)
+rescale.setRescale( 1, True, False, 2,       4)
 rescale.setRescale( 3, True, True, 10,       4)
 rescale.setRescale( 4, True, True, 36,      60)
 rescale.setRescale( 5, True, True, 75,      12)
@@ -56,7 +58,7 @@ model.generate()
 print('finished.')
 
 model.cppsoundLoad('../csound-vst/CsoundAC.csd')
-model.setCsoundCommand("--0dbfs=1 -m195 -RWdfo StrangeAttractor.py.wav")
+model.setCsoundCommand("--0dbfs=1 -m195 -RWdfo strange-attractor.py.wav")
 score = model.getScore()
 print('Events in generated score:', len(score))
 duration = score.getDuration()
