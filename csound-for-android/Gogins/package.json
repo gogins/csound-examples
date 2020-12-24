@@ -1,13 +1,13 @@
 {
-  "main": "message.html",
-  "name": "message",
+  "main": "parachronic.html",
+  "name": "parachronic",
   "description": "HTML5 with Csound",
   "version": "0.1.0",
   "keywords": [ "Csound", "node-webkit" ],
   "nodejs": true,
   "node-remote": "http://<all-urls>/*",
   "window": {
-    "title": "message",
+    "title": "parachronic",
     "icon": "link.png",
     "toolbar": false,
     "frame": false,

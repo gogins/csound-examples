@@ -4,23 +4,16 @@
 <title>Parachronic</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<script type="text/javascript" src="csound_loader.js"></script>
-<!--
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.1/dat.gui.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.1/sprintf.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.js"></script>
-<script type="text/javascript" src="https://rawgit.com/mrdoob/three.js/master/examples/js/controls/TrackballControls.js"></script>
-<script type="text/javascript" src="piano-roll.js"></script>
--->
-
-<script src="js/TrackballControls.js"></script>
+<script src="CsoundAudioNode.js"></script>
+<script src="csound_loader.js"></script>
+<script src='CsoundAC.js'></script>
 <script src="js/sprintf.js"></script>
 <script src="js/numeric.js"></script>
 <script src="js/three.js"></script>
+<script src="js/TrackballControls.js"></script>
 <script src="js/tinycolor.js"></script>
 <script src="js/dat.gui.js"></script>
+<script src="piano-roll.js"></script>
 </head>
 <body class="w3-container w3-black">
 <div class="w3-row-padding">
@@ -65,7 +58,6 @@ connect "ZakianFlute", "outright", "ReverbSC", "inright"
 connect "ReverbSC", "outleft", "MasterOutput", "inleft"
 connect "ReverbSC", "outright", "MasterOutput", "inright"
 
-alwayson "Controls"
 alwayson "ReverbSC"
 alwayson "MasterOutput"
 
@@ -85,7 +77,7 @@ prealloc 9, 20
 // Original by Steven Yi.
 // Adapted by Michael Gogins.
 //////////////////////////////////////////////
-gk_FMWaterBell_level init 0
+gk_FMWaterBell_level init 4
 gi_FMWaterBell_attack init 0.002
 gi_FMWaterBell_release init 0.01
 gi_FMWaterBell_sustain init 20
@@ -173,10 +165,10 @@ endin
 
 gk_Droner_partial1 init .1
 gk_Droner_partial2 init .1
-gk_Droner_partial3 init .1
-gk_Droner_partial4 init .1
+gk_Droner_partial3 init .3
+gk_Droner_partial4 init .2
 gk_Droner_partial5 init .1
-gk_Droner_level init 0.5
+gk_Droner_level init 20
 gi_Droner_sine ftgen 0, 0, 65537, 10, 1, 0, .02
 instr Droner
 insno = p1
@@ -202,7 +194,7 @@ k5 = gk_Droner_partial3
 k6 = gk_Droner_partial4
 k7 = gk_Droner_partial5
 kwaveform init 0
-iamp = ampdb(ivelocity)
+iamp = ampdb(ivelocity) 
 iattack = i(gk_overlap)
 idecay = i(gk_overlap)
 isustain = p3 - i(gk_overlap)
@@ -682,68 +674,6 @@ outs aleft * kgain, aright * kgain
 prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
-instr Controls
-k_active chnget "gk_Bower_pressure"
-if k_active == 0 goto off_label
-prints "Controls on i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
- gk_FMWaterBell_level chnget "gk_FMWaterBell_level"
- gi_FMWaterBell_attack chnget "gi_FMWaterBell_attack"
- gi_FMWaterBell_exponent chnget "gi_FMWaterBell_exponent"
- gi_FMWaterBell_release chnget "gi_FMWaterBell_release"
- gi_FMWaterBell_sustain chnget "gi_FMWaterBell_sustain"
- gi_FMWaterBell_sustain_level chnget "gi_FMWaterBell_sustain_level"
- gk_FMWaterBell_index chnget "gk_FMWaterBell_index"
- gk_FMWaterBell_crossfade chnget "gk_FMWaterBell_crossfade"
- gk_FMWaterBell_vibrato_depth chnget "gk_FMWaterBell_vibrato_depth"
- gk_FMWaterBell_vibrato_rate chnget "gk_FMWaterBell_vibrato_rate"
-
- gk_Bower_level chnget "gk_Bower_level"
- gk_Bower_pressure chnget "gk_Bower_pressure"
- 
- gk_Blower_grainDensity chnget "gk_Blower_grainDensity" 
- gk_Blower_grainDuration chnget "gk_Blower_grainDuration" 
- gk_Blower_grainAmplitudeRange chnget "gk_Blower_grainAmplitudeRange"
- gk_Blower_grainFrequencyRange chnget "gk_Blower_grainFrequencyRange"
- gk_Blower_level chnget "gk_Blower_level" 
- 
- gk_Buzzer_harmonics chnget "gk_Buzzer_harmonics" 
- gk_Buzzer_level chnget "gk_Buzzer_level" 
- 
- gk_Droner_partial1 chnget "gk_Droner_partial1" 
- gk_Droner_partial2 chnget "gk_Droner_partial2" 
- gk_Droner_partial3 chnget "gk_Droner_partial3" 
- gk_Droner_partial4 chnget "gk_Droner_partial4" 
- gk_Droner_partial5 chnget "gk_Droner_partial5" 
- gk_Droner_level chnget "gk_Droner_level" 
- 
- gk_Phaser_ratio1 chnget "gk_Phaser_ratio1" 
- gk_Phaser_ratio2 chnget "gk_Phaser_ratio2" 
- gk_Phaser_index1 chnget "gk_Phaser_index1" 
- gk_Phaser_index2 chnget "gk_Phaser_index2" 
- gk_Phaser_level chnget "gk_Phaser_level" 
- 
- gk_PianoteqOut_level chnget "gk_PianoteqOut_level" 
- 
- gk_Shiner_level chnget "gk_Shiner_level" 
- 
- gk_Sweeper_britel chnget "gk_Sweeper_britel"
- gk_Sweeper_briteh chnget "gk_Sweeper_briteh" 
- gk_Sweeper_britels chnget "gk_Sweeper_britels" 
- gk_Sweeper_britehs chnget "gk_Sweeper_britehs" 
- gk_Sweeper_level chnget "gk_Sweeper_level" 
- 
- gk_ZakianFlute_level chnget "gk_ZakianFlute_level"
-
- gk_Reverb_feedback chnget "gk_MVerb_feedback" 
- gk_Reverb2_feedback chnget "gk_ReverbSC_feedback" 
- gk_MasterOutput_level chnget "gk_MasterOutput_level" 
- gk_overlap chnget "gk_overlap" 
- goto return_label
-off_label:
-prints "Controls off i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-return_label:
-endin
-
 instr exitnow
 prints "exitnow i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
  exitnow
@@ -771,10 +701,6 @@ try {
 } catch(e) {
     console.log(e);
 }
-</script>
-<script src='CsoundAC.js'></script>
-<script src='CsoundAudioNode.js'></script>
-<script>
 
 var csound_message = function(text) {
     var messages_textarea = document.getElementById("console");
@@ -799,21 +725,18 @@ var CsoundAC;
     csound_message(txt);
 }());
 
-var csound;
-(async function() {
-    csound = await get_csound(csound_message);
-    csound.Message("Hello, World, this is Csound!\n");
-    }());
-
 var title = document.title;
+var score;
 var csound_score;
 var score_model;
 var lindenmayer;
 var piano_roll = new PianoRoll();
 
-var generate = function() {
+var generate = async function() {
   csound.Message("generate()...\n");
   try {
+    csound = await get_csound(csound_message);
+    csound.Message("Hello, World, this is Csound!\n");
     score_model = new CsoundAC.ScoreModel();
     score_model.setAuthor("Michael Gogins");
     score_model.setYear("2020");
@@ -943,24 +866,24 @@ var generate = function() {
      */
     lindenmayer = new CsoundAC.ChordLindenmayer();
     lindenmayer.setAxiom("(seed P 3928394)(R P 60)(= N[d] 3)(Sc P)(A)");
-    lindenmayer.addRule("(A)", "(A)(W N)(+ N[k] 20 R)(C Sd 5 R)(W C R)(- Sd 2)([)(+ N[k] 7)(/ S[t] 1.025)(/ S[d] 1.025)(F N 1)(A)(])(uni V 1 24)(uni N[x] 0 1)(+ N[t] 1)(W C R)(C Sd 3)(uni N[i] 1 5)(M Sc 3 0)(Sc P)(W N)(A)(- N[k] 2)(+ N[t] 1)(W N)(A)");
+    lindenmayer.addRule("(A)", "(A)(W N)(+ N[t] .5 0)(+ N[k] .5 R)(C Sd 5 R)(W C R)(- Sd 2)([)(+ N[k] .7 R)(/ S[t] 1.025)(/ S[d] 1.025)(F N 1)(A)(])(uni V 1 24)(uni N[x] 0 1)(+ N[t] 1)(W C R)(C Sd 3)(uni N[i] 1 5)(M Sc 3 0)(Sc P)(W N)(A)(- N[k] .32)(+ N[t] 1)(W N)(A)");
     lindenmayer.setIterationCount(3);
     csound.Message("lindenmayer: " + lindenmayer);
     var rescale = new CsoundAC.Rescale();
     rescale.setRescale(0, true, false, 1., 0.);
-    rescale.setRescale(3, true, true, 1., 8.);
-    rescale.setRescale(4, true, false, 30., 72.);
+    rescale.setRescale(3, true, true, 1., 7.);
+    rescale.setRescale(4, true, true, 30., 72.);
     rescale.setRescale(5, true, true, 60., 12.);
-    //CsoundAC.System.setMessageLevel(15);
+    CsoundAC.System.setMessageLevel(15);
     rescale.addChild(lindenmayer);
     score_model.addChild(rescale);
     score_model.generate();
     score = score_model.getScore();
     score.setDuration(5 * 60);
-    csound_score = score.getCsoundScore(12., true);
+    csound_score = score.getCsoundScore(12., false);
     piano_roll.draw3D(score, canvas);
   } catch(err) {
-    csound.Message(err.name + ': ' + err.message + ' ' + err.line + '\n');
+    csound_message(err.name + ': ' + err.message + ' ' + err.line + '\n');
   }
 };
 
@@ -976,10 +899,9 @@ var generate = function() {
 // 96 = dB, all colors
 // 256 = raw, out of range highlighted with red
 // 512 = raw, all colours    
-var render = function(output_name, post_process) {
+var render = async function(output_name, post_process) {
+    csound = await get_csound(csound_message);
     var csd = document.getElementById('csd').value;
-    csound_score = score.getCsoundScore(12., true);
-    csound_score = csound_score.concat("\n</CsScore>");
     csd = csd.replace("</CsScore>", csound_score);
     csound.Message("Playing...");
     csound.setOption(sprintf('-m%d', 2 + 128 + 32));
@@ -997,7 +919,7 @@ var render = function(output_name, post_process) {
 }
 
 var render_audio = function() {
-    render("dac:plughw:1", false);
+    render("dac:plughw:1,0", false);
 }
 
 var render_soundfile = function() {
@@ -1035,45 +957,7 @@ nw_window.close();
 });
 
 var parameters = {
-     gk_FMWaterBell_level: 15,
-     gi_FMWaterBell_attack: 0.002,
-     gi_FMWaterBell_release: 0.01,
-     gi_FMWaterBell_exponent: 15,
-     gi_FMWaterBell_sustain: 20,
-     gi_FMWaterBell_sustain_level: .1,
-     gk_FMWaterBell_index: .5,
-     gk_FMWaterBell_crossfade: .5,
-     gk_FMWaterBell_vibrato_depth: 0.05,
-     gk_FMWaterBell_vibrato_rate: 6,
-     gk_Bower_level: 0.5,
-     gk_Bower_pressure: 0.25,
-     gk_Blower_grainDensity: .150,
-     gk_Blower_grainDuration: .2,
-     gk_Blower_grainAmplitudeRange: .1,
-     gk_Blower_grainFrequencyRange: .033,
-     gk_Blower_level: 0.5,
-     gk_Buzzer_harmonics: 15,
-     gk_Buzzer_level: 0.5,
-     gk_Droner_partial1: 0.1,
-     gk_Droner_partial2: 0.1,
-     gk_Droner_partial3: 0.1,
-     gk_Droner_partial4: 0.1,
-     gk_Droner_partial5: 0.1,
-     gk_Droner_level: 30,
-     gk_Phaser_ratio1: 1,
-     gk_Phaser_ratio2: .3333334,
-     gk_Phaser_index1: 1,
-     gk_Phaser_index2: .0125,
-     gk_Phaser_level: 0.5,
-     gk_Shiner_level: 0.5,
-     gk_Sweeper_britel: 0,
-     gk_Sweeper_briteh: 2.9,
-     gk_Sweeper_britels: .2 / 3,
-     gk_Sweeper_britehs: 2.5 / 2,
-     gk_Sweeper_level: 0.5,
-     gk_ZakianFlute_level: 0,
-     gk_ReverbSC_feedback: .8,
-     gk_MasterOutput_level: .4,
+
      generate: window.generate,
      render_audio: window.render_audio,
      render_soundfile: window.render_soundfile,
@@ -1084,61 +968,11 @@ var parameters = {
 window.addEventListener("load", function() {
     try {
         gui = new dat.GUI({width: 400});
-        gui.remember(parameters);
         gui.add(parameters, 'generate').name('Generate [Ctrl-G]');
         gui.add(parameters, 'render_audio').name('Render audio [Ctrl-A]');
         gui.add(parameters, 'render_soundfile').name('Render soundfile');
         gui.add(parameters, 'render_soundfile_and_postprocess').name('Render/post [Ctrl-P]');
         gui.add(parameters, 'stop').name('Stop [Ctrl-S]');
-        var Master = gui.addFolder('Master');
-        add_slider(Master, 'gk_ReverbSC_feedback', 0, 1);
-        add_slider(Master, 'gk_MasterOutput_level', -40, 40);
-        var FMWaterBell = gui.addFolder('FMWaterBell');
-        add_slider(FMWaterBell, 'gi_FMWaterBell_attack', 0, .1);
-        add_slider(FMWaterBell, 'gi_FMWaterBell_release', 0, .1);
-        add_slider(FMWaterBell, 'gi_FMWaterBell_exponent', -30, 30);
-        add_slider(FMWaterBell, 'gi_FMWaterBell_sustain', 0, 20);
-        add_slider(FMWaterBell, 'gi_FMWaterBell_sustain_level', 0, 1);
-        add_slider(FMWaterBell, 'gk_FMWaterBell_crossfade', 0, 1);
-        add_slider(FMWaterBell, 'gk_FMWaterBell_index', 0, 15);
-        add_slider(FMWaterBell, 'gk_FMWaterBell_vibrato_depth', 0, 10);
-        add_slider(FMWaterBell, 'gk_FMWaterBell_vibrato_rate', 0, 10);
-        add_slider(FMWaterBell, 'gk_FMWaterBell_level',-40, 40);
-        var Phaser = gui.addFolder('Phaser');
-        add_slider(Phaser, 'gk_Phaser_ratio1', 0, 5);
-        add_slider(Phaser, 'gk_Phaser_ratio2', 0, 5);
-        add_slider(Phaser, 'gk_Phaser_index1', 0, 15);
-        add_slider(Phaser, 'gk_Phaser_index2', 0, 15);
-        add_slider(Phaser, 'gk_Phaser_level', -40, 40);
-        var Bower = gui.addFolder('Bower');
-        add_slider(Bower, 'gk_Bower_pressure', 0, 5);
-        add_slider(Bower, 'gk_Bower_level', -40, 40);
-        var Droner = gui.addFolder('Droner');
-        add_slider(Droner, 'gk_Droner_partial1', 0, 1);
-        add_slider(Droner, 'gk_Droner_partial2', 0, 1);
-        add_slider(Droner, 'gk_Droner_partial3', 0, 1);
-        add_slider(Droner, 'gk_Droner_partial4', 0, 1);
-        add_slider(Droner, 'gk_Droner_partial5', 0, 1);
-        add_slider(Droner, 'gk_Droner_level', -40, 40);
-        var Sweeper = gui.addFolder('Sweeper');
-        add_slider(Sweeper, 'gk_Sweeper_britel', 0, 4);
-        add_slider(Sweeper, 'gk_Sweeper_briteh', 0, 4);
-        add_slider(Sweeper, 'gk_Sweeper_britels', 0, 4);
-        add_slider(Sweeper, 'gk_Sweeper_britehs', 0, 4);
-        add_slider(Sweeper, 'gk_Sweeper_level', -40, 40);
-        var Buzzer = gui.addFolder('Buzzer');
-        add_slider(Buzzer, 'gk_Buzzer_harmonics', 0, 20);
-        add_slider(Buzzer, 'gk_Buzzer_level', -40, 40);
-        var Shiner = gui.addFolder('Shiner');
-        add_slider(Shiner, 'gk_Shiner_level', -40, 40);
-        var Blower = gui.addFolder('Blower');
-        add_slider(Blower, 'gk_Blower_grainDensity', 0, 400);
-        add_slider(Blower, 'gk_Blower_grainDuration', 0, .5);
-        add_slider(Blower, 'gk_Blower_grainAmplitudeRange', 0, 400);
-        add_slider(Blower, 'gk_Blower_grainFrequencyRange', 0, 100);
-        add_slider(Blower, 'gk_Blower_level', -40, 40);
-        var Flute = gui.addFolder('Zakian Flute');
-        add_slider(Flute, 'gk_ZakianFlute_level', -40, 40);
         gui.revert(); 
         document.addEventListener("keydown", function (e) {
             var e_char = String.fromCharCode(e.keyCode || e.charCode);

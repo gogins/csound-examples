@@ -16,6 +16,9 @@ wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/cm
 wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/csound_loader.js -O csound-for-android/Gogins/csound_loader.js
 wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/csound_samples.js -O csound-for-android/Gogins/csound_samples.js
 wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/CsoundAC.js -O csound-for-android/Gogins/CsoundAC.js
+wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/CsoundAudioNode.js -O csound-for-android/Gogins/CsoundAudioNode.js
+wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/CsoundAudioProcessor.js -O csound-for-android/Gogins/CsoundAudioProcessor.js
+wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/CsoundAudioProcessor.wasm -O csound-for-android/Gogins/CsoundAudioProcessor.wasm
 wget -L https://raw.githubusercontent.com/gogins/csound-extended/develop/docs/piano-roll.js -O csound-for-android/Gogins/piano-roll.js
 
 find . -name "*.js" -ls
