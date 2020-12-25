@@ -21,7 +21,7 @@
 <textarea id="csd" class="w3-code" style="width:100%;height:50vh;box-sizing:border-box;background-color:MidnightBlue;color:NavajoWhite;">
 <CsoundSynthesizer>
 <CsOptions>
--dm195
+-d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
 </CsOptions>
 <CsInstruments>
 sr = 48000
@@ -702,7 +702,7 @@ try {
     console.log(e);
 }
 
-var csound_message = function(text) {
+var csound_message_callback = function(text) {
     var messages_textarea = document.getElementById("console");
     var existing = messages_textarea.value;
     messages_textarea.value = existing + text;
@@ -710,9 +710,10 @@ var csound_message = function(text) {
 };
 
 var CsoundAC;
+var csound_ = null;
 (async function() { 
     CsoundAC = await createCsoundAC(); 
-    csound_message(CsoundAC.hello()); 
+    csound_message_callback(CsoundAC.hello()); 
     var txt = "";
     txt += "Browser CodeName: " + navigator.appCodeName + "\n";
     txt += "Browser Name: " + navigator.appName + "\n";
@@ -722,7 +723,7 @@ var CsoundAC;
     txt += "Browser Online: " + navigator.onLine + "\n";
     txt += "Platform: " + navigator.platform + "\n";
     txt += "User-agent header: " + navigator.userAgent + "\n";
-    csound_message(txt);
+    csound_message_callback(txt);
 }());
 
 var title = document.title;
@@ -733,17 +734,17 @@ var lindenmayer;
 var piano_roll = new PianoRoll();
 
 var generate = async function() {
-  csound.Message("generate()...\n");
+  csound_message_callback("generate()...\n");
   try {
-    csound = await get_csound(csound_message);
-    csound.Message("Hello, World, this is Csound!\n");
+    csound_ = await get_csound(csound_message_callback);
+    csound_.Message("Hello, World, this is Csound!\n");
     score_model = new CsoundAC.ScoreModel();
     score_model.setAuthor("Michael Gogins");
     score_model.setYear("2020");
     let scale = new CsoundAC.Scale("C major");
-    csound.Message(scale.information());
+    csound_.Message(scale.information());
     let chord = scale.chord(1, 5, 3);
-    csound.Message(chord.eOP().information());
+    csound_.Message(chord.eOP().information());
     /*
      * A Lindenmayer system consists of a turtle representing a position in 
      * musical space, commands for moving the turtle or writing its state into 
@@ -868,7 +869,7 @@ var generate = async function() {
     lindenmayer.setAxiom("(seed P 3928394)(R P 60)(= N[d] 3)(Sc P)(A)");
     lindenmayer.addRule("(A)", "(A)(W N)(+ N[t] .5 0)(+ N[k] .5 R)(C Sd 5 R)(W C R)(- Sd 2)([)(+ N[k] .7 R)(/ S[t] 1.025)(/ S[d] 1.025)(F N 1)(A)(])(uni V 1 24)(uni N[x] 0 1)(+ N[t] 1)(W C R)(C Sd 3)(uni N[i] 1 5)(M Sc 3 0)(Sc P)(W N)(A)(- N[k] .32)(+ N[t] 1)(W N)(A)");
     lindenmayer.setIterationCount(3);
-    csound.Message("lindenmayer: " + lindenmayer);
+    csound_.Message("lindenmayer: " + lindenmayer);
     var rescale = new CsoundAC.Rescale();
     rescale.setRescale(0, true, false, 1., 0.);
     rescale.setRescale(3, true, true, 1., 7.);
@@ -882,56 +883,35 @@ var generate = async function() {
     score.setDuration(5 * 60);
     csound_score = score.getCsoundScore(12., false);
     piano_roll.draw3D(score, canvas);
+    csound_.Message("generate completed.\n");
   } catch(err) {
-    csound_message(err.name + ': ' + err.message + ' ' + err.line + '\n');
+    csound_message_callback(err.name + ': ' + err.message + ' ' + err.line + '\n');
   }
 };
 
-// Message level for standard (terminal) output. Takes the sum of any of the following values:
-// 1 = note amplitude messages
-// 2 = samples out of range message
-// 4 = warning messages
-// 128 = print benchmark information
-// And exactly one of these to select note amplitude format:
-// 0 = raw amplitudes, no colours
-// 32 = dB, no colors
-// 64 = dB, out of range highlighted with red
-// 96 = dB, all colors
-// 256 = raw, out of range highlighted with red
-// 512 = raw, all colours    
-var render = async function(output_name, post_process) {
-    csound = await get_csound(csound_message);
-    var csd = document.getElementById('csd').value;
-    csd = csd.replace("</CsScore>", csound_score);
-    csound.Message("Playing...");
-    csound.setOption(sprintf('-m%d', 2 + 128 + 32));
-    csound.setOption('--nodisplays');
-    csound.setOption('--keep-sorted-score');
-    csound.setOption('-R');
-    csound.setOption('-W');
-    csound.setOption('-f');
-    csound.setOption('-o' + output_name);
-    csound.compileCsdText(csd);
-    csound.Message("Rendering...");
-    csound.start();
-    csound.perform();
+var render_audio_ = async function() {
+    let csd = document.getElementById('csd').value;
+    csd = csd.replace("</CsScore>", csound_score + "\n</CsScore>");
+    let csound_ = await get_csound(csound_message_callback);
+    await csound_.CompileCsdText(csd);
+    await csound_.Start();
+    await csound_.Perform();
     updateScoreTime();
 }
 
-var render_audio = function() {
-    render("dac:plughw:1,0", false);
+var render_soundfile_ = async function() {
+    let csd = document.getElementById('csd').value;
+    csd.replace("-+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0", "-o" + output_name);
+    csd = csd.replace("</CsScore>", csound_score + "\n</CsScore>");
+    let csound_ = await get_csound(csound_message_callback);
+    await csound_.CompileCsdText(csd);
+    await csound_.Start();
+    await csound_.Perform();
+    updateScoreTime();
 }
 
-var render_soundfile = function() {
-    render(title + ".wav", false);
-}
-
-var render_soundfile_and_postprocess = function() {
-    render(title + ".wav", true);
-}
-
-var stop = function() {
-    csound.stop();
+var stop_ = async function() {
+    await csound.stop();
 }
 
 var updateScoreTime = function() {
@@ -941,7 +921,7 @@ var updateScoreTime = function() {
 };
 var gk_update = function(name, value) {
     var numberValue = parseFloat(value);
-    csound.setControlChannel(name, numberValue);
+    csound_.setControlChannel(name, numberValue);
 };
 
 var add_slider = function(gui_folder, token, minimum, maximum, name) {
@@ -957,12 +937,11 @@ nw_window.close();
 });
 
 var parameters = {
-
-     generate: window.generate,
-     render_audio: window.render_audio,
-     render_soundfile: window.render_soundfile,
-     render_soundfile_and_postprocess: window.render_soundfile_and_postprocess,
-     stop: window.stop,
+     generate: function() {generate();},
+     render_audio: function() {render_audio_();},
+     render_soundfile: function() {render_soundfile_();},
+     render_soundfile_and_postprocess: function() {render_soundfile_and_postprocess_();},
+     stop: function() {stop_();},
 };
 
 window.addEventListener("load", function() {
@@ -971,7 +950,6 @@ window.addEventListener("load", function() {
         gui.add(parameters, 'generate').name('Generate [Ctrl-G]');
         gui.add(parameters, 'render_audio').name('Render audio [Ctrl-A]');
         gui.add(parameters, 'render_soundfile').name('Render soundfile');
-        gui.add(parameters, 'render_soundfile_and_postprocess').name('Render/post [Ctrl-P]');
         gui.add(parameters, 'stop').name('Stop [Ctrl-S]');
         gui.revert(); 
         document.addEventListener("keydown", function (e) {

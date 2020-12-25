@@ -11,7 +11,24 @@ try {
 } catch(e) {
     console.log(e);
 }
-</script><!-- This script loads the entire Csound library compiled for WebAssembly 
+</script>
+<script>
+    cmask_module(module).then(function(module) {
+        cmask = module;
+        console.log("Module: cmask.js has been loaded.\n");
+    });
+    try {
+        var nwgui = require('nw.gui');
+        var nw_window = nwgui.Window.get();
+        nw_window.on('close', function() {
+            console.log('Closing down...');
+            this.close(true);
+        });
+    } catch (e) {
+        console.warn(e);
+    }
+</script>
+<!-- This script loads the entire Csound library compiled for WebAssembly 
      and based on AudioWorklet. -->
 <script src="CsoundAudioNode.js"></script>
 <!-- This script tests the environment and attempts to load Csound, if available, 
@@ -21,11 +38,7 @@ try {
 <script src="cmask.js"></script>
 <script>
 var csd = null;
-try {
-    var cmask = cmask_module();
-} catch(e) {
-    console.log(e);
- }
+var cmask;
 var csound_message_callback = function(message) {
     let messages_textarea = document.getElementById("console");
     let existing = messages_textarea.value;
@@ -38,7 +51,8 @@ var csound_message_callback = function(message) {
 var onPlayClick = async function() {
     let messages_textarea = document.getElementById("console");
     messages_textarea.value = "";
-    let csound = get_csound(csound_message_callback);
+    cmask = await cmask_module();
+    let csound = await get_csound(csound_message_callback);
     if (csound == null) {
         return;
     }
