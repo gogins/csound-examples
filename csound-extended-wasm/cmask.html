@@ -5,18 +5,12 @@
 </head>
 <body style="background-color:LightGrey;">
 <script>
-try {
-    var fs = require("fs");
-    var __dirname = fs.realpathSync.native(".");
-} catch(e) {
-    console.log(e);
-}
-</script>
-<script>
-    cmask_module(module).then(function(module) {
-        cmask = module;
-        console.log("Module: cmask.js has been loaded.\n");
-    });
+    try {
+        var fs = require("fs");
+        var __dirname = fs.realpathSync.native(".");
+    } catch(e) {
+        console.log(e);
+    }
     try {
         var nwgui = require('nw.gui');
         var nw_window = nwgui.Window.get();
