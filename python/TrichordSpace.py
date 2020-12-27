@@ -1,5 +1,5 @@
 '''
-Copyright 2005, 22013, 2014 by Michael Gogins.
+Copyright 2005, 22013, 2014, 2020 by Michael Gogins.
 
 A concise geometric approach to common operations
 in pragmatic music theory,
@@ -44,24 +44,23 @@ right arrow to move voice 2 in the same way,
 down arrow to move voice 3.
 
 '''
-print __doc__
+print(__doc__)
 import gc
 import operator
 import sys
 import traceback
 import time
 import random
-import sets
 import threading
 import copy
 import collections
-from visual import *
-#from numpy import *
+from vpython import *
+from numpy import *
 #import Image
 #import ImageGrab
 #import ImageOps
 
-import csnd6
+import ctcsound
 import CsoundAC
 '''
 Represents operations on chords in a voice-leading orbifold.
@@ -94,7 +93,7 @@ class ChordSpace3(object):
         else:
             return self.R
     def sort(self, chord):
-        c = array(chord, 'd').copy()
+        c = vector(chord)
         d = c[0:self.N]
         d.sort()
         c[0:self.N] = d
@@ -104,7 +103,7 @@ class ChordSpace3(object):
     '''
     def move(self, chord_, voice, interval):
         chord = list(chord_)
-        print 'Move %d by %f.' % (voice, interval)
+        print('Move %d by %f.' % (voice, interval))
         chord[voice] = chord[voice] + interval
         chord = tuple(self.bounceInside(chord))
         return chord
@@ -113,8 +112,8 @@ class ChordSpace3(object):
     '''
     def pT(self, chord, interval):
         chord = self.firstInversion(chord)
-        print 'Transpose by %f.' % interval
-        for i in xrange(3):
+        print('Transpose by %f.' % interval)
+        for i in range(3):
             chord[i] = chord[i] + interval
         chord = tuple(self.bounceInside(chord))
         return chord
@@ -122,7 +121,7 @@ class ChordSpace3(object):
     Perform the leading tone exchange neo-Riemannian transformation.
     '''
     def nrL(self, chord):
-        print 'Leading-tone exchange transformation.'
+        print('Leading-tone exchange transformation.')
         chord = self.firstInversion(chord)
         z1 = self.zeroFormFirstInversion(chord)
         if   z1[1] == 4.0:
@@ -135,7 +134,7 @@ class ChordSpace3(object):
     Perform the parallel neo-Riemannian transformation.
     '''
     def nrP(self, chord):
-        print 'Parallel transformation.'
+        print('Parallel transformation.')
         chord = self.firstInversion(chord)
         z1 = self.zeroFormFirstInversion(chord)
         if   z1[1] == 4.0:
@@ -148,7 +147,7 @@ class ChordSpace3(object):
     Perform the relative neo-Riemannian transformation.
     '''
     def nrR(self, chord):
-        print 'Relative transformation.'
+        print('Relative transformation.')
         chord = self.firstInversion(chord)
         z1 = self.zeroFormFirstInversion(chord)
         if   z1[1] == 4.0:
@@ -161,7 +160,7 @@ class ChordSpace3(object):
     Perform the dominant neo-Riemannian transformation.
     '''
     def nrD(self, chord):
-        print 'Dominant transformation.'
+        print('Dominant transformation.')
         chord = self.firstInversion(chord)
         chord[0] = chord[0] - 7
         chord[1] = chord[1] - 7
@@ -170,21 +169,21 @@ class ChordSpace3(object):
         return chord
     def tones(self, chord):
         c = array(chord, 'd').copy()
-        for i in xrange(self.N):
+        for i in range(self.N):
            c[i] = c[i] % self.tonesPerOctave
         return self.sort(c)
     def zeroFormModulus(self, chord):
         c = array(chord, 'd').copy()
-        for i in xrange(self.N):
+        for i in range(self.N):
            c[i] = c[i] % self.tonesPerOctave
         m = min(c)
-        for i in xrange(self.N):
+        for i in range(self.N):
             c[i] = c[i] - m
         return c
     def zeroForm(self, chord):
         c = array(chord).copy()
         m = min(c[:self.N])
-        for i in xrange(self.N):
+        for i in range(self.N):
             c[i] = c[i] - m
         return c
     def range(self, chord):
@@ -196,14 +195,14 @@ class ChordSpace3(object):
         inversions = self.rotations(chord)
         inversionDistances = {}
         origin = []
-        for i in xrange(self.N):
+        for i in range(self.N):
             origin.append(0.)
         for inversion in inversions:
             zi = self.zeroForm(inversion)
             #z = float(sum(zi)) / float(self.N)
             d = self.euclidean(zi, origin)
             if self.debug:
-                print 'distance %f zeroform %s inversion %s' % (d, zi, inversion)
+                print('distance %f zeroform %s inversion %s' % (d, zi, inversion))
             inversionDistances[d] = inversion
         return inversionDistances[min(inversionDistances.keys())]
     def zeroFormFirstInversion(self, chord):
@@ -237,33 +236,33 @@ class ChordSpace3(object):
                 self.inversions_(tones, iterating_chord, voice + 1, inversions)
             p = p + increment
     def inversions(self, chord):
-        inversions = sets.Set()
+        inversions = set()
         tones = self.tones(chord)
         iterating_chords = self.rotations(tones)
         for iterating_chord in iterating_chords:
             voice = 0
             self.inversions_(tones, iterating_chord, voice, inversions)
         l = list(inversions)
-        for i in xrange(len(l)):
+        for i in range(len(l)):
             l[i] = array(l[i])
         return l
     def euclidean(self, a, b):
         ss = 0.0
-        for i in xrange(self.N):
+        for i in range(self.N):
             ss += ((a[i] - b[i]) ** 2.0)
         return math.sqrt(ss)
     def voiceleading(self, a, b):
         v = []
-        for i in xrange(self.N):
+        for i in range(self.N):
             v.append(b[i] - a[i])
         return v
     def areParallel(self, a, b):
         return CsoundAC.areParallel(a,b)
 ##        if self.debug:
 ##            v = self.voiceleading(a, b)
-##        for i in xrange(self.N):
+##        for i in range(self.N):
 ##            if v.count(v[i]) > 1:
-##                for j in xrange(self.N):
+##                for j in range(self.N):
 ##                    if i != j:
 ##                        if (math.fabs(a[i] - a[j]) == 7) and (math.fabs(b[i] - b[j]) == 7):
 ##                            if self.debug:
@@ -272,7 +271,7 @@ class ChordSpace3(object):
 ##        return false
     def smoothness(self, a, b):
         L1 = 0.0
-        for i in xrange(self.N):
+        for i in range(self.N):
             L1 += math.fabs(b[i] - a[i])
         return L1
     def smoother(self, source, destination1, destination2, avoidParallels=False):
@@ -292,7 +291,7 @@ class ChordSpace3(object):
         v1 = sort(v1)
         v2 = self.voiceleading(source, destination2)
         v2 = sort(v2)
-        for i in xrange(self.N - 1, -1, -1):
+        for i in range(self.N - 1, -1, -1):
             if v1[i] < v2[i]:
                 return destination1
             if v2[i] < v1[i]:
@@ -313,14 +312,14 @@ class ChordSpace3(object):
         return self.simpler(source, destination1, destination2, avoidParallels)
     def closest(self, source, destinations, avoidParallels=False):
         d = destinations[0]
-        for i in xrange(1, len(destinations)):
+        for i in range(1, len(destinations)):
             d = self.closer(source, d, destinations[i], avoidParallels)
         return d
     def isFirstInversion(self, chord):
         return tuple(self.zeroForm(chord)) == tuple(self.zeroFormFirstInversion(chord))
     def rotate(self, a, n=1):
         l = a.tolist()
-        for i in xrange(n):
+        for i in range(n):
             tail = l.pop(self.N - 1)
             l.insert(0, tail)
         return array(l, 'd')
@@ -334,7 +333,7 @@ class ChordSpace3(object):
     def rotations(self, chord):
         chord = self.tones(chord)
         rotations = [chord]
-        for i in xrange(1, self.N):
+        for i in range(1, self.N):
             #chord = self.rotate(chord, i)
             chord = self.invert(chord)
             rotations.append(chord)
@@ -346,7 +345,7 @@ class ChordSpace3(object):
         else:
             return self.isInsideCube(chord, range)
     def isInsideCube(self, chord, range):
-        for i in xrange(self.N):
+        for i in range(self.N):
             if chord[i] < -range/2.0:
                 return False
             if chord[i] >  range/2.0:
@@ -360,29 +359,29 @@ class ChordSpace3(object):
         return False
     def layer(self, chord):
         return sum(chord[0:self.N])
-    def isInsidePrism(self, chord, range):
-        if chord[0] < -range:
+    def isInsidePrism(self, chord, range_):
+        if chord[0] < -range_:
             return False
-        elif chord[0] > range:
+        elif chord[0] > range_:
             return False
-        for i in xrange(1, self.N):
-            if chord[i] > chord[0] + range:
+        for i in range(1, self.N):
+            if chord[i] > chord[0] + range_:
                 return False
             elif chord[i] < chord[0]:
                 return False
         s = sum(chord[0:self.N])
-        if 0 <= s and s <= range:
+        if 0 <= s and s <= range_:
             return True
         else:
             return False
     def isInFundamentalDomain(self, chord):
         if self.isInLayer(chord) and self.isInOrder(chord):
             if self.debug:
-                print 'Chord',chord,'in F'
+                print('Chord',chord,'in F')
             return True
         else:
             if self.debug:
-                print 'Chord',chord,'not in F'
+                print('Chord',chord,'not in F')
             return False
     def isInLayer(self, chord):
         L = self.layer(chord)
@@ -390,7 +389,7 @@ class ChordSpace3(object):
             return False
         return True
     def isInOrder(self, chord):
-        for i in xrange(self.N - 1):
+        for i in range(self.N - 1):
             if not chord[i] <= chord[i + 1]:
                 return False
         if not chord[self.N - 1] <= (chord[0] + self.R):
@@ -398,19 +397,19 @@ class ChordSpace3(object):
         return True
     def O(self, c):
         if self.debug:
-            print "O: ",c,
+            print("O: ",c)###,
         r = []
-        for i in xrange(1, self.N):
+        for i in range(1, self.N):
             r.append(c[i] - (self.R / self.N))
         r.append(c[0] + (self.R - (self.R / self.N)))
         c[0:self.N] = r
         if self.debug:
-            print c
+            print(c)
         return c
     def bounceInside(self, chord):
         inversions = self.inversions(chord)
         if self.debug:
-            print inversions
+            print(inversions)
         for inversion in inversions:
             if tuple(inversion) in self.trichords:
                 return inversion
@@ -421,11 +420,11 @@ class ChordSpace3(object):
         else:
             inversions = self.inversions(chord)
             if self.debug:
-                print inversions
+                print(inversions)
             for inversion in inversions:
                 if self.isInOrder(inversion):
                     c = list(inversion)
-                    for i in xrange(self.N):
+                    for i in range(self.N):
                         if self.isInLayer(c):
                             return array(c)
                         c = self.O(c)
@@ -437,28 +436,28 @@ class ChordSpace3(object):
         if self.isPrism:
             inversions = self.inversions(chord)
             if self.debug:
-                print 'inversions',inversions
+                print('inversions',inversions)
             distances = {}
             for inversion in inversions:
                 distances[self.euclidean(chord, inversion)] = inversion
             c = distances[max(distances.keys())]
             if self.debug:
-                print 'keepInside:', 't =',self.getTessitura(), 'original =',chord, 'inside =',c
+                print('keepInside:', 't =',self.getTessitura(), 'original =',chord, 'inside =',c)
             return c
         else:
             c = array(chord)
-            for i in xrange(self.N):
+            for i in range(self.N):
                 while c[i] <  -self.getTessitura()/2:
                     c[i] += self.getTessitura()
                 while c[i] >= self.getTessitura()/2:
                     c[i] -= self.getTessitura()
             c = self.sort(c)
             if self.debug:
-                print chord,'keeps inside as',c
+                print(chord,'keeps inside as',c)
             return c
     def pitchclasses(self, chord):
         c = array(chord, 'd').copy()
-        for i in xrange(self.N):
+        for i in range(self.N):
             c[i] = self.pitchclass(chord[i])
         return c
     def pitchclass(self, pitch):
@@ -476,18 +475,18 @@ class ChordSpace3(object):
     '''
     def voicelead(self, a, b, avoidParallels):
         if self.debug:
-            print '   From:', a
-            print '     To:', b
-            print 'Through:'
+            print('   From:', a)
+            print('     To:', b)
+            print('Through:')
         invs = self.inversions(b)
         if self.debug:
             for inv in invs:
-                print '        ',inv
+                print('        ',inv)
             c = self.closest(a, invs, avoidParallels)
         if self.debug:
-            print '(%d inversions) is:' % len(invs)
-            print '        ', c
-            print 'Leading:', self.voiceleading(a,c)
+            print('(%d inversions) is:' % len(invs))
+            print('        ', c)
+            print('Leading:', self.voiceleading(a,c))
         return c
     def label(self, chord):
         c = array(chord[0:self.N])
@@ -506,12 +505,12 @@ class ChordSpace3Model(ChordSpace3):
         self.firstInversions = []
         self.enableCsound = enableCsound
         if self.enableCsound:
-            self.csound = csnd6.CppSound()
+            self.csound = ctcsound.Csound()
         if self.isCube:
-            for x in xrange(-self.cubeTessitura/2, self.cubeTessitura/2):
-                for y in xrange(-self.cubeTessitura/2, self.cubeTessitura/2):
-                    for z in xrange(-self.cubeTessitura/2, self.cubeTessitura/2):
-                        trichord = (x,y,z)
+            for x in range(-self.cubeTessitura/2, self.cubeTessitura/2):
+                for y in range(-self.cubeTessitura/2, self.cubeTessitura/2):
+                    for z in range(-self.cubeTessitura/2, self.cubeTessitura/2):
+                        trichord = vector(x,y,z)
                         radius = 0.125
                         if trichord not in self.trichords:
                             self.trichords[trichord] = trichord
@@ -522,10 +521,11 @@ class ChordSpace3Model(ChordSpace3):
                             ball.name = self.label(trichord)
                             ball.label = label(pos = trichord, text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.9,0.5,0.9), visible = 0, line = 2, xoffset = 20, yoffset = 20)
         if self.isPrism or self.isNormalPrism:
-            for x in xrange(-self.R, self.R+1):
-                for y in xrange(x, x + self.R+1):
-                    for z in xrange(x, x + self.R+1):
-                        trichord = array((x,y,z), 'd')
+            for x in range(-self.R, self.R+1):
+                for y in range(x, x + self.R+1):
+                    for z in range(x, x + self.R+1):
+                        ###trichord = vector((x,y,z), 'd')
+                        trichord = vector(x,y,z)
                         trichord = tuple(self.sort(trichord))
                         if self.isPrism and self.isInsidePrism(trichord, self.R):
                             if trichord not in self.trichords:
@@ -594,12 +594,12 @@ class ChordSpace3Model(ChordSpace3):
     def runGrab(self, filename, bbox=None):
         while scene.visible:
             if scene.mouse.clicked:
-                print 'CURRENT POINT:'
-                print 'center =',scene.center
-                print 'forward =',scene.forward
-                print 'up =',scene.up
-                print 'scale =',scene.scale
-                print 'fov = ',scene.fov
+                print('CURRENT POINT:')
+                print('center =',scene.center)
+                print('forward =',scene.forward)
+                print('up =',scene.up)
+                print('scale =',scene.scale)
+                print('fov = ',scene.fov)
                 print
                 try:
                     if bbox:
@@ -614,11 +614,11 @@ class ChordSpace3Model(ChordSpace3):
                 scene.mouse.events = 0
     def playBall(self, pickedBall):
         pickedBall.label.visible = 1
-        print pickedBall.name
+        print(pickedBall.name)
         note1 = "i 1 0 4 %d 70 0 -.75" % (60 + pickedBall.pos[0])
         note2 = "i 2 0 4 %d 70 0  .0"  % (60 + pickedBall.pos[1])
         note3 = "i 3 0 4 %d 70 0  .75" % (60 + pickedBall.pos[2])
-        print '%s\n%s\n%s' % (note1, note2, note3)
+        print('%s\n%s\n%s' % (note1, note2, note3))
         if self.enableCsound:
             self.csound.inputMessage(note1)
             self.csound.inputMessage(note2)
@@ -635,7 +635,7 @@ class ChordSpace3Model(ChordSpace3):
             movingChord = tuple(self.sort(movingChord))
             if scene.kb.keys:
                 k = scene.kb.getkey()
-                print 'key: %s' % k
+                print('key: %s' % k)
                 if   k == 'up':
                     movingBall = self.balls[movingChord]
                     movingBall.label.visible = 0
@@ -747,27 +747,27 @@ class ChordSpace3Model(ChordSpace3):
                         self.playBall(pickedBall)
                 except:
                     traceback.print_exc()
-                    print self.label(movingChord)
+                    print(self.label(movingChord))
                 scene.mouse.events = 0
             elif self.doCycle:
                 try:
                     movingBall = self.balls[movingChord]
                     movingBall.label.visible=1
-                    print movingBall.name
+                    print(movingBall.name)
                     time.sleep(2)
                     movingBall.label.visible=0
                     a = (movingChord[0], movingChord[1], movingChord[2])
-                    print 'Old chord',a
+                    print('Old chord',a)
                     movingChord = (movingChord[0] + translation[0], movingChord[1] + translation[1], movingChord[2] + translation[2])
-                    print 'New chord',movingChord
+                    print('New chord',movingChord)
                     #movingChord = self.voiceLead(a, b, True)
                     movingChord = tuple(self.keepInside(movingChord))
                     self.playBall(movingChord)
                 except:
                     traceback.print_exc()
-                    print self.label(movingChord)
+                    print(self.label(movingChord))
                     return
-        print "Finished."
+        print("Finished.")
 
 def runModel(model):
     began = time.clock()
@@ -1027,12 +1027,12 @@ ain[1]                          =                       gkMasterLevel * ain[1]
     label(pos = (size/2.5,size/2.5,size/2.5), text = 'Orthogonal axis', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset = 5, yoffset = 5, zoffset = 5)
     ended = time.clock()
     elapsed = ended - began
-    print 'elapsed: %f' % (elapsed)
+    print('elapsed: %f' % (elapsed))
     model.run()
-    print 'Visual finished.'
+    print('Visual finished.')
     if model.enableCsound:
         performanceThread.Stop()
-        print 'Csound finished.'
+        print('Csound finished.')
 
 
 if __name__ == '__main__':
@@ -1052,5 +1052,5 @@ if __name__ == '__main__':
     # Normal chord space in voice-leading space
     #model = ChordSpace3Model(octaveCount=3, doCycle=False, doConnect=False, isPrism=True, isNormalPrism=True)
     runModel(model)
-    print 'Program finished.'
+    print('Program finished.')
 

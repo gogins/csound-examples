@@ -735,7 +735,10 @@ var piano_roll = new PianoRoll();
 var generate = async function() {
   csound_message_callback("generate()...\n");
   try {
-    csound_ = await get_csound(csound_message_callback);
+    let csound_ = await get_csound(csound_message_callback);
+    if (csound_ == null) {
+        return;
+    }
     csound_.Message("Hello, World, this is Csound!\n");
     score_model = new CsoundAC.ScoreModel();
     score_model.setAuthor("Michael Gogins");
@@ -743,7 +746,7 @@ var generate = async function() {
     let scale = new CsoundAC.Scale("C major");
     csound_.Message(scale.information());
     let chord = scale.chord(1, 5, 3);
-    csound_.Message(chord.eOP().information());
+    //csound_.Message(chord.eOP().information());
     /*
      * A Lindenmayer system consists of a turtle representing a position in 
      * musical space, commands for moving the turtle or writing its state into 
@@ -868,13 +871,13 @@ var generate = async function() {
     lindenmayer.setAxiom("(seed P 3928394)(R P 60)(= N[d] 3)(Sc P)(A)");
     lindenmayer.addRule("(A)", "(A)(W N)(+ N[t] .52 0)(+ N[k] .75 R)(C Sd 5 R)(W C R)(- Sd 2)([)(+ N[k] .7 R)(/ S[t] 1.025)(/ S[d] 1.025)(F N 1)(A)(])(M Sc 3 0)(uni V 1 34)(uni N[x] 0 1)(+ N[t] 1)(W C R)(C Sd 3)(uni N[i] 1 5)(M Sc 3 0)(Sc P)(W N)(A)(- N[k] .32)(+ N[t] 1)(W N)(A)");
     lindenmayer.setIterationCount(3);
-    csound_.Message("lindenmayer: " + lindenmayer);
+    ///csound_.Message("lindenmayer: " + lindenmayer);
     var rescale = new CsoundAC.Rescale();
     rescale.setRescale(0, true, false, 1., 0.);
     rescale.setRescale(3, true, true, 1., 7.);
     rescale.setRescale(4, true, true, 30., 72.);
     rescale.setRescale(5, true, true, 60., 12.);
-    CsoundAC.System.setMessageLevel(15);
+    CsoundAC.System.setMessageLevel(0);
     rescale.addChild(lindenmayer);
     score_model.addChild(rescale);
     score_model.generate();
@@ -882,20 +885,26 @@ var generate = async function() {
     score.setDuration(5 * 60);
     csound_score = score.getCsoundScore(12., false);
     piano_roll.draw3D(score, canvas);
-    csound_.Message("generate completed.\n");
+    ///csound_.Message("generate completed.\n");
   } catch(err) {
     csound_message_callback(err.name + ': ' + err.message + ' ' + err.line + '\n');
+    alert(err);
   }
 };
 
 var render_audio_ = async function() {
-    let csd = document.getElementById('csd').value;
-    csd = csd.replace("</CsScore>", csound_score + "\n</CsScore>");
-    let csound_ = await get_csound(csound_message_callback);
-    await csound_.CompileCsdText(csd);
-    await csound_.Start();
-    await csound_.Perform();
-    updateScoreTime();
+    try {
+        let csd = document.getElementById('csd').value;
+        csd = csd.replace("</CsScore>", csound_score + "\n</CsScore>");
+        let csound_ = await get_csound(csound_message_callback);
+        await csound_.CompileCsdText(csd);
+        await csound_.Start();
+        await csound_.Perform();
+        updateScoreTime();
+    } catch(err) {
+        csound_message_callback(err.name + ': ' + err.message + ' ' + err.line + '\n');
+        alert(err);
+    }
 }
 
 var render_soundfile_ = async function() {
