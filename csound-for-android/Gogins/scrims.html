@@ -1438,7 +1438,7 @@ f 0 3600
                 let pan = Math.random();
                 let event = new CsoundAC.Event(0., parameters.Note_length, 144., instrument, key, 60., 0., pan, 0., 0., 0.);
                 event.temper(12);
-                CsoundAC.conformToChord(event, chord, true);
+                CsoundAC.conformToChord(event, chord);
                 let score_text = event.toCsoundIStatement(12);
                 csound_.Message(score_text);
                 csound_.ReadScore(score_text);
