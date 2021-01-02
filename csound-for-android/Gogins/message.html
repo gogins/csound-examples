@@ -53,7 +53,7 @@
     margin: 1em 0 0.5em 0;
     color: #343434;
     font-weight: normal;
-    font-family: 'Ultra', sans-serif;
+    font-family: 'Ultra', sans-serif;   
     font-size: 36px;
     line-height: 42px;
     text-transform: uppercase;
@@ -65,7 +65,7 @@
         font-size: 30px;
         line-height: 40px;
         font-family: 'Orienta', sans-serif;
-    }
+    }    
         h3 {
         margin: 1em 0 0.5em 0;
         color: #343434;
@@ -73,75 +73,75 @@
         font-size:24px;
         line-height: 30px;
         font-family: 'Orienta', sans-serif;
-    }
+    }    
     </style>
     <script>
         function handleMessage(message) {
             var messages_textarea = document.getElementById("csound_console");
             var existing = messages_textarea.value;
             messages_textarea.value = existing + message;
-            messages_textarea.scrollTop = messages_textarea.scrollHeight;
+            messages_textarea.scrollTop = messages_textarea.scrollHeight;   
         };
     </script>
-</head>
+ </head>
 <body style="background-color:CadetBlue">
-<script src="CsoundAudioNode.js"></script>
-<script src="csound_loader.js"></script>
-<h1>Message from Another Planet, version 3</h1>
-<h3>Adapted for Csound with HTML5 by Michael Gogins, from "Message from Another Planet" by Jacob Joaquin</h3>
-<form id='persist'>
+    <script src="CsoundAudioNode.js"></script>
+    <script src="csound_loader.js"></script>
+    <h1>Message from Another Planet, version 3</h1>
+    <h3>Adapted for Csound with HTML5 by Michael Gogins, from "Message from Another Planet" by Jacob Joaquin</h3>
+    <form id='persist'>
     <table>
-        <col width="2*">
-        <col width="5*">
-        <col width="100px">
-        <tr>
-            <td>
-                <label for=gk2_spread>Frequency spread factor</label>
-            <td>
-                <input class=persistent-element type=range min=0 max=4 value=1 id=gk2_spread step=.001>
-            <td>
-                <output for=gk2_spread id=gk2_spread_output>1</output>
-        </tr>
-        <tr>
-            <td>
-                <label for=gk2_bass_gain>Bass emphasis factor</label>
-            <td>
-                <input class=persistent-element type=range min=0.0001 max=1 value=.005 id=gk2_bass_gain step=.001>
-            <td>
-                <output for=gk2_bass_gain id=gk2_bass_gain_output>.005</output>
-        </tr>
-        <tr>
-            <td>
-                <label for=gk_reverb_delay>Reverb delay feedback</label>
-            <td>
-                <input class=persistent-element type=range min=0 max=1 value=.89 id=gk_reverb_delay step=.001>
-            <td>
-                <output for=gk_reverb_delay id=gk_reverb_delay_output>.89</output>
-        </tr>
-        <tr>
-            <td>
-                <label for=gk_reverb_hipass>Reverb highpass cutoff (Hz)</label>
-            <td>
-                <input class=persistent-element type=range min=0 max=20000 value=12000 id=gk_reverb_hipass step=.001>
-            <td>
-                <output for=gk_reverb_hipass id=gk_reverb_hipass_output>12000</output>
-        </tr>
-        <tr>
-            <td>
-                <label for=gk_master_level>Master output level (dB)</label>
-            <td>
-                <input class=persistent-element type=range min=-40 max=40 value=-6 id=gk_master_level step=.001>
-            <td>
-                <output for=gk_master_level id=gk_master_level_output>-6</output>
-        </tr>
+    <col width="2*">
+    <col width="5*">
+    <col width="100px">
+    <tr>
+    <td>
+    <label for=gk2_spread>Frequency spread factor</label>
+    <td>
+    <input class=persistent-element type=range min=0 max=4 value=1 id=gk2_spread step=.001>
+    <td>
+    <output for=gk2_spread id=gk2_spread_output>1</output>
+    </tr>
+    <tr>
+    <td>
+    <label for=gk2_bass_gain>Bass emphasis factor</label>
+    <td>
+    <input class=persistent-element type=range min=0.0001 max=1 value=.005 id=gk2_bass_gain step=.001>
+    <td>
+    <output for=gk2_bass_gain id=gk2_bass_gain_output>.005</output>
+    </tr>
+    <tr>
+    <td>
+    <label for=gk_reverb_delay>Reverb delay feedback</label>
+    <td>
+    <input class=persistent-element type=range min=0 max=1 value=.89 id=gk_reverb_delay step=.001>
+    <td>
+    <output for=gk_reverb_delay id=gk_reverb_delay_output>.89</output>
+    </tr>
+    <tr>
+    <td>
+    <label for=gk_reverb_hipass>Reverb highpass cutoff (Hz)</label>
+    <td>
+    <input class=persistent-element type=range min=0 max=20000 value=12000 id=gk_reverb_hipass step=.001>
+    <td>
+    <output for=gk_reverb_hipass id=gk_reverb_hipass_output>12000</output>
+    </tr>
+    <tr>
+    <td>
+    <label for=gk_master_level>Master output level (dB)</label>
+    <td>
+    <input class=persistent-element type=range min=-40 max=40 value=-6 id=gk_master_level step=.001>
+    <td>
+    <output for=gk_master_level id=gk_master_level_output>-6</output>
+    </tr>
     </table>
     <p>
-        <input type="button" id="play" value="Play" />
-        <input type="button" id="stop" value="Stop" />
-        <input type="button" id='save' value="Save" />
-        <input type="button" id='restore' value="Restore" />
-</form>
-<p>
+    <input type="button" id="play" value="Play" />
+    <input type="button" id="stop" value="Stop" />
+    <input type="button" id='save' value="Save" />
+    <input type="button" id='restore' value="Restore" />
+    </form>   
+    <p>
     <textarea id='csound_console' cols=80 rows=25>
     </textarea>
     <textarea id='csd' cols=80 rows=25 style="visibility:hidden;">
@@ -157,7 +157,7 @@ https://setiathome.berkeley.edu/
 </CsLicense>
 <CsOptions>
 ; Needed to work with csound.node:
--d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0
+-d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 
 </CsOptions>
 <CsInstruments>
 sr              =           48000
@@ -173,8 +173,8 @@ gasendR init 0
 
 gk2_spread      init 1.0125
 gk2_bass_gain   init 0.005
-chnset i(gk2_spread), "gk2_spread"
-chnset i(gk2_bass_gain), "gk2_bass_gain"
+chnset i(gk2_spread), "gk2_spread" 
+chnset i(gk2_bass_gain), "gk2_bass_gain" 
 
                 instr       controls
 gk2_spread      chnget      "gk2_spread"
@@ -206,9 +206,9 @@ gk_master_level chnget      "gk_master_level"
 gk_reverb_delay init .89
 gk_reverb_hipass init 12000
 gk_master_level init -6
-chnset i(gk_reverb_delay), "gk_reverb_delay"
-chnset i(gk_reverb_hipass), "gk_reverb_hipass"
-chnset i(gk_master_level), "gk_master_level"
+chnset i(gk_reverb_delay), "gk_reverb_delay" 
+chnset i(gk_reverb_hipass), "gk_reverb_hipass" 
+chnset i(gk_master_level), "gk_master_level" 
                 instr       reverb
 aL, aR          reverbsc    gasendL,gasendR,gk_reverb_delay,gk_reverb_hipass
 kgain           =           ampdb(gk_master_level)
@@ -223,37 +223,37 @@ kgain           =           ampdb(gk_master_level)
 f 1    0    65536  10      1
 f 100  0    256  -7      0       16         1    240    0
 t 0    60
-i 2    0    256    3000    6.00    1          1.24
-i 2    0    .      .       .       1.0666     1.23
-i 2    0    .      .       .       1.125      1.22
-i 2    0    .      .       .       1.14285    1.21
-i 2    0    .      .       .       1.23076    1.20
-i 2    0    .      .       .       1.28571    1.19
-i 2    0    .      .       .       1.333      1.18
-i 2    0    .      .       .       1.4545     1.17
-i 2    0    .      .       .       1.5        1.16
-i 2    0    .      .       .       1.6        1.15
-i 2    0    .      .       .       1.777      1.14
-i 2    0    .      .       .       1.8        1.13
-i 2    0    .      .       .       2          1.12
-i 2    0    .      .       .       2.25       1.10
-i 2    0    .      .       .       2.28571    1.09
-i 2    0    .      .       .       2.666      1.08
-i 2    0    .      .       .       3          1.07
-i 2    0    .      .       .       3.2        1.06
-i 2    0    .      .       .       4          1.05
-i 2    0    .      .       .       4.5        1.04
-i 2    0    .      .       .       5.333      1.03
-i 2    0    .      .       .       8          1.02
-i 2    0    .      1000    .       9          1.01
-i 2    0    .      500     .       16         1.00
+i 2    0    256    3000    6.00    1          1.24    
+i 2    0    .      .       .       1.0666     1.23    
+i 2    0    .      .       .       1.125      1.22    
+i 2    0    .      .       .       1.14285    1.21    
+i 2    0    .      .       .       1.23076    1.20    
+i 2    0    .      .       .       1.28571    1.19    
+i 2    0    .      .       .       1.333      1.18    
+i 2    0    .      .       .       1.4545     1.17    
+i 2    0    .      .       .       1.5        1.16    
+i 2    0    .      .       .       1.6        1.15    
+i 2    0    .      .       .       1.777      1.14    
+i 2    0    .      .       .       1.8        1.13    
+i 2    0    .      .       .       2          1.12    
+i 2    0    .      .       .       2.25       1.10    
+i 2    0    .      .       .       2.28571    1.09    
+i 2    0    .      .       .       2.666      1.08    
+i 2    0    .      .       .       3          1.07    
+i 2    0    .      .       .       3.2        1.06    
+i 2    0    .      .       .       4          1.05    
+i 2    0    .      .       .       4.5        1.04    
+i 2    0    .      .       .       5.333      1.03    
+i 2    0    .      .       .       8          1.02    
+i 2    0    .      1000    .       9          1.01    
+i 2    0    .      500     .       16         1.00    
 
 </CsScore>
 </CsoundSynthesizer>
 </textarea>
-    <script src="js/jquery.js">
-    </script>
-    <script>
+<script src="js/jquery.js">
+</script>
+<script>    
 $(document).ready(function() {
     $('input').on('input', function(event) {
         let csound = get_csound(handleMessage);
@@ -263,9 +263,7 @@ $(document).ready(function() {
         $(output_selector).val(slider_value);
     });
     $('#play').on('click', async function() {
-        let csound = get_csound(handleMessage);
-        ///var CsoundAC = await createCsoundAC();
-        ///await csound.Message(CsoundAC.hello());
+        csound = get_csound(handleMessage);
         document.getElementById("csound_console").value = "";
         var csd = document.getElementById('csd').value;
         await csound.CompileCsdText(csd);

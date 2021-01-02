@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,10 +6,10 @@
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta http-equiv="Pragma" content="no-cache" />
         <meta http-equiv="Expires" content="0" />
-         <script type="text/javascript" src="js/dat.gui.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/sprintf.js"></script>
-        <script type="text/javascript" src="js/three.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.1/dat.gui.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sprintf/1.1.1/sprintf.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/91/three.js"></script>
         <style>
             ::-webkit-scrollbar
             {
@@ -29,16 +30,24 @@
         </style>
     </head>
     <body style="background:black;">
-        <script src="CsoundAudioNode.js"></script>
-        <script src='csound_loader.js'></script>
+        <script>
+            try {
+                var fs = require("fs");
+                var __dirname = fs.realpathSync.native(".");
+            } catch(e) {
+                console.log(e);
+            }
+        </script>
         <script src='CsoundAC.js'></script>
+        <script src="CsoundAudioNode.js"></script>
+        <script src="csound_loader.js"></script>
         <div id = 'webgl_cell' class='canvas' style="width:98vw;height:98vh;"/>
         <table id = 'statistics' style="table-layout:fixed;position:absolute;left:1vw;color:#eee;top:1vw;font-family:Monaco, sans-serif;font-size:8pt;">
             <col width=600px>
             <col width=208px>
             <tr style="color:gold;">
                 <!-- Copyright (C) 2016-2020 by Michael Gogins -->
-                <td><b><i>Scrims v3</i></b>, for Csound+HTML5</td>
+                <td><b><i>Scrims v2</i></b>, for Csound+HTML5</td>
                 <td style="text-align:right;">Michael Gogins</td>
             </tr>
             <tr>
@@ -77,6 +86,7 @@
         <textarea class="code" id="csd" hidden rows=24 cols=80>
 <CsoundSynthesizer>
 <CsOptions>
+; Needed to work with csound.node:
 -d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
 </CsOptions>
 <CsInstruments>
@@ -386,7 +396,7 @@ i_attack = .002
 i_release = 0.01
 i_sustain = p3 - (i_attack + i_release)
 a_declicking linsegr 0, i_attack, 1, i_sustain, 1, i_release, 0
-a_signal = a_signal * i_amplitude * a_declicking * k_gain
+a_signal = a_signal * i_amplitude * a_declicking * k_gain 
 #ifdef USE_SPATIALIZATION
 a_spatial_reverb_send init 0
 a_bsignal[] init 16
@@ -400,8 +410,8 @@ a_out_left, a_out_right pan2 a_signal_reverb, p7
 outleta "outleft", a_out_left
 outleta "outright",  a_out_right
 a_out_left, a_out_right pan2 a_signal_chorus, p7
-outleta "chorusleft", a_out_left
-outleta "chorusright", a_out_right
+outleta "chorusleft", a_out_left 
+outleta "chorusright", a_out_right 
 ;printks "YiString         %9.4f  %9.4f\n", 0.5, a_out_left, a_out_right
 #endif
 prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
@@ -1024,7 +1034,7 @@ instr Controls
     gk_BarModel_kscan chnget "gk_BarModel_kscan"
     gi_BarModel_iT30 chnget "gi_BarModel_iT30"
     gi_BarModel_ipos chnget "gi_BarModel_ipos"
-    gi_BarModel_ivel chnget "gi_BarModel_ivel"
+    gi_BarModel_ivel chnget "gi_BarModel_ivel" 
     gi_BarModel_iwid chnget "gi_BarModel_iwid"
     gk_Bower_attack chnget "gk_Bower_attack"
     gk_Bower_release chnget "gk_Bower_release"
@@ -1049,7 +1059,7 @@ instr Controls
     gk_Droner_partial8 chnget "gk_Droner_partial8"
     gk_Droner_partial9 chnget "gk_Droner_partial9"
     gk_Droner_partial10 chnget "gk_Droner_partial10"
-    gi_Droner_waveform chnget "gi_Droner_waveform"
+    gi_Droner_waveform chnget "gi_Droner_waveform"   
     gk_Droner_level chnget "gk_Droner_level"
     gk_FMModerate2_level chnget "gk_FMModerate2_level"
     gi_FMModerate2_carrier chnget "gi_FMModerate2_carrier"
@@ -1098,54 +1108,44 @@ f 0 3600
 <CsoundSynthesizer>
     </textarea>
     <script>
-        // Polyfill for filesystem access on both NW.js and WebAssembly.
-        try {
-            var fs = require("fs");
-            var __dirname = fs.realpathSync.native(".");
-        } catch(e) {
-            console.log(e);
-        }
-        // Some variables must be defined at global scope to allow for
-        // asynchronous loading of WebAssembly modules.
-        var is_playing = false;
-        var csound_ = null;
-        var CsoundAC;
-        var chord;
-        var modality;
-        var FM9;
-        var Bb7;
-        function csound_message_callback(message_text) {
-            let messages_textarea = document.getElementById("console");
-            let existing = messages_textarea.value;
-            messages_textarea.value = existing + message_text;
-            messages_textarea.scrollTop = messages_textarea.scrollHeight;
-        }
-        (async function() {
-            try {
-                if (csound_ !== null) {
-                    return;
-                }
-                CsoundAC = await createCsoundAC();
-                //await csound_.Message(CsoundAC.hello());
-                FM9 = CsoundAC.chordForName('FM9');
-                Bb7 = CsoundAC.chordForName('Bb7');
-                chord = Bb7.clone();
-                modality = chord.clone();
-            } catch(e) {
-                csound_message_callback(e);
-            }
-        }());
         /**
          * AUTHOR: Iacopo Sassarini
          * Based on Barry Martin's formula for the hopalong fractal.
          * Updated and adapted for music generation by Michael Gogins.
          */
+        // Some variables must be defined at global scope to allow for 
+        // asynchronous loading of WebAssembly modules. 
+        var csound_message_callback = function(message_text) {
+            console.log(message_text);
+            let messages_textarea = document.getElementById("console");
+            let existing = messages_textarea.value;
+            messages_textarea.value = existing + message_text;
+            messages_textarea.scrollTop = messages_textarea.scrollHeight;
+        }
+        var is_playing = false;
+        var csound;
+        var CsoundAC;
+        var chord;
+        var modality;
+        var FM9;
+        var Bb7;
         // Load WebAssembly modules (asynchronously, yet not asynchronously).
+        (async function() {
+            csound = await get_csound(csound_message_callback);
+            await csound.Message("Hello, World, this is Csound!\n");
+            CsoundAC = await createCsoundAC(); 
+            await csound.Message(CsoundAC.hello());         
+            FM9 = CsoundAC.chordForName('FM9');
+            Bb7 = CsoundAC.chordForName('Bb7');
+            chord = Bb7.clone();
+            modality = chord.clone();
+        }());
         let RANGE = 60;
         let BASS = 36;
         let INSTRUMENT_COUNT = 13.9;
         let NOTE_COUNT = 16;
         let container = document.getElementById('webgl_cell');
+        console.log('container:' + container);
         let velocity_cutoff = 150.;
         let VISUALS_VISIBLE = true;
         let SCALE_FACTOR = 1500;
@@ -1285,7 +1285,7 @@ f 0 3600
                 }
             }
             renderer.render(scene, camera);
-            if (csound_ != null) {
+            if (typeof csound !== 'undefined') {
                 score_time_cell = document.getElementById('Time_cell');
                 current_time_seconds = new Date().getTime() / 1000.0;
                 let score_time = current_time_seconds - start_time_seconds;
@@ -1426,7 +1426,7 @@ f 0 3600
             return x;
         }
         function createNote() {
-            if (is_playing !== false && csound_ != null) {
+            if (is_playing !== false && csound != null) {
                 let total_points_index = note_count * Stride;
                 total_points_index = total_points_index % NUM_POINTS;
                 let subset_index = Math.floor(total_points_index / NUM_POINTS_SUBSET);
@@ -1438,10 +1438,10 @@ f 0 3600
                 let pan = Math.random();
                 let event = new CsoundAC.Event(0., parameters.Note_length, 144., instrument, key, 60., 0., pan, 0., 0., 0.);
                 event.temper(12);
-                CsoundAC.conformToChord(event, chord);
+                CsoundAC.conformToChord(event, chord, true);
                 let score_text = event.toCsoundIStatement(12);
-                csound_.Message(score_text);
-                csound_.ReadScore(score_text);
+                csound.Message(score_text);
+                csound.ReadScore(score_text);
                 let Chord_cell = document.getElementById('Chord_cell');
                 Chord_cell.innerHTML = chord.name();
                 let Notes_cell = document.getElementById('Notes_cell');
@@ -1458,40 +1458,6 @@ f 0 3600
             }
             setTimeout(createNote, 1000. / parameters.Notes_per_second);
         }
-        var Play_ = async function() {
-            csound_ = await get_csound(csound_message_callback);
-            if (csound_ == null) {
-                csound_message_callback("csound_message_callback: csound_: " + csound_ + "\n");
-                return;
-            }
-            await csound_.Message("Hello, World, this is Csound!\n");
-            csound_message_callback("CompileCsdText...\n");
-            await csound_.CompileCsdText(document.getElementById('csd').value);
-            csound_message_callback("Start...\n");
-            await csound_.Start();
-            is_playing = true;
-            gui.revert();
-            start_time_seconds = new Date().getTime() / 1000.0;
-            csound_message_callback("Perform...\n");
-            await csound_.Perform();
-            setTimeout(updateTimeCell, 0);
-        };
-        var Stop_ = async function() {
-            is_playing = false;
-            await csound_.Stop();
-            await csound_.Cleanup();
-            await csound_.Reset();
-        };
-        var Close_ = async function() {
-            try {
-                is_playing = false;
-                await csound_.Stop();
-                await csound_.Cleanup();
-                await csound_.Reset();
-            } catch (e) {
-                console.log(e);
-            }
-        };
         // If you want to persist the values of these parameters more reliably
         // than by means of local storage, copy the values from the nw.gui preset dialog
         // and paste the values over these.
@@ -1503,7 +1469,7 @@ f 0 3600
             "gk_BarModel_kscan": .23,
             "gi_BarModel_iT30": 5,
             "gi_BarModel_ipos": 0.3,
-            "gi_BarModel_ivel": 1000,
+            "gi_BarModel_ivel": 1000, 
             "gi_BarModel_iwid": 0.05,
             "gk_BarModel_level": 0,
             "gk_Blower_grainDensity": 0.15,
@@ -1562,7 +1528,7 @@ f 0 3600
             "gk_YiString_level": 0,
             "gk_Shiner_attack": .0125,
             "gk_Shiner_release": .0125,
-            "gk_Shiner_level": 0,
+            "gk_Shiner_level": 0,    
             "A": 1,
             "B": 1.8,
             "C": 5,
@@ -1580,59 +1546,87 @@ f 0 3600
             Note_length: 1.,
             Notes_per_second: 8.,
             Stride: 100,
-            Play: function() {Play_();},
-            Stop: function() {Stop_();},
-            Close: function() {Close_();},
+            Play: function() {
+                (async () => {
+                    csound = get_csound(csound_message_callback);
+                    if (csound == null) {
+                        return;
+                    }
+                    await csound.CompileCsdText(document.getElementById('csd').value);
+                    await csound.Start();
+                    is_playing = true;
+                    gui.revert();
+                    start_time_seconds = new Date().getTime() / 1000.0;
+                    await csound.Perform();
+                    setTimeout(updateTimeCell, 0);
+                })();
+            },
+            Stop: function() {
+                (async () => {
+                    is_playing = false;
+                    await csound.Stop();
+                    await csound.Cleanup();
+                    await csound.Reset();
+                })();
+            },
+            Close: async function() {
+                try {
+                    is_playing = false;
+                    await csound.Stop();
+                    await csound.Cleanup();
+                    await csound.Reset();
+                } catch (e) {
+                    console.log(e);
+                }
+            },
             FM9: function() {
                 chord = FM9.clone();
-                csound_.Message('FM9:\n' + chord.information());
+                csound.Message('FM9:\n' + chord.information());
             },
             Bb7: function() {
                 chord = Bb7.clone();
-                csound_.Message('Bb7:\n' + chord.information());
+                csound.Message('Bb7:\n' + chord.information());
             },
             K: function() {
                 chord = chord.K();
-                csound_.Message('K():\n' + chord.information());
+                csound.Message('K():\n' + chord.information());
             },
             Q2: function() {
                 chord = chord.Q(2, modality);
-                csound_.Message('Q(2, modality):\n' + chord.information());
+                csound.Message('Q(2, modality):\n' + chord.information());
             },
             Q3: function() {
                 chord = chord.Q(3, modality);
-                csound_.Message('Q(3, modality):\n' + chord.information());
+                csound.Message('Q(3, modality):\n' + chord.information());
             },
             Q5: function() {
-                let csound_ = get_csound(csound_message_callback);
                 chord = chord.Q(5, modality);
-                csound_.Message('Q(5, modality):\n' + chord.information());
+                csound.Message('Q(5, modality):\n' + chord.information());
             },
             J2_2: function() {
-                let csound_ = get_csound(csound_message_callback);
                 let chords = chord.J(2);
                 if (chords.length > 1) {
                     chord = chords[1];
-                    csound_.Message('J(2,2):\n' + chord.information());
+                    csound.Message('J(2,2):\n' + chord.information());
                 }
             },
             J2_3: function() {
                 let chords = chord.J(2);
                 if (chords.length > 2) {
                     chord = chords[2];
-                    csound_.Message('J(2,3):\n' + chord.information());
+                    csound.Message('J(2,3):\n' + chord.information());
                 }
             },
             J3_1: function() {
-                let chords = chord.J(3);
+               let chords = chord.J(3);
                 if (chords.length > 0) {
                     chord = chords[0];
-                    csound_.Message('J(3,1):\n' + chord.information());
+                    csound.Message('J(3,1):\n' + chord.information());
                 }
             },
             T5: function() {
                 chord = chord.T(5);
-                csound_.Message('D():\n' + chord.information());
+                csound.Message('D():\n' + chord.information());
             },
         };
         let gui = null;
@@ -1647,7 +1641,7 @@ f 0 3600
             gui.add(parameters, 'Play').name('Play [Ctrl-P]');
             gui.add(parameters, 'Stop').name('Stop [Ctrl-S]');
             let Master = gui.addFolder('Master effects');
-            add_slider(Master, 'gk_Reverb_feedback', 0, 1);
+            add_slider(Master, 'gk_Reverb_feedback', 0, 1);     
             add_slider(Master, 'gi_Reverb_delay_modulation', 0, 3);
             add_slider(Master, 'gk_Reverb_frequency_cutoff', 5000, 20000);
             add_slider(Master, 'gk_MasterOutput_level', -80, 80);
@@ -1661,7 +1655,7 @@ f 0 3600
             //add_slider(BarModel, 'gi_BarModel_iT30', 0, 20);
             //add_slider(BarModel, 'gi_BarModel_ipos', 0, 1);
             //add_slider(BarModel, 'gi_BarModel_ivel', 0, 10000);
-            //add_slider(BarModel, 'gi_BarModel_iwid', 0, 1);
+            //add_slider(BarModel, 'gi_BarModel_iwid', 0, 1);           
             //add_slider(BarModel, 'gk_BarModel_level', -80, 80);
             let Blower = instruments.addFolder('Blower');
             add_slider(Blower, 'gk_Blower_grainDensity', 0, 400);
@@ -1755,10 +1749,10 @@ f 0 3600
             gui.revert();
         }
         function update_channel(name, value) {
-            if (is_playing === true && csound_ != null)  {
+            if (is_playing === true)  {
                 let numberValue = parseFloat(value);
-                csound_.SetControlChannel(name, numberValue);
-                csound_.Message(name + ': ' + numberValue + '\n');
+                csound.SetControlChannel(name, numberValue);
+                csound.Message(name + ': ' + numberValue + '\n');
             }
         }
         function add_slider(gui_folder, token, minimum, maximum) {

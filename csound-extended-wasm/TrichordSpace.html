@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Parachronic</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="CsoundAudioNode.js"></script>
+<script src="csound_loader.js"></script>
+<script src='CsoundAC.js'></script>
+<script src="js/sprintf.js"></script>
+<script src="js/numeric.js"></script>
+<script src="js/three.js"></script>
+<script src="js/TrackballControls.js"></script>
+<script src="js/tinycolor.js"></script>
+<script src="js/dat.gui.js"></script>
+<script src="piano-roll.js"></script>
+</head>
+<body class="w3-container w3-black">
+<div class="w3-row-padding">
+<div class="w3-half">
+<textarea id="csd" class="w3-code" style="width:100%;height:25vh;box-sizing:border-box;background-color:MidnightBlue;color:NavajoWhite;">
+<CsoundSynthesizer>
+<CsOptions>
+-d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
+</CsOptions>
+<CsInstruments>
+sr = 48000
+ksmps = 128
+nchnls = 2
+nchnls_i = 1
+0dbfs = 500000
+
+; Ensure the same random stream for each rendering.
+; rand, randh, randi, rnd(x) and birnd(x) are not affected by seed.
+
+;seed 81814
+;seed 818145
+seed 88818145
+
+connect "Blower", "outleft", "ReverbSC", "inleft"
+connect "Blower", "outright", "ReverbSC", "inright"
+connect "Bower", "outleft", "ReverbSC", "inleft"
+connect "Bower", "outright", "ReverbSC", "inright"
+connect "Buzzer", "outleft", "ReverbSC", "inleft"
+connect "Buzzer", "outright", "ReverbSC", "inright"
+connect "Droner", "outleft", "ReverbSC", "inleft"
+connect "Droner", "outright", "ReverbSC", "inright"
+connect "FMWaterBell", "outleft", "ReverbSC", "inleft"
+connect "FMWaterBell", "outright", "ReverbSC", "inright"
+connect "Phaser", "outleft", "ReverbSC", "inleft"
+connect "Phaser", "outright", "ReverbSC", "inright"
+connect "Sweeper", "outleft", "ReverbSC", "inleft"
+connect "Sweeper", "outright", "ReverbSC", "inright"
+connect "Shiner", "outleft", "ReverbSC", "inleft"
+connect "Shiner", "outright", "ReverbSC", "inright"
+connect "ZakianFlute", "outleft", "ReverbSC", "inleft"
+connect "ZakianFlute", "outright", "ReverbSC", "inright"
+connect "ReverbSC", "outleft", "MasterOutput", "inleft"
+connect "ReverbSC", "outright", "MasterOutput", "inright"
+
+alwayson "ReverbSC"
+alwayson "MasterOutput"
+
+gk_overlap init 4.5
+
+prealloc 1, 50
+prealloc 2, 50
+prealloc 3, 50
+prealloc 4, 50
+prealloc 5, 50
+prealloc 6, 50
+prealloc 7, 50
+prealloc 8, 20
+prealloc 9, 20
+
+//////////////////////////////////////////////
+// Original by Steven Yi.
+// Adapted by Michael Gogins.
+//////////////////////////////////////////////
+gk_FMWaterBell_level init 15
+gi_FMWaterBell_attack init 0.002
+gi_FMWaterBell_release init 0.01
+gi_FMWaterBell_sustain init 20
+gi_FMWaterBell_sustain_level init .1
+gk_FMWaterBell_index init .5
+gk_FMWaterBell_crossfade init .5
+gk_FMWaterBell_vibrato_depth init 0.
+gk_FMWaterBell_vibrato_rate init 6
+gk_FMWaterBell_midi_dynamic_range init 127
+gi_FMWaterBell_cosine ftgen 0, 0, 65537, 11, 1
+instr FMWaterBell
+i_instrument = p1
+i_time = p2
+i_duration = p3
+; One of the envelopes in this instrument should be releasing, and use this:
+i_sustain = 1000
+;xtratim gi_FMWaterBell_attack + gi_FMWaterBell_release
+p3 = p3 + gi_FMWaterBell_attack + gi_FMWaterBell_release
+i_midi_key = p4
+i_midi_dynamic_range = i(gk_FMWaterBell_midi_dynamic_range)
+i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.6 - i_midi_dynamic_range / 2)
+k_space_front_to_back = p6
+k_space_left_to_right = p7
+k_space_bottom_to_top = p8
+i_phase = p9
+i_frequency = cpsmidinn(i_midi_key)
+; Adjust the following value until "overall amps" at the end of performance is about -6 dB.
+if i_midi_key > 42 goto high_level
+i_level_correction = -23.5
+goto end_level
+high_level:
+i_level_correction = -20
+end_level:
+i_normalization = ampdb(-i_level_correction) / 2
+i_amplitude = ampdb(i_midi_velocity) * i_normalization * 1.6
+k_gain = ampdb(gk_FMWaterBell_level)
+a_signal fmbell	1, i_frequency, gk_FMWaterBell_index, gk_FMWaterBell_crossfade, gk_FMWaterBell_vibrato_depth, gk_FMWaterBell_vibrato_rate, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine ;, gi_FMWaterBell_sustain
+;a_envelope linsegr 0, gi_FMWaterBell_attack, 1, i_sustain, gi_FMWaterBell_sustain_level, gi_FMWaterBell_release, 0
+a_envelope linsegr 0, gi_FMWaterBell_attack, 1, i_sustain, 1, gi_FMWaterBell_release, 0
+; ares transegr ia, idur, itype, ib [, idur2] [, itype] [, ic] ...
+; a_envelope transegr 0, gi_FMWaterBell_attack, 12, 1, i_sustain, 12, gi_FMWaterBell_sustain_level, gi_FMWaterBell_release, 12, 0
+a_signal = a_signal * i_amplitude * a_envelope * k_gain
+a_out_left, a_out_right pan2 a_signal, p7
+outleta "outleft", a_out_left
+outleta "outright", a_out_right
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+; printks "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
+endin
+
+gk_Phaser_ratio1 init 1
+gk_Phaser_ratio2 init 1/3
+gk_Phaser_index1 init 1
+gk_Phaser_index2 init 0.0125
+gk_Phaser_level init 8
+gi_Phaser_sine ftgen 0,0,65537,10,1
+instr Phaser
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity) * 8
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+khertz = ihertz
+ifunction1 = gi_Phaser_sine
+ifunction2 = gi_Phaser_sine
+a1,a2 crosspmi gk_Phaser_ratio1, gk_Phaser_ratio2, gk_Phaser_index1, gk_Phaser_index2, khertz, ifunction1, ifunction2
+aleft, aright pan2 a1+a2, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft * kenvelope
+aright = adamping * aright * kenvelope
+kgain = ampdb(gk_Phaser_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Droner_partial1 init .1
+gk_Droner_partial2 init .1
+gk_Droner_partial3 init .3
+gk_Droner_partial4 init .2
+gk_Droner_partial5 init .1
+gk_Droner_level init 16
+gi_Droner_sine ftgen 0, 0, 65537, 10, 1, 0, .02
+instr Droner
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+k1 init .5
+k2 init .05
+k3 init .1
+k4 init .2
+k5 init .1
+k6 init .05
+k7 init .1
+k8 init 0
+k9 init 0
+k10 init 0
+k3 = gk_Droner_partial1
+k4 = gk_Droner_partial2
+k5 = gk_Droner_partial3
+k6 = gk_Droner_partial4
+k7 = gk_Droner_partial5
+kwaveform init 0
+iamp = ampdb(ivelocity) 
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+asignal poscil3 1, ihertz, gi_Droner_sine
+asignal chebyshevpoly asignal, 0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10
+asignal = asignal * kenvelope * 10
+aleft, aright pan2 asignal, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Droner_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Sweeper_britel init 0
+gk_Sweeper_briteh init 2.9
+gk_Sweeper_britels init .2 / 3
+gk_Sweeper_britehs init 2.5 / 2
+gk_Sweeper_level init 6
+gisine ftgen 0, 0, 65537, 10, 1
+gioctfn ftgen 0, 0, 65537, -19, 1, 0.5, 270, 0.5
+instr Sweeper
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity)
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+icps = ihertz
+kamp expseg 0.001,0.02,0.2,p3-0.01,0.001
+ktonemoddep jspline 0.01,0.05,0.2
+ktonemodrte jspline 6,0.1,0.2
+ktone poscil3 ktonemoddep, ktonemodrte, gisine
+kbrite rspline gk_Sweeper_britel, gk_Sweeper_briteh, gk_Sweeper_britels, gk_Sweeper_britehs
+ibasfreq init icps
+ioctcnt init 3
+iphs init 0
+a1 hsboscil kenvelope, ktone, kbrite, ibasfreq, gisine, gioctfn, ioctcnt, iphs
+amod poscil3 0.25, ibasfreq*(1/3), gisine
+arm = a1*amod
+irnd1 = unirand(1)
+irnd3 = unirand(3)
+kmix expseg 0.001, 0.01, irnd1, irnd3+0.3, 0.001
+kmix=.25
+a1 ntrpol a1, arm, kmix
+;a1 pareq a1/10, 400, 15, .707
+;a1 tone a1, 500
+kpanrte jspline 5, 0.05, 0.1
+kpandep jspline 0.9, 0.2, 0.4
+kpan poscil3 kpandep, kpanrte, gisine
+a1,a2 pan2 a1, p7
+irnd01 = unirand(0.1)
+a1 delay a1, irnd01
+irnd011 = unirand(0.11)
+a2 delay a2, irnd011
+kenv linsegr 1, 1, 0
+kenv = kenvelope
+aleft = a1*kenv*.02
+aright = a2*kenv*.02
+adamping linsegr 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Sweeper_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Buzzer_harmonics init 15
+gk_Buzzer_level init 5
+gi_Buzzer_sine ftgen 0, 0, 65537, 10, 1
+instr Buzzer
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity) * 4
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+gk_Harmonics = gk_Buzzer_harmonics
+asignal buzz kenvelope, ihertz, gk_Harmonics, gi_Buzzer_sine
+asignal = asignal * 3
+aleft, aright pan2 asignal, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Buzzer_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Shiner_level init 2
+instr Shiner
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity) * 4
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+gk_Harmonics = 1 * 20
+asignal vco2 kenvelope * 4, ihertz, 12
+aleft, aright pan2 asignal, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Shiner_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Blower_grainDensity init 150
+gk_Blower_grainDuration init 0.2
+gk_Blower_grainAmplitudeRange init 100
+gk_Blower_grainFrequencyRange init .033
+gk_Blower_level init 2
+gigrtab ftgen 0, 0, 65537, 10, 1, .3, .1, 0, .2, .02, 0, .1, .04
+giwintab ftgen 0, 0, 65537, 10, 1, 0, .5, 0, .33, 0, .25, 0, .2, 0, .167
+instr Blower
+i_time = p2
+i_duration = p3
+i_midikey = p4
+i_midivelocity = p5
+i_phase = p6
+i_pan = p6
+i_depth = p8
+i_height = p9
+i_pitchclassset = p10
+i_homogeneity = p11
+ifrequency = cpsmidinn(i_midikey)
+iamplitude = ampdb(i_midivelocity) / 200
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ; f1 0 65537 1 "hahaha.aif" 0 4 0
+ ; f2 0 1024 7 0 224 1 800 0
+ ; f3 0 8192 7 1 8192 -1
+ ; f4 0 1024 7 0 512 1 512 0
+ ; f5 0 1024 10 1 .3 .1 0 .2 .02 0 .1 .04
+ ; f6 0 1024 10 1 0 .5 0 .33 0 .25 0 .2 0 .167
+ ; a0 14 50
+ ; p1 p2 p3 p4 p5 p6 p7 p8 p9 p10
+ ; Start Dur Amp Freq GrTab WinTab FqcRng Dens Fade
+ ; i1 0.0 6.5 700 9.00 5 4 .210 200 1.8
+ ; i1 3.2 3.5 800 7.08 . 4 .042 100 0.8
+ ; i1 5.1 5.2 600 7.10 . 4 .0320 100 0.9
+ ; i1 7.2 6.6 900 8.03 . 4 .021 150 1.6
+ ; i1 21.3 4.5 1000 9.00 . 4 .031 150 1.2
+ ; i1 26.5 13.5 1100 6.09 . 4 .121 150 1.5
+ ; i1 30.7 9.3 900 8.05 . 4 .014 150 2.5
+ ; i1 34.2 8.8 700 10.02 . 4 .14 150 1.6
+iHz = ifrequency
+ihertz = iHz
+ip4 = iamplitude
+ip5 = iHz
+ip6 = gigrtab
+ip7 = giwintab
+ip8 = 0.033
+ip8 = .002
+ip9 = 150
+ip9 = 100
+ip10 = 1.6
+ip10 = 3
+idur = p3
+iamp = iamplitude ; p4
+ifqc = iHz ; cpspch(p5)
+igrtab = ip6
+iwintab = ip7
+ifrng = ip8
+idens = ip9
+ifade = ip10
+igdur = 0.2
+if p3 == -1 goto indefinite
+ goto non_indefinite
+indefinite:
+ p3 = 1000000
+non_indefinite:
+iattack = i(gk_overlap) * 2
+idecay = i(gk_overlap) * 2
+isustain = p3 - i(gk_overlap) * 2
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+kamp = kenvelope
+; Amp Fqc Dense AmpOff PitchOff GrDur GrTable WinTable MaxGrDur
+aoutl grain ip4, ifqc, gk_Blower_grainDensity, gk_Blower_grainAmplitudeRange, gk_Blower_grainFrequencyRange, gk_Blower_grainDuration, gigrtab, giwintab, 5
+aoutr grain ip4, ifqc, gk_Blower_grainDensity, gk_Blower_grainAmplitudeRange, gk_Blower_grainFrequencyRange, gk_Blower_grainDuration, gigrtab, giwintab, 5
+aleft = aoutl * kamp * iamplitude
+aright = aoutr * kamp * iamplitude
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Blower_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_ZakianFlute_midi_dynamic_range init 20
+gk_ZakianFlute_level init -10
+gk_ZakianFlute_pan init .5
+gi_ZakianFLute_seed init .5
+gif2 ftgen 0, 0, 16, -2, 40, 40, 80, 160, 320, 640, 1280, 2560, 5120, 10240, 10240
+gif26 ftgen 0, 0, 65537, -10, 2000, 489, 74, 219, 125, 9, 33, 5, 5
+gif27 ftgen 0, 0, 65537, -10, 2729, 1926, 346, 662, 537, 110, 61, 29, 7
+gif28 ftgen 0, 0, 65537, -10, 2558, 2012, 390, 361, 534, 139, 53, 22, 10, 13, 10
+gif29 ftgen 0, 0, 65537, -10, 12318, 8844, 1841, 1636, 256, 150, 60, 46, 11
+gif30 ftgen 0, 0, 65537, -10, 1229, 16, 34, 57, 32
+gif31 ftgen 0, 0, 65537, -10, 163, 31, 1, 50, 31
+gif32 ftgen 0, 0, 65537, -10, 4128, 883, 354, 79, 59, 23
+gif33 ftgen 0, 0, 65537, -10, 1924, 930, 251, 50, 25, 14
+gif34 ftgen 0, 0, 65537, -10, 94, 6, 22, 8
+gif35 ftgen 0, 0, 65537, -10, 2661, 87, 33, 18
+gif36 ftgen 0, 0, 65537, -10, 174, 12
+gif37 ftgen 0, 0, 65537, -10, 314, 13
+giwtsin ftgen 0, 0, 65537, 10, 1
+instr ZakianFlute
+; Author: Lee Zakian
+; Adapted by: Michael Gogins
+i_instrument = p1
+i_time = p2
+i_duration = p3
+i_midi_key = p4
+i_midi_velocity = p5
+k_space_front_to_back = p6
+k_space_left_to_right = p7
+k_space_bottom_to_top = p8
+i_phase = p9
+i_overall_amps = 8
+i_normalization = ampdb(-i_overall_amps) / 2
+i_midi_dynamic_range = i(gk_ZakianFlute_midi_dynamic_range)
+i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.5 - i_midi_dynamic_range / 2)
+i_amplitude = ampdb(i_midi_velocity) * i_normalization
+k_gain = ampdb(gk_ZakianFlute_level)
+iattack = .002
+isustain = p3
+irelease = .3
+p3 = iattack + isustain + irelease
+iHz = cpsmidinn(i_midi_key)
+kHz = k(iHz)
+aenvelope transeg 1.0, 20.0, -10.0, 0.05
+ip3 = (p3 < 3.0 ? p3 : 3.0)
+; parameters
+; p4 overall amplitude scaling factor
+ip4 init i_amplitude
+; p5 pitch in Hertz (normal pitch range: C4-C7)
+ip5 init iHz
+; p6 percent vibrato depth, recommended values in range [-1., +1.]
+ip6 init 0.5
+; 0.0 -> no vibrato
+; +1. -> 1% vibrato depth, where vibrato rate increases slightly
+; -1. -> 1% vibrato depth, where vibrato rate decreases slightly
+; p7 attack time in seconds
+; recommended value: .12 for slurred notes, .06 for tongued notes
+; (.03 for short notes)
+ip7 init .08
+; p8 decay time in seconds
+; recommended value: .1 (.05 for short notes)
+ip8 init .08
+; p9 overall brightness / filter cutoff factor
+; 1 -> least bright / minimum filter cutoff frequency (40 Hz)
+; 9 -> brightest / maximum filter cutoff frequency (10,240Hz)
+ip9 init 5
+; initial variables
+iampscale = ip4 ; overall amplitude scaling factor
+ifreq = ip5 ; pitch in Hertz
+ivibdepth = abs(ip6*ifreq/100.0) ; vibrato depth relative to fundamental frequency
+iattack = ip7 * (1.1 - .2*gi_ZakianFLute_seed) ; attack time with up to +-10% random deviation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947) ; reset gi_ZakianFLute_seed
+idecay = ip8 * (1.1 - .2*gi_ZakianFLute_seed) ; decay time with up to +-10% random deviation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+ifiltcut tablei ip9, gif2 ; lowpass filter cutoff frequency
+iattack = (iattack < 6/kr ? 6/kr : iattack) ; minimal attack length
+idecay = (idecay < 6/kr ? 6/kr : idecay) ; minimal decay length
+isustain = p3 - iattack - idecay
+p3 = (isustain < 5/kr ? iattack+idecay+5/kr : p3) ; minimal sustain length
+isustain = (isustain < 5/kr ? 5/kr : isustain)
+iatt = iattack/6
+isus = isustain/4
+idec = idecay/6
+iphase = gi_ZakianFLute_seed ; use same phase for all wavetables
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+; vibrato block
+; kvibdepth linseg .1, .8*p3, 1, .2*p3, .7
+kvibdepth linseg .1, .8*ip3, 1, isustain, 1, .2*ip3, .7
+kvibdepth = kvibdepth* ivibdepth ; vibrato depth
+kvibdepthr randi .1*kvibdepth, 5, gi_ZakianFLute_seed ; up to 10% vibrato depth variation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kvibdepth = kvibdepth + kvibdepthr
+ivibr1 = gi_ZakianFLute_seed ; vibrato rate
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+ivibr2 = gi_ZakianFLute_seed
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+if ip6 < 0 goto vibrato1
+kvibrate linseg 2.5+ivibr1, p3, 4.5+ivibr2 ; if p6 positive vibrato gets faster
+ goto vibrato2
+vibrato1:
+ivibr3 = gi_ZakianFLute_seed
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kvibrate linseg 3.5+ivibr1, .1, 4.5+ivibr2, p3-.1, 2.5+ivibr3 ; if p6 negative vibrato gets slower
+vibrato2:
+kvibrater randi .1*kvibrate, 5, gi_ZakianFLute_seed ; up to 10% vibrato rate variation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kvibrate = kvibrate + kvibrater
+kvib oscili kvibdepth, kvibrate, giwtsin
+ifdev1 = -.03 * gi_ZakianFLute_seed ; frequency deviation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+ifdev2 = .003 * gi_ZakianFLute_seed
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+ifdev3 = -.0015 * gi_ZakianFLute_seed
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+ifdev4 = .012 * gi_ZakianFLute_seed
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kfreqr linseg ifdev1, iattack, ifdev2, isustain, ifdev3, idecay, ifdev4
+kfreq = kHz * (1 + kfreqr) + kvib
+if ifreq < 427.28 goto range1 ; (cpspch(8.08) + cpspch(8.09))/2
+if ifreq < 608.22 goto range2 ; (cpspch(9.02) + cpspch(9.03))/2
+if ifreq < 1013.7 goto range3 ; (cpspch(9.11) + cpspch(10.00))/2
+goto range4
+; wavetable amplitude envelopes
+range1: ; for low range tones
+kamp1 linseg 0, iatt, 0.002, iatt, 0.045, iatt, 0.146, iatt, \
+0.272, iatt, 0.072, iatt, 0.043, isus, 0.230, isus, 0.000, isus, \
+0.118, isus, 0.923, idec, 1.191, idec, 0.794, idec, 0.418, idec, \
+0.172, idec, 0.053, idec, 0
+kamp2 linseg 0, iatt, 0.009, iatt, 0.022, iatt, -0.049, iatt, \
+-0.120, iatt, 0.297, iatt, 1.890, isus, 1.543, isus, 0.000, isus, \
+0.546, isus, 0.690, idec, -0.318, idec, -0.326, idec, -0.116, idec, \
+-0.035, idec, -0.020, idec, 0
+kamp3 linseg 0, iatt, 0.005, iatt, -0.026, iatt, 0.023, iatt, \
+0.133, iatt, 0.060, iatt, -1.245, isus, -0.760, isus, 1.000, isus, \
+0.360, isus, -0.526, idec, 0.165, idec, 0.184, idec, 0.060, idec, \
+0.010, idec, 0.013, idec, 0
+iwt1 = gif26 ; wavetable numbers
+iwt2 = gif27
+iwt3 = gif28
+inorm = 3949
+goto end
+range2: ; for low mid-range tones
+kamp1 linseg 0, iatt, 0.000, iatt, -0.005, iatt, 0.000, iatt, \
+0.030, iatt, 0.198, iatt, 0.664, isus, 1.451, isus, 1.782, isus, \
+1.316, isus, 0.817, idec, 0.284, idec, 0.171, idec, 0.082, idec, \
+0.037, idec, 0.012, idec, 0
+kamp2 linseg 0, iatt, 0.000, iatt, 0.320, iatt, 0.882, iatt, \
+1.863, iatt, 4.175, iatt, 4.355, isus, -5.329, isus, -8.303, isus, \
+-1.480, isus, -0.472, idec, 1.819, idec, -0.135, idec, -0.082, idec, \
+-0.170, idec, -0.065, idec, 0
+kamp3 linseg 0, iatt, 1.000, iatt, 0.520, iatt, -0.303, iatt, \
+0.059, iatt, -4.103, iatt, -6.784, isus, 7.006, isus, 11, isus, \
+12.495, isus, -0.562, idec, -4.946, idec, -0.587, idec, 0.440, idec, \
+0.174, idec, -0.027, idec, 0
+iwt1 = gif29
+iwt2 = gif30
+iwt3 = gif31
+inorm = 27668.2
+goto end
+range3: ; for high mid-range tones
+kamp1 linseg 0, iatt, 0.005, iatt, 0.000, iatt, -0.082, iatt, \
+0.36, iatt, 0.581, iatt, 0.416, isus, 1.073, isus, 0.000, isus, \
+0.356, isus, .86, idec, 0.532, idec, 0.162, idec, 0.076, idec, 0.064, \
+idec, 0.031, idec, 0
+kamp2 linseg 0, iatt, -0.005, iatt, 0.000, iatt, 0.205, iatt, \
+-0.284, iatt, -0.208, iatt, 0.326, isus, -0.401, isus, 1.540, isus, \
+0.589, isus, -0.486, idec, -0.016, idec, 0.141, idec, 0.105, idec, \
+-0.003, idec, -0.023, idec, 0
+kamp3 linseg 0, iatt, 0.722, iatt, 1.500, iatt, 3.697, iatt, \
+0.080, iatt, -2.327, iatt, -0.684, isus, -2.638, isus, 0.000, isus, \
+1.347, isus, 0.485, idec, -0.419, idec, -.700, idec, -0.278, idec, \
+0.167, idec, -0.059, idec, 0
+iwt1 = gif32
+iwt2 = gif33
+iwt3 = gif34
+inorm = 3775
+goto end
+range4: ; for high range tones
+kamp1 linseg 0, iatt, 0.000, iatt, 0.000, iatt, 0.211, iatt, \
+0.526, iatt, 0.989, iatt, 1.216, isus, 1.727, isus, 1.881, isus, \
+1.462, isus, 1.28, idec, 0.75, idec, 0.34, idec, 0.154, idec, 0.122, \
+idec, 0.028, idec, 0
+kamp2 linseg 0, iatt, 0.500, iatt, 0.000, iatt, 0.181, iatt, \
+0.859, iatt, -0.205, iatt, -0.430, isus, -0.725, isus, -0.544, isus, \
+-0.436, isus, -0.109, idec, -0.03, idec, -0.022, idec, -0.046, idec, \
+-0.071, idec, -0.019, idec, 0
+kamp3 linseg 0, iatt, 0.000, iatt, 1.000, iatt, 0.426, iatt, \
+0.222, iatt, 0.175, iatt, -0.153, isus, 0.355, isus, 0.175, isus, \
+0.16, isus, -0.246, idec, -0.045, idec, -0.072, idec, 0.057, idec, \
+-0.024, idec, 0.002, idec, 0
+iwt1 = gif35
+iwt2 = gif36
+iwt3 = gif37
+inorm = 4909.05
+goto end
+end:
+kampr1 randi .02*kamp1, 10, gi_ZakianFLute_seed ; up to 2% wavetable amplitude variation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kamp1 = kamp1 + kampr1
+kampr2 randi .02*kamp2, 10, gi_ZakianFLute_seed ; up to 2% wavetable amplitude variation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kamp2 = kamp2 + kampr2
+kampr3 randi .02*kamp3, 10, gi_ZakianFLute_seed ; up to 2% wavetable amplitude variation
+gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
+kamp3 = kamp3 + kampr3
+awt1 poscil kamp1, kfreq, iwt1, iphase ; wavetable lookup
+awt2 poscil kamp2, kfreq, iwt2, iphase
+awt3 poscil kamp3, kfreq, iwt3, iphase
+asig = awt1 + awt2 + awt3
+asig = asig*(iampscale/inorm)
+kcut linseg 0, iattack, ifiltcut, isustain, ifiltcut, idecay, 0 ; lowpass filter for brightness control
+afilt tone asig, kcut
+a_signal balance afilt, asig
+i_attack = .002
+i_sustain = p3
+i_release = 0.01
+a_declicking linsegr 0, i_attack, 1, i_sustain, 1, i_release, 0
+a_signal = a_signal * i_amplitude * a_declicking * k_gain
+#ifdef USE_SPATIALIZATION
+a_spatial_reverb_send init 0
+a_bsignal[] init 16
+a_bsignal, a_spatial_reverb_send Spatialize a_signal, k_space_front_to_back, k_space_left_to_right, k_space_bottom_to_top
+outletv "outbformat", a_bsignal
+outleta "out", a_spatial_reverb_send
+#else
+a_out_left, a_out_right pan2 a_signal, p7
+outleta "outleft", a_out_left
+outleta "outright", a_out_right
+#endif
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_ReverbSC_feedback init 0.85
+gi_ReverbSC_delay_modulation init 0.35
+gk_ReverbSC_frequency_cutoff init 15000
+instr ReverbSC
+ainleft inleta "inleft"
+ainright inleta "inright"
+; aoutL, aoutR reverbsc ainL, ainR, kfblvl, kfco[, israte[, ipitchm[, iskip]]]
+aoutleft, aoutright reverbsc ainleft, ainright, gk_ReverbSC_feedback, gk_ReverbSC_frequency_cutoff, sr, gi_ReverbSC_delay_modulation
+; printks "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(aoutleft)), dbamp(rms(aoutright))
+outleta "outleft", aoutleft
+outleta "outright", aoutright
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_MasterOutput_level init .5
+instr MasterOutput
+aleft inleta "inleft"
+aright inleta "inright"
+kgain = ampdb(gk_MasterOutput_level)
+outs aleft * kgain, aright * kgain
+; fout "Poustinia-v6-7-1.wav", 16, aleft, aright
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+instr exitnow
+prints "exitnow i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+ exitnow
+endin
+
+</CsInstruments>
+<CsScore>
+i "exitnow" [5 * 60 + 10 ] .1
+</CsScore>
+</CsoundSynthesizer>
+</textarea>
+</div>
+<div class="w3-half">
+<textarea id="console" rows=100 cols=100 class="w3-code" style="width:100%;height:25vh;box-sizing:border-box;background-color:DarkSlateGrey;color:LawnGreen;">
+</textarea>
+</div>
+<div class="w3-row-padding">
+<canvas id="canvas" class="w3-col" style="background:black;width:100%;height:70vh;box-sizing:border-box;">
+</canvas>
+</div>
+<script>
+try {
+    var fs = require("fs");
+    var __dirname = fs.realpathSync.native(".");
+} catch(e) {
+    console.log(e);
+}
+
+var csound_message_callback = function(text) {
+    var messages_textarea = document.getElementById("console");
+    var existing = messages_textarea.value;
+    messages_textarea.value = existing + text;
+    messages_textarea.scrollTop = messages_textarea.scrollHeight;
+};
+
+var draw_fundamental_domain = function(value) {
+    if (value === "OP") {
+        var fundamental_domain = new FundamentalDomain("RP", 12.);
+    }
+    if (value === "OPT") {
+        var fundamental_domain = new FundamentalDomain("RPTg", 12.);
+    }
+    if (value === "OPTI") {
+        var fundamental_domain = new FundamentalDomain("RPTgI", 12.);
+    }
+    var fundamental_domain_view = new FundamentalDomainView(fundamental_domain);
+    fundamental_domain_view.draw3D(canvas);
+    fundamental_domain_view.lookAtFullScene3D();
+};
+
+var CsoundAC;
+var csound_ = null;
+(async function() { 
+    CsoundAC = await createCsoundAC(); 
+    csound_message_callback(CsoundAC.hello()); 
+    var txt = "";
+    txt += "Browser CodeName: " + navigator.appCodeName + "\n";
+    txt += "Browser Name: " + navigator.appName + "\n";
+    txt += "Browser Version: " + navigator.appVersion + "\n";
+    txt += "Cookies Enabled: " + navigator.cookieEnabled + "\n";
+    txt += "Browser Language: " + navigator.language + "\n";
+    txt += "Browser Online: " + navigator.onLine + "\n";
+    txt += "Platform: " + navigator.platform + "\n";
+    txt += "User-agent header: " + navigator.userAgent + "\n";
+    csound_message_callback(txt);
+    draw_fundamental_domain("OP");
+}());
+
+var title = document.title;
+
+var play_ = async function() {
+    try {
+        let csd = document.getElementById('csd').value;
+        let csound_ = await get_csound(csound_message_callback);
+        await csound_.CompileCsdText(csd);
+        await csound_.Start();
+        await csound_.Perform();
+    } catch(err) {
+        csound_message_callback(err.name + ': ' + err.message + ' ' + err.line + '\n');
+        alert(err);
+    }
+}
+
+var stop_ = async function() {
+    await csound.stop();
+}
+
+var gk_update = function(name, value) {
+    var numberValue = parseFloat(value);
+    csound_.setControlChannel(name, numberValue);
+};
+
+var add_slider = function(gui_folder, token, minimum, maximum, name) {
+    var on_parameter_change = function(value) {
+    gk_update(token, value);
+    };
+    gui_folder.add(parameters, token, minimum, maximum).onChange(on_parameter_change);
+};
+
+window.addEventListener("unload", function(event) { 
+parameters.stop();
+nw_window.close();
+});
+
+var parameters = {
+     equivalence_class: 'OP',
+     play: function() {play_();},
+     stop: function() {stop_();},
+     transpose: function() {},
+     invert: function() {},
+     nrp: function() {},
+     nrl: function() {},
+     nrr: function() {},
+     nrd: function() {},
+     v1: function() {},
+     v2: function() {},
+     v3: function() {},
+};
+
+window.addEventListener("load", function() {
+    try {
+        gui = new dat.GUI({width: 400});
+        gui.add(parameters, 'equivalence_class', ['OP', 'OPT', 'OPTI']).name('Equivalence class').onChange(draw_fundamental_domain);
+        gui.add(parameters, 'play').name('Play [Ctrl-P]');
+        gui.add(parameters, 'stop').name('Stop [Ctrl-S]');
+        gui.add(parameters, 'transpose').name('Transpose [Ctrl-T]');
+        gui.add(parameters, 'invert').name('Invert [Ctrl-I]');
+        gui.add(parameters, 'nrp').name('Parallel');
+        gui.add(parameters, 'nrl').name('Lettonwechsel');
+        gui.add(parameters, 'nrr').name('Relative');
+        gui.add(parameters, 'nrd').name('Dominant');
+        gui.add(parameters, 'v1').name('Voice 1 [Ctrl-1]');
+        gui.add(parameters, 'v2').name('Voice 1 [Ctrl-2]');
+        gui.add(parameters, 'v3').name('Voice 1 [Ctrl-3]');
+        document.addEventListener("keydown", function (e) {
+            var e_char = String.fromCharCode(e.keyCode || e.charCode);
+            if (e.ctrlKey === true) {
+                if (e_char === 'H') {
+                    var console = document.getElementById("console");
+                    if (console.style.display === "none") {
+                        console.style.display = "block";
+                    } else {
+                        console.style.display = "none";
+                    }
+                    gui.closed = true;
+                    gui.closed = false;
+                } else if (e_char === 'G') {
+                    generate();
+                } else if (e_char === 'P') {
+                    parameters.play();
+                } else if (e_char === 'S') {
+                    parameters.stop();
+                }
+            }
+        });
+    } catch (e) {
+        console.error(e);
+    };
+});
+
+class FundamentalDomain {
+    constructor(equivalence_class_, range_) {
+        csound_message_callback("FundamentalDomain constructor: " + equivalence_class_ + ", " + range_ + "\n");
+        this.equivalence_class = equivalence_class_;
+        this.range = range_;
+        this.chords = CsoundAC.allOfEquivalenceClass(3, this.equivalence_class, this.range, 1., 0, false);
+        for (let i = this.chords.size(); i < this.chords.size(); ++i) {
+            csound_message_callback(sprintf("[%3d]: %s\n", i, this.chords[i].toString()));
+        }
+    }
+};
+
+const pickPosition = {x: 0, y: 0};
+
+function getCanvasRelativePosition(event) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (event.clientX - rect.left) * canvas.width  / rect.width,
+    y: (event.clientY - rect.top ) * canvas.height / rect.height,
+  };
+}
+ 
+function setPickPosition(event) {
+  const pos = getCanvasRelativePosition(event);
+  pickPosition.x = (pos.x / canvas.width ) *  2 - 1;
+  pickPosition.y = (pos.y / canvas.height) * -2 + 1;  // note we flip Y
+}
+ 
+function clearPickPosition() {
+  // unlike the mouse which always has a position
+  // if the user stops touching the screen we want
+  // to stop picking. For now we just pick a value
+  // unlikely to pick something
+  pickPosition.x = -100000;
+  pickPosition.y = -100000;
+}
+
+clearPickPosition();
+
+class PickHelper {
+  constructor() {
+    this.raycaster = new THREE.Raycaster();
+    this.pickedObject = null;
+    this.pickedObjectSavedColor = 0;
+  }
+  pick(normalizedPosition, scene, camera, time) {
+    try {
+    // restore the color if there is a picked object
+    if (this.pickedObject) {
+      this.pickedObject.material.emissive.setHex(this.pickedObjectSavedColor);
+      this.pickedObject = null;
+    }
+    // cast a ray through the frustum
+    this.raycaster.setFromCamera(normalizedPosition, camera);
+    // get the list of objects the ray intersected
+    const intersectedObjects = this.raycaster.intersectObjects(scene.children);
+    if (intersectedObjects.length) {
+      // pick the first object. It's the closest one
+      this.pickedObject = intersectedObjects[0].object;
+      // save its color
+      this.pickedObjectSavedColor = this.pickedObject.material.emissive.getHex();
+      // set its emissive color to flashing red/yellow
+      this.pickedObject.material.emissive.setHex(0xff99ff);
+    }
+    return this.pickedObject;
+    } catch(x) {
+        csound_message_callback(x);
+        return null;
+    }
+  }
+}
+
+class FundamentalDomainView {
+    constructor(fundamental_domain_) {
+        this.fundamental_domain = fundamental_domain_
+        this.score = null;
+        this.canvas = null;
+        this.context = null;
+        this.scene = null;
+        this.camera = null;
+        this.renderer = null;
+        this.controls = null;
+        this.major = CsoundAC.chordForName("CM").normal_form();
+        this.minor = CsoundAC.chordForName("Cm").normal_form();
+        this.augmented = CsoundAC.chordForName("C+").normal_form();
+        this.pick_helper = new PickHelper();
+        this.current_chord = null;
+        this.prior_chord = null;
+    }
+    play_chord() {
+        if (this.current_chord == null) {
+            return;
+        }
+        if (this.prior_chord !== null) {
+            if (this.current_chord.equals(this.prior_chord)) {
+                return;
+            }
+        }
+    }
+    on_picked_chord(new_chord) {
+        this.renderer.render(this.scene, this.camera);
+        csound_message_callback("Picked chord: " + new_chord.toString() + "\n");
+        this.prior_chord = this.current_chord;
+        this.current_chord = new_chord;
+        this.play_chord();
+    }
+    prepareScene3D() {
+        let canvas = this.canvas;
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+        this.scene = new THREE.Scene();
+        let scene = this.scene;
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: this.canvas,
+            antialias: true
+        });
+        let renderer = this.renderer;
+        renderer.setClearColor(0);
+        renderer.sortObjects = false;
+        renderer.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight);
+        renderer.setPixelRatio(canvas.devicePixelRatio);
+        // Wire up the view controls to the camera.
+        this.camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 1, 10000);
+        let camera = this.camera;
+        this.controls = new THREE.TrackballControls(camera, renderer.domElement);
+        let controls = this.controls;
+        controls.rotateSpeed = 1.0;
+        controls.zoomSpeed = 1;
+        controls.panSpeed = 1;
+        controls.noZoom = false;
+        controls.noPan = false;
+        controls.staticMoving = true;
+        controls.dynamicDampingFactor = 0.3;
+        //controls.keys = [ 65, 83, 68 ];
+        var fundamental_domain_view = this;
+        this.canvas.addEventListener("mousemove", function(e) {
+            fundamental_domain_view.render3D();
+        });
+        this.canvas.addEventListener("mousedown", function(e) {
+            ///csound_message_callback(e.toString() + "\n");
+            clearPickPosition();
+            setPickPosition(e);
+            const picked = fundamental_domain_view.pick_helper.pick(pickPosition, fundamental_domain_view.scene, fundamental_domain_view.camera, 0);
+            if (picked !== null) {
+                if (picked.userData !== null) {
+                    fundamental_domain_view.on_picked_chord(picked.userData);
+                }
+            }
+        });
+        // Ensure that all sides are lighted.
+        let light = new THREE.DirectionalLight(0xffffff, 3);
+        light.position.set(-1, -1, -11).normalize();
+        this.scene.add(light);
+        let light2 = new THREE.AmbientLight(0xffffff, 2);
+        light2.position.set(1, 1, 1).normalize();
+        this.scene.add(light2);
+        //this.camera.add(light2);
+        var onResize = function() {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+            this.renderer.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight);
+            this.camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            this.controls.handleResize();
+            this.camera.updateProjectionMatrix();
+            this.renderer.render(this.scene, this.camera);
+        };
+        window.addEventListener('resize', onResize, false);
+    }
+    lookAtFront3D() {
+        let bounding_box = new THREE.Box3().setFromObject(this.scene);
+        this.camera.lookAt(bounding_box.getCenter());
+        this.camera.fov = 2 * Math.atan((bounding_box.getSize().y / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().z)) * (180 / Math.PI);
+        this.camera.position.copy(bounding_box.getCenter());
+        this.camera.position.x = 4.125 * Math.max(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.y = this.camera.position.x * 4;
+        this.camera.position.z = this.camera.position.x * 14;
+        this.controls.target.copy(bounding_box.getCenter());
+        this.controls.update();
+        this.camera.updateProjectionMatrix();
+        this.renderer.render(this.scene, this.camera);
+    }
+    render3D() {
+        this.controls.update();
+        this.camera.updateProjectionMatrix();
+        this.renderer.render(this.scene, this.camera);
+    }
+    plotChord3D(chord) {
+        let hue;
+        let saturation;
+        let value;
+        let normal_form = chord.normal_form();
+        if (normal_form.equals(this.augmented)) {
+            hue = 0.;
+            saturation = 0.;
+            value = 1.;
+        } else if (normal_form.equals(this.major)) {
+            hue = 0.;
+            saturation = 1.;
+            value =1.;
+        } else if (normal_form.equals(this.minor)) {
+            hue = 240./360.;
+            saturation = 1.;
+            value = 1.;
+        } else {
+            hue = (chord.getPitch(0) + chord.getPitch(1) * 2.0 + chord.getPitch(2)) / 44.0;
+            saturation = 1.0;
+            value = .2;
+        }
+        let color_ = tinycolor.fromRatio({h: hue, s: saturation, v: value}).toHexString();
+        let emissive_ = tinycolor.fromRatio({h: hue, s: saturation, v: value / 3}).toHexString();
+        let specular_ = tinycolor.fromRatio({h: hue, s: saturation / 2, v: value / 3}).toHexString();
+        let geometry = new THREE.SphereGeometry(0.125, 12, 12);
+        let material = new THREE.MeshPhongMaterial( {specular: specular_, 
+        color: color_, emissive: emissive_, side: THREE.DoubleSide} );        
+        let ball = new THREE.Mesh(geometry, material);    
+        ball.position.x = chord.getPitch(0);
+        ball.position.y = chord.getPitch(1);
+        ball.position.z = chord.getPitch(2);
+        ball.userData = chord;
+        this.scene.add(ball);
+        csound_message_callback("plotChord3D: normal_form: " + chord.normal_form().toString() + " chord: " + chord.toString() + "\n");
+    }
+    lookAtFullScene3D() {
+        let bounding_box = new THREE.Box3().setFromObject(this.scene);
+        this.camera.lookAt(bounding_box.getCenter());
+        this.camera.fov = 2 * Math.atan((bounding_box.getSize().x / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().y)) * (180 / Math.PI);
+        this.camera.position.copy(bounding_box.getCenter());
+        this.camera.position.z = 4.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.y = this.camera.position.x * 4;
+        this.camera.position.z = this.camera.position.x * 14;
+        this.controls.target.copy(bounding_box.getCenter());
+        this.controls.update();
+        this.camera.updateProjectionMatrix();
+        this.renderer.render(this.scene, this.camera);
+    }
+    drawAxes() {
+        let range = this.fundamental_domain.range;
+        const material = new THREE.LineBasicMaterial( { color: "green", linewidth: 5 } );    
+        const geometry = new THREE.Geometry();
+        geometry.vertices.push(new THREE.Vector3(0, 0, 0), new THREE.Vector3(range, 0, 0), new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, range, 0), new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, range));
+        const line = new THREE.Line(geometry, material);
+        this.scene.add(line);
+        const center_material = new THREE.LineBasicMaterial( { color: "white", linewidth: 5 } );    
+        const center_geometry = new THREE.Geometry();
+        center_geometry.vertices.push(new THREE.Vector3(0, 0, 0), new THREE.Vector3(range, range, range));
+        const center_line = new THREE.Line(center_geometry, center_material);
+        this.scene.add(center_line);
+    }
+    draw3D(canvas_) {
+        this.canvas = canvas_;
+        this.prepareScene3D(canvas_, this.fundamental_domain);
+        // Plot the chords.
+        let n = this.fundamental_domain.chords.size();
+        for (var i = 0; i < n; i++) {
+            let chord = this.fundamental_domain.chords.get(i);
+            this.plotChord3D(chord);
+        }
+        this.drawAxes();
+        ///this.plotGrid3D();
+        this.lookAtFullScene3D();
+        return canvas;
+    }
+};
+
+</script>
+</body>
+</html>
+<!--
+'''
+Represents operations on chords in a voice-leading orbifold.
+Chords can actually have more dimensions than voices,
+but voice-leading operations affect only the specified number of voices,
+which can be a lower subspace of the orbifold.
+This is to enable using the lower subspace of chords to represent pitches,
+and the higher subspace to represent other properties of music;
+e.g. [0:4] can be a tetrachord, [4:8] durations, [8:12] loudnesses, and so on.
+'''
+class ChordSpace3(object):
+    def __init__(self, voiceCount=3, cubeOctaveCount=2,octaveCount=3, tonesPerOctave=12, isCube=False, isPrism=False, isNormalPrism = False, debug=False):
+        this.N = voiceCount
+        this.octaveCount = octaveCount
+        this.tonesPerOctave = tonesPerOctave
+        this.isCube = isCube
+        this.isPrism = isPrism
+        this.isNormalPrism = isNormalPrism
+        this.debug = debug
+        this.R = this.tonesPerOctave * this.octaveCount
+        this.NR = this.N * this.R
+        this.cubeOctaveCount = cubeOctaveCount
+        this.cubeTessitura = this.tonesPerOctave * this.cubeOctaveCount
+        this.cubeRadius = 0.07
+        this.prismRadius = this.cubeRadius * 2.0
+        this.normalPrismRadius = this.prismRadius #* 2.0
+    def getTessitura(self):
+        if this.isCube:
+            return this.cubeTessitura
+        else:
+            return this.R
+    def sort(self, chord):
+        c = vector(chord)
+        d = c[0:this.N]
+        d.sort()
+        c[0:this.N] = d
+        return c
+    '''
+    Move 1 voice.
+    '''
+    def move(self, chord_, voice, interval):
+        chord = list(chord_)
+        print('Move %d by %f.' % (voice, interval))
+        chord[voice] = chord[voice] + interval
+        chord = tuple(this.bounceInside(chord))
+        return chord
+    '''
+    Do a root progression by tranposition.
+    '''
+    def pT(self, chord, interval):
+        chord = this.firstInversion(chord)
+        print('Transpose by %f.' % interval)
+        for i in range(3):
+            chord[i] = chord[i] + interval
+        chord = tuple(this.bounceInside(chord))
+        return chord
+    '''
+    Perform the leading tone exchange neo-Riemannian transformation.
+    '''
+    def nrL(self, chord):
+        print('Leading-tone exchange transformation.')
+        chord = this.firstInversion(chord)
+        z1 = this.zeroFormFirstInversion(chord)
+        if   z1[1] == 4.0:
+            chord[0] = chord[0] - 1
+        elif z1[1] == 3.0:
+            chord[2] = chord[2] + 1
+        chord = tuple(this.keepInside(chord))
+        return chord
+    '''
+    Perform the parallel neo-Riemannian transformation.
+    '''
+    def nrP(self, chord):
+        print('Parallel transformation.')
+        chord = this.firstInversion(chord)
+        z1 = this.zeroFormFirstInversion(chord)
+        if   z1[1] == 4.0:
+            chord[1] = chord[1] - 1
+        elif z1[1] == 3.0:
+            chord[1] = chord[1] + 1
+        chord = tuple(this.keepInside(chord))
+        return chord
+    '''
+    Perform the relative neo-Riemannian transformation.
+    '''
+    def nrR(self, chord):
+        print('Relative transformation.')
+        chord = this.firstInversion(chord)
+        z1 = this.zeroFormFirstInversion(chord)
+        if   z1[1] == 4.0:
+            chord[2] = chord[2] + 2
+        elif z1[1] == 3.0:
+            chord[0] = chord[0] - 2
+        chord = tuple(this.keepInside(chord))
+        return chord
+    '''
+    Perform the dominant neo-Riemannian transformation.
+    '''
+    def nrD(self, chord):
+        print('Dominant transformation.')
+        chord = this.firstInversion(chord)
+        chord[0] = chord[0] - 7
+        chord[1] = chord[1] - 7
+        chord[2] = chord[2] - 7
+        chord = tuple(this.keepInside(chord))
+        return chord
+    def tones(self, chord):
+        c = array(chord, 'd').copy()
+        for i in range(this.N):
+           c[i] = c[i] % this.tonesPerOctave
+        return this.sort(c)
+    def zeroFormModulus(self, chord):
+        c = array(chord, 'd').copy()
+        for i in range(this.N):
+           c[i] = c[i] % this.tonesPerOctave
+        m = min(c)
+        for i in range(this.N):
+            c[i] = c[i] - m
+        return c
+    def zeroForm(self, chord):
+        c = array(chord).copy()
+        m = min(c[:this.N])
+        for i in range(this.N):
+            c[i] = c[i] - m
+        return c
+    def range(self, chord):
+        c = chord[0:this.N]
+        return max(c) - min(c)
+        #c = this.sort(chord).copy()
+        #return c[this.N-1] - c[0]
+    def firstInversion(self, chord):
+        inversions = this.rotations(chord)
+        inversionDistances = {}
+        origin = []
+        for i in range(this.N):
+            origin.append(0.)
+        for inversion in inversions:
+            zi = this.zeroForm(inversion)
+            #z = float(sum(zi)) / float(this.N)
+            d = this.euclidean(zi, origin)
+            if this.debug:
+                print('distance %f zeroform %s inversion %s' % (d, zi, inversion))
+            inversionDistances[d] = inversion
+        return inversionDistances[min(inversionDistances.keys())]
+    def zeroFormFirstInversion(self, chord):
+        return this.zeroForm(this.firstInversion(chord))
+    def equalTones(self, a, b):
+        a = this.tones(a)
+        b = this.tones(b)
+        if a == b:
+            return True
+        else:
+            return False
+    def inversions_(self, tones, iterating_chord, voice, inversions):
+        if voice >= this.N:
+            return
+        if this.isPrism:
+            beginning = -self.getTessitura() * 2
+            end = this.getTessitura() * 2
+        elif this.isCube:
+            beginning = -self.getTessitura()
+            end = this.getTessitura()
+        p = beginning
+        increment = 1.0
+        while p < end:
+            if this.pitchclass(p) == tones[voice]:
+                iterating_chord[voice] = p
+                increment = this.tonesPerOctave
+                si = this.sort(iterating_chord)
+                if this.isInside(si, this.getTessitura()):
+                    ic = tuple(si.tolist())
+                    inversions.add(ic)
+                this.inversions_(tones, iterating_chord, voice + 1, inversions)
+            p = p + increment
+    def inversions(self, chord):
+        inversions = set()
+        tones = this.tones(chord)
+        iterating_chords = this.rotations(tones)
+        for iterating_chord in iterating_chords:
+            voice = 0
+            this.inversions_(tones, iterating_chord, voice, inversions)
+        l = list(inversions)
+        for i in range(len(l)):
+            l[i] = array(l[i])
+        return l
+    def euclidean(self, a, b):
+        ss = 0.0
+        for i in range(this.N):
+            ss += ((a[i] - b[i]) ** 2.0)
+        return math.sqrt(ss)
+    def voiceleading(self, a, b):
+        v = []
+        for i in range(this.N):
+            v.append(b[i] - a[i])
+        return v
+    def areParallel(self, a, b):
+        return CsoundAC.areParallel(a,b)
+##        if this.debug:
+##            v = this.voiceleading(a, b)
+##        for i in range(this.N):
+##            if v.count(v[i]) > 1:
+##                for j in range(this.N):
+##                    if i != j:
+##                        if (math.fabs(a[i] - a[j]) == 7) and (math.fabs(b[i] - b[j]) == 7):
+##                            if this.debug:
+##                                print a, b, v, 'parallel fifth'
+##                            return True
+##        return false
+    def smoothness(self, a, b):
+        L1 = 0.0
+        for i in range(this.N):
+            L1 += math.fabs(b[i] - a[i])
+        return L1
+    def smoother(self, source, destination1, destination2, avoidParallels=False):
+        s1 = this.smoothness(source, destination1)
+        s2 = this.smoothness(source, destination2)
+        if avoidParallels:
+            if this.areParallel(source, destination1):
+                return destination2
+            if this.areParallel(source, destination2):
+                return destination1
+        if s1 <= s2:
+            return destination1
+        else:
+            return destination2
+    def simpler(self, source, destination1, destination2, avoidParallels=False):
+        v1 = this.voiceleading(source, destination1)
+        v1 = sort(v1)
+        v2 = this.voiceleading(source, destination2)
+        v2 = sort(v2)
+        for i in range(this.N - 1, -1, -1):
+            if v1[i] < v2[i]:
+                return destination1
+            if v2[i] < v1[i]:
+                return destination2
+        return destination1
+    def closer(self, source, destination1, destination2, avoidParallels=False):
+        if avoidParallels:
+            if this.areParallel(source, destination1):
+                return destination2
+            if this.areParallel(source, destination2):
+                return destination1
+        s1 = this.smoothness(source, destination1)
+        s2 = this.smoothness(source, destination2)
+        if s1 < s2:
+            return destination1
+        if s1 > s2:
+            return destination2
+        return this.simpler(source, destination1, destination2, avoidParallels)
+    def closest(self, source, destinations, avoidParallels=False):
+        d = destinations[0]
+        for i in range(1, len(destinations)):
+            d = this.closer(source, d, destinations[i], avoidParallels)
+        return d
+    def isFirstInversion(self, chord):
+        return tuple(this.zeroForm(chord)) == tuple(this.zeroFormFirstInversion(chord))
+    def rotate(self, a, n=1):
+        l = a.tolist()
+        for i in range(n):
+            tail = l.pop(this.N - 1)
+            l.insert(0, tail)
+        return array(l, 'd')
+    def invert(self, chord):
+        chord = array(chord)
+        c = chord[1:this.N].tolist()
+        c.append(chord[0] + this.tonesPerOctave)
+        d = chord.copy()
+        d[0:this.N] = c
+        return d
+    def rotations(self, chord):
+        chord = this.tones(chord)
+        rotations = [chord]
+        for i in range(1, this.N):
+            #chord = this.rotate(chord, i)
+            chord = this.invert(chord)
+            rotations.append(chord)
+        return rotations
+    def isInside(self, chord, range):
+        if this.isPrism:
+            return this.isInFundamentalDomain(chord)
+            #return this.isInsidePrism(chord, range)
+        else:
+            return this.isInsideCube(chord, range)
+    def isInsideCube(self, chord, range):
+        for i in range(this.N):
+            if chord[i] < -range/2.0:
+                return False
+            if chord[i] >  range/2.0:
+                return False
+        return True
+    def isInsideNormalPrism(self, chord, range):
+        if not this.isInsidePrism(chord, range):
+            return False
+        if this.isFirstInversion(chord):
+            return True
+        return False
+    def layer(self, chord):
+        return sum(chord[0:this.N])
+    def isInsidePrism(self, chord, range_):
+        if chord[0] < -range_:
+            return False
+        elif chord[0] > range_:
+            return False
+        for i in range(1, this.N):
+            if chord[i] > chord[0] + range_:
+                return False
+            elif chord[i] < chord[0]:
+                return False
+        s = sum(chord[0:this.N])
+        if 0 <= s and s <= range_:
+            return True
+        else:
+            return False
+    def isInFundamentalDomain(self, chord):
+        if this.isInLayer(chord) and this.isInOrder(chord):
+            if this.debug:
+                print('Chord',chord,'in F')
+            return True
+        else:
+            if this.debug:
+                print('Chord',chord,'not in F')
+            return False
+    def isInLayer(self, chord):
+        L = this.layer(chord)
+        if not (0 <= L and L <= this.R):
+            return False
+        return True
+    def isInOrder(self, chord):
+        for i in range(this.N - 1):
+            if not chord[i] <= chord[i + 1]:
+                return False
+        if not chord[this.N - 1] <= (chord[0] + this.R):
+            return False
+        return True
+    def O(self, c):
+        if this.debug:
+            print("O: ",c)###,
+        r = []
+        for i in range(1, this.N):
+            r.append(c[i] - (this.R / this.N))
+        r.append(c[0] + (this.R - (this.R / this.N)))
+        c[0:this.N] = r
+        if this.debug:
+            print(c)
+        return c
+    def bounceInside(self, chord):
+        inversions = this.inversions(chord)
+        if this.debug:
+            print(inversions)
+        for inversion in inversions:
+            if tuple(inversion) in this.trichords:
+                return inversion
+            return None
+    def keepInside(self, chord):
+        if this.isInFundamentalDomain(chord):
+            return chord
+        else:
+            inversions = this.inversions(chord)
+            if this.debug:
+                print(inversions)
+            for inversion in inversions:
+                if this.isInOrder(inversion):
+                    c = list(inversion)
+                    for i in range(this.N):
+                        if this.isInLayer(c):
+                            return array(c)
+                        c = this.O(c)
+            return None
+    def stayInside(self, chord):
+        if this.isInside(chord, this.getTessitura()):
+            return chord
+        chord = this.sort(chord)
+        if this.isPrism:
+            inversions = this.inversions(chord)
+            if this.debug:
+                print('inversions',inversions)
+            distances = {}
+            for inversion in inversions:
+                distances[this.euclidean(chord, inversion)] = inversion
+            c = distances[max(distances.keys())]
+            if this.debug:
+                print('keepInside:', 't =',this.getTessitura(), 'original =',chord, 'inside =',c)
+            return c
+        else:
+            c = array(chord)
+            for i in range(this.N):
+                while c[i] <  -self.getTessitura()/2:
+                    c[i] += this.getTessitura()
+                while c[i] >= this.getTessitura()/2:
+                    c[i] -= this.getTessitura()
+            c = this.sort(c)
+            if this.debug:
+                print(chord,'keeps inside as',c)
+            return c
+    def pitchclasses(self, chord):
+        c = array(chord, 'd').copy()
+        for i in range(this.N):
+            c[i] = this.pitchclass(chord[i])
+        return c
+    def pitchclass(self, pitch):
+        return pitch % this.tonesPerOctave
+    '''
+    Returns the best bijective voice-leading,
+    first by smoothness then by parsimony,
+    optionally avoiding parallel fifths,
+    from a given source chord of pitches
+    to a new chord of pitches
+    that belong to the pitch-class set of a target chord,
+    and lie within a specified range.
+    The algorithm makes an exhaustive search
+    of potential target chords in the space.
+    '''
+    def voicelead(self, a, b, avoidParallels):
+        if this.debug:
+            print('   From:', a)
+            print('     To:', b)
+            print('Through:')
+        invs = this.inversions(b)
+        if this.debug:
+            for inv in invs:
+                print('        ',inv)
+            c = this.closest(a, invs, avoidParallels)
+        if this.debug:
+            print('(%d inversions) is:' % len(invs))
+            print('        ', c)
+            print('Leading:', this.voiceleading(a,c))
+        return c
+    def label(self, chord):
+        c = array(chord[0:this.N])
+        return 'C   %s\nT   %s\n0   %s\n1   %s\n0-1 %s\nSum %f' % (c, this.tones(c), this.zeroForm(c), this.firstInversion(c), this.zeroFormFirstInversion(chord), sum(chord[0:this.N]))
+
+class ChordSpace3Model(ChordSpace3):
+    def __init__(self, octaveCount=1, tonesPerOctave=12, isCube=False, isPrism=True, isNormalPrism=False, doCycle=False, showFirstInversion=False, doConnect=False, enableCsound=False, debug=False, showUnordered=False):
+        ChordSpace3.__init__(self, 3, octaveCount=octaveCount, tonesPerOctave=tonesPerOctave, isCube=isCube, isPrism=isPrism, isNormalPrism=isNormalPrism, debug=debug)
+        this.trichords = {}
+        this.balls = {}
+        this.ballsForChordTypes = {}
+        this.doConnect = doConnect
+        this.doCycle = doCycle
+        this.showUnordered = showUnordered
+        this.showFirstInversion = showFirstInversion
+        this.firstInversions = []
+        this.enableCsound = enableCsound
+        if this.enableCsound:
+            this.csound = ctcsound.Csound()
+        if this.isCube:
+            for x in range(-self.cubeTessitura/2, this.cubeTessitura/2):
+                for y in range(-self.cubeTessitura/2, this.cubeTessitura/2):
+                    for z in range(-self.cubeTessitura/2, this.cubeTessitura/2):
+                        trichord = vector(x,y,z)
+                        radius = 0.125
+                        if trichord not in this.trichords:
+                            this.trichords[trichord] = trichord
+                            ball = sphere(pos = trichord, radius = this.cubeRadius)
+                            ball.trichord = trichord
+                            this.balls[ball.trichord] = ball
+                            this.setColor(ball)
+                            ball.name = this.label(trichord)
+                            ball.label = label(pos = trichord, text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.9,0.5,0.9), visible = 0, line = 2, xoffset = 20, yoffset = 20)
+        if this.isPrism or this.isNormalPrism:
+            for x in range(-self.R, this.R+1):
+                for y in range(x, x + this.R+1):
+                    for z in range(x, x + this.R+1):
+                        ###trichord = vector((x,y,z), 'd')
+                        trichord = vector(x,y,z)
+                        trichord = tuple(this.sort(trichord))
+                        if this.isPrism and this.isInsidePrism(trichord, this.R):
+                            if trichord not in this.trichords:
+                                this.trichords[trichord] = trichord
+                                tones = tuple(this.tones(trichord))
+                                ball = sphere(pos = trichord, radius = this.prismRadius)
+                                ball.trichord = trichord
+                                this.balls[ball.trichord] = ball
+                                this.setColor(ball)
+                                ball.name = this.label(trichord)
+                                ball.label = label(pos = trichord, text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.9,0.5,0.9), visible = 0, line = 2, xoffset = 20, yoffset = 20)
+                            else:
+                                this.balls[trichord].radius = this.prismRadius
+                        if this.isNormalPrism and this.isInsideNormalPrism(trichord, this.R):
+                            if trichord not in this.trichords:
+                                this.trichords[trichord] = trichord
+                                tones = tuple(this.tones(trichord))
+                                ball = sphere(pos = trichord, radius = this.normalPrismRadius)
+                                ball.trichord = trichord
+                                this.balls[ball.trichord] = ball
+                                this.setColor(ball)
+                                ball.name = this.label(trichord)
+                                ball.label = label(pos = trichord,  text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.5,0.5,0.5), visible = 0, line = 2, xoffset = -20, yoffset = 20)
+
+                            else:
+                                this.balls[trichord].radius = this.normalPrismRadius
+        if this.doConnect:
+            for trichord in this.trichords.values():
+                this.connect(trichord, this.sort((trichord[0] + 1.0, trichord[1], trichord[2])))
+                this.connect(trichord, this.sort((trichord[0], trichord[1] + 1.0, trichord[2])))
+                this.connect(trichord, this.sort((trichord[0], trichord[1], trichord[2] + 1.0)))
+                this.connect(trichord, this.sort((trichord[0] - 1.0, trichord[1], trichord[2])))
+                this.connect(trichord, this.sort((trichord[0], trichord[1] - 1.0, trichord[2])))
+                this.connect(trichord, this.sort((trichord[0], trichord[1], trichord[2] - 1.0)))
+    def setColor(self, ball):
+        z = tuple(this.zeroFormFirstInversion(ball.trichord))
+        if z in this.ballsForChordTypes:
+            ball.color = this.ballsForChordTypes[z].color
+        else:
+            # Color major triads red.
+            if   z == (0, 4, 7):
+                ball.color = (1.0,0.0,0.0)
+            # Color augmented triads white.
+            elif z == (0, 4, 8):
+                ball.color = (1.0,1.0,1.0)
+            # Color minor triads blue.
+            elif z == (0, 3, 7):
+                ball.color = (0.67,0.67,1.0)
+            else:
+                hue = (z[0] + z[1] * 2.0 + z[2]) / 44.0
+                saturation = 1.0
+                value = 1.0
+                ball.color = color.hsv_to_rgb((hue, saturation, value))
+    def showAsFirstInversion(self, trichord):
+        if not this.showFirstInversion:
+            return False
+        elif this.isFirstInversion(trichord):
+            return True
+        else:
+            return False
+    def connect(self, origin, neighbor):
+        o = tuple(origin)
+        n = tuple(neighbor)
+        if n in this.trichords:
+            curve(pos = [o, n], color = (0.65, 0.65, 0.65), radius = 0.020)
+    def runGrab(self, filename, bbox=None):
+        while scene.visible:
+            if scene.mouse.clicked:
+                print('CURRENT POINT:')
+                print('center =',scene.center)
+                print('forward =',scene.forward)
+                print('up =',scene.up)
+                print('scale =',scene.scale)
+                print('fov = ',scene.fov)
+                print
+                try:
+                    if bbox:
+                        pass #image = ImageGrab.grab(bbox)
+                    else:
+                        pass #image = ImageGrab.grab()
+                    #image = ImageOps.grayscale(image)
+                    #image.save(filename)
+                    #print 'Captured screen shot in "%s".' % (filename)
+                except:
+                    traceback.print_exc()
+                scene.mouse.events = 0
+    def playBall(self, pickedBall):
+        pickedBall.label.visible = 1
+        print(pickedBall.name)
+        note1 = "i 1 0 4 %d 70 0 -.75" % (60 + pickedBall.pos[0])
+        note2 = "i 2 0 4 %d 70 0  .0"  % (60 + pickedBall.pos[1])
+        note3 = "i 3 0 4 %d 70 0  .75" % (60 + pickedBall.pos[2])
+        print('%s\n%s\n%s' % (note1, note2, note3))
+        if this.enableCsound:
+            this.csound.inputMessage(note1)
+            this.csound.inputMessage(note2)
+            this.csound.inputMessage(note3)
+        print
+
+    def run(self):
+        pickedBall = None
+        oldBall = None
+        movingChord = ( 0, 4, 7)
+        translation = (1,1,1)
+        while scene.visible:
+            rate(100)
+            movingChord = tuple(this.sort(movingChord))
+            if scene.kb.keys:
+                k = scene.kb.getkey()
+                print('key: %s' % k)
+                if   k == 'up':
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.move(movingChord, 0,  1.0)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k == 'right':
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.move(movingChord, 1,  1.0)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k == 'down':
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.move(movingChord, 2,  1.0)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k == 'shift+up':
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.move(movingChord, 0, -1.0)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k == 'shift+right':
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.move(movingChord, 1, -1.0)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k == 'shift+down':
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.move(movingChord, 2, -1.0)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                if k in ('p', 'P'):
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.nrP(movingChord)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k in ('l', 'L'):
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.nrL(movingChord)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k in ('r', 'R'):
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.nrR(movingChord)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k in ('d', 'D'):
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    movingChord = this.nrD(movingChord)
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k in ('1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b'):
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 0
+                    if k == 'a':
+                        k = 10
+                    if k == 'b':
+                        k = 11
+                    movingChord = this.pT(movingChord, float(k))
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible = 1
+                    this.playBall(movingBall)
+                    oldBall = movingBall
+                elif k == 'g':
+                    this.runGrab("orbifold.png")
+                elif k in ('x', 'X', 'q', 'Q'):
+                    sys.exit()
+            if scene.mouse.clicked:
+                try:
+                    m = scene.mouse.getclick()
+                    if oldBall:
+                        oldBall.label.visible = 0
+                    if pickedBall:
+                        pickedBall.label.visible = 0
+                    oldBall = pickedBall
+                    pickedBall = m.pick
+                    if pickedBall:
+                        movingBall = pickedBall
+                        movingChord = tuple(movingBall.pos)
+                        this.playBall(pickedBall)
+                except:
+                    traceback.print_exc()
+                    print(this.label(movingChord))
+                scene.mouse.events = 0
+            elif this.doCycle:
+                try:
+                    movingBall = this.balls[movingChord]
+                    movingBall.label.visible=1
+                    print(movingBall.name)
+                    time.sleep(2)
+                    movingBall.label.visible=0
+                    a = (movingChord[0], movingChord[1], movingChord[2])
+                    print('Old chord',a)
+                    movingChord = (movingChord[0] + translation[0], movingChord[1] + translation[1], movingChord[2] + translation[2])
+                    print('New chord',movingChord)
+                    #movingChord = this.voiceLead(a, b, True)
+                    movingChord = tuple(this.keepInside(movingChord))
+                    this.playBall(movingChord)
+                except:
+                    traceback.print_exc()
+                    print(this.label(movingChord))
+                    return
+        print("Finished.")
+
+def runModel(model):
+    began = time.clock()
+    scene.background = (1,1,1)
+    scene.background = (0,0,0)
+    scene.autocenter = 1
+    sort(model.firstInversions)
+    if model.enableCsound:
+        model.csound.setOrchestra('''
+sr                              =                       44100
+ksmps                           =                       100
+nchnls                          =                       2
+
+                                connect                 "FenderRhodesModel",    "out", "Reverberation", "in"
+                                connect                 "FMWaterBell",          "out", "Reverberation", "in"
+                                connect                 "Xing",                 "out", "Reverberation", "in"
+                                connect                 "Reverberation",        "out", "MasterOutput", "in"
+
+                                alwayson                "Reverberation"
+                                alwayson                "MasterOutput"
+
+gkFenderRhodesModelGain         init                    0
+gkFenderRhodesModelGainCorrection init                  60
+                                instr                   FenderRhodesModel
+                                //////////////////////////////////////////////////////
+                                // Original by Perry Cook.
+                                // Adapted by Michael Gogins.
+                                //////////////////////////////////////////////////////
+i_instrument                    =                       p1
+i_time                          =                       p2
+i_duration                      =                       p3
+i_midikey                       =                       p4
+i_midivelocity                  =                       p5
+i_phase                         =                       p6
+i_pan                           =                       p7
+i_depth                         =                       p8
+i_height                        =                       p9
+i_pitchclassset                 =                       p10
+i_homogeneity                   =                       p11
+iattack                         =                       0.01
+isustain                        =                       p3
+irelease                        =                       0.125
+p3                              =                       isustain + iattack + irelease
+adeclick                        linsegr                 0.0, iattack, 1.0, isustain, 1.0, irelease, 0.0
+iindex                          =                       4    this.fundamental_domain = fundamental_domain_;
+    this.canvas = canvas_;
+    ///this.score.findScale();
+    this.channel_minimum = this.score.getScaleActualMinima().getChannel();
+    this.channel_range = this.score.getScaleActualRanges().getChannel();
+    this.channel_maximum = this.channel_minimum + this.channel_range;
+    this.key_minimum = this.score.getScaleActualMinima().getKey();
+    this.key_range = this.score.getScaleActualRanges().getKey();
+    this.key_maximum = this.key_minimum + this.key_range;
+    this.velocity_minimum = this.score.getScaleActualMinima().getVelocity();
+    this.velocity_range = this.score.getScaleActualRanges().getVelocity();
+    this.prepareScene3D(canvas_, score_);
+    // Plot the notes.
+    let n = this.score.size();
+    for (var i = 0; i < n; i++) {
+        let event = this.score.get(i);
+        this.plotNote3D(event);
+    }
+    this.plotGrid3D();
+    this.lookAtFullScene3D();
+    return canvas;
+
+icrossfade                      =                       3
+ivibedepth                      =                       0.2
+iviberate                       =                       6
+isine                           ftgenonce               0, 0, 65536,    10,     1
+icosine                         ftgenonce               0, 0, 65536,    11,     1
+icookblank                      ftgenonce               0, 0, 65536,     10,     0 ; Blank wavetable for some Cook FM opcodes.
+ifn1                            =                       isine
+ifn2                            =                       icosine
+ifn3                            =                       isine
+ifn4                            =                       icookblank
+ivibefn                         =                       isine
+ifrequency                      =                       cpsmidinn(i_midikey)
+asignal                         fmrhode                 1, ifrequency, iindex, icrossfade, ivibedepth, iviberate, ifn1, ifn2, ifn3, ifn4, ivibefn
+kdbgain                         =                       gkFenderRhodesModelGainCorrection + (gkFenderRhodesModelGain - 0.5) * 100.0
+kiamplitude                     =                       ampdb(i_midivelocity) * pow(10, kdbgain / 20)
+aoutleft, aoutright		        pan2			        asignal * adeclick * kiamplitude, i_pan
+aout[]                          init                    2
+aout[0]                         =                       aoutleft
+aout[1]                         =                       aoutright
+                                outletv                 "out",  aout
+                                endin
+
+gkFMWaterBellGain               init                    0.0
+gkFMWaterBellGainCorrection     init                    50.0
+                                instr                   FMWaterBell
+                                //////////////////////////////////////////////
+                                // Original by Steven Yi.
+                                // Adapted by Michael Gogins.
+                                //////////////////////////////////////////////
+i_instrument                    =                       p1
+i_time                          =                       p2
+i_duration                      =                       p3
+i_midikey                       =                       p4
+i_midivelocity                  =                       p5
+i_phase                         =                       p6
+i_pan                           =                       p7
+i_depth                         =                       p8
+i_height                        =                       p9
+i_pitchclassset                 =                       p10
+i_homogeneity                   =                       p11
+ipch                            =                       cpsmidinn(i_midikey)
+iamplitude                      =                       ampdb(i_midivelocity)
+ipch2                           =                       ipch
+kpchline 	                    line                    ipch, i_duration, ipch2
+iamp 	                        =                       2
+ienvType	                    =                       2
+kenv 	                        init 	                0
+                                if ienvType == 0 kgoto env0  ; adsr
+                                if ienvType == 1 kgoto env1  ; pyramid
+                                if ienvType == 2 kgoto env2  ; ramp
+env0:
+kenv	                        adsr	                .3, .2, .9, .5
+                                kgoto                   endEnvelope
+env1:
+kenv 	                        linseg	                0, i_duration * .5, 1, i_duration * .5, 0
+                                kgoto                   endEnvelope
+env2:
+kenv	                        linseg 	                0, i_duration - .1, 1, .1, 0
+kgoto                           endEnvelope
+endEnvelope:
+kc1                             =                       5
+kc2                             =                       5
+kvdepth                         =                       0.005
+kvrate                          =                       6
+icosine                  	    ftgenonce               0, 0, 65536, 11, 1
+ifn1                            =                       icosine
+ifn2                            =                       icosine
+ifn3                            =                       icosine
+ifn4                            =                       icosine
+ivfn                            =                       icosine
+asignal                         fmbell	                iamp, kpchline, kc1, kc2, kvdepth, kvrate, ifn1, ifn2, ifn3, ifn4, ivfn
+iattack                         =                       0.003
+isustain                        =                       p3
+irelease                        =                       0.06
+p3                              =                       isustain + iattack + irelease
+adeclick                        linsegr                 0.0, iattack, 1.0, isustain, 1.0, irelease, 0.0
+kdbgain                         =                       gkFMWaterBellGainCorrection + (gkFMWaterBellGain - 0.5) * 100.0
+kiamplitude                     =                       ampdb(i_midivelocity) * pow(10, kdbgain / 20)
+aoutleft, aoutright		        pan2			        asignal * adeclick * kiamplitude, i_pan
+aout[] init 2
+aout[0] = aoutleft
+aout[1] = aoutright
+                                outletv                 "out",  aout
+                                endin
+
+gkXingGain                      init                    0.0
+gkXingGainCorrection            init                    60.0
+                                instr                   Xing
+                                //////////////////////////////////////////////
+                                // Original by Andrew Horner.
+                                // Adapted by Michael Gogins.
+                                // p4 pitch in octave.pch
+                                // original pitch        = A6
+                                // range                 = C6 - C7
+                                // extended range        = F4 - C7
+                                //////////////////////////////////////////////
+insno           		        =                       p1
+itime           		        =                       p2
+iduration       		        =                       p3
+ikey            		        =                       p4
+ivelocity                       =                       p5
+iphase                          =                       p6
+ipan                            =                       p7
+idepth                          =                       p8
+iheight                         =                       p9
+ipcs                            =                       p10
+ihomogeneity                    =                       p11
+kgain			    	        =                       1.25
+iHz                             =                       cpsmidinn(ikey)
+kHz                             =                       k(iHz)
+iattack                         =                       (440.0 / iHz) * 0.01
+                                print                   iHz, iattack
+isustain                        =                       p3
+irelease                        =                       .3
+p3                              =                       iattack + isustain + irelease
+iduration                       =                       p3
+iamplitude                      =                       ampdb(ivelocity).
+isine                           ftgenonce               0, 0, 65536,    10,     1
+kfreq                           =                       cpsmidinn(ikey)
+iamp                            =                       1
+inorm                           =                       32310
+aamp1                           linseg                  0,.001,5200,.001,800,.001,3000,.0025,1100,.002,2800,.0015,1500,.001,2100,.011,1600,.03,1400,.95,700,1,320,1,180,1,90,1,40,1,20,1,12,1,6,1,3,1,0,1,0
+adevamp1                        linseg                  0, .05, .3, iduration - .05, 0
+adev1                           poscil                  adevamp1, 6.7, isine, .8
+amp1                            =                       aamp1 * (1 + adev1)
+aamp2                           linseg                  0,.0009,22000,.0005,7300,.0009,11000,.0004,5500,.0006,15000,.0004,5500,.0008,2200,.055,7300,.02,8500,.38,5000,.5,300,.5,73,.5,5.,5,0,1,1
+adevamp2                        linseg                  0,.12,.5,iduration-.12,0
+adev2                           poscil                  adevamp2, 10.5, isine, 0
+amp2                            =                       aamp2 * (1 + adev2)
+aamp3                           linseg                  0,.001,3000,.001,1000,.0017,12000,.0013,3700,.001,12500,.0018,3000,.0012,1200,.001,1400,.0017,6000,.0023,200,.001,3000,.001,1200,.0015,8000,.001,1800,.0015,6000,.08,1200,.2,200,.2,40,.2,10,.4,0,1,0
+adevamp3                        linseg                  0, .02, .8, iduration - .02, 0
+adev3                           poscil                  adevamp3, 70, isine ,0
+amp3                            =                       aamp3 * (1 + adev3)
+awt1                            poscil                  amp1, kfreq, isine
+awt2                            poscil                  amp2, 2.7 * kfreq, isine
+awt3                            poscil                  amp3, 4.95 * kfreq, isine
+asig                            =                       awt1 + awt2 + awt3
+arel                            linenr                  1,0, iduration, .06
+; asignal                         =                       asig * arel * (iamp / inorm) * iamplitude * kgain
+asignal                         =                       asig * (iamp / inorm) * kgain
+adeclick                        linsegr                 0, iattack, 1, isustain, 1, irelease, 0
+kdbgain                         =                       gkXingGainCorrection + (gkXingGain - 0.5) * 100.0
+kiamplitude                     =                       ampdb(ivelocity) * pow(10, kdbgain / 20)
+aoutleft, aoutright		        pan2			        asignal * adeclick * kiamplitude, ipan
+aout[] init 2
+aout[0] = aoutleft
+aout[1] = aoutright
+                                outletv                 "out",  aout
+                                endin
+
+
+gkReverberationEnabled          init                    1
+gkReverberationDelay            init                    0.4
+gkReverberationWet          	init                    0.25
+                                instr                   Reverberation
+                                //////////////////////////////////////////////
+                                // By Michael Gogins.
+                                //////////////////////////////////////////////
+ain[]                           init 2
+ain                             inletv                  "in"
+ainleft                         =                       ain[0]
+ainright                        =                       ain[1]
+if (gkReverberationEnabled == 1) then
+aoutleft                        =                       ainleft
+aoutright                       =                       ainright
+kdry				            =			            1.0 - gkReverberationWet
+else
+awetleft, awetright             reverbsc                ainleft, ainright, gkReverberationDelay, 18000.0
+aoutleft			            =			            ainleft *  kdry + awetleft  * gkReverberationWet
+aoutright			            =			            ainright * kdry + awetright * gkReverberationWet
+endif
+aout[]                          init                    2
+aout[0]                         =                       aoutleft
+aout[1]                         =                       aoutright
+                                outletv                 "out", aout
+                                endin
+
+gkMasterLevel                   init                    1.0
+                                instr                   MasterOutput
+                                //////////////////////////////////////////////
+                                // By Michael Gogins.
+                                //////////////////////////////////////////////
+ain[]                           init 2
+ain                             inletv                  "in"
+ain[0]                          =                       gkMasterLevel * ain[0]
+ain[1]                          =                       gkMasterLevel * ain[1]
+                                out                     ain
+                                endin
+
+            ''')
+        model.csound.setScore('''
+            f1 0 8192 10 1
+            f0 6000
+            e
+            ''')
+        model.csound.setCommand('csound -h -d -r 48000 -k 1000 -m227 -b1000 -B1000 -odac')
+        #gc.disable()
+        model.csound.compile()
+        performanceThread = csnd6.CsoundPerformanceThread(model.csound)
+        performanceThread.Play()
+    fg = (1,1,1)
+    arrowcolor = (0.7,0.7,0.7)
+    size = model.getTessitura() * 1.125
+    shaftwidth = model.cubeRadius * 1.0
+    arrow(pos = (0,0,0), axis=(size/3,0,0), fixedwidth=1, shaftwidth=shaftwidth, color = arrowcolor)
+    label(pos = (size/3,0,0), text = 'Voice 1', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset =  5, yoffset =  5, zoffset = 5)
+    arrow(pos = (0,0,0), axis=(0,size/1.5,0), fixedwidth=1, shaftwidth=shaftwidth, color = arrowcolor)
+    label(pos = (0,size/1.5,0), text = 'Voice 2', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset =   5, yoffset = 5, zoffset = 5)
+    arrow(pos = (0,0,0), axis=(0,0,size), fixedwidth=1, shaftwidth=shaftwidth, color = arrowcolor)
+    label(pos = (0,0,size), text = 'Voice 3', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 10, xoffset = 5, yoffset = 5, zoffset = 5)
+    arrow(pos = (0,0,0), axis=(size/2.5,size/2.5,size/2.5), fixedwidth=1, shaftwidth=shaftwidth, color=arrowcolor)
+    label(pos = (size/2.5,size/2.5,size/2.5), text = 'Orthogonal axis', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset = 5, yoffset = 5, zoffset = 5)
+    ended = time.clock()
+    elapsed = ended - began
+    print('elapsed: %f' % (elapsed))
+    model.run()
+    print('Visual finished.')
+    if model.enableCsound:
+        performanceThread.Stop()
+        print('Csound finished.')
+
+
+if __name__ == '__main__':
+    #scene.fullscreen = False
+    #scene.width = 300 * 7
+    #scene.height = 300 * 5
+    # ChordSpace3 for trichords
+    model = ChordSpace3Model(octaveCount=1, doCycle=False, doConnect=True, isPrism=True, enableCsound=True)
+    # Ranged chord space
+    #model = ChordSpace3Model(octaveCount=2, doCycle=False, doConnect=False, isCube=True, isPrism=False)
+    # ChordSpace3 in ranged chord space
+    #model = ChordSpace3Model(octaveCount=1, doCycle=True, doConnect=False, isPrism=True, isCube=True)
+    # Voice-leading space
+    #model = ChordSpace3Model(octaveCount=3, doCycle=True, doConnect=False, isPrism=True, isNormalPrism=False)
+    # Normal chord space
+    #model = ChordSpace3Model(octaveCount=3, doCycle=False, doConnect=False, isPrism=False, isNormalPrism=True)
+    # Normal chord space in voice-leading space
+    #model = ChordSpace3Model(octaveCount=3, doCycle=False, doConnect=False, isPrism=True, isNormalPrism=True)
+    runModel(model)
+    print('Program finished.')
+-->
