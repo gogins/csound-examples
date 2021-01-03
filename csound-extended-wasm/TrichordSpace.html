@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Parachronic</title>
+<title>Chord Space for Trichords</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="CsoundAudioNode.js"></script>
@@ -13,12 +13,40 @@
 <script src="js/TrackballControls.js"></script>
 <script src="js/tinycolor.js"></script>
 <script src="js/dat.gui.js"></script>
-<script src="piano-roll.js"></script>
 </head>
-<body class="w3-container w3-black">
-<div class="w3-row-padding">
-<div class="w3-half">
-<textarea id="csd" class="w3-code" style="width:100%;height:25vh;box-sizing:border-box;background-color:MidnightBlue;color:NavajoWhite;">
+<body style="background:black;">
+<div id="container" class="w3-cell-row" style="color:white;background-color:transparent;disabled:true;">
+<div id="help" class="w3-container w3-cell" style="width:50vw;height:25vh;background-color:transparent;disabled:true;">
+<h1>Chord Space for Trichords</h1>
+<h3>Michael Gogins<br>3 January 2020</h3>
+<p>This program displays an animated, interactive, 3-dimensional model of 
+a chord space for all three-voice chords in 12-tone equal temperament. A chord 
+space is a space that has one dimension for each voice of a chord; thus, the 
+chord space for trichords has 3 dimensions. In addition, various equivalence 
+classes divide this space into quotient spaces or orbifolds, such that e.g. 
+octave equivalence produces a cube, permutational equivalence produces a 
+prism, transpositional equivalence produces a flat layer, and inversional 
+equivalence produces a reflection that folds half of the space over itself. 
+The default space at startup is OP, that is, the combination of octave 
+equivalence and permutational equivalence. See: Callendar, Quinn,
+and Tymoczko, "Generalized Voice-Leading Spaces," <b><i>Science</i> 320</b>, 2008.</p>
+<p>In OP, the augmented triads form a central column of white chords. It is 
+surrounded by 3 columns of major triads colored red, and 3 columns of minor 
+triads colored blue; each column corresponds to a different voicing of the 
+triad. Neighboring chords are connected by 1-semitone voice-leadings, shown as 
+green line segments.<p>
+<p>Clicking on a chord selects it and prints information about it in the text 
+area on the left side. Dragging the mouse or using the mouse 
+wheel changes the orientation or distance of the model.<p>
+<p>The following commands are available from the menu or by key combinations:
+</p>
+</div>
+<textarea id="console" class="w3-container w3-cell" class="w3-code" style="width:50vw;height:25vh;background-color:transparent;color:LawnGreen;font-family:Courier,sans-serif;font-size:9pt;">
+</textarea>
+</div>
+<canvas id="canvas"style="background:transparent;width:100vw;height:75vh;">
+</canvas>
+<textarea id="csd" class="w3-code" hidden="true" style="width:100%;height:25vh;box-sizing:border-box;background-color:MidnightBlue;color:NavajoWhite;">
 <CsoundSynthesizer>
 <CsOptions>
 -d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
@@ -685,14 +713,6 @@ i "exitnow" [5 * 60 + 10 ] .1
 </CsoundSynthesizer>
 </textarea>
 </div>
-<div class="w3-half">
-<textarea id="console" rows=100 cols=100 class="w3-code" style="width:100%;height:25vh;box-sizing:border-box;background-color:DarkSlateGrey;color:LawnGreen;">
-</textarea>
-</div>
-<div class="w3-row-padding">
-<canvas id="canvas" class="w3-col" style="background:black;width:100%;height:70vh;box-sizing:border-box;">
-</canvas>
-</div>
 <script>
 try {
     var fs = require("fs");
@@ -719,7 +739,7 @@ var draw_fundamental_domain = function(value) {
         var fundamental_domain = new FundamentalDomain("RPTgI", 12.);
     }
     var fundamental_domain_view = new FundamentalDomainView(fundamental_domain);
-    fundamental_domain_view.draw3D(canvas);
+    fundamental_domain_view.draw3D(document.getElementById("canvas"));
     fundamental_domain_view.lookAtFullScene3D();
 };
 
@@ -843,22 +863,36 @@ class FundamentalDomain {
             csound_message_callback(sprintf("[%3d]: %s\n", i, this.chords[i].toString()));
         }
     }
+    contains(a) {
+        let n = this.chords.size();
+        for (let i = 0; i < n; i++) {
+            let b = this.chords.get(i);
+            if (a.equals(b)) {
+                return true;
+            }
+        }
+        return false;
+    }
 };
 
 const pickPosition = {x: 0, y: 0};
 
 function getCanvasRelativePosition(event) {
-  const rect = canvas.getBoundingClientRect();
-  return {
-    x: (event.clientX - rect.left) * canvas.width  / rect.width,
-    y: (event.clientY - rect.top ) * canvas.height / rect.height,
-  };
+    const rect = canvas.getBoundingClientRect();
+    return {
+        x: (event.clientX - rect.left) * canvas.width  / rect.width,
+        y: (event.clientY - rect.top ) * canvas.height / rect.height,
+    };
 }
  
 function setPickPosition(event) {
-  const pos = getCanvasRelativePosition(event);
-  pickPosition.x = (pos.x / canvas.width ) *  2 - 1;
-  pickPosition.y = (pos.y / canvas.height) * -2 + 1;  // note we flip Y
+    try {
+        const pos = getCanvasRelativePosition(event);
+        pickPosition.x = (pos.x / canvas.width ) *  2 - 1;
+        pickPosition.y = (pos.y / canvas.height) * -2 + 1;  // note we flip Y
+    } catch(x) {
+        csound_message_callback(x);
+    }
 }
  
 function clearPickPosition() {
@@ -873,36 +907,38 @@ function clearPickPosition() {
 clearPickPosition();
 
 class PickHelper {
-  constructor() {
-    this.raycaster = new THREE.Raycaster();
-    this.pickedObject = null;
-    this.pickedObjectSavedColor = 0;
-  }
-  pick(normalizedPosition, scene, camera, time) {
-    try {
-    // restore the color if there is a picked object
-    if (this.pickedObject) {
-      this.pickedObject.material.emissive.setHex(this.pickedObjectSavedColor);
-      this.pickedObject = null;
+    constructor() {
+        this.raycaster = new THREE.Raycaster();
+        this.pickedObject = null;
+        this.pickedObjectSavedColor = 0;
     }
-    // cast a ray through the frustum
-    this.raycaster.setFromCamera(normalizedPosition, camera);
-    // get the list of objects the ray intersected
-    const intersectedObjects = this.raycaster.intersectObjects(scene.children);
-    if (intersectedObjects.length) {
-      // pick the first object. It's the closest one
-      this.pickedObject = intersectedObjects[0].object;
-      // save its color
-      this.pickedObjectSavedColor = this.pickedObject.material.emissive.getHex();
-      // set its emissive color to flashing red/yellow
-      this.pickedObject.material.emissive.setHex(0xff99ff);
+    pick(normalizedPosition, scene, camera, time) {
+        try {
+            // cast a ray through the frustum
+            this.raycaster.setFromCamera(normalizedPosition, camera);
+            // get the list of objects the ray intersected
+            const intersectedObjects = this.raycaster.intersectObjects(scene.children);
+            if (intersectedObjects.length) {
+                // pick the first object. It's the closest one
+                let picked_ = intersectedObjects[0].object;
+                // We are only interested in chords.
+                if (picked_.userData !== null) {
+                    // restore the color if there is a picked object
+                    if (this.pickedObject !== null) {
+                        this.pickedObject.material.emissive.setHex(this.pickedObjectSavedColor);
+                    }
+                    this.pickedObject = picked_;
+                    // save its color
+                    this.pickedObjectSavedColor = this.pickedObject.material.emissive.getHex();
+                    this.pickedObject.material.emissive.setHex(0xff99ff);
+                }
+            }
+            return this.pickedObject;
+        } catch(x) {
+            csound_message_callback(x);
+            return null;
+        }
     }
-    return this.pickedObject;
-    } catch(x) {
-        csound_message_callback(x);
-        return null;
-    }
-  }
 }
 
 class FundamentalDomainView {
@@ -934,7 +970,7 @@ class FundamentalDomainView {
     }
     on_picked_chord(new_chord) {
         this.renderer.render(this.scene, this.camera);
-        csound_message_callback("Picked chord: " + new_chord.toString() + "\n");
+        csound_message_callback("Picked chord: " + new_chord.information() + "\n");
         this.prior_chord = this.current_chord;
         this.current_chord = new_chord;
         this.play_chord();
@@ -955,7 +991,7 @@ class FundamentalDomainView {
         renderer.setViewport(0, 0, canvas.clientWidth, canvas.clientHeight);
         renderer.setPixelRatio(canvas.devicePixelRatio);
         // Wire up the view controls to the camera.
-        this.camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 1, 10000);
+        this.camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 1, 100000);
         let camera = this.camera;
         this.controls = new THREE.TrackballControls(camera, renderer.domElement);
         let controls = this.controls;
@@ -984,12 +1020,11 @@ class FundamentalDomainView {
         });
         // Ensure that all sides are lighted.
         let light = new THREE.DirectionalLight(0xffffff, 3);
-        light.position.set(-1, -1, -11).normalize();
+        light.position.set(-1, -2, 11).normalize();
         this.scene.add(light);
-        let light2 = new THREE.AmbientLight(0xffffff, 2);
-        light2.position.set(1, 1, 1).normalize();
+        let light2 = new THREE.DirectionalLight(0xffffff, 2);
+        light2.position.set(2, 1, -22).normalize();
         this.scene.add(light2);
-        //this.camera.add(light2);
         var onResize = function() {
             canvas.width = canvas.clientWidth;
             canvas.height = canvas.clientHeight;
@@ -1004,11 +1039,11 @@ class FundamentalDomainView {
     lookAtFront3D() {
         let bounding_box = new THREE.Box3().setFromObject(this.scene);
         this.camera.lookAt(bounding_box.getCenter());
-        this.camera.fov = 2 * Math.atan((bounding_box.getSize().y / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().z)) * (180 / Math.PI);
+        this.camera.fov = 4 * Math.atan((bounding_box.getSize().y / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().z)) * (180 / Math.PI);
         this.camera.position.copy(bounding_box.getCenter());
-        this.camera.position.x = 4.125 * Math.max(bounding_box.getSize().x, bounding_box.getSize().y);
-        this.camera.position.y = this.camera.position.x * 4;
-        this.camera.position.z = this.camera.position.x * 14;
+        this.camera.position.x = 8.125 * Math.max(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.y = this.camera.position.x * 14;
+        this.camera.position.z = this.camera.position.x * 24;
         this.controls.target.copy(bounding_box.getCenter());
         this.controls.update();
         this.camera.updateProjectionMatrix();
@@ -1027,11 +1062,11 @@ class FundamentalDomainView {
         if (normal_form.equals(this.augmented)) {
             hue = 0.;
             saturation = 0.;
-            value = 1.;
+            value = .75;
         } else if (normal_form.equals(this.major)) {
             hue = 0.;
             saturation = 1.;
-            value =1.;
+            value = 1.;
         } else if (normal_form.equals(this.minor)) {
             hue = 240./360.;
             saturation = 1.;
@@ -1042,8 +1077,8 @@ class FundamentalDomainView {
             value = .2;
         }
         let color_ = tinycolor.fromRatio({h: hue, s: saturation, v: value}).toHexString();
-        let emissive_ = tinycolor.fromRatio({h: hue, s: saturation, v: value / 3}).toHexString();
-        let specular_ = tinycolor.fromRatio({h: hue, s: saturation / 2, v: value / 3}).toHexString();
+        let emissive_ = tinycolor.fromRatio({h: hue, s: saturation, v: value / 3.}).toHexString();
+        let specular_ = tinycolor.fromRatio({h: hue, s: saturation / 2, v: value / 3.}).toHexString();
         let geometry = new THREE.SphereGeometry(0.125, 12, 12);
         let material = new THREE.MeshPhongMaterial( {specular: specular_, 
         color: color_, emissive: emissive_, side: THREE.DoubleSide} );        
@@ -1060,26 +1095,50 @@ class FundamentalDomainView {
         this.camera.lookAt(bounding_box.getCenter());
         this.camera.fov = 2 * Math.atan((bounding_box.getSize().x / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().y)) * (180 / Math.PI);
         this.camera.position.copy(bounding_box.getCenter());
-        this.camera.position.z = 4.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
-        this.camera.position.y = this.camera.position.x * 4;
-        this.camera.position.z = this.camera.position.x * 14;
+        this.camera.position.z = 8.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.y = this.camera.position.x * 9;
+        this.camera.position.z = this.camera.position.x * 18;
         this.controls.target.copy(bounding_box.getCenter());
         this.controls.update();
         this.camera.updateProjectionMatrix();
         this.renderer.render(this.scene, this.camera);
     }
     drawAxes() {
-        let range = this.fundamental_domain.range;
-        const material = new THREE.LineBasicMaterial( { color: "green", linewidth: 5 } );    
+        let range = this.fundamental_domain.range * 1.125;
+        const material = new THREE.LineBasicMaterial( { color: "yellow", linewidth: 5 } );    
         const geometry = new THREE.Geometry();
         geometry.vertices.push(new THREE.Vector3(0, 0, 0), new THREE.Vector3(range, 0, 0), new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, range, 0), new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, range));
         const line = new THREE.Line(geometry, material);
         this.scene.add(line);
         const center_material = new THREE.LineBasicMaterial( { color: "white", linewidth: 5 } );    
         const center_geometry = new THREE.Geometry();
+        range = range * .4;
         center_geometry.vertices.push(new THREE.Vector3(0, 0, 0), new THREE.Vector3(range, range, range));
         const center_line = new THREE.Line(center_geometry, center_material);
         this.scene.add(center_line);
+    }
+    connect(origin, neighbor) {
+        if (this.fundamental_domain.contains(neighbor) === false) {
+            return;
+        } else {
+            const material = new THREE.LineBasicMaterial( { color: "green", linewidth: 5, opacity: .25 } );    
+            const geometry = new THREE.Geometry();
+            geometry.vertices.push(new THREE.Vector3(origin.getPitch(0), origin.getPitch(1), origin.getPitch(2)), new THREE.Vector3(neighbor.getPitch(0), neighbor.getPitch(1), neighbor.getPitch(2)));
+            const line = new THREE.Line(geometry, material);
+            this.scene.add(line);
+        }
+    }
+    drawConnections() {
+        let n = this.fundamental_domain.chords.size();
+        for (let i = 0; i < n; i++) {
+            let chord = this.fundamental_domain.chords.get(i);
+            this.connect(chord, chord.move(0,  1.).eP());///this.sort((trichord[0] + 1.0, trichord[1], trichord[2])))
+            this.connect(chord, chord.move(1,  1.).eP());///this.sort((trichord[0], trichord[1] + 1.0, trichord[2])))
+            this.connect(chord, chord.move(2,  1.).eP());///this.sort((trichord[0], trichord[1], trichord[2] + 1.0)))
+            this.connect(chord, chord.move(0, -1.).eP());///this.sort((trichord[0] - 1.0, trichord[1], trichord[2])))
+            this.connect(chord, chord.move(1, -1.).eP());///this.sort((trichord[0], trichord[1] - 1.0, trichord[2])))
+            this.connect(chord, chord.move(2, -1.).eP());///this.sort((trichord[0], trichord[1], trichord[2] - 1.0)))
+        }
     }
     draw3D(canvas_) {
         this.canvas = canvas_;
@@ -1091,7 +1150,7 @@ class FundamentalDomainView {
             this.plotChord3D(chord);
         }
         this.drawAxes();
-        ///this.plotGrid3D();
+        this.drawConnections();
         this.lookAtFullScene3D();
         return canvas;
     }
