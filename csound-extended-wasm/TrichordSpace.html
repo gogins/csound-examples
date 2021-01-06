@@ -13,39 +13,98 @@
 <script src="js/TrackballControls.js"></script>
 <script src="js/tinycolor.js"></script>
 <script src="js/dat.gui.js"></script>
+<style>
+    ::-webkit-scrollbar
+    {
+        width:10px;
+    }
+    ::-webkit-scrollbar-track-piece
+    {
+        opacity:.125;
+        background-color:grey;
+    }
+    ::-webkit-scrollbar-corner
+    {
+        opacity:.25;
+        background-color:grey;
+    }
+</style>
 </head>
 <body style="background:black;">
-<div id="container" class="w3-cell-row" style="color:white;background-color:transparent;disabled:true;">
-<div id="help" class="w3-container w3-cell" style="width:50vw;height:25vh;background-color:transparent;disabled:true;">
+<canvas id="canvas" style="background:transparent;position:absolute;height:100vh;width:100vw;top:0vh;left:0vw;"></canvas>
+<table id="table" style="color:white;background-color:transparent;position:absolute;height:25vh;width:100vw;top:0vh;left:0vw;display:block;">
+<tr>
+<td id="help" style="height:25vh;width:50vw;display:block;overflow:auto;">
 <h1>Chord Space for Trichords</h1>
 <h3>Michael Gogins<br>3 January 2020</h3>
-<p>This program displays an animated, interactive, 3-dimensional model of 
-a chord space for all three-voice chords in 12-tone equal temperament. A chord 
-space is a space that has one dimension for each voice of a chord; thus, the 
-chord space for trichords has 3 dimensions. In addition, various equivalence 
-classes divide this space into quotient spaces or orbifolds, such that e.g. 
-octave equivalence produces a cube, permutational equivalence produces a 
-prism, transpositional equivalence produces a flat layer, and inversional 
-equivalence produces a reflection that folds half of the space over itself. 
-The default space at startup is OP, that is, the combination of octave 
-equivalence and permutational equivalence. See: Callendar, Quinn,
-and Tymoczko, "Generalized Voice-Leading Spaces," <b><i>Science</i> 320</b>, 2008.</p>
-<p>In OP, the augmented triads form a central column of white chords. It is 
+<p>This is an interactive 3-dimensional model of a chord space of all 
+3-voice chords in 12-tone equal temperament. A chord is a single point in a 
+space with 1 dimension for each voice of a chord; thus, a chord space for 
+trichords has 3 dimensions. Various equivalence classes divide this space 
+into quotient spaces (orbifolds), e.g. octave equivalence produces a cube, 
+permutational equivalence a prism, transpositional equivalence 
+a flat layer, and inversional equivalence a reflection that 
+folds half the space over itself. The space at startup is the 
+combination of octave equivalence and permutational equivalence (OP). See: 
+Callendar, Quinn, and Tymoczko, "Generalized Voice-Leading Spaces," 
+<b><i>Science</i> 320</b>, 2008.</p>
+<p>In OP, the augmented triads form the central column of white chords. It is 
 surrounded by 3 columns of major triads colored red, and 3 columns of minor 
-triads colored blue; each column corresponds to a different voicing of the 
-triad. Neighboring chords are connected by 1-semitone voice-leadings, shown as 
-green line segments.<p>
+triads colored blue; each column is a different voicing of the triad. 
+Neighboring chords are connected by 1-semitone voice-leadings.<p>
 <p>Clicking on a chord selects it and prints information about it in the text 
-area on the left side. Dragging the mouse or using the mouse 
-wheel changes the orientation or distance of the model.<p>
-<p>The following commands are available from the menu or by key combinations:
+area on the left side. Dragging the mouse with the left button down rotates 
+the model, dragging the mouse with the right button down moves the model, 
+and dragging the button with the mouse wheel down moves the model closer to 
+or farther away from the camera.<p>
+<p>The following commands are available by using the menu (or key 
+combinations):
 </p>
-</div>
-<textarea id="console" class="w3-container w3-cell" class="w3-code" style="width:50vw;height:25vh;background-color:transparent;color:LawnGreen;font-family:Courier,sans-serif;font-size:9pt;">
+<dl>
+<dt>Equivalence class</dt>
+<dd>Sets the current equivalence class of the orbifold. The possibilities are OP 
+(octave equivalence and permutational equivalence), OPT (octave equivalence, 
+permutational equivalence, and transpositional equivalence; maps to normal form),
+or OPTI (octave equivalence, permutational equivalence, transpositional 
+equivalence, and inversional equivalence; maps to prime form).<dd>
+<dt>Play [Ctrl-P]</dt>
+<dd>Starts running the embedded Csound synthesizer, which will play chords as 
+they are selected.</dt>
+<dt>Stop [Ctrl-S]</dt>
+<dd>Stops Csound.</dd>
+<dt>Transpose [Ctrl-T-+ or Ctrl-T--]</dt>
+<dd>Transposes the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
+<dt>Invert [Ctrl-I]</dt>
+<dd>Inverts the selected chord, i.e. reflects it in the inversion flat that 
+divides each OPT domain into two OPTI domains.</dd>
+<dt>Parallel</dt>
+<dd>Applies the Reimannian parallel transformation to the selected chord.</dd>
+<dt>Leadingt-tone</dt>
+<dd>Applies the Reimannian leading-tone transformation to the selected chord.</dd>
+<dt>Relative</dt>
+<dd>Applies the Reimannian relative transformation to the selected chord, taking 
+minor triads to the closest major triads, and vice versa.</dd>
+<dt>Hexpole</dt>
+<dd>Applies the Reimannian hexpole transformation to the selected chord.</dd>
+<dt>Slide</dt>
+<dd>Applies the Reimannian slide transformation to the selected chord.</dd>
+<dt>Dominant</dt>
+Applies the Reimannian dominant transformation to the selected chord, 
+as if it were V moving to I.
+<dd></dd>
+<dt>Move voice 1 [Ctrl-1-+ or Ctrl-1--]</dt>
+<dd>Moves voice 1 of the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
+<dt>Move voice 2</dt>
+<dd>Moves voice 1 of the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
+<dt>Move voide 3</dt>
+<dd>Moves voice 3 of the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
+</dl>
+</td>
+<td id="console-layout" >
+<textarea id="console" class="w3-container" style="height:25vh;width:50vw;background-color:transparent;border-color:transparent;color:LawnGreen;font-family:Courier,sans-serif;font-size:9pt;display:block;overflow:auto;">
 </textarea>
-</div>
-<canvas id="canvas"style="background:transparent;width:100vw;height:75vh;">
-</canvas>
+</td>
+</table>
 <textarea id="csd" class="w3-code" hidden="true" style="width:100%;height:25vh;box-sizing:border-box;background-color:MidnightBlue;color:NavajoWhite;">
 <CsoundSynthesizer>
 <CsOptions>
@@ -89,7 +148,7 @@ connect "ReverbSC", "outright", "MasterOutput", "inright"
 alwayson "ReverbSC"
 alwayson "MasterOutput"
 
-gk_overlap init 4.5
+gk_overlap init 20
 
 prealloc 1, 50
 prealloc 2, 50
@@ -100,351 +159,6 @@ prealloc 6, 50
 prealloc 7, 50
 prealloc 8, 20
 prealloc 9, 20
-
-//////////////////////////////////////////////
-// Original by Steven Yi.
-// Adapted by Michael Gogins.
-//////////////////////////////////////////////
-gk_FMWaterBell_level init 15
-gi_FMWaterBell_attack init 0.002
-gi_FMWaterBell_release init 0.01
-gi_FMWaterBell_sustain init 20
-gi_FMWaterBell_sustain_level init .1
-gk_FMWaterBell_index init .5
-gk_FMWaterBell_crossfade init .5
-gk_FMWaterBell_vibrato_depth init 0.
-gk_FMWaterBell_vibrato_rate init 6
-gk_FMWaterBell_midi_dynamic_range init 127
-gi_FMWaterBell_cosine ftgen 0, 0, 65537, 11, 1
-instr FMWaterBell
-i_instrument = p1
-i_time = p2
-i_duration = p3
-; One of the envelopes in this instrument should be releasing, and use this:
-i_sustain = 1000
-;xtratim gi_FMWaterBell_attack + gi_FMWaterBell_release
-p3 = p3 + gi_FMWaterBell_attack + gi_FMWaterBell_release
-i_midi_key = p4
-i_midi_dynamic_range = i(gk_FMWaterBell_midi_dynamic_range)
-i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.6 - i_midi_dynamic_range / 2)
-k_space_front_to_back = p6
-k_space_left_to_right = p7
-k_space_bottom_to_top = p8
-i_phase = p9
-i_frequency = cpsmidinn(i_midi_key)
-; Adjust the following value until "overall amps" at the end of performance is about -6 dB.
-if i_midi_key > 42 goto high_level
-i_level_correction = -23.5
-goto end_level
-high_level:
-i_level_correction = -20
-end_level:
-i_normalization = ampdb(-i_level_correction) / 2
-i_amplitude = ampdb(i_midi_velocity) * i_normalization * 1.6
-k_gain = ampdb(gk_FMWaterBell_level)
-a_signal fmbell	1, i_frequency, gk_FMWaterBell_index, gk_FMWaterBell_crossfade, gk_FMWaterBell_vibrato_depth, gk_FMWaterBell_vibrato_rate, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine ;, gi_FMWaterBell_sustain
-;a_envelope linsegr 0, gi_FMWaterBell_attack, 1, i_sustain, gi_FMWaterBell_sustain_level, gi_FMWaterBell_release, 0
-a_envelope linsegr 0, gi_FMWaterBell_attack, 1, i_sustain, 1, gi_FMWaterBell_release, 0
-; ares transegr ia, idur, itype, ib [, idur2] [, itype] [, ic] ...
-; a_envelope transegr 0, gi_FMWaterBell_attack, 12, 1, i_sustain, 12, gi_FMWaterBell_sustain_level, gi_FMWaterBell_release, 12, 0
-a_signal = a_signal * i_amplitude * a_envelope * k_gain
-a_out_left, a_out_right pan2 a_signal, p7
-outleta "outleft", a_out_left
-outleta "outright", a_out_right
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-; printks "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
-endin
-
-gk_Phaser_ratio1 init 1
-gk_Phaser_ratio2 init 1/3
-gk_Phaser_index1 init 1
-gk_Phaser_index2 init 0.0125
-gk_Phaser_level init 8
-gi_Phaser_sine ftgen 0,0,65537,10,1
-instr Phaser
-insno = p1
-istart = p2
-iduration = p3
-ikey = p4
-ivelocity = p5
-iphase = p6
-ipan = p7
-iamp = ampdb(ivelocity) * 8
-iattack = i(gk_overlap)
-idecay = i(gk_overlap)
-isustain = p3 - i(gk_overlap)
-p3 = iattack + isustain + idecay
-kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
-ihertz = cpsmidinn(ikey)
-khertz = ihertz
-ifunction1 = gi_Phaser_sine
-ifunction2 = gi_Phaser_sine
-a1,a2 crosspmi gk_Phaser_ratio1, gk_Phaser_ratio2, gk_Phaser_index1, gk_Phaser_index2, khertz, ifunction1, ifunction2
-aleft, aright pan2 a1+a2, p7
-adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
-aleft = adamping * aleft * kenvelope
-aright = adamping * aright * kenvelope
-kgain = ampdb(gk_Phaser_level)
-outleta "outleft", aleft * kgain
-outleta "outright", aright * kgain
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-endin
-
-gk_Droner_partial1 init .1
-gk_Droner_partial2 init .1
-gk_Droner_partial3 init .3
-gk_Droner_partial4 init .2
-gk_Droner_partial5 init .1
-gk_Droner_level init 16
-gi_Droner_sine ftgen 0, 0, 65537, 10, 1, 0, .02
-instr Droner
-insno = p1
-istart = p2
-iduration = p3
-ikey = p4
-ivelocity = p5
-iphase = p6
-ipan = p7
-k1 init .5
-k2 init .05
-k3 init .1
-k4 init .2
-k5 init .1
-k6 init .05
-k7 init .1
-k8 init 0
-k9 init 0
-k10 init 0
-k3 = gk_Droner_partial1
-k4 = gk_Droner_partial2
-k5 = gk_Droner_partial3
-k6 = gk_Droner_partial4
-k7 = gk_Droner_partial5
-kwaveform init 0
-iamp = ampdb(ivelocity) 
-iattack = i(gk_overlap)
-idecay = i(gk_overlap)
-isustain = p3 - i(gk_overlap)
-p3 = iattack + isustain + idecay
-kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
-ihertz = cpsmidinn(ikey)
-asignal poscil3 1, ihertz, gi_Droner_sine
-asignal chebyshevpoly asignal, 0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10
-asignal = asignal * kenvelope * 10
-aleft, aright pan2 asignal, p7
-adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
-aleft = adamping * aleft
-aright = adamping * aright
-kgain = ampdb(gk_Droner_level)
-outleta "outleft", aleft * kgain
-outleta "outright", aright * kgain
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-endin
-
-gk_Sweeper_britel init 0
-gk_Sweeper_briteh init 2.9
-gk_Sweeper_britels init .2 / 3
-gk_Sweeper_britehs init 2.5 / 2
-gk_Sweeper_level init 6
-gisine ftgen 0, 0, 65537, 10, 1
-gioctfn ftgen 0, 0, 65537, -19, 1, 0.5, 270, 0.5
-instr Sweeper
-insno = p1
-istart = p2
-iduration = p3
-ikey = p4
-ivelocity = p5
-iphase = p6
-ipan = p7
-iamp = ampdb(ivelocity)
-iattack = i(gk_overlap)
-idecay = i(gk_overlap)
-isustain = p3 - i(gk_overlap)
-p3 = iattack + isustain + idecay
-kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
-ihertz = cpsmidinn(ikey)
-icps = ihertz
-kamp expseg 0.001,0.02,0.2,p3-0.01,0.001
-ktonemoddep jspline 0.01,0.05,0.2
-ktonemodrte jspline 6,0.1,0.2
-ktone poscil3 ktonemoddep, ktonemodrte, gisine
-kbrite rspline gk_Sweeper_britel, gk_Sweeper_briteh, gk_Sweeper_britels, gk_Sweeper_britehs
-ibasfreq init icps
-ioctcnt init 3
-iphs init 0
-a1 hsboscil kenvelope, ktone, kbrite, ibasfreq, gisine, gioctfn, ioctcnt, iphs
-amod poscil3 0.25, ibasfreq*(1/3), gisine
-arm = a1*amod
-irnd1 = unirand(1)
-irnd3 = unirand(3)
-kmix expseg 0.001, 0.01, irnd1, irnd3+0.3, 0.001
-kmix=.25
-a1 ntrpol a1, arm, kmix
-;a1 pareq a1/10, 400, 15, .707
-;a1 tone a1, 500
-kpanrte jspline 5, 0.05, 0.1
-kpandep jspline 0.9, 0.2, 0.4
-kpan poscil3 kpandep, kpanrte, gisine
-a1,a2 pan2 a1, p7
-irnd01 = unirand(0.1)
-a1 delay a1, irnd01
-irnd011 = unirand(0.11)
-a2 delay a2, irnd011
-kenv linsegr 1, 1, 0
-kenv = kenvelope
-aleft = a1*kenv*.02
-aright = a2*kenv*.02
-adamping linsegr 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
-aleft = adamping * aleft
-aright = adamping * aright
-kgain = ampdb(gk_Sweeper_level)
-outleta "outleft", aleft * kgain
-outleta "outright", aright * kgain
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-endin
-
-gk_Buzzer_harmonics init 15
-gk_Buzzer_level init 5
-gi_Buzzer_sine ftgen 0, 0, 65537, 10, 1
-instr Buzzer
-insno = p1
-istart = p2
-iduration = p3
-ikey = p4
-ivelocity = p5
-iphase = p6
-ipan = p7
-iamp = ampdb(ivelocity) * 4
-iattack = i(gk_overlap)
-idecay = i(gk_overlap)
-isustain = p3 - i(gk_overlap)
-p3 = iattack + isustain + idecay
-kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
-ihertz = cpsmidinn(ikey)
-gk_Harmonics = gk_Buzzer_harmonics
-asignal buzz kenvelope, ihertz, gk_Harmonics, gi_Buzzer_sine
-asignal = asignal * 3
-aleft, aright pan2 asignal, p7
-adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
-aleft = adamping * aleft
-aright = adamping * aright
-kgain = ampdb(gk_Buzzer_level)
-outleta "outleft", aleft * kgain
-outleta "outright", aright * kgain
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-endin
-
-gk_Shiner_level init 2
-instr Shiner
-insno = p1
-istart = p2
-iduration = p3
-ikey = p4
-ivelocity = p5
-iphase = p6
-ipan = p7
-iamp = ampdb(ivelocity) * 4
-iattack = i(gk_overlap)
-idecay = i(gk_overlap)
-isustain = p3 - i(gk_overlap)
-p3 = iattack + isustain + idecay
-kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
-ihertz = cpsmidinn(ikey)
-gk_Harmonics = 1 * 20
-asignal vco2 kenvelope * 4, ihertz, 12
-aleft, aright pan2 asignal, p7
-adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
-aleft = adamping * aleft
-aright = adamping * aright
-kgain = ampdb(gk_Shiner_level)
-outleta "outleft", aleft * kgain
-outleta "outright", aright * kgain
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-endin
-
-gk_Blower_grainDensity init 150
-gk_Blower_grainDuration init 0.2
-gk_Blower_grainAmplitudeRange init 100
-gk_Blower_grainFrequencyRange init .033
-gk_Blower_level init 2
-gigrtab ftgen 0, 0, 65537, 10, 1, .3, .1, 0, .2, .02, 0, .1, .04
-giwintab ftgen 0, 0, 65537, 10, 1, 0, .5, 0, .33, 0, .25, 0, .2, 0, .167
-instr Blower
-i_time = p2
-i_duration = p3
-i_midikey = p4
-i_midivelocity = p5
-i_phase = p6
-i_pan = p6
-i_depth = p8
-i_height = p9
-i_pitchclassset = p10
-i_homogeneity = p11
-ifrequency = cpsmidinn(i_midikey)
-iamplitude = ampdb(i_midivelocity) / 200
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
- ; f1 0 65537 1 "hahaha.aif" 0 4 0
- ; f2 0 1024 7 0 224 1 800 0
- ; f3 0 8192 7 1 8192 -1
- ; f4 0 1024 7 0 512 1 512 0
- ; f5 0 1024 10 1 .3 .1 0 .2 .02 0 .1 .04
- ; f6 0 1024 10 1 0 .5 0 .33 0 .25 0 .2 0 .167
- ; a0 14 50
- ; p1 p2 p3 p4 p5 p6 p7 p8 p9 p10
- ; Start Dur Amp Freq GrTab WinTab FqcRng Dens Fade
- ; i1 0.0 6.5 700 9.00 5 4 .210 200 1.8
- ; i1 3.2 3.5 800 7.08 . 4 .042 100 0.8
- ; i1 5.1 5.2 600 7.10 . 4 .0320 100 0.9
- ; i1 7.2 6.6 900 8.03 . 4 .021 150 1.6
- ; i1 21.3 4.5 1000 9.00 . 4 .031 150 1.2
- ; i1 26.5 13.5 1100 6.09 . 4 .121 150 1.5
- ; i1 30.7 9.3 900 8.05 . 4 .014 150 2.5
- ; i1 34.2 8.8 700 10.02 . 4 .14 150 1.6
-iHz = ifrequency
-ihertz = iHz
-ip4 = iamplitude
-ip5 = iHz
-ip6 = gigrtab
-ip7 = giwintab
-ip8 = 0.033
-ip8 = .002
-ip9 = 150
-ip9 = 100
-ip10 = 1.6
-ip10 = 3
-idur = p3
-iamp = iamplitude ; p4
-ifqc = iHz ; cpspch(p5)
-igrtab = ip6
-iwintab = ip7
-ifrng = ip8
-idens = ip9
-ifade = ip10
-igdur = 0.2
-if p3 == -1 goto indefinite
- goto non_indefinite
-indefinite:
- p3 = 1000000
-non_indefinite:
-iattack = i(gk_overlap) * 2
-idecay = i(gk_overlap) * 2
-isustain = p3 - i(gk_overlap) * 2
-p3 = iattack + isustain + idecay
-kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
-kamp = kenvelope
-; Amp Fqc Dense AmpOff PitchOff GrDur GrTable WinTable MaxGrDur
-aoutl grain ip4, ifqc, gk_Blower_grainDensity, gk_Blower_grainAmplitudeRange, gk_Blower_grainFrequencyRange, gk_Blower_grainDuration, gigrtab, giwintab, 5
-aoutr grain ip4, ifqc, gk_Blower_grainDensity, gk_Blower_grainAmplitudeRange, gk_Blower_grainFrequencyRange, gk_Blower_grainDuration, gigrtab, giwintab, 5
-aleft = aoutl * kamp * iamplitude
-aright = aoutr * kamp * iamplitude
-adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
-aleft = adamping * aleft
-aright = adamping * aright
-kgain = ampdb(gk_Blower_level)
-outleta "outleft", aleft * kgain
-outleta "outright", aright * kgain
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-endin
 
 gk_ZakianFlute_midi_dynamic_range init 20
 gk_ZakianFlute_level init -10
@@ -464,12 +178,12 @@ gif35 ftgen 0, 0, 65537, -10, 2661, 87, 33, 18
 gif36 ftgen 0, 0, 65537, -10, 174, 12
 gif37 ftgen 0, 0, 65537, -10, 314, 13
 giwtsin ftgen 0, 0, 65537, 10, 1
-instr ZakianFlute
+instr ZakianFlute, 1, 2, 3
 ; Author: Lee Zakian
 ; Adapted by: Michael Gogins
 i_instrument = p1
 i_time = p2
-i_duration = p3
+i_duration = abs(p3)
 i_midi_key = p4
 i_midi_velocity = p5
 k_space_front_to_back = p6
@@ -483,13 +197,13 @@ i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.5 - i_midi_dynamic_range
 i_amplitude = ampdb(i_midi_velocity) * i_normalization
 k_gain = ampdb(gk_ZakianFlute_level)
 iattack = .002
-isustain = p3
+isustain = abs(p3)
 irelease = .3
-p3 = iattack + isustain + irelease
+ip3 = iattack + isustain + irelease
 iHz = cpsmidinn(i_midi_key)
 kHz = k(iHz)
 aenvelope transeg 1.0, 20.0, -10.0, 0.05
-ip3 = (p3 < 3.0 ? p3 : 3.0)
+;ip3 = (p3 < 3.0 ? p3 : 3.0)
 ; parameters
 ; p4 overall amplitude scaling factor
 ip4 init i_amplitude
@@ -522,8 +236,8 @@ gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
 ifiltcut tablei ip9, gif2 ; lowpass filter cutoff frequency
 iattack = (iattack < 6/kr ? 6/kr : iattack) ; minimal attack length
 idecay = (idecay < 6/kr ? 6/kr : idecay) ; minimal decay length
-isustain = p3 - iattack - idecay
-p3 = (isustain < 5/kr ? iattack+idecay+5/kr : p3) ; minimal sustain length
+isustain = abs(p3) - iattack - idecay
+;p3 = (isustain < 5/kr ? iattack+idecay+5/kr : p3) ; minimal sustain length
 isustain = (isustain < 5/kr ? 5/kr : isustain)
 iatt = iattack/6
 isus = isustain/4
@@ -677,6 +391,350 @@ outleta "outright", a_out_right
 prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
+//////////////////////////////////////////////
+// Original by Steven Yi.
+// Adapted by Michael Gogins.
+//////////////////////////////////////////////
+gk_FMWaterBell_level init 15
+gi_FMWaterBell_attack init 0.002
+gi_FMWaterBell_release init 0.01
+gi_FMWaterBell_sustain init 20
+gi_FMWaterBell_sustain_level init .1
+gk_FMWaterBell_index init .5
+gk_FMWaterBell_crossfade init .5
+gk_FMWaterBell_vibrato_depth init 0.
+gk_FMWaterBell_vibrato_rate init 6
+gk_FMWaterBell_midi_dynamic_range init 127
+gi_FMWaterBell_cosine ftgen 0, 0, 65537, 11, 1
+instr FMWaterBell
+i_instrument = p1
+i_time = p2
+i_duration = p3
+; One of the envelopes in this instrument should be releasing, and use this:
+i_sustain = 1000
+xtratim gi_FMWaterBell_attack + gi_FMWaterBell_release
+i_midi_key = p4
+i_midi_dynamic_range = i(gk_FMWaterBell_midi_dynamic_range)
+i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.6 - i_midi_dynamic_range / 2)
+k_space_front_to_back = p6
+k_space_left_to_right = p7
+k_space_bottom_to_top = p8
+i_phase = p9
+i_frequency = cpsmidinn(i_midi_key)
+; Adjust the following value until "overall amps" at the end of performance is about -6 dB.
+if i_midi_key > 42 goto high_level
+i_level_correction = -23.5
+goto end_level
+high_level:
+i_level_correction = -20
+end_level:
+i_normalization = ampdb(-i_level_correction) / 2
+i_amplitude = ampdb(i_midi_velocity) * i_normalization * 1.6
+k_gain = ampdb(gk_FMWaterBell_level)
+a_signal fmbell	1, i_frequency, gk_FMWaterBell_index, gk_FMWaterBell_crossfade, gk_FMWaterBell_vibrato_depth, gk_FMWaterBell_vibrato_rate, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine, gi_FMWaterBell_cosine ;, gi_FMWaterBell_sustain
+;a_envelope linsegr 0, gi_FMWaterBell_attack, 1, i_sustain, gi_FMWaterBell_sustain_level, gi_FMWaterBell_release, 0
+a_envelope linsegr 0, gi_FMWaterBell_attack, 1, i_sustain, 1, gi_FMWaterBell_release, 0
+; ares transegr ia, idur, itype, ib [, idur2] [, itype] [, ic] ...
+; a_envelope transegr 0, gi_FMWaterBell_attack, 12, 1, i_sustain, 12, gi_FMWaterBell_sustain_level, gi_FMWaterBell_release, 12, 0
+a_signal = a_signal * i_amplitude * a_envelope * k_gain
+a_out_left, a_out_right pan2 a_signal, p7
+outleta "outleft", a_out_left
+outleta "outright", a_out_right
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+; printks "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
+endin
+
+gk_Droner_partial1 init .1
+gk_Droner_partial2 init .1
+gk_Droner_partial3 init .3
+gk_Droner_partial4 init .2
+gk_Droner_partial5 init .1
+gk_Droner_level init 16
+gi_Droner_sine ftgen 0, 0, 65537, 10, 1, 0, .02
+instr Droner
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+k1 init .5
+k2 init .05
+k3 init .1
+k4 init .2
+k5 init .1
+k6 init .05
+k7 init .1
+k8 init 0
+k9 init 0
+k10 init 0
+k3 = gk_Droner_partial1
+k4 = gk_Droner_partial2
+k5 = gk_Droner_partial3
+k6 = gk_Droner_partial4
+k7 = gk_Droner_partial5
+kwaveform init 0
+iamp = ampdb(ivelocity) 
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+asignal poscil3 1, ihertz, gi_Droner_sine
+asignal chebyshevpoly asignal, 0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10
+asignal = asignal * kenvelope * 10
+aleft, aright pan2 asignal, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Droner_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Sweeper_britel init 0
+gk_Sweeper_briteh init 2.9
+gk_Sweeper_britels init .2 / 3
+gk_Sweeper_britehs init 2.5 / 2
+gk_Sweeper_level init 6
+gisine ftgen 0, 0, 65537, 10, 1
+gioctfn ftgen 0, 0, 65537, -19, 1, 0.5, 270, 0.5
+instr Sweeper
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity)
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+icps = ihertz
+kamp expseg 0.001,0.02,0.2,p3-0.01,0.001
+ktonemoddep jspline 0.01,0.05,0.2
+ktonemodrte jspline 6,0.1,0.2
+ktone poscil3 ktonemoddep, ktonemodrte, gisine
+kbrite rspline gk_Sweeper_britel, gk_Sweeper_briteh, gk_Sweeper_britels, gk_Sweeper_britehs
+ibasfreq init icps
+ioctcnt init 3
+iphs init 0
+a1 hsboscil kenvelope, ktone, kbrite, ibasfreq, gisine, gioctfn, ioctcnt, iphs
+amod poscil3 0.25, ibasfreq*(1/3), gisine
+arm = a1*amod
+irnd1 = unirand(1)
+irnd3 = unirand(3)
+kmix expseg 0.001, 0.01, irnd1, irnd3+0.3, 0.001
+kmix=.25
+a1 ntrpol a1, arm, kmix
+;a1 pareq a1/10, 400, 15, .707
+;a1 tone a1, 500
+kpanrte jspline 5, 0.05, 0.1
+kpandep jspline 0.9, 0.2, 0.4
+kpan poscil3 kpandep, kpanrte, gisine
+a1,a2 pan2 a1, p7
+irnd01 = unirand(0.1)
+a1 delay a1, irnd01
+irnd011 = unirand(0.11)
+a2 delay a2, irnd011
+kenv linsegr 1, 1, 0
+kenv = kenvelope
+aleft = a1*kenv*.02
+aright = a2*kenv*.02
+adamping linsegr 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Sweeper_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Phaser_ratio1 init 1
+gk_Phaser_ratio2 init 1/3
+gk_Phaser_index1 init 1
+gk_Phaser_index2 init 0.0125
+gk_Phaser_level init 8
+gi_Phaser_sine ftgen 0,0,65537,10,1
+instr Phaser
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity) * 8
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transeg 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+khertz = ihertz
+ifunction1 = gi_Phaser_sine
+ifunction2 = gi_Phaser_sine
+a1,a2 crosspmi gk_Phaser_ratio1, gk_Phaser_ratio2, gk_Phaser_index1, gk_Phaser_index2, khertz, ifunction1, ifunction2
+aleft, aright pan2 a1+a2, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft * kenvelope
+aright = adamping * aright * kenvelope
+kgain = ampdb(gk_Phaser_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Buzzer_harmonics init 15
+gk_Buzzer_level init 5
+gi_Buzzer_sine ftgen 0, 0, 65537, 10, 1
+instr Buzzer
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity) * 4
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+gk_Harmonics = gk_Buzzer_harmonics
+asignal buzz kenvelope, ihertz, gk_Harmonics, gi_Buzzer_sine
+asignal = asignal * 3
+aleft, aright pan2 asignal, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Buzzer_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Shiner_level init 2
+instr Shiner
+insno = p1
+istart = p2
+iduration = p3
+ikey = p4
+ivelocity = p5
+iphase = p6
+ipan = p7
+iamp = ampdb(ivelocity) * 4
+iattack = i(gk_overlap)
+idecay = i(gk_overlap)
+isustain = p3 - i(gk_overlap)
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+ihertz = cpsmidinn(ikey)
+gk_Harmonics = 1 * 20
+asignal vco2 kenvelope * 4, ihertz, 12
+aleft, aright pan2 asignal, p7
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Shiner_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
+gk_Blower_grainDensity init 150
+gk_Blower_grainDuration init 0.2
+gk_Blower_grainAmplitudeRange init 100
+gk_Blower_grainFrequencyRange init .033
+gk_Blower_level init 2
+gigrtab ftgen 0, 0, 65537, 10, 1, .3, .1, 0, .2, .02, 0, .1, .04
+giwintab ftgen 0, 0, 65537, 10, 1, 0, .5, 0, .33, 0, .25, 0, .2, 0, .167
+instr Blower
+i_time = p2
+i_duration = p3
+i_midikey = p4
+i_midivelocity = p5
+i_phase = p6
+i_pan = p6
+i_depth = p8
+i_height = p9
+i_pitchclassset = p10
+i_homogeneity = p11
+ifrequency = cpsmidinn(i_midikey)
+iamplitude = ampdb(i_midivelocity) / 200
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ; f1 0 65537 1 "hahaha.aif" 0 4 0
+ ; f2 0 1024 7 0 224 1 800 0
+ ; f3 0 8192 7 1 8192 -1
+ ; f4 0 1024 7 0 512 1 512 0
+ ; f5 0 1024 10 1 .3 .1 0 .2 .02 0 .1 .04
+ ; f6 0 1024 10 1 0 .5 0 .33 0 .25 0 .2 0 .167
+ ; a0 14 50
+ ; p1 p2 p3 p4 p5 p6 p7 p8 p9 p10
+ ; Start Dur Amp Freq GrTab WinTab FqcRng Dens Fade
+ ; i1 0.0 6.5 700 9.00 5 4 .210 200 1.8
+ ; i1 3.2 3.5 800 7.08 . 4 .042 100 0.8
+ ; i1 5.1 5.2 600 7.10 . 4 .0320 100 0.9
+ ; i1 7.2 6.6 900 8.03 . 4 .021 150 1.6
+ ; i1 21.3 4.5 1000 9.00 . 4 .031 150 1.2
+ ; i1 26.5 13.5 1100 6.09 . 4 .121 150 1.5
+ ; i1 30.7 9.3 900 8.05 . 4 .014 150 2.5
+ ; i1 34.2 8.8 700 10.02 . 4 .14 150 1.6
+iHz = ifrequency
+ihertz = iHz
+ip4 = iamplitude
+ip5 = iHz
+ip6 = gigrtab
+ip7 = giwintab
+ip8 = 0.033
+ip8 = .002
+ip9 = 150
+ip9 = 100
+ip10 = 1.6
+ip10 = 3
+idur = p3
+iamp = iamplitude ; p4
+ifqc = iHz ; cpspch(p5)
+igrtab = ip6
+iwintab = ip7
+ifrng = ip8
+idens = ip9
+ifade = ip10
+igdur = 0.2
+if p3 == -1 goto indefinite
+ goto non_indefinite
+indefinite:
+ p3 = 1000000
+non_indefinite:
+iattack = i(gk_overlap) * 2
+idecay = i(gk_overlap) * 2
+isustain = p3 - i(gk_overlap) * 2
+p3 = iattack + isustain + idecay
+kenvelope transegr 0.0, iattack / 2.0, 1.5, iamp / 2.0, iattack / 2.0, -1.5, iamp, isustain, 0.0, iamp, idecay / 2.0, 1.5, iamp / 2.0, idecay / 2.0, -1.5, 0
+kamp = kenvelope
+; Amp Fqc Dense AmpOff PitchOff GrDur GrTable WinTable MaxGrDur
+aoutl grain ip4, ifqc, gk_Blower_grainDensity, gk_Blower_grainAmplitudeRange, gk_Blower_grainFrequencyRange, gk_Blower_grainDuration, gigrtab, giwintab, 5
+aoutr grain ip4, ifqc, gk_Blower_grainDensity, gk_Blower_grainAmplitudeRange, gk_Blower_grainFrequencyRange, gk_Blower_grainDuration, gigrtab, giwintab, 5
+aleft = aoutl * kamp * iamplitude
+aright = aoutr * kamp * iamplitude
+adamping linseg 0, 0.03, 1, p3 - 0.1, 1, 0.07, 0
+aleft = adamping * aleft
+aright = adamping * aright
+kgain = ampdb(gk_Blower_level)
+outleta "outleft", aleft * kgain
+outleta "outright", aright * kgain
+prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+endin
+
 gk_ReverbSC_feedback init 0.85
 gi_ReverbSC_delay_modulation init 0.35
 gk_ReverbSC_frequency_cutoff init 15000
@@ -714,6 +772,8 @@ i "exitnow" [5 * 60 + 10 ] .1
 </textarea>
 </div>
 <script>
+var fundamental_domain = null;
+var fundamental_domain_view = null;
 try {
     var fs = require("fs");
     var __dirname = fs.realpathSync.native(".");
@@ -730,15 +790,15 @@ var csound_message_callback = function(text) {
 
 var draw_fundamental_domain = function(value) {
     if (value === "OP") {
-        var fundamental_domain = new FundamentalDomain("RP", 12.);
+        fundamental_domain = new ChordSpace("RP", 12.);
     }
     if (value === "OPT") {
-        var fundamental_domain = new FundamentalDomain("RPTg", 12.);
+        fundamental_domain = new ChordSpace("RPTg", 12.);
     }
     if (value === "OPTI") {
-        var fundamental_domain = new FundamentalDomain("RPTgI", 12.);
+        fundamental_domain = new ChordSpace("RPTgI", 12.);
     }
-    var fundamental_domain_view = new FundamentalDomainView(fundamental_domain);
+    fundamental_domain_view = new ChordSpaceView(fundamental_domain);
     fundamental_domain_view.draw3D(document.getElementById("canvas"));
     fundamental_domain_view.lookAtFullScene3D();
 };
@@ -767,6 +827,7 @@ var play_ = async function() {
     try {
         let csd = document.getElementById('csd').value;
         let csound_ = await get_csound(csound_message_callback);
+        fundamental_domain_view.csound = csound_;
         await csound_.CompileCsdText(csd);
         await csound_.Start();
         await csound_.Perform();
@@ -799,13 +860,19 @@ nw_window.close();
 
 var parameters = {
      equivalence_class: 'OP',
+     gk_Reverb_feedback: .8,
+     gi_Reverb_delay_modulation: 0.5,
+     gk_Reverb_frequency_cutoff: 12000.,
+     gk_MasterOutput_level: 0.,
      play: function() {play_();},
      stop: function() {stop_();},
-     transpose: function() {},
-     invert: function() {},
+     transpose: function() {fundamental_domain_view.pick_helper.up();},
+     invert: function() {fundamental_domain_view.pick_helper.invert();},
      nrp: function() {},
      nrl: function() {},
      nrr: function() {},
+     nrh: function() {},
+     nrs: function() {},
      nrd: function() {},
      v1: function() {},
      v2: function() {},
@@ -815,32 +882,38 @@ var parameters = {
 window.addEventListener("load", function() {
     try {
         gui = new dat.GUI({width: 400});
-        gui.add(parameters, 'equivalence_class', ['OP', 'OPT', 'OPTI']).name('Equivalence class').onChange(draw_fundamental_domain);
         gui.add(parameters, 'play').name('Play [Ctrl-P]');
         gui.add(parameters, 'stop').name('Stop [Ctrl-S]');
+        let Master = gui.addFolder('Master effects');
+        add_slider(Master, 'gk_Reverb_feedback', 0, 1);     
+        add_slider(Master, 'gi_Reverb_delay_modulation', 0, 3);
+        add_slider(Master, 'gk_Reverb_frequency_cutoff', 5000, 20000);
+        add_slider(Master, 'gk_MasterOutput_level', -80, 80);
+        gui.add(parameters, 'equivalence_class', ['OP', 'OPT', 'OPTI']).name('Equivalence class').onChange(draw_fundamental_domain);
         gui.add(parameters, 'transpose').name('Transpose [Ctrl-T]');
         gui.add(parameters, 'invert').name('Invert [Ctrl-I]');
-        gui.add(parameters, 'nrp').name('Parallel');
-        gui.add(parameters, 'nrl').name('Lettonwechsel');
-        gui.add(parameters, 'nrr').name('Relative');
-        gui.add(parameters, 'nrd').name('Dominant');
-        gui.add(parameters, 'v1').name('Voice 1 [Ctrl-1]');
-        gui.add(parameters, 'v2').name('Voice 1 [Ctrl-2]');
-        gui.add(parameters, 'v3').name('Voice 1 [Ctrl-3]');
+        let Neo_Reimannian = gui.addFolder('Neo-Riemannian Transformations');
+        Neo_Reimannian.add(parameters, 'nrp').name('Parallel');
+        Neo_Reimannian.add(parameters, 'nrl').name('Leading tone exchange');
+        Neo_Reimannian.add(parameters, 'nrr').name('Relative');
+        Neo_Reimannian.add(parameters, 'nrh').name('Hexapole');
+        Neo_Reimannian.add(parameters, 'nrs').name('Slide');
+        Neo_Reimannian.add(parameters, 'nrd').name('Dominant');
+        gui.add(parameters, 'v1').name('Move 1 [Ctrl-1]');
+        gui.add(parameters, 'v2').name('Move 2 [Ctrl-2]');
+        gui.add(parameters, 'v3').name('Move 3 [Ctrl-3]');
         document.addEventListener("keydown", function (e) {
             var e_char = String.fromCharCode(e.keyCode || e.charCode);
             if (e.ctrlKey === true) {
                 if (e_char === 'H') {
-                    var console = document.getElementById("console");
-                    if (console.style.display === "none") {
-                        console.style.display = "block";
+                    var table = document.getElementById("table");
+                    if (table.style.display === "none") {
+                        table.style.display = "block";
                     } else {
-                        console.style.display = "none";
+                        table.style.display = "none";
                     }
                     gui.closed = true;
                     gui.closed = false;
-                } else if (e_char === 'G') {
-                    generate();
                 } else if (e_char === 'P') {
                     parameters.play();
                 } else if (e_char === 'S') {
@@ -853,15 +926,12 @@ window.addEventListener("load", function() {
     };
 });
 
-class FundamentalDomain {
+class ChordSpace {
     constructor(equivalence_class_, range_) {
-        csound_message_callback("FundamentalDomain constructor: " + equivalence_class_ + ", " + range_ + "\n");
+        csound_message_callback("ChordSpace constructor: " + equivalence_class_ + ", " + range_ + "\n");
         this.equivalence_class = equivalence_class_;
         this.range = range_;
         this.chords = CsoundAC.allOfEquivalenceClass(3, this.equivalence_class, this.range, 1., 0, false);
-        for (let i = this.chords.size(); i < this.chords.size(); ++i) {
-            csound_message_callback(sprintf("[%3d]: %s\n", i, this.chords[i].toString()));
-        }
     }
     contains(a) {
         let n = this.chords.size();
@@ -906,42 +976,147 @@ function clearPickPosition() {
 
 clearPickPosition();
 
+/**
+ * Manages user interactions with the balls in the scene graph that represent 
+ * chords. Chords are value types and balls are Three.js reference types.
+ */
 class PickHelper {
-    constructor() {
+    constructor(view) {
         this.raycaster = new THREE.Raycaster();
         this.pickedObject = null;
         this.pickedObjectSavedColor = 0;
+        this.view = view;
+        /**
+         * Maps Three.js object ids to Chord instances.
+         */
+        this.chords_for_balls = new Map();
+        /**
+         * Maps Chord ids to Three.js object ids.
+         */
+        this.balls_for_chords = new Map();
+    }
+    /**
+     * Returns the chord associated with the object, or undefined if the chord 
+     * does not exist.
+     */
+    chord_for_ball(object_) {
+        if (object_ == null) {
+            return;
+        }
+        let id = object_.id;
+        let chord = this.chords_for_balls.get(id);
+        return chord;
+    }
+    /**
+     * Returns the object associated with the chord, or undefined if the 
+     * object does not exist.
+     */
+    ball_for_chord(chord) {
+        if (chord == null) {
+            return;
+        }
+        let chord_id = chord.toString();
+        let ball_id = this.balls_for_chords.get(chord_id);
+        if (ball_id == null) {
+            return;
+        }
+        let object_ = this.view.scene.getObjectById(ball_id);
+        return object_;
+    }    
+    current_chord() {
+        return this.chord_for_ball(this.pickedObject);
+    }
+    up() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.T(1.).eOP();
+        this.select_chord(chord);
+        this.view.render();
+     }
+    down() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.T(-1.).eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    invert() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        csound_message_callback(sprintf("invert: chord:      %s\n", chord.toString()));
+        let sectors = chord.opt_domain_sectors();
+        let sector = sectors.get(0);
+        csound_message_callback(sprintf("invert: sector:     %d\n", sector));
+        let reflection = chord.reflect(sector).ceiling(1.).eOP();
+        csound_message_callback(sprintf("invert: reflection: %s\n", reflection.toString()));
+        this.select_chord(reflected);
+        this.view.render();
+    }
+    nrp() {
+    }
+    nrl() {
+    }
+    nrr() {
+    }
+    nrh() {
+    }
+    select_chord(chord) {
+        let ball = this.ball_for_chord(chord);
+        // Note, "variable == null" is true if variable is either undefined or null.
+        if (ball == null) {
+            return;
+        }
+        this.select_ball(ball);
+    }
+    select_ball(ball) {
+        // Restore the state of a previoiusly picked chord.
+        if (this.pickedObject !== null) {
+            this.pickedObject.material.emissive.setHex(this.pickedObjectSavedColor);
+            this.pickedObject.scale.set(1, 1, 1);
+            this.pickedObject.material.emissive.multiplyScalar(.5);
+        }
+        this.pickedObject = ball;
+        // Save the state of the picked chord.
+        this.pickedObjectSavedColor = this.pickedObject.material.emissive.getHex();
+        this.pickedObject.scale.set(1.5, 1.5, 1.5);
+        this.pickedObject.material.emissive.multiplyScalar(2.);
+        let chord = this.chord_for_ball(this.pickedObject);
+        this.view.render();
+        this.view.play_chord(chord);
     }
     pick(normalizedPosition, scene, camera, time) {
         try {
-            // cast a ray through the frustum
+            // Cast a ray through the view frustum.
             this.raycaster.setFromCamera(normalizedPosition, camera);
-            // get the list of objects the ray intersected
+            // Returns the list of the objects that the ray intersects.
             const intersectedObjects = this.raycaster.intersectObjects(scene.children);
-            if (intersectedObjects.length) {
-                // pick the first object. It's the closest one
-                let picked_ = intersectedObjects[0].object;
-                // We are only interested in chords.
-                if (picked_.userData !== null) {
-                    // restore the color if there is a picked object
-                    if (this.pickedObject !== null) {
-                        this.pickedObject.material.emissive.setHex(this.pickedObjectSavedColor);
-                    }
-                    this.pickedObject = picked_;
-                    // save its color
-                    this.pickedObjectSavedColor = this.pickedObject.material.emissive.getHex();
-                    this.pickedObject.material.emissive.setHex(0xff99ff);
+            for (let i = 0; i < intersectedObjects.length; ++i) {
+                // The closest object is the first CHORD in the list.
+                let picked_ = intersectedObjects[i].object;
+                // We are only interested in objects that have associated chords.
+                let chord = this.chord_for_ball(picked_);
+                if (chord == null) {
+                    continue;
+                } else {
+                    this.select_ball(picked_);
+                    break;
                 }
             }
             return this.pickedObject;
         } catch(x) {
-            csound_message_callback(x);
+            csound_message_callback("Exception in PickHelper.pick:\n", x.message);
             return null;
         }
     }
 }
 
-class FundamentalDomainView {
+class ChordSpaceView {
     constructor(fundamental_domain_) {
         this.fundamental_domain = fundamental_domain_
         this.score = null;
@@ -954,23 +1129,57 @@ class FundamentalDomainView {
         this.major = CsoundAC.chordForName("CM").normal_form();
         this.minor = CsoundAC.chordForName("Cm").normal_form();
         this.augmented = CsoundAC.chordForName("C+").normal_form();
-        this.pick_helper = new PickHelper();
+        this.pick_helper = new PickHelper(this);
         this.current_chord = null;
         this.prior_chord = null;
     }
     play_chord() {
-        if (this.current_chord == null) {
+        let csound_ = get_csound(csound_message_callback);
+        if (csound_ == null) {
             return;
         }
+        // Stop playing the prior chord.
         if (this.prior_chord !== null) {
             if (this.current_chord.equals(this.prior_chord)) {
                 return;
             }
+            for (let voice = 0; voice < this.prior_chord.voices(); ++voice) {
+                let instrument = 1. + voice;
+                let time = 0.;
+                let duration = 0.;
+                let key = 60. + this.prior_chord.getPitch(voice);
+                let velocity = 60.;
+                let x = 0.;
+                let y = voice / 4.;
+                let z = 0.;
+                let event = sprintf("i %9.4f %9.4f %9.4f %9.4f %9.4f %9.4f %9.4f %9.4f \n", -instrument, time, duration, key, velocity, x, y, z);
+                csound_.ReadScore(event);
+            }
+        } 
+        // Start playing the currrent chord.
+        if (this.current_chord == null) {
+            return;
+        } else {
+            for (let voice = 0; voice < this.current_chord.voices(); ++voice) {
+                let instrument = 1. + voice;
+                let time = 0.;
+                let duration = -100.;
+                let key = 60 + this.current_chord.getPitch(voice);
+                let velocity = 60.;
+                let x = 0.;
+                let y = voice / 4.;
+                let z = 0.;
+                let event = sprintf("i %9.4f %9.4f %9.4f %9.4f %9.4f %9.4f %9.4f %9.4f \n", instrument, time, duration, key, velocity, x, y, z);
+                csound_.ReadScore(event);
+            }
         }
     }
-    on_picked_chord(new_chord) {
+    render() {
         this.renderer.render(this.scene, this.camera);
-        csound_message_callback("Picked chord: " + new_chord.information() + "\n");
+    }
+    on_picked_chord(new_chord) {
+        this.render();
+        csound_message_callback("Picked chord:\n" + new_chord.information() + "\n");
         this.prior_chord = this.current_chord;
         this.current_chord = new_chord;
         this.play_chord();
@@ -1012,10 +1221,11 @@ class FundamentalDomainView {
             clearPickPosition();
             setPickPosition(e);
             const picked = fundamental_domain_view.pick_helper.pick(pickPosition, fundamental_domain_view.scene, fundamental_domain_view.camera, 0);
-            if (picked !== null) {
-                if (picked.userData !== null) {
-                    fundamental_domain_view.on_picked_chord(picked.userData);
-                }
+            let chord =  fundamental_domain_view.pick_helper.chord_for_ball(picked);
+            if (chord == null) {
+                return;
+            } else {
+                fundamental_domain_view.on_picked_chord(chord);
             }
         });
         // Ensure that all sides are lighted.
@@ -1041,7 +1251,7 @@ class FundamentalDomainView {
         this.camera.lookAt(bounding_box.getCenter());
         this.camera.fov = 4 * Math.atan((bounding_box.getSize().y / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().z)) * (180 / Math.PI);
         this.camera.position.copy(bounding_box.getCenter());
-        this.camera.position.x = 8.125 * Math.max(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.x = 6.125 * Math.max(bounding_box.getSize().x, bounding_box.getSize().y);
         this.camera.position.y = this.camera.position.x * 14;
         this.camera.position.z = this.camera.position.x * 24;
         this.controls.target.copy(bounding_box.getCenter());
@@ -1086,18 +1296,19 @@ class FundamentalDomainView {
         ball.position.x = chord.getPitch(0);
         ball.position.y = chord.getPitch(1);
         ball.position.z = chord.getPitch(2);
-        ball.userData = chord;
         this.scene.add(ball);
-        csound_message_callback("plotChord3D: normal_form: " + chord.normal_form().toString() + " chord: " + chord.toString() + "\n");
+        this.pick_helper.balls_for_chords.set(chord.toString(), ball.id);
+        this.pick_helper.chords_for_balls.set(ball.id, chord);
+        ///csound_message_callback("plotChord3D: normal_form: " + chord.normal_form().toString() + " chord: " + chord.toString() + "\n");
     }
     lookAtFullScene3D() {
         let bounding_box = new THREE.Box3().setFromObject(this.scene);
         this.camera.lookAt(bounding_box.getCenter());
         this.camera.fov = 2 * Math.atan((bounding_box.getSize().x / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().y)) * (180 / Math.PI);
         this.camera.position.copy(bounding_box.getCenter());
-        this.camera.position.z = 8.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.z = 6.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
         this.camera.position.y = this.camera.position.x * 9;
-        this.camera.position.z = this.camera.position.x * 18;
+        this.camera.position.z = this.camera.position.x * 9;
         this.controls.target.copy(bounding_box.getCenter());
         this.controls.update();
         this.camera.updateProjectionMatrix();
@@ -1121,7 +1332,7 @@ class FundamentalDomainView {
         if (this.fundamental_domain.contains(neighbor) === false) {
             return;
         } else {
-            const material = new THREE.LineBasicMaterial( { color: "green", linewidth: 5, opacity: .25 } );    
+            const material = new THREE.LineBasicMaterial( { color: "green", linewidth: 3, opacity: .25 } );    
             const geometry = new THREE.Geometry();
             geometry.vertices.push(new THREE.Vector3(origin.getPitch(0), origin.getPitch(1), origin.getPitch(2)), new THREE.Vector3(neighbor.getPitch(0), neighbor.getPitch(1), neighbor.getPitch(2)));
             const line = new THREE.Line(geometry, material);
@@ -1132,12 +1343,12 @@ class FundamentalDomainView {
         let n = this.fundamental_domain.chords.size();
         for (let i = 0; i < n; i++) {
             let chord = this.fundamental_domain.chords.get(i);
-            this.connect(chord, chord.move(0,  1.).eP());///this.sort((trichord[0] + 1.0, trichord[1], trichord[2])))
-            this.connect(chord, chord.move(1,  1.).eP());///this.sort((trichord[0], trichord[1] + 1.0, trichord[2])))
-            this.connect(chord, chord.move(2,  1.).eP());///this.sort((trichord[0], trichord[1], trichord[2] + 1.0)))
-            this.connect(chord, chord.move(0, -1.).eP());///this.sort((trichord[0] - 1.0, trichord[1], trichord[2])))
-            this.connect(chord, chord.move(1, -1.).eP());///this.sort((trichord[0], trichord[1] - 1.0, trichord[2])))
-            this.connect(chord, chord.move(2, -1.).eP());///this.sort((trichord[0], trichord[1], trichord[2] - 1.0)))
+            this.connect(chord, chord.move(0,  1.).eP());
+            this.connect(chord, chord.move(1,  1.).eP());
+            this.connect(chord, chord.move(2,  1.).eP());
+            this.connect(chord, chord.move(0, -1.).eP());
+            this.connect(chord, chord.move(1, -1.).eP());
+            this.connect(chord, chord.move(2, -1.).eP());
         }
     }
     draw3D(canvas_) {
