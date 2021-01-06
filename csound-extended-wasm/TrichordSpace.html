@@ -37,28 +37,29 @@
 <td id="help" style="height:25vh;width:50vw;display:block;overflow:auto;">
 <h1>Chord Space for Trichords</h1>
 <h3>Michael Gogins<br>3 January 2020</h3>
-<p>This is an interactive 3-dimensional model of a chord space of all 
+<p>This program is an interactive 3-dimensional model of a chord space for all 
 3-voice chords in 12-tone equal temperament. A chord is a single point in a 
-space with 1 dimension for each voice of a chord; thus, a chord space for 
-trichords has 3 dimensions. Various equivalence classes divide this space 
-into quotient spaces (orbifolds), e.g. octave equivalence produces a cube, 
-permutational equivalence a prism, transpositional equivalence 
-a flat layer, and inversional equivalence a reflection that 
-folds half the space over itself. The space at startup is the 
+space with 1 dimension for each voice of a chord; thus, any chord space for 
+trichords has 3 dimensions. Different equivalence classes divide this space 
+into different quotient spaces (or orbifolds), e.g. octave equivalence 
+produces a cube, permutational equivalence a prism, transpositional 
+equivalence a flat layer, and inversional equivalence a reflection that 
+folds half the space over itself. The chord space at startup is the 
 combination of octave equivalence and permutational equivalence (OP). See: 
 Callendar, Quinn, and Tymoczko, "Generalized Voice-Leading Spaces," 
 <b><i>Science</i> 320</b>, 2008.</p>
-<p>In OP, the augmented triads form the central column of white chords. It is 
-surrounded by 3 columns of major triads colored red, and 3 columns of minor 
-triads colored blue; each column is a different voicing of the triad. 
+<p>In OP, the augmented triads form a central column (white balls). It is 
+surrounded by 3 columns of major triads (red balls), and 3 columns of minor 
+triads (blue balls); each column is a different voicing of the triad. 
 Neighboring chords are connected by 1-semitone voice-leadings.<p>
-<p>Clicking on a chord selects it and prints information about it in the text 
-area on the left side. Dragging the mouse with the left button down rotates 
-the model, dragging the mouse with the right button down moves the model, 
-and dragging the button with the mouse wheel down moves the model closer to 
-or farther away from the camera.<p>
+<p>Clicking on a chord selects it, plays it, and prints information about it 
+in the text area on the left side. Dragging the mouse with the left button 
+down rotates the model, dragging the mouse with the right button down moves 
+the model, and dragging the button with the mouse wheel down moves the model 
+closer to or farther away from the viewer.<p>
 <p>The following commands are available by using the menu (or key 
-combinations):
+combinations). Please note, pressing the shift key in a key combination makes 
+an up movement into a down movement.
 </p>
 <dl>
 <dt>Equivalence class</dt>
@@ -72,36 +73,41 @@ equivalence, and inversional equivalence; maps to prime form).<dd>
 they are selected.</dt>
 <dt>Stop [Ctrl-S]</dt>
 <dd>Stops Csound.</dd>
-<dt>Transpose [Ctrl-T-+ or Ctrl-T--]</dt>
+<dt>Transpose [Ctrl-T]</dt>
 <dd>Transposes the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
 <dt>Invert [Ctrl-I]</dt>
 <dd>Inverts the selected chord, i.e. reflects it in the inversion flat that 
 divides each OPT domain into two OPTI domains.</dd>
-<dt>Parallel</dt>
-<dd>Applies the Reimannian parallel transformation to the selected chord.</dd>
-<dt>Leadingt-tone</dt>
-<dd>Applies the Reimannian leading-tone transformation to the selected chord.</dd>
-<dt>Relative</dt>
-<dd>Applies the Reimannian relative transformation to the selected chord, taking 
-minor triads to the closest major triads, and vice versa.</dd>
-<dt>Hexpole</dt>
-<dd>Applies the Reimannian hexpole transformation to the selected chord.</dd>
-<dt>Slide</dt>
-<dd>Applies the Reimannian slide transformation to the selected chord.</dd>
-<dt>Dominant</dt>
-Applies the Reimannian dominant transformation to the selected chord, 
-as if it were V moving to I.
+<dt>Move voice 1 [Ctrl-1]</dt>
+<dd>Moves voice 1 of the selected chord up or down by 1 semitone.</dd>
+<dt>Move voice 2 [Ctrl-2]</dt>
+<dd>Moves voice 2 of the selected chord up or down by 1 semitone.</dd>
+<dt>Move voice 3 [Ctrl-3]</dt>
+<dd>Moves voice 3 of the selected chord up or down by 1 semitone.</dd>
+<dt>Neo-Riemannian transformations</dt>
+<dd>
+<dl>
+<dt>Relative [Alt-R]</dt>
+<dd>Applies the relative transformation to the selected chord, e.g. I <=> vi./dd>
+<dt>Parallel [Alt-P]</dt>
+<dd>Applies parallel transformation to the selected chord, e.g. I <=> i.</dd>
+<dt>Leading-tone exchange [Alt-L]</dt>
+<dd>Applies the leading-tone transformation to the selected chord, e.g. I <=> iii.</dd>
+<dt>Slide [Alt-S]</dt>
+<dd>Applies the slide transformation to the selected chord, e.g. I <=> i#.</dd>
+<dt>Nebenverwandt [Alt-N]</dt>
+<dd>Applies the Nebenverwandt transformation to the selected chord, e.g. I <=> iv.</dd>
+<dt>Hexpole [Alt-H]</dt>
+<dd>Applies the hexpole transformation to the selected chord, e.g. I <=> vib.</dd>
 <dd></dd>
-<dt>Move voice 1 [Ctrl-1-+ or Ctrl-1--]</dt>
-<dd>Moves voice 1 of the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
-<dt>Move voice 2</dt>
-<dd>Moves voice 1 of the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
-<dt>Move voide 3</dt>
-<dd>Moves voice 3 of the selected chord up (+ key) or down (- key) by 1 semitone.</dd>
+</dl>
+<dt>Dominant [Alt-D]</dt>
+<dd>Not a neo-Reimannian transformation, but transposes the chord down a 
+perfect fifth, e.g. V => I.</dd>
 </dl>
 </td>
 <td id="console-layout" >
-<textarea id="console" class="w3-container" style="height:25vh;width:50vw;background-color:transparent;border-color:transparent;color:LawnGreen;font-family:Courier,sans-serif;font-size:9pt;display:block;overflow:auto;">
+<textarea id="console" class="w3-container" style="height:25vh;width:50vw;background-color:transparent;border-color:transparent;color:#A9F5A9;font-family:Courier,sans-serif;font-size:9pt;display:block;overflow:auto;">
 </textarea>
 </td>
 </table>
@@ -772,8 +778,8 @@ i "exitnow" [5 * 60 + 10 ] .1
 </textarea>
 </div>
 <script>
-var fundamental_domain = null;
-var fundamental_domain_view = null;
+var chord_space = null;
+var chord_space_view = null;
 try {
     var fs = require("fs");
     var __dirname = fs.realpathSync.native(".");
@@ -790,17 +796,17 @@ var csound_message_callback = function(text) {
 
 var draw_fundamental_domain = function(value) {
     if (value === "OP") {
-        fundamental_domain = new ChordSpace("RP", 12.);
+        chord_space = new ChordSpace("RP", 12.);
     }
     if (value === "OPT") {
-        fundamental_domain = new ChordSpace("RPTg", 12.);
+        chord_space = new ChordSpace("RPTg", 12.);
     }
     if (value === "OPTI") {
-        fundamental_domain = new ChordSpace("RPTgI", 12.);
+        chord_space = new ChordSpace("RPTgI", 12.);
     }
-    fundamental_domain_view = new ChordSpaceView(fundamental_domain);
-    fundamental_domain_view.draw3D(document.getElementById("canvas"));
-    fundamental_domain_view.lookAtFullScene3D();
+    chord_space_view = new ChordSpaceView(chord_space);
+    chord_space_view.draw3D(document.getElementById("canvas"));
+    chord_space_view.lookAtFullScene3D();
 };
 
 var CsoundAC;
@@ -827,7 +833,7 @@ var play_ = async function() {
     try {
         let csd = document.getElementById('csd').value;
         let csound_ = await get_csound(csound_message_callback);
-        fundamental_domain_view.csound = csound_;
+        chord_space_view.csound = csound_;
         await csound_.CompileCsdText(csd);
         await csound_.Start();
         await csound_.Perform();
@@ -850,15 +856,15 @@ var add_slider = function(gui_folder, token, minimum, maximum, name) {
     var on_parameter_change = function(value) {
     gk_update(token, value);
     };
-    gui_folder.add(parameters, token, minimum, maximum).onChange(on_parameter_change);
+    gui_folder.add(gui_parameters, token, minimum, maximum).onChange(on_parameter_change);
 };
 
 window.addEventListener("unload", function(event) { 
-parameters.stop();
-nw_window.close();
+    gui_parameters.stop();
+    nw_window.close();
 });
 
-var parameters = {
+var gui_parameters = {
      equivalence_class: 'OP',
      gk_Reverb_feedback: .8,
      gi_Reverb_delay_modulation: 0.5,
@@ -866,46 +872,55 @@ var parameters = {
      gk_MasterOutput_level: 0.,
      play: function() {play_();},
      stop: function() {stop_();},
-     transpose: function() {fundamental_domain_view.pick_helper.up();},
-     invert: function() {fundamental_domain_view.pick_helper.invert();},
-     nrp: function() {},
-     nrl: function() {},
-     nrr: function() {},
-     nrh: function() {},
-     nrs: function() {},
-     nrd: function() {},
-     v1: function() {},
-     v2: function() {},
-     v3: function() {},
+     transpose: function() {chord_space_view.controller.transpose(this.semitone);},
+     invert: function() {chord_space_view.controller.invert();},
+     nrr: function() {chord_space_view.controller.nrr()},
+     nrp: function() {chord_space_view.controller.nrp()},
+     nrl: function() {chord_space_view.controller.nrl()},
+     nrs: function() {chord_space_view.controller.nrs()},
+     nrn: function() {chord_space_view.controller.nrn()},
+     nrh: function() {chord_space_view.controller.nrh()},
+     nrd: function() {chord_space_view.controller.nrd()},
+     v1: function() {chord_space_view.controller.v1(this.semitone)},
+     v2: function() {chord_space_view.controller.v2(this.semitone)},
+     v3: function() {chord_space_view.controller.v3(this.semitone)},
+     information: function() {chord_space_view.controller.information()},
+     semitone: 1.,
 };
 
 window.addEventListener("load", function() {
     try {
         gui = new dat.GUI({width: 400});
-        gui.add(parameters, 'play').name('Play [Ctrl-P]');
-        gui.add(parameters, 'stop').name('Stop [Ctrl-S]');
+        gui.add(gui_parameters, 'play').name('Play [Ctrl-P]');
+        gui.add(gui_parameters, 'stop').name('Stop [Ctrl-S]');
         let Master = gui.addFolder('Master effects');
         add_slider(Master, 'gk_Reverb_feedback', 0, 1);     
         add_slider(Master, 'gi_Reverb_delay_modulation', 0, 3);
         add_slider(Master, 'gk_Reverb_frequency_cutoff', 5000, 20000);
         add_slider(Master, 'gk_MasterOutput_level', -80, 80);
-        gui.add(parameters, 'equivalence_class', ['OP', 'OPT', 'OPTI']).name('Equivalence class').onChange(draw_fundamental_domain);
-        gui.add(parameters, 'transpose').name('Transpose [Ctrl-T]');
-        gui.add(parameters, 'invert').name('Invert [Ctrl-I]');
+        gui.add(gui_parameters, 'equivalence_class', ['OP', 'OPT', 'OPTI']).name('Equivalence class').onChange(draw_fundamental_domain);
+        gui.add(gui_parameters, 'transpose').name('Transpose [Ctrl-T]');
+        gui.add(gui_parameters, 'invert').name('Invert [Ctrl-I]');
         let Neo_Reimannian = gui.addFolder('Neo-Riemannian Transformations');
-        Neo_Reimannian.add(parameters, 'nrp').name('Parallel');
-        Neo_Reimannian.add(parameters, 'nrl').name('Leading tone exchange');
-        Neo_Reimannian.add(parameters, 'nrr').name('Relative');
-        Neo_Reimannian.add(parameters, 'nrh').name('Hexapole');
-        Neo_Reimannian.add(parameters, 'nrs').name('Slide');
-        Neo_Reimannian.add(parameters, 'nrd').name('Dominant');
-        gui.add(parameters, 'v1').name('Move 1 [Ctrl-1]');
-        gui.add(parameters, 'v2').name('Move 2 [Ctrl-2]');
-        gui.add(parameters, 'v3').name('Move 3 [Ctrl-3]');
+        Neo_Reimannian.add(gui_parameters, 'nrr').name('Relative [Alt-R]');
+        Neo_Reimannian.add(gui_parameters, 'nrp').name('Parallel [Alt-P]');
+        Neo_Reimannian.add(gui_parameters, 'nrl').name('Leading tone exchange [Alt-L]');
+        Neo_Reimannian.add(gui_parameters, 'nrs').name('Slide [Alt-S]');
+        Neo_Reimannian.add(gui_parameters, 'nrn').name('Nebenverwandt [Alt-N]');
+        Neo_Reimannian.add(gui_parameters, 'nrh').name('Hexpole [Alt-H]');
+        gui.add(gui_parameters, 'nrd').name('Dominant');
+        gui.add(gui_parameters, 'v1').name('Move 1 [Ctrl-1]');
+        gui.add(gui_parameters, 'v2').name('Move 2 [Ctrl-2]');
+        gui.add(gui_parameters, 'v3').name('Move 3 [Ctrl-3]');
         document.addEventListener("keydown", function (e) {
-            var e_char = String.fromCharCode(e.keyCode || e.charCode);
+            const e_char = String.fromCharCode(e.keyCode || e.charCode);
+            if (e.shiftKey === true) {
+                gui_parameters.semitone = -1;
+            } else {
+                gui_parameters.semitone = 1.;
+            }
             if (e.ctrlKey === true) {
-                if (e_char === 'H') {
+                if        (e_char === 'H') {
                     var table = document.getElementById("table");
                     if (table.style.display === "none") {
                         table.style.display = "block";
@@ -915,9 +930,36 @@ window.addEventListener("load", function() {
                     gui.closed = true;
                     gui.closed = false;
                 } else if (e_char === 'P') {
-                    parameters.play();
+                    gui_parameters.play();
                 } else if (e_char === 'S') {
-                    parameters.stop();
+                    gui_parameters.stop();
+                } else if (e_char === 'T') {
+                    gui_parameters.transpose();
+                } else if (e_char === 'I') {
+                    gui_parameters.invert();
+                } else if (e_char === '1') {
+                    gui_parameters.v1();
+                } else if (e_char === '2') {
+                    gui_parameters.v2();
+                } else if (e_char === '3') {
+                    gui_parameters.v3();
+                } else if (e_char === 'D') {
+                    gui_parameters.nrd();
+                }
+            }
+            if (e.altKey === true) {
+                if        (e_char === 'R') {
+                    gui_parameters.nrr();
+                } else if (e_char === 'P') {
+                    gui_parameters.nrp();
+                } else if (e_char === 'L') {
+                    gui_parameters.nrl();
+                } else if (e_char === 'S') {
+                    gui_parameters.nrs();
+                } else if (e_char === 'N') {
+                    gui_parameters.nrn();
+                } else if (e_char === 'H') {
+                    gui_parameters.nrh();
                 }
             }
         });
@@ -980,7 +1022,7 @@ clearPickPosition();
  * Manages user interactions with the balls in the scene graph that represent 
  * chords. Chords are value types and balls are Three.js reference types.
  */
-class PickHelper {
+class ChordSpaceController {
     constructor(view) {
         this.raycaster = new THREE.Raycaster();
         this.pickedObject = null;
@@ -1026,24 +1068,15 @@ class PickHelper {
     current_chord() {
         return this.chord_for_ball(this.pickedObject);
     }
-    up() {
+    transpose(semitone) {
         let chord = this.current_chord();
         if (chord == null) {
             return;
         }
-        chord = chord.T(1.).eOP();
+        chord = chord.T(semitone).eOP();
         this.select_chord(chord);
         this.view.render();
      }
-    down() {
-        let chord = this.current_chord();
-        if (chord == null) {
-            return;
-        }
-        chord = chord.T(-1.).eOP();
-        this.select_chord(chord);
-        this.view.render();
-    }
     invert() {
         let chord = this.current_chord();
         if (chord == null) {
@@ -1055,20 +1088,110 @@ class PickHelper {
         csound_message_callback(sprintf("invert: sector:     %d\n", sector));
         let reflection = chord.reflect(sector).ceiling(1.).eOP();
         csound_message_callback(sprintf("invert: reflection: %s\n", reflection.toString()));
-        this.select_chord(reflected);
+        this.select_chord(reflection);
+        this.view.render();
+    }
+    nrr() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.nrR().eOP();
+        this.select_chord(chord);
         this.view.render();
     }
     nrp() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.nrP().eOP();
+        this.select_chord(chord);
+        this.view.render();
     }
     nrl() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.nrL().eOP();
+        this.select_chord(chord);
+        this.view.render();
     }
-    nrr() {
+    nrs() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.nrS().eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    nrn() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.nrN().eOP();
+        this.select_chord(chord);
+        this.view.render();
     }
     nrh() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.nrH().eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    nrd() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.T(-7).eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    v1(semitone) {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.move(0, semitone).eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    v2(semitone) {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.move(1, semitone).eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    v3(semitone) {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        chord = chord.move(2, semitone).eOP();
+        this.select_chord(chord);
+        this.view.render();
+    }
+    information() {
+        let chord = this.current_chord();
+        if (chord == null) {
+            return;
+        }
+        let text = chord.information();
+        alert(text);
     }
     select_chord(chord) {
         let ball = this.ball_for_chord(chord);
-        // Note, "variable == null" is true if variable is either undefined or null.
+        // Note, "variable == null" is true if the variable is either undefined or null.
         if (ball == null) {
             return;
         }
@@ -1097,7 +1220,6 @@ class PickHelper {
             // Returns the list of the objects that the ray intersects.
             const intersectedObjects = this.raycaster.intersectObjects(scene.children);
             for (let i = 0; i < intersectedObjects.length; ++i) {
-                // The closest object is the first CHORD in the list.
                 let picked_ = intersectedObjects[i].object;
                 // We are only interested in objects that have associated chords.
                 let chord = this.chord_for_ball(picked_);
@@ -1110,15 +1232,15 @@ class PickHelper {
             }
             return this.pickedObject;
         } catch(x) {
-            csound_message_callback("Exception in PickHelper.pick:\n", x.message);
+            csound_message_callback("Exception in ChordSpaceController.pick:\n", x.message);
             return null;
         }
     }
 }
 
 class ChordSpaceView {
-    constructor(fundamental_domain_) {
-        this.fundamental_domain = fundamental_domain_
+    constructor(chord_space_) {
+        this.chord_space = chord_space_
         this.score = null;
         this.canvas = null;
         this.context = null;
@@ -1129,7 +1251,7 @@ class ChordSpaceView {
         this.major = CsoundAC.chordForName("CM").normal_form();
         this.minor = CsoundAC.chordForName("Cm").normal_form();
         this.augmented = CsoundAC.chordForName("C+").normal_form();
-        this.pick_helper = new PickHelper(this);
+        this.controller = new ChordSpaceController(this);
         this.current_chord = null;
         this.prior_chord = null;
     }
@@ -1212,20 +1334,20 @@ class ChordSpaceView {
         controls.staticMoving = true;
         controls.dynamicDampingFactor = 0.3;
         //controls.keys = [ 65, 83, 68 ];
-        var fundamental_domain_view = this;
+        var chord_space_view = this;
         this.canvas.addEventListener("mousemove", function(e) {
-            fundamental_domain_view.render3D();
+            chord_space_view.render3D();
         });
         this.canvas.addEventListener("mousedown", function(e) {
             ///csound_message_callback(e.toString() + "\n");
             clearPickPosition();
             setPickPosition(e);
-            const picked = fundamental_domain_view.pick_helper.pick(pickPosition, fundamental_domain_view.scene, fundamental_domain_view.camera, 0);
-            let chord =  fundamental_domain_view.pick_helper.chord_for_ball(picked);
+            const picked = chord_space_view.controller.pick(pickPosition, chord_space_view.scene, chord_space_view.camera, 0);
+            let chord =  chord_space_view.controller.chord_for_ball(picked);
             if (chord == null) {
                 return;
             } else {
-                fundamental_domain_view.on_picked_chord(chord);
+                chord_space_view.on_picked_chord(chord);
             }
         });
         // Ensure that all sides are lighted.
@@ -1297,8 +1419,8 @@ class ChordSpaceView {
         ball.position.y = chord.getPitch(1);
         ball.position.z = chord.getPitch(2);
         this.scene.add(ball);
-        this.pick_helper.balls_for_chords.set(chord.toString(), ball.id);
-        this.pick_helper.chords_for_balls.set(ball.id, chord);
+        this.controller.balls_for_chords.set(chord.toString(), ball.id);
+        this.controller.chords_for_balls.set(ball.id, chord);
         ///csound_message_callback("plotChord3D: normal_form: " + chord.normal_form().toString() + " chord: " + chord.toString() + "\n");
     }
     lookAtFullScene3D() {
@@ -1315,7 +1437,7 @@ class ChordSpaceView {
         this.renderer.render(this.scene, this.camera);
     }
     drawAxes() {
-        let range = this.fundamental_domain.range * 1.125;
+        let range = this.chord_space.range * 1.125;
         const material = new THREE.LineBasicMaterial( { color: "yellow", linewidth: 5 } );    
         const geometry = new THREE.Geometry();
         geometry.vertices.push(new THREE.Vector3(0, 0, 0), new THREE.Vector3(range, 0, 0), new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, range, 0), new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, range));
@@ -1329,7 +1451,7 @@ class ChordSpaceView {
         this.scene.add(center_line);
     }
     connect(origin, neighbor) {
-        if (this.fundamental_domain.contains(neighbor) === false) {
+        if (this.chord_space.contains(neighbor) === false) {
             return;
         } else {
             const material = new THREE.LineBasicMaterial( { color: "green", linewidth: 3, opacity: .25 } );    
@@ -1340,9 +1462,9 @@ class ChordSpaceView {
         }
     }
     drawConnections() {
-        let n = this.fundamental_domain.chords.size();
+        let n = this.chord_space.chords.size();
         for (let i = 0; i < n; i++) {
-            let chord = this.fundamental_domain.chords.get(i);
+            let chord = this.chord_space.chords.get(i);
             this.connect(chord, chord.move(0,  1.).eP());
             this.connect(chord, chord.move(1,  1.).eP());
             this.connect(chord, chord.move(2,  1.).eP());
@@ -1353,11 +1475,11 @@ class ChordSpaceView {
     }
     draw3D(canvas_) {
         this.canvas = canvas_;
-        this.prepareScene3D(canvas_, this.fundamental_domain);
+        this.prepareScene3D(canvas_, this.chord_space);
         // Plot the chords.
-        let n = this.fundamental_domain.chords.size();
+        let n = this.chord_space.chords.size();
         for (var i = 0; i < n; i++) {
-            let chord = this.fundamental_domain.chords.get(i);
+            let chord = this.chord_space.chords.get(i);
             this.plotChord3D(chord);
         }
         this.drawAxes();
@@ -1370,1017 +1492,3 @@ class ChordSpaceView {
 </script>
 </body>
 </html>
-<!--
-'''
-Represents operations on chords in a voice-leading orbifold.
-Chords can actually have more dimensions than voices,
-but voice-leading operations affect only the specified number of voices,
-which can be a lower subspace of the orbifold.
-This is to enable using the lower subspace of chords to represent pitches,
-and the higher subspace to represent other properties of music;
-e.g. [0:4] can be a tetrachord, [4:8] durations, [8:12] loudnesses, and so on.
-'''
-class ChordSpace3(object):
-    def __init__(self, voiceCount=3, cubeOctaveCount=2,octaveCount=3, tonesPerOctave=12, isCube=False, isPrism=False, isNormalPrism = False, debug=False):
-        this.N = voiceCount
-        this.octaveCount = octaveCount
-        this.tonesPerOctave = tonesPerOctave
-        this.isCube = isCube
-        this.isPrism = isPrism
-        this.isNormalPrism = isNormalPrism
-        this.debug = debug
-        this.R = this.tonesPerOctave * this.octaveCount
-        this.NR = this.N * this.R
-        this.cubeOctaveCount = cubeOctaveCount
-        this.cubeTessitura = this.tonesPerOctave * this.cubeOctaveCount
-        this.cubeRadius = 0.07
-        this.prismRadius = this.cubeRadius * 2.0
-        this.normalPrismRadius = this.prismRadius #* 2.0
-    def getTessitura(self):
-        if this.isCube:
-            return this.cubeTessitura
-        else:
-            return this.R
-    def sort(self, chord):
-        c = vector(chord)
-        d = c[0:this.N]
-        d.sort()
-        c[0:this.N] = d
-        return c
-    '''
-    Move 1 voice.
-    '''
-    def move(self, chord_, voice, interval):
-        chord = list(chord_)
-        print('Move %d by %f.' % (voice, interval))
-        chord[voice] = chord[voice] + interval
-        chord = tuple(this.bounceInside(chord))
-        return chord
-    '''
-    Do a root progression by tranposition.
-    '''
-    def pT(self, chord, interval):
-        chord = this.firstInversion(chord)
-        print('Transpose by %f.' % interval)
-        for i in range(3):
-            chord[i] = chord[i] + interval
-        chord = tuple(this.bounceInside(chord))
-        return chord
-    '''
-    Perform the leading tone exchange neo-Riemannian transformation.
-    '''
-    def nrL(self, chord):
-        print('Leading-tone exchange transformation.')
-        chord = this.firstInversion(chord)
-        z1 = this.zeroFormFirstInversion(chord)
-        if   z1[1] == 4.0:
-            chord[0] = chord[0] - 1
-        elif z1[1] == 3.0:
-            chord[2] = chord[2] + 1
-        chord = tuple(this.keepInside(chord))
-        return chord
-    '''
-    Perform the parallel neo-Riemannian transformation.
-    '''
-    def nrP(self, chord):
-        print('Parallel transformation.')
-        chord = this.firstInversion(chord)
-        z1 = this.zeroFormFirstInversion(chord)
-        if   z1[1] == 4.0:
-            chord[1] = chord[1] - 1
-        elif z1[1] == 3.0:
-            chord[1] = chord[1] + 1
-        chord = tuple(this.keepInside(chord))
-        return chord
-    '''
-    Perform the relative neo-Riemannian transformation.
-    '''
-    def nrR(self, chord):
-        print('Relative transformation.')
-        chord = this.firstInversion(chord)
-        z1 = this.zeroFormFirstInversion(chord)
-        if   z1[1] == 4.0:
-            chord[2] = chord[2] + 2
-        elif z1[1] == 3.0:
-            chord[0] = chord[0] - 2
-        chord = tuple(this.keepInside(chord))
-        return chord
-    '''
-    Perform the dominant neo-Riemannian transformation.
-    '''
-    def nrD(self, chord):
-        print('Dominant transformation.')
-        chord = this.firstInversion(chord)
-        chord[0] = chord[0] - 7
-        chord[1] = chord[1] - 7
-        chord[2] = chord[2] - 7
-        chord = tuple(this.keepInside(chord))
-        return chord
-    def tones(self, chord):
-        c = array(chord, 'd').copy()
-        for i in range(this.N):
-           c[i] = c[i] % this.tonesPerOctave
-        return this.sort(c)
-    def zeroFormModulus(self, chord):
-        c = array(chord, 'd').copy()
-        for i in range(this.N):
-           c[i] = c[i] % this.tonesPerOctave
-        m = min(c)
-        for i in range(this.N):
-            c[i] = c[i] - m
-        return c
-    def zeroForm(self, chord):
-        c = array(chord).copy()
-        m = min(c[:this.N])
-        for i in range(this.N):
-            c[i] = c[i] - m
-        return c
-    def range(self, chord):
-        c = chord[0:this.N]
-        return max(c) - min(c)
-        #c = this.sort(chord).copy()
-        #return c[this.N-1] - c[0]
-    def firstInversion(self, chord):
-        inversions = this.rotations(chord)
-        inversionDistances = {}
-        origin = []
-        for i in range(this.N):
-            origin.append(0.)
-        for inversion in inversions:
-            zi = this.zeroForm(inversion)
-            #z = float(sum(zi)) / float(this.N)
-            d = this.euclidean(zi, origin)
-            if this.debug:
-                print('distance %f zeroform %s inversion %s' % (d, zi, inversion))
-            inversionDistances[d] = inversion
-        return inversionDistances[min(inversionDistances.keys())]
-    def zeroFormFirstInversion(self, chord):
-        return this.zeroForm(this.firstInversion(chord))
-    def equalTones(self, a, b):
-        a = this.tones(a)
-        b = this.tones(b)
-        if a == b:
-            return True
-        else:
-            return False
-    def inversions_(self, tones, iterating_chord, voice, inversions):
-        if voice >= this.N:
-            return
-        if this.isPrism:
-            beginning = -self.getTessitura() * 2
-            end = this.getTessitura() * 2
-        elif this.isCube:
-            beginning = -self.getTessitura()
-            end = this.getTessitura()
-        p = beginning
-        increment = 1.0
-        while p < end:
-            if this.pitchclass(p) == tones[voice]:
-                iterating_chord[voice] = p
-                increment = this.tonesPerOctave
-                si = this.sort(iterating_chord)
-                if this.isInside(si, this.getTessitura()):
-                    ic = tuple(si.tolist())
-                    inversions.add(ic)
-                this.inversions_(tones, iterating_chord, voice + 1, inversions)
-            p = p + increment
-    def inversions(self, chord):
-        inversions = set()
-        tones = this.tones(chord)
-        iterating_chords = this.rotations(tones)
-        for iterating_chord in iterating_chords:
-            voice = 0
-            this.inversions_(tones, iterating_chord, voice, inversions)
-        l = list(inversions)
-        for i in range(len(l)):
-            l[i] = array(l[i])
-        return l
-    def euclidean(self, a, b):
-        ss = 0.0
-        for i in range(this.N):
-            ss += ((a[i] - b[i]) ** 2.0)
-        return math.sqrt(ss)
-    def voiceleading(self, a, b):
-        v = []
-        for i in range(this.N):
-            v.append(b[i] - a[i])
-        return v
-    def areParallel(self, a, b):
-        return CsoundAC.areParallel(a,b)
-##        if this.debug:
-##            v = this.voiceleading(a, b)
-##        for i in range(this.N):
-##            if v.count(v[i]) > 1:
-##                for j in range(this.N):
-##                    if i != j:
-##                        if (math.fabs(a[i] - a[j]) == 7) and (math.fabs(b[i] - b[j]) == 7):
-##                            if this.debug:
-##                                print a, b, v, 'parallel fifth'
-##                            return True
-##        return false
-    def smoothness(self, a, b):
-        L1 = 0.0
-        for i in range(this.N):
-            L1 += math.fabs(b[i] - a[i])
-        return L1
-    def smoother(self, source, destination1, destination2, avoidParallels=False):
-        s1 = this.smoothness(source, destination1)
-        s2 = this.smoothness(source, destination2)
-        if avoidParallels:
-            if this.areParallel(source, destination1):
-                return destination2
-            if this.areParallel(source, destination2):
-                return destination1
-        if s1 <= s2:
-            return destination1
-        else:
-            return destination2
-    def simpler(self, source, destination1, destination2, avoidParallels=False):
-        v1 = this.voiceleading(source, destination1)
-        v1 = sort(v1)
-        v2 = this.voiceleading(source, destination2)
-        v2 = sort(v2)
-        for i in range(this.N - 1, -1, -1):
-            if v1[i] < v2[i]:
-                return destination1
-            if v2[i] < v1[i]:
-                return destination2
-        return destination1
-    def closer(self, source, destination1, destination2, avoidParallels=False):
-        if avoidParallels:
-            if this.areParallel(source, destination1):
-                return destination2
-            if this.areParallel(source, destination2):
-                return destination1
-        s1 = this.smoothness(source, destination1)
-        s2 = this.smoothness(source, destination2)
-        if s1 < s2:
-            return destination1
-        if s1 > s2:
-            return destination2
-        return this.simpler(source, destination1, destination2, avoidParallels)
-    def closest(self, source, destinations, avoidParallels=False):
-        d = destinations[0]
-        for i in range(1, len(destinations)):
-            d = this.closer(source, d, destinations[i], avoidParallels)
-        return d
-    def isFirstInversion(self, chord):
-        return tuple(this.zeroForm(chord)) == tuple(this.zeroFormFirstInversion(chord))
-    def rotate(self, a, n=1):
-        l = a.tolist()
-        for i in range(n):
-            tail = l.pop(this.N - 1)
-            l.insert(0, tail)
-        return array(l, 'd')
-    def invert(self, chord):
-        chord = array(chord)
-        c = chord[1:this.N].tolist()
-        c.append(chord[0] + this.tonesPerOctave)
-        d = chord.copy()
-        d[0:this.N] = c
-        return d
-    def rotations(self, chord):
-        chord = this.tones(chord)
-        rotations = [chord]
-        for i in range(1, this.N):
-            #chord = this.rotate(chord, i)
-            chord = this.invert(chord)
-            rotations.append(chord)
-        return rotations
-    def isInside(self, chord, range):
-        if this.isPrism:
-            return this.isInFundamentalDomain(chord)
-            #return this.isInsidePrism(chord, range)
-        else:
-            return this.isInsideCube(chord, range)
-    def isInsideCube(self, chord, range):
-        for i in range(this.N):
-            if chord[i] < -range/2.0:
-                return False
-            if chord[i] >  range/2.0:
-                return False
-        return True
-    def isInsideNormalPrism(self, chord, range):
-        if not this.isInsidePrism(chord, range):
-            return False
-        if this.isFirstInversion(chord):
-            return True
-        return False
-    def layer(self, chord):
-        return sum(chord[0:this.N])
-    def isInsidePrism(self, chord, range_):
-        if chord[0] < -range_:
-            return False
-        elif chord[0] > range_:
-            return False
-        for i in range(1, this.N):
-            if chord[i] > chord[0] + range_:
-                return False
-            elif chord[i] < chord[0]:
-                return False
-        s = sum(chord[0:this.N])
-        if 0 <= s and s <= range_:
-            return True
-        else:
-            return False
-    def isInFundamentalDomain(self, chord):
-        if this.isInLayer(chord) and this.isInOrder(chord):
-            if this.debug:
-                print('Chord',chord,'in F')
-            return True
-        else:
-            if this.debug:
-                print('Chord',chord,'not in F')
-            return False
-    def isInLayer(self, chord):
-        L = this.layer(chord)
-        if not (0 <= L and L <= this.R):
-            return False
-        return True
-    def isInOrder(self, chord):
-        for i in range(this.N - 1):
-            if not chord[i] <= chord[i + 1]:
-                return False
-        if not chord[this.N - 1] <= (chord[0] + this.R):
-            return False
-        return True
-    def O(self, c):
-        if this.debug:
-            print("O: ",c)###,
-        r = []
-        for i in range(1, this.N):
-            r.append(c[i] - (this.R / this.N))
-        r.append(c[0] + (this.R - (this.R / this.N)))
-        c[0:this.N] = r
-        if this.debug:
-            print(c)
-        return c
-    def bounceInside(self, chord):
-        inversions = this.inversions(chord)
-        if this.debug:
-            print(inversions)
-        for inversion in inversions:
-            if tuple(inversion) in this.trichords:
-                return inversion
-            return None
-    def keepInside(self, chord):
-        if this.isInFundamentalDomain(chord):
-            return chord
-        else:
-            inversions = this.inversions(chord)
-            if this.debug:
-                print(inversions)
-            for inversion in inversions:
-                if this.isInOrder(inversion):
-                    c = list(inversion)
-                    for i in range(this.N):
-                        if this.isInLayer(c):
-                            return array(c)
-                        c = this.O(c)
-            return None
-    def stayInside(self, chord):
-        if this.isInside(chord, this.getTessitura()):
-            return chord
-        chord = this.sort(chord)
-        if this.isPrism:
-            inversions = this.inversions(chord)
-            if this.debug:
-                print('inversions',inversions)
-            distances = {}
-            for inversion in inversions:
-                distances[this.euclidean(chord, inversion)] = inversion
-            c = distances[max(distances.keys())]
-            if this.debug:
-                print('keepInside:', 't =',this.getTessitura(), 'original =',chord, 'inside =',c)
-            return c
-        else:
-            c = array(chord)
-            for i in range(this.N):
-                while c[i] <  -self.getTessitura()/2:
-                    c[i] += this.getTessitura()
-                while c[i] >= this.getTessitura()/2:
-                    c[i] -= this.getTessitura()
-            c = this.sort(c)
-            if this.debug:
-                print(chord,'keeps inside as',c)
-            return c
-    def pitchclasses(self, chord):
-        c = array(chord, 'd').copy()
-        for i in range(this.N):
-            c[i] = this.pitchclass(chord[i])
-        return c
-    def pitchclass(self, pitch):
-        return pitch % this.tonesPerOctave
-    '''
-    Returns the best bijective voice-leading,
-    first by smoothness then by parsimony,
-    optionally avoiding parallel fifths,
-    from a given source chord of pitches
-    to a new chord of pitches
-    that belong to the pitch-class set of a target chord,
-    and lie within a specified range.
-    The algorithm makes an exhaustive search
-    of potential target chords in the space.
-    '''
-    def voicelead(self, a, b, avoidParallels):
-        if this.debug:
-            print('   From:', a)
-            print('     To:', b)
-            print('Through:')
-        invs = this.inversions(b)
-        if this.debug:
-            for inv in invs:
-                print('        ',inv)
-            c = this.closest(a, invs, avoidParallels)
-        if this.debug:
-            print('(%d inversions) is:' % len(invs))
-            print('        ', c)
-            print('Leading:', this.voiceleading(a,c))
-        return c
-    def label(self, chord):
-        c = array(chord[0:this.N])
-        return 'C   %s\nT   %s\n0   %s\n1   %s\n0-1 %s\nSum %f' % (c, this.tones(c), this.zeroForm(c), this.firstInversion(c), this.zeroFormFirstInversion(chord), sum(chord[0:this.N]))
-
-class ChordSpace3Model(ChordSpace3):
-    def __init__(self, octaveCount=1, tonesPerOctave=12, isCube=False, isPrism=True, isNormalPrism=False, doCycle=False, showFirstInversion=False, doConnect=False, enableCsound=False, debug=False, showUnordered=False):
-        ChordSpace3.__init__(self, 3, octaveCount=octaveCount, tonesPerOctave=tonesPerOctave, isCube=isCube, isPrism=isPrism, isNormalPrism=isNormalPrism, debug=debug)
-        this.trichords = {}
-        this.balls = {}
-        this.ballsForChordTypes = {}
-        this.doConnect = doConnect
-        this.doCycle = doCycle
-        this.showUnordered = showUnordered
-        this.showFirstInversion = showFirstInversion
-        this.firstInversions = []
-        this.enableCsound = enableCsound
-        if this.enableCsound:
-            this.csound = ctcsound.Csound()
-        if this.isCube:
-            for x in range(-self.cubeTessitura/2, this.cubeTessitura/2):
-                for y in range(-self.cubeTessitura/2, this.cubeTessitura/2):
-                    for z in range(-self.cubeTessitura/2, this.cubeTessitura/2):
-                        trichord = vector(x,y,z)
-                        radius = 0.125
-                        if trichord not in this.trichords:
-                            this.trichords[trichord] = trichord
-                            ball = sphere(pos = trichord, radius = this.cubeRadius)
-                            ball.trichord = trichord
-                            this.balls[ball.trichord] = ball
-                            this.setColor(ball)
-                            ball.name = this.label(trichord)
-                            ball.label = label(pos = trichord, text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.9,0.5,0.9), visible = 0, line = 2, xoffset = 20, yoffset = 20)
-        if this.isPrism or this.isNormalPrism:
-            for x in range(-self.R, this.R+1):
-                for y in range(x, x + this.R+1):
-                    for z in range(x, x + this.R+1):
-                        ###trichord = vector((x,y,z), 'd')
-                        trichord = vector(x,y,z)
-                        trichord = tuple(this.sort(trichord))
-                        if this.isPrism and this.isInsidePrism(trichord, this.R):
-                            if trichord not in this.trichords:
-                                this.trichords[trichord] = trichord
-                                tones = tuple(this.tones(trichord))
-                                ball = sphere(pos = trichord, radius = this.prismRadius)
-                                ball.trichord = trichord
-                                this.balls[ball.trichord] = ball
-                                this.setColor(ball)
-                                ball.name = this.label(trichord)
-                                ball.label = label(pos = trichord, text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.9,0.5,0.9), visible = 0, line = 2, xoffset = 20, yoffset = 20)
-                            else:
-                                this.balls[trichord].radius = this.prismRadius
-                        if this.isNormalPrism and this.isInsideNormalPrism(trichord, this.R):
-                            if trichord not in this.trichords:
-                                this.trichords[trichord] = trichord
-                                tones = tuple(this.tones(trichord))
-                                ball = sphere(pos = trichord, radius = this.normalPrismRadius)
-                                ball.trichord = trichord
-                                this.balls[ball.trichord] = ball
-                                this.setColor(ball)
-                                ball.name = this.label(trichord)
-                                ball.label = label(pos = trichord,  text = ball.name, height = 11, box = 2, opacity = 0.3, linecolor=(0.5,0.5,0.5), visible = 0, line = 2, xoffset = -20, yoffset = 20)
-
-                            else:
-                                this.balls[trichord].radius = this.normalPrismRadius
-        if this.doConnect:
-            for trichord in this.trichords.values():
-                this.connect(trichord, this.sort((trichord[0] + 1.0, trichord[1], trichord[2])))
-                this.connect(trichord, this.sort((trichord[0], trichord[1] + 1.0, trichord[2])))
-                this.connect(trichord, this.sort((trichord[0], trichord[1], trichord[2] + 1.0)))
-                this.connect(trichord, this.sort((trichord[0] - 1.0, trichord[1], trichord[2])))
-                this.connect(trichord, this.sort((trichord[0], trichord[1] - 1.0, trichord[2])))
-                this.connect(trichord, this.sort((trichord[0], trichord[1], trichord[2] - 1.0)))
-    def setColor(self, ball):
-        z = tuple(this.zeroFormFirstInversion(ball.trichord))
-        if z in this.ballsForChordTypes:
-            ball.color = this.ballsForChordTypes[z].color
-        else:
-            # Color major triads red.
-            if   z == (0, 4, 7):
-                ball.color = (1.0,0.0,0.0)
-            # Color augmented triads white.
-            elif z == (0, 4, 8):
-                ball.color = (1.0,1.0,1.0)
-            # Color minor triads blue.
-            elif z == (0, 3, 7):
-                ball.color = (0.67,0.67,1.0)
-            else:
-                hue = (z[0] + z[1] * 2.0 + z[2]) / 44.0
-                saturation = 1.0
-                value = 1.0
-                ball.color = color.hsv_to_rgb((hue, saturation, value))
-    def showAsFirstInversion(self, trichord):
-        if not this.showFirstInversion:
-            return False
-        elif this.isFirstInversion(trichord):
-            return True
-        else:
-            return False
-    def connect(self, origin, neighbor):
-        o = tuple(origin)
-        n = tuple(neighbor)
-        if n in this.trichords:
-            curve(pos = [o, n], color = (0.65, 0.65, 0.65), radius = 0.020)
-    def runGrab(self, filename, bbox=None):
-        while scene.visible:
-            if scene.mouse.clicked:
-                print('CURRENT POINT:')
-                print('center =',scene.center)
-                print('forward =',scene.forward)
-                print('up =',scene.up)
-                print('scale =',scene.scale)
-                print('fov = ',scene.fov)
-                print
-                try:
-                    if bbox:
-                        pass #image = ImageGrab.grab(bbox)
-                    else:
-                        pass #image = ImageGrab.grab()
-                    #image = ImageOps.grayscale(image)
-                    #image.save(filename)
-                    #print 'Captured screen shot in "%s".' % (filename)
-                except:
-                    traceback.print_exc()
-                scene.mouse.events = 0
-    def playBall(self, pickedBall):
-        pickedBall.label.visible = 1
-        print(pickedBall.name)
-        note1 = "i 1 0 4 %d 70 0 -.75" % (60 + pickedBall.pos[0])
-        note2 = "i 2 0 4 %d 70 0  .0"  % (60 + pickedBall.pos[1])
-        note3 = "i 3 0 4 %d 70 0  .75" % (60 + pickedBall.pos[2])
-        print('%s\n%s\n%s' % (note1, note2, note3))
-        if this.enableCsound:
-            this.csound.inputMessage(note1)
-            this.csound.inputMessage(note2)
-            this.csound.inputMessage(note3)
-        print
-
-    def run(self):
-        pickedBall = None
-        oldBall = None
-        movingChord = ( 0, 4, 7)
-        translation = (1,1,1)
-        while scene.visible:
-            rate(100)
-            movingChord = tuple(this.sort(movingChord))
-            if scene.kb.keys:
-                k = scene.kb.getkey()
-                print('key: %s' % k)
-                if   k == 'up':
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.move(movingChord, 0,  1.0)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k == 'right':
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.move(movingChord, 1,  1.0)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k == 'down':
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.move(movingChord, 2,  1.0)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k == 'shift+up':
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.move(movingChord, 0, -1.0)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k == 'shift+right':
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.move(movingChord, 1, -1.0)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k == 'shift+down':
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.move(movingChord, 2, -1.0)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                if k in ('p', 'P'):
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.nrP(movingChord)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k in ('l', 'L'):
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.nrL(movingChord)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k in ('r', 'R'):
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.nrR(movingChord)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k in ('d', 'D'):
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    movingChord = this.nrD(movingChord)
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k in ('1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b'):
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 0
-                    if k == 'a':
-                        k = 10
-                    if k == 'b':
-                        k = 11
-                    movingChord = this.pT(movingChord, float(k))
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible = 1
-                    this.playBall(movingBall)
-                    oldBall = movingBall
-                elif k == 'g':
-                    this.runGrab("orbifold.png")
-                elif k in ('x', 'X', 'q', 'Q'):
-                    sys.exit()
-            if scene.mouse.clicked:
-                try:
-                    m = scene.mouse.getclick()
-                    if oldBall:
-                        oldBall.label.visible = 0
-                    if pickedBall:
-                        pickedBall.label.visible = 0
-                    oldBall = pickedBall
-                    pickedBall = m.pick
-                    if pickedBall:
-                        movingBall = pickedBall
-                        movingChord = tuple(movingBall.pos)
-                        this.playBall(pickedBall)
-                except:
-                    traceback.print_exc()
-                    print(this.label(movingChord))
-                scene.mouse.events = 0
-            elif this.doCycle:
-                try:
-                    movingBall = this.balls[movingChord]
-                    movingBall.label.visible=1
-                    print(movingBall.name)
-                    time.sleep(2)
-                    movingBall.label.visible=0
-                    a = (movingChord[0], movingChord[1], movingChord[2])
-                    print('Old chord',a)
-                    movingChord = (movingChord[0] + translation[0], movingChord[1] + translation[1], movingChord[2] + translation[2])
-                    print('New chord',movingChord)
-                    #movingChord = this.voiceLead(a, b, True)
-                    movingChord = tuple(this.keepInside(movingChord))
-                    this.playBall(movingChord)
-                except:
-                    traceback.print_exc()
-                    print(this.label(movingChord))
-                    return
-        print("Finished.")
-
-def runModel(model):
-    began = time.clock()
-    scene.background = (1,1,1)
-    scene.background = (0,0,0)
-    scene.autocenter = 1
-    sort(model.firstInversions)
-    if model.enableCsound:
-        model.csound.setOrchestra('''
-sr                              =                       44100
-ksmps                           =                       100
-nchnls                          =                       2
-
-                                connect                 "FenderRhodesModel",    "out", "Reverberation", "in"
-                                connect                 "FMWaterBell",          "out", "Reverberation", "in"
-                                connect                 "Xing",                 "out", "Reverberation", "in"
-                                connect                 "Reverberation",        "out", "MasterOutput", "in"
-
-                                alwayson                "Reverberation"
-                                alwayson                "MasterOutput"
-
-gkFenderRhodesModelGain         init                    0
-gkFenderRhodesModelGainCorrection init                  60
-                                instr                   FenderRhodesModel
-                                //////////////////////////////////////////////////////
-                                // Original by Perry Cook.
-                                // Adapted by Michael Gogins.
-                                //////////////////////////////////////////////////////
-i_instrument                    =                       p1
-i_time                          =                       p2
-i_duration                      =                       p3
-i_midikey                       =                       p4
-i_midivelocity                  =                       p5
-i_phase                         =                       p6
-i_pan                           =                       p7
-i_depth                         =                       p8
-i_height                        =                       p9
-i_pitchclassset                 =                       p10
-i_homogeneity                   =                       p11
-iattack                         =                       0.01
-isustain                        =                       p3
-irelease                        =                       0.125
-p3                              =                       isustain + iattack + irelease
-adeclick                        linsegr                 0.0, iattack, 1.0, isustain, 1.0, irelease, 0.0
-iindex                          =                       4    this.fundamental_domain = fundamental_domain_;
-    this.canvas = canvas_;
-    ///this.score.findScale();
-    this.channel_minimum = this.score.getScaleActualMinima().getChannel();
-    this.channel_range = this.score.getScaleActualRanges().getChannel();
-    this.channel_maximum = this.channel_minimum + this.channel_range;
-    this.key_minimum = this.score.getScaleActualMinima().getKey();
-    this.key_range = this.score.getScaleActualRanges().getKey();
-    this.key_maximum = this.key_minimum + this.key_range;
-    this.velocity_minimum = this.score.getScaleActualMinima().getVelocity();
-    this.velocity_range = this.score.getScaleActualRanges().getVelocity();
-    this.prepareScene3D(canvas_, score_);
-    // Plot the notes.
-    let n = this.score.size();
-    for (var i = 0; i < n; i++) {
-        let event = this.score.get(i);
-        this.plotNote3D(event);
-    }
-    this.plotGrid3D();
-    this.lookAtFullScene3D();
-    return canvas;
-
-icrossfade                      =                       3
-ivibedepth                      =                       0.2
-iviberate                       =                       6
-isine                           ftgenonce               0, 0, 65536,    10,     1
-icosine                         ftgenonce               0, 0, 65536,    11,     1
-icookblank                      ftgenonce               0, 0, 65536,     10,     0 ; Blank wavetable for some Cook FM opcodes.
-ifn1                            =                       isine
-ifn2                            =                       icosine
-ifn3                            =                       isine
-ifn4                            =                       icookblank
-ivibefn                         =                       isine
-ifrequency                      =                       cpsmidinn(i_midikey)
-asignal                         fmrhode                 1, ifrequency, iindex, icrossfade, ivibedepth, iviberate, ifn1, ifn2, ifn3, ifn4, ivibefn
-kdbgain                         =                       gkFenderRhodesModelGainCorrection + (gkFenderRhodesModelGain - 0.5) * 100.0
-kiamplitude                     =                       ampdb(i_midivelocity) * pow(10, kdbgain / 20)
-aoutleft, aoutright		        pan2			        asignal * adeclick * kiamplitude, i_pan
-aout[]                          init                    2
-aout[0]                         =                       aoutleft
-aout[1]                         =                       aoutright
-                                outletv                 "out",  aout
-                                endin
-
-gkFMWaterBellGain               init                    0.0
-gkFMWaterBellGainCorrection     init                    50.0
-                                instr                   FMWaterBell
-                                //////////////////////////////////////////////
-                                // Original by Steven Yi.
-                                // Adapted by Michael Gogins.
-                                //////////////////////////////////////////////
-i_instrument                    =                       p1
-i_time                          =                       p2
-i_duration                      =                       p3
-i_midikey                       =                       p4
-i_midivelocity                  =                       p5
-i_phase                         =                       p6
-i_pan                           =                       p7
-i_depth                         =                       p8
-i_height                        =                       p9
-i_pitchclassset                 =                       p10
-i_homogeneity                   =                       p11
-ipch                            =                       cpsmidinn(i_midikey)
-iamplitude                      =                       ampdb(i_midivelocity)
-ipch2                           =                       ipch
-kpchline 	                    line                    ipch, i_duration, ipch2
-iamp 	                        =                       2
-ienvType	                    =                       2
-kenv 	                        init 	                0
-                                if ienvType == 0 kgoto env0  ; adsr
-                                if ienvType == 1 kgoto env1  ; pyramid
-                                if ienvType == 2 kgoto env2  ; ramp
-env0:
-kenv	                        adsr	                .3, .2, .9, .5
-                                kgoto                   endEnvelope
-env1:
-kenv 	                        linseg	                0, i_duration * .5, 1, i_duration * .5, 0
-                                kgoto                   endEnvelope
-env2:
-kenv	                        linseg 	                0, i_duration - .1, 1, .1, 0
-kgoto                           endEnvelope
-endEnvelope:
-kc1                             =                       5
-kc2                             =                       5
-kvdepth                         =                       0.005
-kvrate                          =                       6
-icosine                  	    ftgenonce               0, 0, 65536, 11, 1
-ifn1                            =                       icosine
-ifn2                            =                       icosine
-ifn3                            =                       icosine
-ifn4                            =                       icosine
-ivfn                            =                       icosine
-asignal                         fmbell	                iamp, kpchline, kc1, kc2, kvdepth, kvrate, ifn1, ifn2, ifn3, ifn4, ivfn
-iattack                         =                       0.003
-isustain                        =                       p3
-irelease                        =                       0.06
-p3                              =                       isustain + iattack + irelease
-adeclick                        linsegr                 0.0, iattack, 1.0, isustain, 1.0, irelease, 0.0
-kdbgain                         =                       gkFMWaterBellGainCorrection + (gkFMWaterBellGain - 0.5) * 100.0
-kiamplitude                     =                       ampdb(i_midivelocity) * pow(10, kdbgain / 20)
-aoutleft, aoutright		        pan2			        asignal * adeclick * kiamplitude, i_pan
-aout[] init 2
-aout[0] = aoutleft
-aout[1] = aoutright
-                                outletv                 "out",  aout
-                                endin
-
-gkXingGain                      init                    0.0
-gkXingGainCorrection            init                    60.0
-                                instr                   Xing
-                                //////////////////////////////////////////////
-                                // Original by Andrew Horner.
-                                // Adapted by Michael Gogins.
-                                // p4 pitch in octave.pch
-                                // original pitch        = A6
-                                // range                 = C6 - C7
-                                // extended range        = F4 - C7
-                                //////////////////////////////////////////////
-insno           		        =                       p1
-itime           		        =                       p2
-iduration       		        =                       p3
-ikey            		        =                       p4
-ivelocity                       =                       p5
-iphase                          =                       p6
-ipan                            =                       p7
-idepth                          =                       p8
-iheight                         =                       p9
-ipcs                            =                       p10
-ihomogeneity                    =                       p11
-kgain			    	        =                       1.25
-iHz                             =                       cpsmidinn(ikey)
-kHz                             =                       k(iHz)
-iattack                         =                       (440.0 / iHz) * 0.01
-                                print                   iHz, iattack
-isustain                        =                       p3
-irelease                        =                       .3
-p3                              =                       iattack + isustain + irelease
-iduration                       =                       p3
-iamplitude                      =                       ampdb(ivelocity).
-isine                           ftgenonce               0, 0, 65536,    10,     1
-kfreq                           =                       cpsmidinn(ikey)
-iamp                            =                       1
-inorm                           =                       32310
-aamp1                           linseg                  0,.001,5200,.001,800,.001,3000,.0025,1100,.002,2800,.0015,1500,.001,2100,.011,1600,.03,1400,.95,700,1,320,1,180,1,90,1,40,1,20,1,12,1,6,1,3,1,0,1,0
-adevamp1                        linseg                  0, .05, .3, iduration - .05, 0
-adev1                           poscil                  adevamp1, 6.7, isine, .8
-amp1                            =                       aamp1 * (1 + adev1)
-aamp2                           linseg                  0,.0009,22000,.0005,7300,.0009,11000,.0004,5500,.0006,15000,.0004,5500,.0008,2200,.055,7300,.02,8500,.38,5000,.5,300,.5,73,.5,5.,5,0,1,1
-adevamp2                        linseg                  0,.12,.5,iduration-.12,0
-adev2                           poscil                  adevamp2, 10.5, isine, 0
-amp2                            =                       aamp2 * (1 + adev2)
-aamp3                           linseg                  0,.001,3000,.001,1000,.0017,12000,.0013,3700,.001,12500,.0018,3000,.0012,1200,.001,1400,.0017,6000,.0023,200,.001,3000,.001,1200,.0015,8000,.001,1800,.0015,6000,.08,1200,.2,200,.2,40,.2,10,.4,0,1,0
-adevamp3                        linseg                  0, .02, .8, iduration - .02, 0
-adev3                           poscil                  adevamp3, 70, isine ,0
-amp3                            =                       aamp3 * (1 + adev3)
-awt1                            poscil                  amp1, kfreq, isine
-awt2                            poscil                  amp2, 2.7 * kfreq, isine
-awt3                            poscil                  amp3, 4.95 * kfreq, isine
-asig                            =                       awt1 + awt2 + awt3
-arel                            linenr                  1,0, iduration, .06
-; asignal                         =                       asig * arel * (iamp / inorm) * iamplitude * kgain
-asignal                         =                       asig * (iamp / inorm) * kgain
-adeclick                        linsegr                 0, iattack, 1, isustain, 1, irelease, 0
-kdbgain                         =                       gkXingGainCorrection + (gkXingGain - 0.5) * 100.0
-kiamplitude                     =                       ampdb(ivelocity) * pow(10, kdbgain / 20)
-aoutleft, aoutright		        pan2			        asignal * adeclick * kiamplitude, ipan
-aout[] init 2
-aout[0] = aoutleft
-aout[1] = aoutright
-                                outletv                 "out",  aout
-                                endin
-
-
-gkReverberationEnabled          init                    1
-gkReverberationDelay            init                    0.4
-gkReverberationWet          	init                    0.25
-                                instr                   Reverberation
-                                //////////////////////////////////////////////
-                                // By Michael Gogins.
-                                //////////////////////////////////////////////
-ain[]                           init 2
-ain                             inletv                  "in"
-ainleft                         =                       ain[0]
-ainright                        =                       ain[1]
-if (gkReverberationEnabled == 1) then
-aoutleft                        =                       ainleft
-aoutright                       =                       ainright
-kdry				            =			            1.0 - gkReverberationWet
-else
-awetleft, awetright             reverbsc                ainleft, ainright, gkReverberationDelay, 18000.0
-aoutleft			            =			            ainleft *  kdry + awetleft  * gkReverberationWet
-aoutright			            =			            ainright * kdry + awetright * gkReverberationWet
-endif
-aout[]                          init                    2
-aout[0]                         =                       aoutleft
-aout[1]                         =                       aoutright
-                                outletv                 "out", aout
-                                endin
-
-gkMasterLevel                   init                    1.0
-                                instr                   MasterOutput
-                                //////////////////////////////////////////////
-                                // By Michael Gogins.
-                                //////////////////////////////////////////////
-ain[]                           init 2
-ain                             inletv                  "in"
-ain[0]                          =                       gkMasterLevel * ain[0]
-ain[1]                          =                       gkMasterLevel * ain[1]
-                                out                     ain
-                                endin
-
-            ''')
-        model.csound.setScore('''
-            f1 0 8192 10 1
-            f0 6000
-            e
-            ''')
-        model.csound.setCommand('csound -h -d -r 48000 -k 1000 -m227 -b1000 -B1000 -odac')
-        #gc.disable()
-        model.csound.compile()
-        performanceThread = csnd6.CsoundPerformanceThread(model.csound)
-        performanceThread.Play()
-    fg = (1,1,1)
-    arrowcolor = (0.7,0.7,0.7)
-    size = model.getTessitura() * 1.125
-    shaftwidth = model.cubeRadius * 1.0
-    arrow(pos = (0,0,0), axis=(size/3,0,0), fixedwidth=1, shaftwidth=shaftwidth, color = arrowcolor)
-    label(pos = (size/3,0,0), text = 'Voice 1', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset =  5, yoffset =  5, zoffset = 5)
-    arrow(pos = (0,0,0), axis=(0,size/1.5,0), fixedwidth=1, shaftwidth=shaftwidth, color = arrowcolor)
-    label(pos = (0,size/1.5,0), text = 'Voice 2', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset =   5, yoffset = 5, zoffset = 5)
-    arrow(pos = (0,0,0), axis=(0,0,size), fixedwidth=1, shaftwidth=shaftwidth, color = arrowcolor)
-    label(pos = (0,0,size), text = 'Voice 3', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 10, xoffset = 5, yoffset = 5, zoffset = 5)
-    arrow(pos = (0,0,0), axis=(size/2.5,size/2.5,size/2.5), fixedwidth=1, shaftwidth=shaftwidth, color=arrowcolor)
-    label(pos = (size/2.5,size/2.5,size/2.5), text = 'Orthogonal axis', color=fg, height = 20, box = 0, linecolor=(0.5,0.5,0.5), opacity = 0.1, visible = 1, line = 0, xoffset = 5, yoffset = 5, zoffset = 5)
-    ended = time.clock()
-    elapsed = ended - began
-    print('elapsed: %f' % (elapsed))
-    model.run()
-    print('Visual finished.')
-    if model.enableCsound:
-        performanceThread.Stop()
-        print('Csound finished.')
-
-
-if __name__ == '__main__':
-    #scene.fullscreen = False
-    #scene.width = 300 * 7
-    #scene.height = 300 * 5
-    # ChordSpace3 for trichords
-    model = ChordSpace3Model(octaveCount=1, doCycle=False, doConnect=True, isPrism=True, enableCsound=True)
-    # Ranged chord space
-    #model = ChordSpace3Model(octaveCount=2, doCycle=False, doConnect=False, isCube=True, isPrism=False)
-    # ChordSpace3 in ranged chord space
-    #model = ChordSpace3Model(octaveCount=1, doCycle=True, doConnect=False, isPrism=True, isCube=True)
-    # Voice-leading space
-    #model = ChordSpace3Model(octaveCount=3, doCycle=True, doConnect=False, isPrism=True, isNormalPrism=False)
-    # Normal chord space
-    #model = ChordSpace3Model(octaveCount=3, doCycle=False, doConnect=False, isPrism=False, isNormalPrism=True)
-    # Normal chord space in voice-leading space
-    #model = ChordSpace3Model(octaveCount=3, doCycle=False, doConnect=False, isPrism=True, isNormalPrism=True)
-    runModel(model)
-    print('Program finished.')
--->
