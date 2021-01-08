@@ -14,17 +14,19 @@
 <script src="js/tinycolor.js"></script>
 <script src="js/dat.gui.js"></script>
 <style>
-    ::-webkit-scrollbar
-    {
+    .trichord-box {
+        background:transparent;
+        border-box;
+        border-color:grey;
+     }
+    ::-webkit-scrollbar {
         width:10px;
     }
-    ::-webkit-scrollbar-track-piece
-    {
+    ::-webkit-scrollbar-track-piece {
         opacity:.125;
         background-color:grey;
     }
-    ::-webkit-scrollbar-corner
-    {
+    ::-webkit-scrollbar-corner {
         opacity:.25;
         background-color:grey;
     }
@@ -32,9 +34,10 @@
 </head>
 <body style="background:black;">
 <canvas id="canvas" style="background:transparent;position:absolute;height:100vh;width:100vw;top:0vh;left:0vw;"></canvas>
-<table id="table" style="color:white;background-color:transparent;position:absolute;height:25vh;width:100vw;top:0vh;left:0vw;display:block;">
+<table id="table" class="w3-table" style="position:absolute;height:25vh;width:100vw;top:0vh;left:0vw;display:block;">
 <tr>
-<td id="help" style="height:25vh;width:50vw;display:block;overflow:auto;">
+<td id="help">
+<div class="w3-border w3-panel trichord-box" style="height:25vh;width:50vw;display:block;overflow-y:scroll;color:white;">
 <h1>Chord Space for Trichords</h1>
 <h3>Michael Gogins<br>3 January 2020</h3>
 <p>This program is an interactive 3-dimensional model of a chord space for all 
@@ -48,6 +51,9 @@ folds half the space over itself. The chord space at startup is the
 combination of octave equivalence and permutational equivalence (OP). See: 
 Callendar, Quinn, and Tymoczko, "Generalized Voice-Leading Spaces," 
 <b><i>Science</i> 320</b>, 2008.</p>
+<p>Source code for this program <a href="https://github.com/gogins/csound-examples/blob/master/csound-extended-wasm/TrichordSpace.html">may be found here.<a/>. 
+Source code for the CsoundAC library 
+that implements the chord spaces and transformations <a href="https://github.com/gogins/csound-extended">may be found here.</a></p>
 <p>In OP, the augmented triads form a central column (white balls). It is 
 surrounded by 3 columns of major triads (red balls), and 3 columns of minor 
 triads (blue balls); each column is a different voicing of the triad. 
@@ -97,7 +103,7 @@ divides each OPT domain into two OPTI domains.</dd>
 <dd>Applies the slide transformation to the selected chord, e.g. I <=> i#.</dd>
 <dt>Nebenverwandt [Alt-N]</dt>
 <dd>Applies the Nebenverwandt transformation to the selected chord, e.g. I <=> iv.</dd>
-<dt>Hexpole [Alt-H]</dt>
+<dt>Hexpole [Alt-X]</dt>
 <dd>Applies the hexpole transformation to the selected chord, e.g. I <=> vib.</dd>
 <dd></dd>
 </dl>
@@ -105,16 +111,20 @@ divides each OPT domain into two OPTI domains.</dd>
 <dd>Not a neo-Reimannian transformation, but transposes the chord down a 
 perfect fifth, e.g. V => I.</dd>
 </dl>
+</div>
 </td>
-<td id="console-layout" >
-<textarea id="console" class="w3-container" style="height:25vh;width:50vw;background-color:transparent;border-color:transparent;color:#A9F5A9;font-family:Courier,sans-serif;font-size:9pt;display:block;overflow:auto;">
+<td>
+<div id="console-layout" class="w3-panel trichord-box">
+<textarea id="console" style="height:25vh;width:50vw;background-color:transparent;color:#A9F5A9;font-family:Courier,sans-serif;font-size:9pt;display:block;overflow-y:scroll;">
 </textarea>
+</div>
 </td>
 </table>
 <textarea id="csd" class="w3-code" hidden="true" style="width:100%;height:25vh;box-sizing:border-box;background-color:MidnightBlue;color:NavajoWhite;">
 <CsoundSynthesizer>
 <CsOptions>
--d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
+-d -f -m195 -odac
+;-d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
 </CsOptions>
 <CsInstruments>
 sr = 48000
@@ -952,7 +962,7 @@ window.addEventListener("load", function() {
                     gui_parameters.nrs();
                 } else if (e_char === 'N') {
                     gui_parameters.nrn();
-                } else if (e_char === 'H') {
+                } else if (e_char === 'X') {
                     gui_parameters.nrh();
                 }
             }
@@ -1088,7 +1098,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.nrR().eOP();
+        chord = chord.nrR();
         this.select_chord(chord);
     }
     nrp() {
@@ -1096,7 +1106,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.nrP().eOP();
+        chord = chord.nrP();
         this.select_chord(chord);
     }
     nrl() {
@@ -1104,7 +1114,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.nrL().eOP();
+        chord = chord.nrL();
         this.select_chord(chord);
     }
     nrs() {
@@ -1112,7 +1122,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.nrS().eOP();
+        chord = chord.nrS();
         this.select_chord(chord);
     }
     nrn() {
@@ -1120,7 +1130,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.nrN().eOP();
+        chord = chord.nrN();
         this.select_chord(chord);
     }
     nrh() {
@@ -1128,7 +1138,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.nrH().eOP();
+        chord = chord.nrH();
         this.select_chord(chord);
     }
     nrd() {
@@ -1136,7 +1146,7 @@ class ChordSpaceController {
         if (chord == null) {
             return;
         }
-        chord = chord.T(-7).eOP();
+        chord = chord.nrD() ;
         this.select_chord(chord);
     }
     v1(semitone) {
