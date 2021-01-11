@@ -8,7 +8,7 @@ http://michaelgogins.tumblr.com
 
 This repository contains example compositions, some test compositions and 
 programs, and extensions that can be used with: 
- - The canonical release of [csound](https://github.com/csound/csound). 
+ - The canonical release of [csound](https://github.com/csound/csound): [examples here](csd).
  - My [csound-aeolus](https://github.com/gogins/csound-aeolus) opcodes.
  - [My collection of extensions for Csound including CsoundAC for algorithmic composition](https://github.com/gogins/csound-extended). 
  - My [csound.node](https://github.com/gogins/csound-extended/tree/develop/csound.node) for NW.js.
