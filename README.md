@@ -8,7 +8,7 @@ http://michaelgogins.tumblr.com
 
 This repository contains example compositions, some test compositions and 
 programs, and extensions that can be used with: 
- - The canonical release of [csound](https://github.com/csound/csound): [examples here](https://gogins.github.io/csound-examples/csd/oblivion.csd).
+ - The canonical release of [csound](https://github.com/csound/csound): [examples here](https://gogins.github.io/csound-examples/csound-extended-wasm/message.html).
  - My [csound-aeolus](https://github.com/gogins/csound-aeolus) opcodes.
  - [My collection of extensions for Csound including CsoundAC for algorithmic composition](https://github.com/gogins/csound-extended). 
  - My [csound.node](https://github.com/gogins/csound-extended/tree/develop/csound.node) for NW.js.
@@ -23,7 +23,11 @@ The unit tests used in the canonical build of Csound are _not_ included here.
 
 For more information, please read the examples themselves.
 
-### Installation Hints
+### Getting Started
+
+## WebAssembly
+
+## Other Platforms
 
 Many of these pieces require external dependencies. Depending on the piece, 
 these may include:
