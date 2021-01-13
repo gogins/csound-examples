@@ -29,7 +29,7 @@ var onPlayClick = async function() {
             csound_message_callback("Trying to load CsoundAudioNode...\n");
             var AudioContext = window.AudioContext || window.webkitAudioContext;
             var audioContext = new AudioContext();
-            audioContext.audioWorklet.addModule('CsoundAudioProcessor.js').then(function() {
+            audioContext.audioWorklet.addModule('./CsoundAudioProcessor.js').then(function() {
                 csound_message_callback("Creating CsoundAudioNode...\n");
                 // Once the library has been loaded, the global instance of 
                 // Csound is used for all performances.
