@@ -97,9 +97,9 @@
       function assert(check, msg) {
         if (!check) throw msg + new Error().stack;
       }
-  Module['FS_createPath']('/', 'dependencies', true, true);
-Module['FS_createPath']('/dependencies', 'csound', true, true);
-Module['FS_createPath']('/dependencies/csound', 'samples', true, true);
+  Module['FS_createPath']("/", "dependencies", true, true);
+Module['FS_createPath']("/dependencies", "csound", true, true);
+Module['FS_createPath']("/dependencies/csound", "samples", true, true);
 
       /** @constructor */
       function DataRequest(start, end, audio) {
@@ -141,11 +141,8 @@ Module['FS_createPath']('/dependencies/csound', 'samples', true, true);
         var byteArray = new Uint8Array(arrayBuffer);
         var curr;
         
-          // copy the entire loaded file into a spot in the heap. Files will refer to slices in that. They cannot be freed though
-          // (we may be allocating before malloc is ready, during startup).
-          var ptr = Module['getMemory'](byteArray.length);
-          Module['HEAPU8'].set(byteArray, ptr);
-          DataRequest.prototype.byteArray = Module['HEAPU8'].subarray(ptr, ptr+byteArray.length);
+          // Reuse the bytearray from the XHR as the source for file reads.
+          DataRequest.prototype.byteArray = byteArray;
     
             var files = metadata['files'];
             for (var i = 0; i < files.length; ++i) {
@@ -175,7 +172,7 @@ Module['FS_createPath']('/dependencies/csound', 'samples', true, true);
     }
   
    }
-   loadPackage({"files": [{"start": 0, "audio": 0, "end": 504, "filename": "/dependencies/csound/samples/README"}, {"start": 504, "audio": 0, "end": 377336, "filename": "/dependencies/csound/samples/hrtf-96000-left.dat"}, {"start": 377336, "audio": 0, "end": 565752, "filename": "/dependencies/csound/samples/hrtf-44100-right.dat"}, {"start": 565752, "audio": 0, "end": 4757668, "filename": "/dependencies/csound/samples/sf_GMbank.sf2"}, {"start": 4757668, "audio": 0, "end": 5134500, "filename": "/dependencies/csound/samples/hrtf-96000-right.dat"}, {"start": 5134500, "audio": 0, "end": 5322916, "filename": "/dependencies/csound/samples/hrtf-48000-right.dat"}, {"start": 5322916, "audio": 0, "end": 5511332, "filename": "/dependencies/csound/samples/hrtf-44100-left.dat"}, {"start": 5511332, "audio": 0, "end": 5699748, "filename": "/dependencies/csound/samples/hrtf-48000-left.dat"}], "remote_package_size": 5699748, "package_uuid": "9ee3227c-2c07-4a64-a6f0-54924990cccb"});
+   loadPackage({"files": [{"filename": "/dependencies/csound/samples/README", "start": 0, "end": 504, "audio": 0}, {"filename": "/dependencies/csound/samples/hrtf-96000-left.dat", "start": 504, "end": 377336, "audio": 0}, {"filename": "/dependencies/csound/samples/hrtf-44100-right.dat", "start": 377336, "end": 565752, "audio": 0}, {"filename": "/dependencies/csound/samples/sf_GMbank.sf2", "start": 565752, "end": 4757668, "audio": 0}, {"filename": "/dependencies/csound/samples/hrtf-96000-right.dat", "start": 4757668, "end": 5134500, "audio": 0}, {"filename": "/dependencies/csound/samples/hrtf-48000-right.dat", "start": 5134500, "end": 5322916, "audio": 0}, {"filename": "/dependencies/csound/samples/hrtf-44100-left.dat", "start": 5322916, "end": 5511332, "audio": 0}, {"filename": "/dependencies/csound/samples/hrtf-48000-left.dat", "start": 5511332, "end": 5699748, "audio": 0}], "remote_package_size": 5699748, "package_uuid": "fb501890-e559-4b36-99d5-c3e750522937"});
   
   })();
   
