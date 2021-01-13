@@ -67,6 +67,7 @@ Many of these pieces require external dependencies. Depending on the piece,
 these may include:
 
  - Canonical Csound.
+ - csound-extended and its WebAssembly modules.
  - My Aeolus opcodes and the Aeolus software organ (Linux).
  - Steel Bank Common Lisp and my nudruz code.
  - My VST3 opcodes for Csound (Linux).
@@ -78,18 +79,6 @@ these may include:
  - An Android device with 64 bit CPU architecture.
  - Various JavaScript libraries accessed by CDN.
  
-For patches and WebAssembly modules, in this repository's root directory, run 
-the following shell script to download dependencies:
-```
-bash update-dependencies.sh
-```
-
-That should be enough to get the WebAssembly stuff working with a local Web 
-server, which can be run in the csound-extended-wasm directory with:
-```
-python httpd.py
-```
-
 For more information on the other dependencies, consult instructions in the 
 respective repository for the runtime environment (csound.node, 
 csound-extended-wasm, Csound for Android, etc.).
