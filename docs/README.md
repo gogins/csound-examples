@@ -16,7 +16,7 @@ Demonstrates the WebAssembly build of the CMask library for algorithmic composit
 
 [duplex.html](https://gogins.github.io/csound-examples/duplex.html)
 
-Demonstrates duplex audio input and output using WebAudio.
+Demonstrates duplex audio input and output in Csound using WebAudio.
 
 [message.html](https://gogins.github.io/csound-examples/message.html)
 
@@ -28,12 +28,12 @@ Minimal working example for the WebAssembly build of Csound.
 
 [player.html](https://gogins.github.io/csound-examples/player.html)
 
-Paste any csd into this editor and play it in the broweser.
+Paste any csd into this editor and play it in the browser.
 
 [scrims.html](https://gogins.github.io/csound-examples/scrims.html)
 
-Visual music by Michael Gogins.
+"Scrims" by Michael Gogins, interactive visual music.
 
-[TrichordSpace.html](https://gogins.github.io/csound-examples/TrichordSpace.html)
+[trichord_space.html](https://gogins.github.io/csound-examples/trichord_space.html)
 
-Interaction demonstration of chord space for trichords with neo-Riemannian transformations.
+Interactive demonstration of chord space for trichords, with neo-Riemannian transformations.
