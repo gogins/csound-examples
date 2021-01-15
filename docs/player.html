@@ -24,23 +24,23 @@ var csound_message_callback = function(message) {
 var onPlayClick = async function() {
     let messages_textarea = document.getElementById("console");
     messages_textarea.value = "";
-    let csound = get_csound(csound_message_callback);
-    if (csound == null) {
+    let csound_ = get_csound(csound_message_callback);
+    if (csound_ == null) {
         return;
     }
     csd = document.getElementById('csd').value;
-    await csound.CompileCsdText(csd);
-    await csound.Start();
-    await csound.Perform();
+    await csound_.CompileCsdText(csd);
+    await csound_.Start();
+    await csound_.Perform();
 };
 // Csound must be invoked from an async function because the 
 // functions called herein are async but must be called with 
 // await to enforce the correct order of execution.
 var onPlayStop = async function() {
-    let csound = get_csound(csound_message_callback);
-    await csound.Stop();
-    await csound.Cleanup();
-    await csound.Reset();
+    let csound_ = get_csound(csound_message_callback);
+    await csound_.Stop();
+    await csound_.Cleanup();
+    await csound_.Reset();
 };
 </script>
 <h2>Csound Player</h2>
@@ -54,8 +54,7 @@ Any self-contained Csound piece (.csd file) can be performed by pasting it into 
 <textarea id='csd' style="width:98vw;height:50vh;font-family:monospace;background-color:MidnightBlue;color:NavajoWhite;">
 <CsoundSynthesizer>
 <CsOptions>
-; Needed to work with csound.node:
--d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 
+-d -f -m195 -odac
 </CsOptions>
 <CsInstruments>
 ; The value of sr must match the host.
@@ -64,7 +63,6 @@ sr          =           48000
 ksmps       =           128
 ; The values of both nchnls and nchnls_i must match the host.
 nchnls      =           2
-nchnls_i    =           2
 0dbfs       =           100000
 ;--------------------------------------------------------
 ;Instrument 1 : plucked strings chorused left/right and
