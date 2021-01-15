@@ -1,4 +1,4 @@
 plugins:
   - jekyll-redirect-from
 future: true
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
