@@ -879,7 +879,7 @@ class ChordSpaceView {
     lookAtFullScene3D() {
         let bounding_box = new THREE.Box3().setFromObject(this.scene);
         this.camera.lookAt(bounding_box.getCenter());
-        this.camera.fov = 2 * Math.atan((bounding_box.getSize().x / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().y)) * (180 / Math.PI);
+        this.camera.fov = 2.5 * Math.atan((bounding_box.getSize().x / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().y)) * (180 / Math.PI);
         this.camera.position.copy(bounding_box.getCenter());
         this.camera.position.z = 1.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
         this.camera.position.y = this.camera.position.x * 5;
