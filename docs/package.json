@@ -1,13 +1,13 @@
 {
-  "main": "cmask.html",
-  "name": "cmask",
+  "main": "trichord_space.html",
+  "name": "trichord_space",
   "description": "HTML5 with Csound",
   "version": "0.1.0",
   "keywords": [ "Csound", "node-webkit" ],
   "nodejs": true,
   "node-remote": "http://<all-urls>/*",
   "window": {
-    "title": "cmask",
+    "title": "trichord_space",
     "icon": "link.png",
     "toolbar": false,
     "frame": false,
@@ -19,6 +19,8 @@
     "plugin": true
   },
   "chromium-args": {
-    "--device-scale-factor": 4
+    "--device-scale-factor": 4,
+    "--alsa-input-device": "plughw:1,0",
+    "--alsa-output-device": "plughw:1,0"
   }
 }

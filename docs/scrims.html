@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -87,14 +86,14 @@
 <CsoundSynthesizer>
 <CsOptions>
 ; Needed to work with csound.node:
--d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
+;-d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
+-d -f -m195 -odac
 </CsOptions>
 <CsInstruments>
 
 sr = 48000
 ksmps = 128
 nchnls = 2
-nchnls_i = 1
 0dbfs = 15
 
 connect "BarModel", "outleft", "ReverbSC", "inleft"
@@ -1123,20 +1122,18 @@ f 0 3600
             messages_textarea.scrollTop = messages_textarea.scrollHeight;
         }
         var is_playing = false;
-        var csound;
-        var CsoundAC;
+        var csound_;
+        var CsoundAC_;
         var chord;
         var modality;
         var FM9;
         var Bb7;
         // Load WebAssembly modules (asynchronously, yet not asynchronously).
         (async function() {
-            csound = await get_csound(csound_message_callback);
-            await csound.Message("Hello, World, this is Csound!\n");
-            CsoundAC = await createCsoundAC(); 
-            await csound.Message(CsoundAC.hello());         
-            FM9 = CsoundAC.chordForName('FM9');
-            Bb7 = CsoundAC.chordForName('Bb7');
+            CsoundAC_ = await createCsoundAC(); 
+            csound_message_callback(CsoundAC_.hello());         
+            FM9 = CsoundAC_.chordForName('FM9');
+            Bb7 = CsoundAC_.chordForName('Bb7');
             chord = Bb7.clone();
             modality = chord.clone();
         }());
@@ -1285,7 +1282,7 @@ f 0 3600
                 }
             }
             renderer.render(scene, camera);
-            if (typeof csound !== 'undefined') {
+            if (typeof csound_ !== 'undefined') {
                 score_time_cell = document.getElementById('Time_cell');
                 current_time_seconds = new Date().getTime() / 1000.0;
                 let score_time = current_time_seconds - start_time_seconds;
@@ -1426,7 +1423,7 @@ f 0 3600
             return x;
         }
         function createNote() {
-            if (is_playing !== false && csound != null) {
+            if (is_playing !== false && csound_ != null) {
                 let total_points_index = note_count * Stride;
                 total_points_index = total_points_index % NUM_POINTS;
                 let subset_index = Math.floor(total_points_index / NUM_POINTS_SUBSET);
@@ -1436,12 +1433,12 @@ f 0 3600
                 let instrument = rescaleX(point.x);
                 let key = rescaleY(point.y);
                 let pan = Math.random();
-                let event = new CsoundAC.Event(0., parameters.Note_length, 144., instrument, key, 60., 0., pan, 0., 0., 0.);
+                let event = new CsoundAC_.Event(0., parameters.Note_length, 144., instrument, key, 60., 0., pan, 0., 0., 0.);
                 event.temper(12);
-                CsoundAC.conformToChord(event, chord, true);
+                CsoundAC_.conformToChord(event, chord);
                 let score_text = event.toCsoundIStatement(12);
-                csound.Message(score_text);
-                csound.ReadScore(score_text);
+                csound_.Message(score_text);
+                csound_.ReadScore(score_text);
                 let Chord_cell = document.getElementById('Chord_cell');
                 Chord_cell.innerHTML = chord.name();
                 let Notes_cell = document.getElementById('Notes_cell');
@@ -1548,85 +1545,89 @@ f 0 3600
             Stride: 100,
             Play: function() {
                 (async () => {
-                    csound = get_csound(csound_message_callback);
-                    if (csound == null) {
+                    csound_ = get_csound(csound_message_callback);
+                    if (csound_ == null) {
                         return;
                     }
-                    await csound.CompileCsdText(document.getElementById('csd').value);
-                    await csound.Start();
+                    await csound_.CompileCsdText(document.getElementById('csd').value);
+                    await csound_.Start();
                     is_playing = true;
                     gui.revert();
                     start_time_seconds = new Date().getTime() / 1000.0;
-                    await csound.Perform();
+                    await csound_.Perform();
                     setTimeout(updateTimeCell, 0);
                 })();
             },
             Stop: function() {
                 (async () => {
                     is_playing = false;
-                    await csound.Stop();
-                    await csound.Cleanup();
-                    await csound.Reset();
+                    await csound_.Stop();
+                    await csound_.Cleanup();
+                    await csound_.Reset();
                 })();
             },
             Close: async function() {
                 try {
                     is_playing = false;
-                    await csound.Stop();
-                    await csound.Cleanup();
-                    await csound.Reset();
+                    await csound_.Stop();
+                    await csound_.Cleanup();
+                    await csound_.Reset();
                 } catch (e) {
                     console.log(e);
                 }
             },
             FM9: function() {
                 chord = FM9.clone();
-                csound.Message('FM9:\n' + chord.information());
+                csound_.Message('FM9:\n' + chord.information());
             },
             Bb7: function() {
                 chord = Bb7.clone();
-                csound.Message('Bb7:\n' + chord.information());
+                csound_.Message('Bb7:\n' + chord.information());
             },
             K: function() {
                 chord = chord.K();
-                csound.Message('K():\n' + chord.information());
+                csound_.Message('K():\n' + chord.information());
+            },
+            T2: function() {
+                chord = chord.T(2.);
+                csound_.Message('T(2):\n' + chord.information());
             },
             Q2: function() {
                 chord = chord.Q(2, modality);
-                csound.Message('Q(2, modality):\n' + chord.information());
+                csound_.Message('Q(2, modality):\n' + chord.information());
             },
             Q3: function() {
                 chord = chord.Q(3, modality);
-                csound.Message('Q(3, modality):\n' + chord.information());
+                csound_.Message('Q(3, modality):\n' + chord.information());
             },
             Q5: function() {
                 chord = chord.Q(5, modality);
-                csound.Message('Q(5, modality):\n' + chord.information());
+                csound_.Message('Q(5, modality):\n' + chord.information());
             },
             J2_2: function() {
                 let chords = chord.J(2);
                 if (chords.length > 1) {
                     chord = chords[1];
-                    csound.Message('J(2,2):\n' + chord.information());
+                    csound_.Message('J(2,2):\n' + chord.information());
                 }
             },
             J2_3: function() {
                 let chords = chord.J(2);
                 if (chords.length > 2) {
                     chord = chords[2];
-                    csound.Message('J(2,3):\n' + chord.information());
+                    csound_.Message('J(2,3):\n' + chord.information());
                 }
             },
             J3_1: function() {
                let chords = chord.J(3);
                 if (chords.length > 0) {
                     chord = chords[0];
-                    csound.Message('J(3,1):\n' + chord.information());
+                    csound_.Message('J(3,1):\n' + chord.information());
                 }
             },
             T5: function() {
                 chord = chord.T(5);
-                csound.Message('D():\n' + chord.information());
+                csound_.Message('D():\n' + chord.information());
             },
         };
         let gui = null;
@@ -1638,8 +1639,8 @@ f 0 3600
         window.onload = function() {
             gui = new dat.GUI({width: 300});
             gui.remember(parameters);
-            gui.add(parameters, 'Play').name('Play [Ctrl-P]');
-            gui.add(parameters, 'Stop').name('Stop [Ctrl-S]');
+            gui.add(parameters, 'Play').name('Play [P]');
+            gui.add(parameters, 'Stop').name('Stop [S]');
             let Master = gui.addFolder('Master effects');
             add_slider(Master, 'gk_Reverb_feedback', 0, 1);     
             add_slider(Master, 'gi_Reverb_delay_modulation', 0, 3);
@@ -1721,22 +1722,22 @@ f 0 3600
             add_slider(YiString, 'gk_YiString_chorus_send', 0, 1);
             add_slider(YiString, 'gk_YiString_level', -80, 80);
             let Hopalong = gui.addFolder('Hopalong fractal');
-            a_slider = add_slider(Hopalong, 'A', -30, 30).name('E [Alt-A]');
-            b_slider = add_slider(Hopalong, 'B', .2, 1.8).name('B [Alt-B]');
-            c_slider = add_slider(Hopalong, 'C', 5, 17).name('C [Alt-C]');
-            d_slider = add_slider(Hopalong, 'D', 0, 10).name('D [Alt-D]');
-            e_slider = add_slider(Hopalong, 'E', 5, 12).name('E [Alt-E]');
+            a_slider = add_slider(Hopalong, 'A', -30, 30).name('E [A]');
+            b_slider = add_slider(Hopalong, 'B', .2, 1.8).name('B [B]');
+            c_slider = add_slider(Hopalong, 'C', 5, 17).name('C [C]');
+            d_slider = add_slider(Hopalong, 'D', 0, 10).name('D [D]');
+            e_slider = add_slider(Hopalong, 'E', 5, 12).name('E [E]');
             let Chords = gui.addFolder('Chords and transformations')
             Chords.add(parameters, 'Bb7');
             Chords.add(parameters, 'FM9');
-            Chords.add(parameters, 'K').name('K() [Ctrl-K]');
+            Chords.add(parameters, 'K').name('K() [K]');
             Chords.add(parameters, 'Q2').name('Q(2)');
-            Chords.add(parameters, 'Q3').name('Q(3) [Ctrl-Q]');
+            Chords.add(parameters, 'Q3').name('Q(3) [Q]');
             Chords.add(parameters, 'Q5').name('Q(5)');
             Chords.add(parameters, 'J2_2').name('J(2,2)');
             Chords.add(parameters, 'J2_3').name('J(2,3)');
             Chords.add(parameters, 'J3_1').name('J(3,1)');
-            Chords.add(parameters, 'T5').name('D() [Ctrl-D]');
+            Chords.add(parameters, 'T5').name('D() [5]');
             let Generate = gui.addFolder('Note generation')
             add_slider(Generate, 'Scene_speed', .5, 20).name('Scene speed');
             add_slider(Generate, 'Scene_randomization', 0, 1).name('Scene randomization');
@@ -1751,8 +1752,8 @@ f 0 3600
         function update_channel(name, value) {
             if (is_playing === true)  {
                 let numberValue = parseFloat(value);
-                csound.SetControlChannel(name, numberValue);
-                csound.Message(name + ': ' + numberValue + '\n');
+                csound_.SetControlChannel(name, numberValue);
+                csound_.Message(name + ': ' + numberValue + '\n');
             }
         }
         function add_slider(gui_folder, token, minimum, maximum) {
@@ -1812,44 +1813,40 @@ f 0 3600
         $(document).on("keydown", function (e) {
             //printKey(e);
             let e_char = String.fromCharCode(e.keyCode || e.charCode);
-            if (e.ctrlKey === true && e.shiftKey === true) {
-                if        (e_char === 'H') {
-                    $("#statistics").toggle();
-                    gui.toggle();
-                } else if (e_char === 'K') {
-                    parameters.K();
-                } else if (e_char === 'Q') {
-                    parameters.Q3();
-                } else if (e_char === 'D') {
-                    parameters.T5();
-                } else if (e_char === 'T') {
-                    chord = chord.T(2);
-                } else if (e_char === 'P') {
-                    parameters.Play();
-                } else if (e_char === 'S') {
-                    parameters.Stop();
-                }
-            } else if (e.altKey === true) {
-                let sign = -1;
-                if (e.shiftKey === true) {
-                    sign = 1;
-                }
-                if        (e_char === 'A') {
-                    parameters.A += a_slider.__impliedStep * sign;
-                    a_slider.updateDisplay();
-                } else if (e_char === 'B') {
-                    parameters.B += b_slider.__impliedStep * sign;
-                    b_slider.updateDisplay();
-                } else if (e_char === 'C') {
-                    parameters.C += c_slider.__impliedStep * sign;
-                    c_slider.updateDisplay();
-                } else if (e_char === 'D') {
-                    parameters.D += d_slider.__impliedStep * sign;
-                    d_slider.updateDisplay();
-                } else if (e_char === 'E') {
-                    parameters.E += e_slider.__impliedStep * sign;
-                    e_slider.updateDisplay();
-                }
+            let sign = -1;
+            if (e.shiftKey === true) {
+                sign = 1;
+            }
+            if        (e_char === 'H') {
+                $("#statistics").toggle();
+                gui.toggle();
+            } else if (e_char === 'K') {
+                parameters.K();
+            } else if (e_char === 'Q') {
+                parameters.Q3();
+            } else if (e_char === '5') {
+                parameters.T5();
+            } else if (e_char === '2') {
+                parameters.T2();
+            } else if (e_char === 'P') {
+                parameters.Play();
+            } else if (e_char === 'S') {
+                parameters.Stop();
+            } else if (e_char === 'A') {
+                parameters.A += a_slider.__impliedStep * sign;
+                a_slider.updateDisplay();
+            } else if (e_char === 'B') {
+                parameters.B += b_slider.__impliedStep * sign;
+                b_slider.updateDisplay();
+            } else if (e_char === 'C') {
+                parameters.C += c_slider.__impliedStep * sign;
+                c_slider.updateDisplay();
+            } else if (e_char === 'D') {
+                parameters.D += d_slider.__impliedStep * sign;
+                d_slider.updateDisplay();
+            } else if (e_char === 'E') {
+                parameters.E += e_slider.__impliedStep * sign;
+                e_slider.updateDisplay();
             }
         });
         </script>

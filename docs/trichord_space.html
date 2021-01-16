@@ -129,7 +129,6 @@ perfect fifth, e.g. V => I.</dd>
 sr = 48000
 ksmps = 128
 nchnls = 2
-nchnls_i = 2
 0dbfs = 500000
 
 ; Ensure the same random stream for each rendering.
@@ -325,7 +324,7 @@ var play_ = async function() {
         await csound_.Perform();
     } catch(err) {
         csound_message_callback(err.name + ': ' + err.message + ' ' + err.line + '\n');
-        ///alert(err);
+        alert(err);
     }
 }
 
@@ -835,19 +834,6 @@ class ChordSpaceView {
         };
         window.addEventListener('resize', onResize, false);
     }
-    lookAtFront3D() {
-        let bounding_box = new THREE.Box3().setFromObject(this.scene);
-        this.camera.lookAt(bounding_box.getCenter());
-        this.camera.fov = 4 * Math.atan((bounding_box.getSize().y / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().z)) * (180 / Math.PI);
-        this.camera.position.copy(bounding_box.getCenter());
-        this.camera.position.x = 6.125 * Math.max(bounding_box.getSize().x, bounding_box.getSize().y);
-        this.camera.position.y = this.camera.position.x * 14;
-        this.camera.position.z = this.camera.position.x * 24;
-        this.controls.target.copy(bounding_box.getCenter());
-        this.controls.update();
-        this.camera.updateProjectionMatrix();
-        this.renderer.render(this.scene, this.camera);
-    }
     render3D() {
         this.controls.update();
         this.camera.updateProjectionMatrix();
@@ -895,9 +881,9 @@ class ChordSpaceView {
         this.camera.lookAt(bounding_box.getCenter());
         this.camera.fov = 2 * Math.atan((bounding_box.getSize().x / (this.canvas.width / this.canvas.height)) / (2 * bounding_box.getSize().y)) * (180 / Math.PI);
         this.camera.position.copy(bounding_box.getCenter());
-        this.camera.position.z = 6.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
-        this.camera.position.y = this.camera.position.x * 9;
-        this.camera.position.z = this.camera.position.x * 9;
+        this.camera.position.z = 1.125 * Math.min(bounding_box.getSize().x, bounding_box.getSize().y);
+        this.camera.position.y = this.camera.position.x * 5;
+        this.camera.position.x = this.camera.position.x * 4;
         this.controls.target.copy(bounding_box.getCenter());
         this.controls.update();
         this.camera.updateProjectionMatrix();

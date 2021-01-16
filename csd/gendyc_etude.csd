@@ -1,4 +1,11 @@
 <CsoundSynthesizer>
+<CsLicense>
+
+gendyc etude (2021) by Richard Boulanger
+
+Based on the extreme noise instrument from 'On it's Dark Side' by John ffitch.
+
+</CsLicense>
 <CsOptions>
 -odac -dm0
 </CsOptions>
@@ -8,9 +15,6 @@ sr = 96000
 ksmps = 20
 nchnls = 2
 0dbfs = 1
-
-; gendyc etude (2021) Richard Boulanger
-; based on the extreme noise instrument from 'On it's Dark Side' by John ffitch
 
 garvbL init 0
 garvbR init 0
