@@ -11,6 +11,7 @@ try {
 } catch(e) {
     console.log(e);
 }
+
 </script><!-- This script loads the entire Csound library compiled for WebAssembly 
      and based on AudioWorklet. -->
 <script src="CsoundAudioNode.js"></script>
@@ -21,17 +22,27 @@ try {
 <script src="cmask.js"></script>
 <script>
 var csd = null;
-try {
-    var cmask = cmask_module();
-} catch(e) {
-    console.log(e);
- }
 var csound_message_callback = function(message) {
     let messages_textarea = document.getElementById("console");
     let existing = messages_textarea.value;
     messages_textarea.value = existing + message;
     messages_textarea.scrollTop = messages_textarea.scrollHeight;        
 };
+var cmask;
+var csound_ = null;
+(async function() { 
+    cmask = await cmask_module(); 
+    var txt = "";
+    txt += "Browser CodeName: " + navigator.appCodeName + "\n";
+    txt += "Browser Name: " + navigator.appName + "\n";
+    txt += "Browser Version: " + navigator.appVersion + "\n";
+    txt += "Cookies Enabled: " + navigator.cookieEnabled + "\n";
+    txt += "Browser Language: " + navigator.language + "\n";
+    txt += "Browser Online: " + navigator.onLine + "\n";
+    txt += "Platform: " + navigator.platform + "\n";
+    txt += "User-agent header: " + navigator.userAgent + "\n";
+    csound_message_callback(txt);
+}());
 // Csound must be invoked from an async function because the 
 // functions called herein are async but must be called with 
 // await to enforce the correct order of execution.
