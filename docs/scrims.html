@@ -1554,7 +1554,7 @@ f 0 3600
                     is_playing = true;
                     gui.revert();
                     start_time_seconds = new Date().getTime() / 1000.0;
-                    await csound_.Perform();
+                    csound_.Perform();
                     setTimeout(updateTimeCell, 0);
                 })();
             },
@@ -1563,7 +1563,7 @@ f 0 3600
                     is_playing = false;
                     await csound_.Stop();
                     await csound_.Cleanup();
-                    await csound_.Reset();
+                    csound_.Reset();
                 })();
             },
             Close: async function() {
@@ -1571,7 +1571,7 @@ f 0 3600
                     is_playing = false;
                     await csound_.Stop();
                     await csound_.Cleanup();
-                    await csound_.Reset();
+                    csound_.Reset();
                 } catch (e) {
                     console.log(e);
                 }
