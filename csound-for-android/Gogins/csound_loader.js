@@ -60,14 +60,14 @@ var load_csound = function(csound_message_callback_) {
     let operating_system = get_operating_system();
     if (operating_system === "Android" && typeof csound === 'undefined') {
         csound_message_callback("Operating system is Android, but Csound is not yet defined.\n");
-        // On Android, Csound uses only stdout for messages; this becomes 
-        // console.log, so we assign our "csound message callback" to 
-        // console.log.
         return;
     }
     if (typeof csound !== 'undefined') {
         csound_injected = csound;
         csound_is_loaded = true;
+        // On Android, Csound uses only stdout for messages; this becomes 
+        // console.log, so we assign our "csound message callback" to 
+        // console.log.
         console.log = csound_message_callback;
         csound_message_callback_("Csound is already defined in this JavaScript context.\n");
         return;
