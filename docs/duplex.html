@@ -148,8 +148,7 @@
     <textarea id='csd' cols=80 rows=25">
 <CsoundSynthesizer>
 <CsOptions>
-; Needed to work with csound.node:
--d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 
+-d -f -m195 -odac -iadc
 </CsOptions>
 <CsInstruments>
 sr                          =           48000
@@ -203,7 +202,7 @@ $(document).ready(function() {
         $(output_selector).val(slider_value);
     });
     $('#play').on('click', async function() {
-        let csound = get_csound(handleMessage);
+        let csound = await get_csound(handleMessage);
         if (csound == null) {
             return;
         }
@@ -215,7 +214,7 @@ $(document).ready(function() {
         await csound.Perform();
     });
     $('#stop').on('click', async function() {
-        let csound = get_csound(handleMessage);
+        let csound = await get_csound(handleMessage);
         await csound.Stop();
         await csound.Cleanup()
         await csound.Reset();

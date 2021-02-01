@@ -156,7 +156,6 @@ To search for extraterrestrial intelligence from your home computer visit
 https://setiathome.berkeley.edu/
 </CsLicense>
 <CsOptions>
-; Needed to work with csound.node:
 -d -f -m195 -odac
 </CsOptions>
 <CsInstruments>
@@ -254,15 +253,15 @@ i 2    0    .      500     .       16         1.00
 </script>
 <script>    
 $(document).ready(function() {
-    $('input').on('input', function(event) {
-        let csound_ = get_csound(csound_message_callback);
+    $('input').on('input', async function(event) {
+        let csound_ = await get_csound(csound_message_callback);
         var slider_value = parseFloat(event.target.value);
         csound_.SetControlChannel(event.target.id, slider_value);
         var output_selector = '#' + event.target.id + '_output';
         $(output_selector).val(slider_value);
     });
     $('#play').on('click', async function() {
-        let csound_ = get_csound(csound_message_callback);
+        let csound_ = await get_csound(csound_message_callback);
         document.getElementById("csound_console").value = "";
         var csd = document.getElementById('csd').value;
         await csound_.CompileCsdText(csd);
@@ -271,7 +270,7 @@ $(document).ready(function() {
         await csound_.Perform();
     });
     $('#stop').on('click', async function() {
-        let csound_ = get_csound(csound_message_callback);
+        let csound_ = await get_csound(csound_message_callback);
         await csound_.Stop();
         await csound_.Cleanup();
         csound_.Reset();
@@ -281,8 +280,8 @@ $(document).ready(function() {
             localStorage.setItem(this.id, this.value);
         });
     });
-    $('#restore').on('click', function() {
-        let csound_ = get_csound(csound_message_callback);
+    $('#restore').on('click', async function() {
+        let csound_ = await get_csound(csound_message_callback);
         $('.persistent-element').each(function() {
             this.value = localStorage.getItem(this.id);
             csound_.SetControlChannel(this.id, parseFloat(this.value));
