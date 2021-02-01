@@ -34,11 +34,49 @@ csound_node = null;
 csound_audio_node = null;
 csound_is_loaded = false;
 
+var get_operating_system = function() {
+    let operating_system = "unknown";
+    let userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    console.log("userAgent: " + userAgent + "\n");
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        operating_system = "Windows Phone";
+        console.log("operating_system: " + operating_system + "\n");
+        return operating_system;
+    }
+    if (/android/i.test(userAgent)) {
+        operating_system = "Android";
+        console.log("operating_system: " + operating_system + "\n");
+        return operating_system;
+    }
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        operating_system = "iOS";
+        console.log("operating_system: " + operating_system + "\n");
+        return operating_system;
+    }
+    console.log("operating_system: " + operating_system + "\n");
+    return operating_system;
+}
+
+/**
+ * There is an issue on Android in that csound may be undefined when the page is 
+ * first rendered, and be defined only when the user plays the piece.
+ */
 var load_csound = async function(csound_message_callback_) {
+    let operating_system = get_operating_system();
+    if (operating_system === "Android" && typeof csound === 'undefined') {
+        csound_message_callback("Operating system is Android, but Csound is not yet defined.\n");
+        // On Android, Csound uses only stdout for messages; this becomes 
+        // console.log, so we assign our "csound message callback" to 
+        // console.log.
+        return;
+    }
     if (typeof csound !== 'undefined') {
         csound_injected = csound;
         csound_is_loaded = true;
-        csound_message_callback_("Csound already exists in this JavaScript context.\n");
+        console.log = csound_message_callback;
+        csound_message_callback_("Csound is already defined in this JavaScript context.\n");
         return;
     }
     csound = null;
@@ -90,7 +128,7 @@ var get_csound = async function(csound_message_callback_) {
     } else if (csound_node != null) {
         csound = csound_node;
         csound.SetMessageCallback(csound_message_callback_);
-       return csound_node;
+        return csound_node;
     } else if (csound_audio_node != null) {
         csound = csound_audio_node;
         csound.SetMessageCallback(csound_message_callback_);

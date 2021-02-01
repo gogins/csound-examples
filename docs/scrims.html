@@ -85,8 +85,6 @@
         <textarea class="code" id="csd" hidden rows=24 cols=80>
 <CsoundSynthesizer>
 <CsOptions>
-; Needed to work with csound.node:
-;-d -f -m195 -+rtaudio=alsa -odac:plughw:1,0 -iadc:plughw:1,0 --ksmps=128
 -d -f -m195 -odac
 </CsOptions>
 <CsInstruments>
@@ -126,17 +124,24 @@ connect "Xing", "outleft", "MasterOutput", "inleft"
 connect "Xing", "outright", "MasterOutput", "inright"
 connect "YiString", "outleft", "ReverbSC", "inleft"
 connect "YiString", "outright", "ReverbSC", "inright"
-connect "YiString", "chorusleft", "SolinaChorus", "inleft"
-connect "YiString", "chorusright", "SolinaChorus", "inright"
-connect "SolinaChorus", "outleft", "ReverbSC", "inleft"
-connect "SolinaChorus", "outright", "ReverbSC", "inright"
+;connect "YiString", "chorusleft", "SolinaChorus", "inleft"
+;connect "YiString", "chorusright", "SolinaChorus", "inright"
+;connect "SolinaChorus", "outleft", "ReverbSC", "inleft"
+;connect "SolinaChorus", "outright", "ReverbSC", "inright"
 connect "ReverbSC", "outleft", "MasterOutput", "inleft"
 connect "ReverbSC", "outright", "MasterOutput", "inright"
 
-alwayson "Controls"
-alwayson "SolinaChorus"
-alwayson "ReverbSC"
-alwayson "MasterOutput"
+;alwayson "Controls"
+;alwayson "SolinaChorus"
+;alwayson "ReverbSC"
+;alwayson "MasterOutput"
+
+scoreline_i "i \"Controls\" 0 36000"
+;scoreline_i "i \"SolinaChorus\" 0 36000"
+scoreline_i "i \"ReverbSC\" 0 36000"
+scoreline_i "i \"MasterOutput\" 0 36000"
+
+scoreline_i "f 0 3600\n"
 
 gk_Plucked_level init 0
 instr Plucked
@@ -180,7 +185,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Rhodes_level init 0
@@ -231,7 +236,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Buzzer_attack init .125
@@ -277,7 +282,7 @@ outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
 ;printks "Buzzer         i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Droner_partial1 init .5
@@ -353,7 +358,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_YiString_midi_dynamic_range init 127
@@ -413,7 +418,7 @@ outleta "chorusleft", a_out_left
 outleta "chorusright", a_out_right 
 ;printks "YiString         %9.4f  %9.4f\n", 0.5, a_out_left, a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_FMModerate2_level init 0
@@ -471,7 +476,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Phaser_attack init .125
@@ -518,7 +523,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 ;printks "Phaser         i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(aleft)), dbamp(rms(aright))
 endin
 
@@ -564,7 +569,7 @@ a_signal = aSig * kenvelope * k_gain
 aleft, aright pan2 a_signal, k_space_left_to_right
 outleta "outleft", aleft
 outleta "outright", aright
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Blower_grainDensity init 40
@@ -644,8 +649,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
-;printks "Blower         i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Xing_level init 0
@@ -708,7 +712,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Harpsichord_midi_dynamic_range init 127
@@ -760,7 +764,7 @@ outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
 ;printks "Harpsichord      %9.4f   %9.4f\n", 0.5, a_out_left, a_out_right
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Bower_midi_dynamic_range init 127
@@ -805,7 +809,7 @@ a_signal = aSig * kenvelope * k_gain
 aleft, aright pan2 a_signal, k_space_left_to_right
 outleta "outleft", aleft
 outleta "outright", aright
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Sweeper_midi_dynamic_range init 127
@@ -880,7 +884,7 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Shiner_midi_dynamic_range init 127
@@ -920,7 +924,7 @@ aleft, aright pan2 asignal, k_space_left_to_right
 ;printks2 "master gain:", kgain
 outleta "outleft", aleft
 outleta "outright", aright
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 /**
@@ -978,7 +982,7 @@ aleft solina_chorus aleft, gk_SolinaChorus_chorus_lfo1_hz, gk_SolinaChorus_choru
 aright solina_chorus aright, gk_SolinaChorus_chorus_lfo1_hz, gk_SolinaChorus_chorus_lfo1_amp, gk_SolinaChorus_chorus_lfo2_hz, gk_SolinaChorus_chorus_lfo2_amp
 outleta "outleft", aleft
 outleta "outright", aright
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_Reverb_feedback init 0.975
@@ -998,11 +1002,10 @@ aleft, adummy  reverbsc aleft, azero,  gk_Reverb_feedback, gk_Reverb_frequency_c
 adummy, aright reverbsc azero, aright, gk_Reverb_feedback, gk_Reverb_frequency_cutoff, sr, gi_Reverb_delay_modulation
 outleta "outleft", aleft
 outleta "outright", aright
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 gk_MasterOutput_level init 0
-gS_MasterOutput_filename init ""
 instr MasterOutput
 aleft inleta "inleft"
 aright inleta "inright"
@@ -1012,16 +1015,7 @@ iamp init 1
 aleft butterlp aleft, 18000
 aright butterlp aright, 18000
 outs aleft * k_gain, aright * k_gain
-; We want something that will play on my phone.
-i_amplitude_adjustment = ampdbfs(-3) / 32767
-i_filename_length strlen gS_MasterOutput_filename
-if i_filename_length > 0 goto filename_exists
-goto filename_endif
-filename_exists:
-prints sprintf("Output filename: %s\n", gS_MasterOutput_filename)
-fout gS_MasterOutput_filename, 18, aleft * i_amplitude_adjustment, aright * i_amplitude_adjustment
-filename_endif:
-prints "%-24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%24.24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 
 instr Controls
@@ -1102,7 +1096,7 @@ endin
 
 </CsInstruments>
 <CsScore>
-f 0 3600
+f 0 36000
 </CsScore>
 <CsoundSynthesizer>
     </textarea>
@@ -1114,13 +1108,19 @@ f 0 3600
          */
         // Some variables must be defined at global scope to allow for 
         // asynchronous loading of WebAssembly modules. 
-        var csound_message_callback = function(message_text) {
-            console.log(message_text);
-            let messages_textarea = document.getElementById("console");
-            let existing = messages_textarea.value;
-            messages_textarea.value = existing + message_text;
-            messages_textarea.scrollTop = messages_textarea.scrollHeight;
-        }
+       function csound_message_callback(message) {
+            var messages_textarea = document.getElementById("console");
+            var existing = messages_textarea.value;
+            messages_textarea.value = existing + message;
+            messages_textarea.scrollTop = messages_textarea.scrollHeight;   
+        };
+//~         var csound_message_callback = function(message_text) {
+//~             console.log(message_text);
+//~             let messages_textarea = document.getElementById("console");
+//~             let existing = messages_textarea.value;
+//~             messages_textarea.value = existing + message_text;
+//~             messages_textarea.scrollTop = messages_textarea.scrollHeight;
+//~         }
         var is_playing = false;
         var csound_;
         var CsoundAC_;
@@ -1139,7 +1139,7 @@ f 0 3600
         }());
         let RANGE = 60;
         let BASS = 36;
-        let INSTRUMENT_COUNT = 13.9;
+        let INSTRUMENT_COUNT = 12.99
         let NOTE_COUNT = 16;
         let container = document.getElementById('webgl_cell');
         console.log('container:' + container);
@@ -1549,29 +1549,32 @@ f 0 3600
                     if (csound_ == null) {
                         return;
                     }
-                    await csound_.CompileCsdText(document.getElementById('csd').value);
+                    let result = await csound_.CompileCsdText(document.getElementById('csd').value);
+                    csound_message_callback("CompileCsdText returned: " + result);
                     await csound_.Start();
                     is_playing = true;
                     gui.revert();
                     start_time_seconds = new Date().getTime() / 1000.0;
-                    csound_.Perform();
+                    await csound_.Perform();
                     setTimeout(updateTimeCell, 0);
                 })();
             },
             Stop: function() {
                 (async () => {
+                    csound_ = get_csound(csound_message_callback);
                     is_playing = false;
                     await csound_.Stop();
                     await csound_.Cleanup();
-                    csound_.Reset();
+                    await csound_.Reset();
                 })();
             },
             Close: async function() {
                 try {
+                    csound_ = get_csound(csound_message_callback);
                     is_playing = false;
                     await csound_.Stop();
                     await csound_.Cleanup();
-                    csound_.Reset();
+                    await csound_.Reset();
                 } catch (e) {
                     console.log(e);
                 }
