@@ -39,7 +39,7 @@
 <td id="help">
 <div class="w3-border w3-panel trichord-box" style="height:25vh;width:50vw;display:block;overflow-y:scroll;color:white;">
 <h1>Chord Space for Trichords</h1>
-<h3>Michael Gogins<br>11 January 2020</h3>
+<h3>Michael Gogins<br>31 January 2021</h3>
 <p>This program is an interactive 3-dimensional model of a chord space for all 
 3-voice chords in 12-tone equal temperament. A chord is a single point in a 
 space with 1 dimension for each voice of a chord; thus, any chord space for 
@@ -51,9 +51,9 @@ folds half the space over itself. The chord space at startup is the
 combination of octave equivalence and permutational equivalence (OP). See: 
 Callendar, Quinn, and Tymoczko, "Generalized Voice-Leading Spaces," 
 <b><i>Science</i> 320</b>, 2008.</p>
-<p>Source code for this program <a href="https://github.com/gogins/csound-examples/blob/master/csound-extended-wasm/TrichordSpace.html">may be found here.<a/>. 
+<p>Source code for this program <a href="https://github.com/gogins/csound-examples/blob/master/csound-extended-wasm/TrichordSpace.html">may be found here<a/>. 
 Source code for the CsoundAC library 
-that implements the chord spaces and transformations <a href="https://github.com/gogins/csound-extended">may be found here.</a></p>
+that implements the chord spaces and transformations <a href="https://github.com/gogins/csound-extended">may be found here</a>.</p>
 <p>In OP, the augmented triads form a central column (white balls). It is 
 surrounded by 3 columns of major triads (red balls), and 3 columns of minor 
 triads (blue balls); each column is a different voicing of the triad. 
@@ -259,8 +259,8 @@ try {
 }
 
 var csound_message_callback = function(text) {
-    var messages_textarea = document.getElementById("console");
-    var existing = messages_textarea.value;
+    let messages_textarea = document.getElementById("console");
+    let existing = messages_textarea.value;
     messages_textarea.value = existing + text;
     messages_textarea.scrollTop = messages_textarea.scrollHeight;
 };
@@ -297,7 +297,6 @@ var CsoundAC;
 var csound_ = null;
 (async function() { 
     CsoundAC = await createCsoundAC(); 
-    csound_message_callback(CsoundAC.hello()); 
     var txt = "";
     txt += "Browser CodeName: " + navigator.appCodeName + "\n";
     txt += "Browser Name: " + navigator.appName + "\n";
@@ -308,6 +307,11 @@ var csound_ = null;
     txt += "Platform: " + navigator.platform + "\n";
     txt += "User-agent header: " + navigator.userAgent + "\n";
     csound_message_callback(txt);
+    csound_message_callback(CsoundAC.chord_space_version() + "\n");
+    let CM = CsoundAC.chordForName("C+");
+    CM = CM.T(-4.);
+    console.log(CM.information());
+    console.log(CM.information_debug(-1));
     draw_fundamental_domain("OP");
 }());
 
@@ -315,22 +319,37 @@ var title = document.title;
 
 var play_ = async function() {
     try {
-        is_playing = true;
-        let csd = document.getElementById('csd').value;
+        let messages_textarea = document.getElementById("console");
+        messages_textarea.value = "";
         let csound_ = await get_csound(csound_message_callback);
-        chord_space_view.csound = csound_;
+        if (csound_ == null) {
+            return;
+        }
+        let seconds = await csound_.GetScoreTime();
+        csound_message_callback("Score time: " + seconds + "\n");
+        if (seconds > 0) {
+            csound_message_callback("Already playing...\n");
+            return;
+        }
+        csd = document.getElementById('csd').value;
         await csound_.CompileCsdText(csd);
         await csound_.Start();
         await csound_.Perform();
     } catch(err) {
         csound_message_callback(err.name + ': ' + err.message + ' ' + err.line + '\n');
-        alert(err);
+        alert("Csound has not finished loading... wait a bit and try again.");
     }
 }
 
 var stop_ = async function() {
     let csound_ = await get_csound(csound_message_callback);
-    await csound.Stop();
+    let seconds = await csound_.GetScoreTime();
+    csound_message_callback("Score time: " + seconds + "\n");
+    if (seconds > 0) {
+        await csound_.Stop();
+        await csound_.Cleanup();
+        await csound_.Reset();
+    }
 }
 
 var gk_update = async function(name, value) {
@@ -395,9 +414,9 @@ window.addEventListener("load", function() {
         Neo_Reimannian.add(gui_parameters, 'nrn').name('Nebenverwandt [N]');
         Neo_Reimannian.add(gui_parameters, 'nrh').name('Hexpole [X]');
         gui.add(gui_parameters, 'nrd').name('Dominant');
-        gui.add(gui_parameters, 'v1').name('Move 1 [1]');
-        gui.add(gui_parameters, 'v2').name('Move 2 [2]');
-        gui.add(gui_parameters, 'v3').name('Move 3 [3]');
+        gui.add(gui_parameters, 'v1').name('Move voice 1 [1]');
+        gui.add(gui_parameters, 'v2').name('Move voice 2 [2]');
+        gui.add(gui_parameters, 'v3').name('Move voice 3 [3]');
         document.addEventListener("keydown", function (e) {
             const e_char = String.fromCharCode(e.keyCode || e.charCode);
             if (e.shiftKey === true) {
@@ -555,6 +574,21 @@ class ChordSpaceController {
         chord = chord.T(semitone).eOP();
         this.select_chord(chord);
      }
+    /*
+    Chord self = chord;
+    if (predicate<EQUIVALENCE_RELATION_RPTgI>(self, range, g, opt_sector) == true) {
+        return self;
+    } else {
+        auto rptt = equate<EQUIVALENCE_RELATION_RPTg>(self, range, g, opt_sector);
+        if (predicate<EQUIVALENCE_RELATION_I>(rptt, range, g, opt_sector) == true) {
+            return rptt;
+        } else {
+            auto rptt_i = equate<EQUIVALENCE_RELATION_I>(rptt, range, g, opt_sector);
+            auto rptt_i_rptt = equate<EQUIVALENCE_RELATION_RPTg>(rptt_i, range, g, opt_sector);
+            return rptt_i_rptt;
+        }
+    }
+    */
     invert() {
         let chord = this.current_chord();
         if (chord == null) {
@@ -567,8 +601,7 @@ class ChordSpaceController {
         let reflection = chord.reflect(sector).ceiling(1.).eOP();
         csound_message_callback(sprintf("invert: reflection: %s\n", reflection.toString()));
         this.select_chord(reflection);
-    }
-    nrr() {
+    }    nrr() {
         let chord = this.current_chord();
         if (chord == null) {
             return;
@@ -721,8 +754,8 @@ class ChordSpaceView {
         this.current_chord = null;
         this.prior_chord = null;
     }
-    play_chord() {
-        let csound_ = get_csound(csound_message_callback);
+    async play_chord() {
+        let csound_ = await get_csound(csound_message_callback);
         if (csound_ == null) {
             return;
         }

@@ -3,10 +3,12 @@
 # Note the use of Python's triple quotes to embed literal text within the script.
 # Author: Michael Gogins
 import ctcsound
+import sys
 # Create an instance of Csound (actually, CppSound).
 csound = ctcsound.Csound()
 # Set the Csound file.
 print(help(csound))
+print(sys.version)
 csound.compileCsdText('''
 <CsoundSynthesizer>
 <CsOptions>

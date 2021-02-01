@@ -31,6 +31,12 @@ interest only.
 Please feel free to contribute new pieces, examples, or extensions by pull 
 request.
 
+The `csound_loader.js` script is designed to facilitate the use of the Csound 
+API in the same way, i.e. calling the same functions for the same results, in 
+all environments that provide a JavaScript interface to the Csound API: that 
+is, in Csound for Android, the csound-extended-wasm version of Csound for 
+WebAssembly, and in csound.node for NW.js.
+
 ### WebAssembly Examples
 
 Some of the examples herein will run from the [GitHub pages of this 
