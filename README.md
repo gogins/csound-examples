@@ -34,7 +34,7 @@ For more information, please read the examples themselves.
 Not all of these examples or tests actually work. Some are of archival 
 or historical interest only.
 
-I have not secured explicit permission for most of the pieces in the `archival`
+I have not secured explicit permission for most of the pieces in the `archival` 
 directory. Rather, if they did not come with a license, I have interpreted 
 their having been made available by their authors on the Web, or sent in 
 emails, as permission to redistribute them. And of course, many of these 
@@ -42,7 +42,8 @@ pieces may be found in other places as well, for example in the examples menus
 of the CsoundQt program.
 
 Anyone who finds their work in this repository but would like to have it 
-removed, simply notify me,and I will remove it.
+removed, simply notify me, and I will remove it. Also, please notify me if you 
+find I am in violation of any copyright.
 
 Please feel free to contribute new pieces, examples, or extensions by pull 
 request.
