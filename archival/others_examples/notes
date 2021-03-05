@@ -1,0 +1,6 @@
+Sample use is
+
+
+setenv SFDIR ~/MUSIC/Samples
+csound -odevaudio -dm6 -M/dev/ttyd2 piano.*
+

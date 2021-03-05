@@ -1,0 +1,114 @@
+define variable movements = {program-a program-b program-c program-d program-e program-f program-a program-b program-c program-d program-e program-f program-a sdf 0} ;;;;;;;;;;;
+define variable running = #f
+define variable movement = 0
+define variable tick-start = 0
+
+define function midi-hook(mm)
+  begin
+    with l = length(movements) - 1, mvt_index = movements[l], act_index = ((mvt_index - (mvt_index % 2)) / 2) % l, mvt = movements[act_index]
+    if mm:ctrl?(mm) then
+      begin
+        if mm:num(mm) = 66 then
+          begin
+            set movements[l] = mvt_index + 1
+            set movement = (act_index + 1) % l
+            set tick-start = now()
+
+            if movement = 4 then ;;;;;;;;;;;
+              sprout process-d()
+            if movement = 9 then ;;;;;;;;;;;
+              sprout process-f()
+          end
+      end
+    else
+      begin ;;;;;;;;;;;
+        if movement = 0 then
+          begin
+            exec program-e(mm)
+          end
+        else if movement = 1 then
+          begin
+            exec program-e(mm)
+            exec program-b(mm)
+          end
+        else if movement = 2 then
+          begin
+            exec program-g(mm)
+            exec program-e(mm)
+          end
+        else if movement = 3 then
+          begin
+            exec program-b(mm)
+          end
+        else if movement = 4 then
+          begin
+            exec program-d(mm)
+          end
+        else if movement = 5 then
+          begin
+            exec program-d(mm)
+            exec program-a(mm)
+          end
+        else if movement = 6 then
+          begin
+            exec program-a(mm)
+          end
+        else if movement = 7 then
+          begin
+            exec program-c(mm)
+          end
+        else if movement = 8 then
+          begin
+            exec program-c(mm)
+            exec program-e(mm)
+          end
+        else if movement = 9 then
+          begin
+            exec program-f(mm)
+            exec program-e(mm)
+          end
+        else if movement = 10 then
+          begin
+            exec program-g(mm)
+            exec program-e(mm)
+          end
+        else if movement = 11 then
+          begin
+            exec program-e(mm)
+          end
+        else if movement = 12 then
+          begin
+            exec program-a(mm)
+            exec program-e(mm)
+          end
+        else if movement = 13 then
+          begin
+            exec program-e(mm)
+          end
+      end
+  end
+
+;;a = pitch shift w/delay
+;;b = rarefactions -- no buildup
+;;c = rarefactions -- with buildup
+;;d = static harmony
+;;e = octave tripler
+;;f = static harmony, much louder 
+;;g = interval replicator
+
+;;                    1 1 1 1
+;;0 1 2 3 4 5 6 7 8 9 0 1 2 3                        
+;;  b g   a     c f g   a     
+;;e e e b d d a c e e e e e e        
+
+define function go()
+  begin
+    send "mp:inhook", midi-hook
+    set running = #t
+  end
+
+define function kill()
+  begin
+    send "mp:inhook", #f
+    set running = #f
+  end

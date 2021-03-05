@@ -1,0 +1,239 @@
+;;1) First set this path to the location of hook.sal
+load "~/Desktop/404A/Spring/project-2/hook.sal"
+
+;;2) Now evaluate UP TO, but including the exec go() statements at the end
+
+;;3) Then evaluate exec go() to apply the hooks
+
+;;simple delay with pitch shift;;;;;;;;;;;;;;;;;;;;;;;
+define function program-a(mm)
+  begin
+    if mm:on?(mm) then
+      begin
+        send "mp:midi", 1, 0.4, mm:key(mm) + 6, mm:vel(mm)
+        send "mp:midi", 2, 0.4, mm:key(mm) - 3, mm:vel(mm)
+      end
+  end
+
+;;"rarefaction" finder;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+define variable b-notes = {}
+define variable b-most-free-index = 0
+define variable b-most-free-num = 0
+set b-notes = make-list(128)
+loop for i from 0 to 127
+  if i < 21 | i > 108 then
+    set b-notes[i]=#t
+  else
+    set b-notes[i]=#f
+end
+
+define function b-update-target()
+  begin with in_run = #f, run_index = 0, run_num = 0
+    set b-most-free-num = 0
+    set b-most-free-index = 0
+    loop for el in b-notes for i from 0 by 1
+      if ! in_run then
+        begin
+          if ! el then
+            begin
+              set run_num = 0
+              set run_index = i
+              set in_run = #t
+            end
+        end
+      else
+        begin
+          if ! el then
+            set run_num += 1
+          else
+            begin
+              set in_run = #f
+              if b-most-free-num < run_num then
+                begin
+                  set b-most-free-num = run_num
+                  set b-most-free-index = run_index
+                end
+            end
+        end
+    end
+  end
+
+define function program-b(mm)
+  begin
+    if mm:on?(mm) then
+      begin with k = mm:key(mm)
+        if k = 31 | k = 40 | k = 79 | k = 100 then
+          set k = k
+        else
+          begin
+            set b-notes[mm:key(mm)]=#t
+            exec b-update-target()
+            send "mp:midi", 0, 0.4, b-most-free-index + quantize(b-most-free-num,2) / 2, mm:vel(mm)
+          end
+      end
+    else if mm:off?(mm) then
+      begin
+        set b-notes[mm:key(mm)]=#f
+        exec b-update-target()
+      end
+  end
+
+;; rarefaction finder with build-up ability;;;;;;;;;;;
+define variable c-notes = {}
+define variable c-most-free-index = 0
+define variable c-most-free-num = 0
+set c-notes = make-list(128)
+loop for i from 0 to 127
+  if i < 21 | i > 108 then
+    set c-notes[i] = 0
+  else
+    set c-notes[i] = #f
+end
+
+define function c-update-target()
+  begin with in_run = #f, run_index = 0, run_num = 0
+    loop for t from 0 to 127 ; clear any artificial notes whose duration has expired
+      if c-notes[t] then
+        if c-notes[t] != 0 then
+          if c-notes[t] <= now() then
+            set c-notes[t] = #f
+    end
+    set c-most-free-num = 0
+    set c-most-free-index = 0
+    loop for el in c-notes for i from 0 by 1
+      if ! in_run then
+        begin
+          if ! el then
+            begin
+              set run_num = 0
+              set run_index = i
+              set in_run = #t
+            end
+        end
+      else
+        begin
+          if ! el then
+            set run_num += 1
+          else
+            begin
+              set in_run = #f
+              if c-most-free-num < run_num then
+                begin
+                  set c-most-free-num = run_num
+                  set c-most-free-index = run_index
+                end
+            end
+        end
+    end
+  end
+
+define function program-c(mm)
+  begin
+    if mm:on?(mm) then
+      begin with k = mm:key(mm), new_k = 0
+        if k = 31 | k = 40 | k = 79 | k = 100 then
+          set k = k
+        else
+          begin with max_notes = 1
+            set c-notes[k] = 0
+            exec c-update-target()
+            loop for m from 21 to 108
+              if c-notes[m] then
+                set max_notes += 1
+            end
+            loop with dur = 10.0 / max_notes for i from 0 below max_notes / 2
+              set new_k = c-most-free-index + quantize(c-most-free-num, 2) / 2
+              loop for j from 0 to 127 ;convert to integer
+                if j = new_k then
+                  set new_k = j
+              end
+              set c-notes[new_k] = now() + dur + i
+              exec c-update-target()
+              send "mp:midi", i, dur, new_k, mm:vel(mm)
+            end
+          end
+      end
+    else if mm:off?(mm) then
+      begin
+        set c-notes[mm:key(mm)]=#f
+        exec c-update-target()
+      end
+  end
+
+
+;;soft repeated notes based on input;;;;;;;;;;;;;;;;;;;;;;;;;
+define variable d-state = {60 73 76 45}
+define variable d-dur = 0.1
+define variable d-wait = 0.125
+define variable d-ampbias = 0
+
+define function program-d(mm)
+  begin
+    if mm:on?(mm) then
+      begin with k = mm:key(mm)
+        set d-state = rest(d-state)
+        set d-state &= k
+      end
+  end
+
+define process process-d()
+  run while (movement = 4 | movement = 5) ;;;;;;;;;;;;;;
+    send "mp:midi", key: (nth(d-state, 0) % 15) + 60, dur: d-dur, amp: 30 + d-ampbias, time: 0
+    send "mp:midi", key: (nth(d-state, 1) % 15) + 60, dur: d-dur, amp: 30 + d-ampbias, time: 0
+    send "mp:midi", key: (nth(d-state, 2) % 15) + 60, dur: d-dur, amp: 30 + d-ampbias, time: d-wait
+    send "mp:midi", key: (nth(d-state, 3) % 15) + 60, dur: d-dur, amp: 30 + d-ampbias, time: d-wait
+
+    set d-ampbias = (d-ampbias + 7) % 21
+    wait d-wait * 2
+  end
+
+;;octave tripler;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+define function program-e(mm)
+  begin
+    if mm:on?(mm) then
+      begin with k = mm:key(mm), v = mm:vel(mm), vol = v, dur = (127 - vol) / 127 * 0.2 + 0.05
+        send "mp:midi", 0, dur, k + 11, v
+        send "mp:midi", 0, dur, k - 11, v
+      end
+  end
+
+;;loud repeated notes;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+define variable f-state = {60 73 76 45}
+define variable f-dur = 0.1
+define variable f-wait = 0.125
+define variable f-ampbias = 0
+
+define function program-f(mm)
+  begin
+    if mm:on?(mm) then
+      begin with k = mm:key(mm)
+        set f-state = rest(f-state)
+        set f-state &= k
+      end
+  end
+
+define process process-f()
+  run while movement = 9 ;;;;;;;;;;;;;;;
+    send "mp:midi", key: (nth(f-state, 0) % 15) + 60, dur: f-dur, amp: 70 + f-ampbias, time: 0
+    send "mp:midi", key: (nth(f-state, 1) % 15) + 60, dur: f-dur, amp: 70 + f-ampbias, time: 0
+    send "mp:midi", key: (nth(f-state, 2) % 15) + 60, dur: f-dur, amp: 70 + f-ampbias, time: d-wait
+    send "mp:midi", key: (nth(f-state, 3) % 15) + 60, dur: f-dur, amp: 70 + f-ampbias, time: d-wait
+
+    set f-ampbias = (f-ampbias + 7) % 21
+    wait f-wait * 2
+  end
+
+;;interval replicator;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+define function program-g(mm)
+  begin
+    if mm:on?(mm) then
+      begin with k = mm:key(mm), v = mm:vel(mm), dur = (127 - v) / 127 * 0.2 + 0.05
+        send "mp:midi", 0, dur, k + quantize(v / 10, 1), v
+        send "mp:midi", 0, dur, k - quantize(v / 10, 1), v
+      end
+  end
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+exec go()
+exec kill()

@@ -1,0 +1,15 @@
+To generate the sound:
+
+ $ ngen bay.gen bay.sco
+ (A lot of messages and warnings will be issued, you can safely ignore
+ them) 
+
+ $ csound -o devaudio -d -m0 bay.orc bay.sco
+
+If you don't have ngen, you can use the bay.sco provided. It has been
+processed to substract 7.5 to all start times of the notes, because
+the first 7.5 seconds are silence (using the settings in bay.gen).
+
+For details about the composition, read bay.gen and bay.orc
+
+--JL Diaz, January 2005

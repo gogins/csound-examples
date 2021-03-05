@@ -1,0 +1,31 @@
+[grafico] mccurdy
+[grafico] vectro
+[grafico] pavan
+[gui] xscanned
+
+[ok] accci       
+[ok] cook (erros)
+[ok] csound-book
+[ok] dobson
+[ok] dodge
+[ok] dx7-pinkston-varo
+[ok] eastman (erros)
+[ok] hamel (erros)
+[ok] noorden
+[ok] pinkston
+[ok] risset (erros)
+[ok] rossing (erros)
+[ok] smaragdis (erros)
+[ok] mikelson (erros)
+[ok] oi (tem que processar)
+costello
+diffamator
+maldonado
+varga
+lyon
+dx7
+comajuncosas
+
+!compositions
+!varios
+!students

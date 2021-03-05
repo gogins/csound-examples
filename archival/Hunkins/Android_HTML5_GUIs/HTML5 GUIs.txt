@@ -1,0 +1,89 @@
+HTML5 GUIs for Android Csound6:
+A Tutorial in 8 Examples
+
+Art Hunkins
+abhunkin@uncg.edu
+http://www.arthunkins.com
+10/1/2015
+
+
+In June 2015, Michael Gogins introduced a version of Csound6 for Android[1] that included HTML5, a development that permitted Csound to include its own performance GUI. Shortly thereafter, he followed with a tutorial chapter in the Csound FLOSS manual[2], detailing this new facility, and documenting it with 5 examples[3]. This article is based on Michael's excellent introductory tutorial, and is meant to supplement it.[4]
+
+The value of HTML5's inclusion in Android Csound, for both portability and live performance, is clear. It is now possible to perform live anywhere, with only an Android device and a set of headphones. No electricity, no MIDI or other controller, no cords. The only software is the free Csound6.apk and your .csd file. The sole dedicated expense is the Android device; and your performance interface is customized to your composition. (No more limitation to 5 sliders and buttons.) These benefits accrue to performer as well as composer; there is no need (or expense) other than that of an inexpensive Android device for any musician who might like to perform your piece. (He may well already have such a device.) Perhaps the most significant current limitation is that the Android OS must be at least 4.2.2 (though this will not seem limiting for long).
+
+This article, along with its accompanying examples, is a kind of "tutorial for the rest of us" - one designed for the more conventional Csounder. The amount of required HTML - and JavaScript, and CSS (style sheets) - is formidable, and involves a lot of code. The examples attempt to simplify and standardize to the degree possible, eliminating all bells and whistles.[5] Many segments of the HTML can be copy/pasted directly into user .csd's. (This is particularly relevent to our first example.)
+
+My goals were: 1) to try to port .csd's for "canonical" Android Csound directly to HTML5 GUIs with little or no change to the original code; 2) to be simple and functional in HTML design, while basically mirroring the "canonical" GUI; 3) to be detailed and specific in the GUI code, while illustrating differing conditions and variants; 4) to use the full screen of the Android device (for maximum "playability"); and importantly 5) to auto-scale to device size.
+
+This last criterion was by far the most challenging. As the GUI basically consists of tables, the obvious choice for auto-scaling is width and height percentage (of display dimensions). Table width percentage works fine; table height percentage does not. The latter, for several reasons, runs into display issues related to "viewport", the white,  upper portion of the screen opened by Csound for the HTML GUI. In Android OS 5.0+, only a fixed portion of the screen opens (as viewport) and remains open; bottom parts of the GUI remain hidden. In OS < 5.0, the complete GUI opens within the partial viewport. Each time Csound is started or stopped, the viewport becomes slightly larger, eventually (after 5 or 6 tries) filling the screen. Meanwhile the GUI repeatedly expands to fill the current viewport!
+
+The only element I've found that will auto-scale appropriately is font-size. Not only will font-size auto-adjust to device size, it can be specified as a percentage of its (auto-adjusted) normal size. Furthermore, font-size correctly copes with the viewport: for all Android OS's, it forces the viewport to display the full GUI, and does not vary GUI size as the viewport further expands. Bottom line: font-size is the basic scaling technique employed here.
+
+Though all these examples stand on their own, they are listed in a suggested order of study. They deal uniquely with sliders and momentary-contact buttons - both with text labels. (There is no x/y touchpad, as pads are not implemented in current HTML code.) Sliders are illustrated both with and without displayed values. Both sliders and buttons, as in Gogins' examples, are implemented in tables for neat and user-friendly appearance.
+
+For consistency and easy comparison, the following procedures are followed in the examples:
+1) All HTML is placed at the bottom of the file. It could just as easily be placed at the top. Either way, messages regarding HTML (thankfully) do not appear in Csound console output.
+2) CSS (style sheet data) appears within, and at the top of, the HTML <head> section.
+3) JavaScript code also appears within, but at the bottom of, the HTML <head> section.
+4) With both style sheets and JavaScript, slider data appears above button data.
+5) Within the <body> section, following any title text, slider table(s) appear above button table(s). This parallels the layout of "canonical" Android app GUIs.
+
+
+THE EXAMPLES
+
+The example .csd's are found, along with this file, in the following zip archive:
+http://www.arthunkins.com/Android_HTML5_GUIs.zip
+
+1 - Csound6 HTML5 GUI Clone.csd
+  This file simply "clones" the "canonical" Android Csound5/6 GUIs, except that it includes no x/y trackpad. Any .csd for "canonical" Android Csound5/6 may be prepended to this file as is, with one exception: if you use chnget *button* channels, you must rename the channels from "butt1-5" to "but1-5". (This is a quirk of the current Android Csound6[.05] build, and will be remedied in later editions.) Try it with your Android .csd on any recent device; or append the included code to the bottom of your Android .csd, and run it.
+  There is little inline explanation here.
+
+
+The next three tutorials are the most informative and worthy of study. Their .csd's are all heavily commented.
+
+2 - HTML5 Slider GUI Demo.csd
+  Basic demo for sliders only. Sliders all have labels; some display values, others not. Deals with issue of slider thickness - important for "slidability" and crucial on smaller displays. Thickness is determined by label font size and label formatting (i.e., how many text lines the label occupies). Ways of manipulating the latter, as well as the amount of horizontal space taken by the label, are illustrated. The 3 characters that delineate label strings (potential line breaks) are also illustrated (space, dash and forward slash). While "canonical" Android sliders range only between 0 and 1, HTML5 sliders can range between any two values (though default values remain 0 to 1). Special steps must be taken, as shown in this demo, to constrain displayed values to a limited number of characters (here, 3). In short, the displayed values of all sliders should show the same number of characters (as should the initial display). Also, if the start value of the slider is not 0 (it need not be in HTML5), the .csd must be initialized to this value (as is again explained and illustrated by the .csd.)
+
+3 - HTML5 Button GUI Demo.csd
+  Basic demo for buttons only. Buttons all have labels. Whereas slider labels auto-size to the longest "word" (string) in any label within a table, button labels are more difficult, forcing individual button width to its longest "word." Solutions to this issue are illustrated; these include font size and family ("condensed" or not)  and limiting the number of characters. Since "clickable area" is restricted to the text label itself (not including padding), the tutorial shows how to handle this issue - which includes vertical enhancement via multiple text lines.
+
+4 - SimplyNoise.csd
+  A button-only "drumset" simulation. 2 tables: 1 of two rows of 4 "drums" each, 1 of a single row of 4 amplitudes. Demos larger title and interpolated text. Shows how to center tables (when filling less than full width of screen) and to size buttons via padding. Note that buttons are only padded vertically, as padding is added automaticly on the sides to fill specified table width (as % of display).
+
+
+The remaining four examples are comparable HTML5 GUI versions of my recent works for "regular" Android Csound. Since all of them require more than 5 buttons and/or sliders, they originally require performance on my "alternative" Csound6 apps, Csound6a, Csound6b and Csound6c - which are described and linked to here:
+http://arthunkins.com/Android_Csound_Apps.htm
+Toward the middle of the above webpage, links to the original Android versions of these works are listed. Their titles all have an "alt" suffix, indicating that these .csd's require my "alternative" Android apps.[6]
+
+These .csd's contain minimal commentary inline.
+
+5 - Spiritus2AndroidGUI.csd
+  8 sliders, no buttons. No required changes in original .csd to port to HTML5.
+
+6 - SpiritusAndroidGUI.csd
+  9 sliders, 12 buttons. No required changes in original .csd to port to HTML5, except change of "butt1-5" to "but1-5". Note the two-line labels to guarantee thickness of sliders, and the 3-character limitation for button labels to accommodate, for smartphones, the 6 buttons per row.
+
+7 - PeaceAndroidGUI.csd
+  12 sliders, 9 buttons. Probably the largest cohort of widgets that should be attempted on smartphones. The 4-character limitation on button labels here accommodates, for smartphones, 5 buttons per row. (5 or fewer buttons per row can take several more characters per label when the "sans-serif-condensed" font-family is specified.) Considerable recoding of original Android .csd, especially involving display of values for sliders 2, 5 and 8 (not possible in "canonical" Android, and dealt with by the one-line Csound console display in the alternative Csound6c app).[7]
+
+8 - Peace2AndroidGUI.csd
+  16 sliders, 9 buttons. Probably the largest cohort of widgets that should be attempted (or not?) even on large tablets. (Largely unworkable on smartphones due to extreme narrowness of sliders.) Peace2 is identical to Peace except for three additional sliders (= one additional "voice"). Due to a vertical "space squeeze", the height of  buttons is reduced (for smartphones) to 65% in the style sheet - with no padding. (In addition, the reduction allows for up to 7 available characters for button labels.)
+
+
+FOOTNOTES
+
+[1] http://sourceforge.net/projects/csound/files/csound6/Csound6.05/Csound6.apk/
+Earlier HTML5 versions, introduced from Csound6.03, apparently observe a somewhat different syntax, and do not work for me (nor for the FLOSS manual examples).
+
+[2] http://floss.booktype.pro/csound/h-csound-and-html/
+
+[3] The Floss examples, numbered 01-05, are found here:
+https://github.com/csound/csound/tree/develop/examples/html
+
+[4] Michael's tutorial is fairly bare-bones; and his composing methods are both advanced and somewhat unique. This leads to some rather complex examples.
+
+[5] There is no doubt about it; the learning curve for these technologies can be steep. Many may not find the effort worth the trouble, and opt to stay with the "canonical" or "alternative" Csound6 apps. (The lines of HTML can easily exceed those of an original .csd.) One other consideration: the "standard" Csound app buttons exhibit much less latency than do HTML5 buttons. (Depending on the device, HTML introduces up to one second of latency, and I've found no ready way around this.)
+
+[6] Csound6c includes a single-line Csound console output to feed back to the performer needed data from Csound. Both "canonical" Android Csound and its HTML5 version currently lack implementations of chnset and/or chnexport for on-screen display purposes. Both Peace alt and Peace2 alt use this feature of Csound6c. Thus significant .csd code had to be rewritten in these two works to cope with this limitation. Compare especially the code for sliders 2, 5, and 8 in parallel versions of Peace (PeaceAndroidGUI.csd and PeacealtAndroid.csd), to see how this issue was dealt with (at least for the time being).
+
+[7]  Hopefully, in upcoming builds of Csound6.apk, chnset and/or chnexport will be implemented.

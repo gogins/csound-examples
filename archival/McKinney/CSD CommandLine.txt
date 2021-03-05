@@ -1,0 +1,15 @@
+
+
+"C:\Program Files\Csound\bin\csound.exe"  -odac8 -iadc8 -d -b512  -B2048 -3  M:/Realtime2/CSDs/
+
+
+
+bmwaveguideRT.csd
+
+RT4Jan6Rev.csd
+
+
+
+
+SchPVSJan6.csd
+

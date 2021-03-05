@@ -1,0 +1,4953 @@
+./accci/01-01-1.orc
+./accci/01-01-1b.orc
+./accci/01-01-2a.orc
+./accci/01-01-2b.orc
+./accci/01-01-2c.orc
+./accci/01-01-3.orc
+./accci/01-01-4.orc
+./accci/01-01-5.orc
+./accci/01-10-1.orc
+./accci/01-11-1.orc
+./accci/01-12-1.orc
+./accci/01-40-1.orc
+./accci/01-41-1.orc
+./accci/01-42-1.orc
+./accci/02-01-3.orc
+./accci/02-01-4.orc
+./accci/02-01-5.orc
+./accci/02-01-5b.orc
+./accci/02-01-6.orc
+./accci/02-01-6b.orc
+./accci/02-01-7.orc
+./accci/02-13-1.orc
+./accci/02-13-1b.orc
+./accci/02-40-1.orc
+./accci/02-41-1.orc
+./accci/02-41-2.orc
+./accci/02-42-1.orc
+./accci/02-43-1.orc
+./accci/02-44-1.orc
+./accci/02-44-2.orc
+./accci/02-44-2b.orc
+./accci/03-01-1.orc
+./accci/03-01-2a.orc
+./accci/03-01-2b.orc
+./accci/03-05-1.orc
+./accci/03-40-1.orc
+./accci/10-01-1.orc
+./accci/10-02-1.orc
+./accci/10-02-2.orc
+./accci/10-03-1.orc
+./accci/15-01-1.orc
+./accci/15-01-2.orc
+./accci/15-01-3.orc
+./accci/15-01-3b.orc
+./accci/15-01-4.orc
+./accci/20-01-1.orc
+./accci/20-10-1.orc
+./accci/20-10-2.orc
+./accci/20-10-3.orc
+./accci/20-10-4.orc
+./accci/20-10-5.orc
+./accci/20-20-4.orc
+./accci/20-20-5.orc
+./accci/20-20-6.orc
+./accci/20-70-1.orc
+./accci/33-01-1.orc
+./accci/33-01-2.orc
+./accci/33-10-1.orc
+./accci/33-10-2.orc
+./accci/33-50-1.orc
+./accci/40-01-1.orc
+./accci/40-02-1.orc
+./accci/40-03-1.orc
+./accci/40-60-1.orc
+./accci/43-01-1.orc
+./accci/43-01-1b.orc
+./accci/43-01-2.orc
+./accci/43-01-3.orc
+./accci/43-21-1.orc
+./accci/45-01-1.orc
+./accci/45-01-10.orc
+./accci/45-01-11.orc
+./accci/45-01-2.orc
+./accci/45-01-3.orc
+./accci/45-01-4.orc
+./accci/45-01-5.orc
+./accci/45-01-6.orc
+./accci/45-01-6b.orc
+./accci/45-01-6c.orc
+./accci/45-01-7.orc
+./accci/45-01-8.orc
+./accci/45-01-9.orc
+./accci/45-33-1.orc
+./accci/50-01-1.orc
+./accci/50-09-1.orc
+./accci/50-11-1.orc
+./accci/50-51-1.orc
+./accci/50-71-1.orc
+./accci/80-01-1.orc
+./accci/80-01-1b.orc
+./accci/80-01-1c.orc
+./accci/88-01-1.orc
+./accci/88-01-2.orc
+./alves/hiway1.orc
+./alves/hiway2.orc
+./alves/hiway3.orc
+./alves/hiway4.orc
+./alves/hiway5.orc
+./alves/hiway6.orc
+./alves/hiway7.orc
+./amaro/dmach.orc
+./amaro/fitan.orc
+./Ambisonics/input.orc
+./Ambisonics/main-b.orc
+./antosca/coda.orc
+./antosca/filterdrum.orc
+./antosca/intro.orc
+./antosca/stretchdrum.orc
+./antosca/trnsfrm1.orc
+./antosca/trnsfrm2.orc
+./antosca/trnsfrm3.orc
+./antosca/trnsfrm4.orc
+./antosca/trnsfrm5.orc
+./antosca/vibechord.orc
+./antosca/waveforms.orc
+./bantha/additiv.orc
+./bantha/descent.csd
+./bantha/etude1.orc
+./bantha/noise.csd
+./barrass-stephen/3d.orc
+./barrass-stephen/dirt.orc
+./barrass-stephen/underwaterlove.orc
+./barrass-tim/swarm.orc
+./Bechard/prepiano_madness.csd
+./Benchmarks/bach.orc
+./Benchmarks/guitar.orc
+./Benchmarks/james.orc
+./Benchmarks/risset1.orc
+./Bennett/geb_logic_diff_func2.csd
+./Bennett/geb_logic_diff_func2.orc
+./Bergeman/laugh.orc
+./Bergeman/mars.orc
+./berry/voiceswind.orc
+./bianchini/howl.orc
+./bianchini/machu.orc
+./bmccosar/vco2tri_k.csd
+./Boulanger/trapped.orc
+./Boulanger/twoinc1.orc
+./boulanger-tutoriais/toot01.orc
+./boulanger-tutoriais/toot02.orc
+./boulanger-tutoriais/toot03.orc
+./boulanger-tutoriais/toot04.orc
+./boulanger-tutoriais/toot05.orc
+./boulanger-tutoriais/toot06.orc
+./boulanger-tutoriais/toot07.orc
+./boulanger-tutoriais/toot08.orc
+./boulanger-tutoriais/toot09.orc
+./boulanger-tutoriais/toot10.orc
+./boulanger-tutoriais/toot11.orc
+./boulanger-tutoriais/toot12.orc
+./boulanger-tutoriais/toot13.orc
+./brandt/brmultitap.orc
+./brandt/brreverb1.orc
+./brandt/brstanford.orc
+./brandt/multitap.orc
+./brandt/reverb1.orc
+./bush/intract.orc
+./byrne/juice-bottle.orc
+./byrne/lost-bottle.orc
+./byrne/orsimple.orc
+./byrne/orswarm.orc
+./byrne/overblown-bottle.orc
+./byrne/tambura-pattern.orc
+./byrne/tambura-twist.orc
+./byrne/tambura-wave.orc
+./byrne/voiceglide.orc
+./byrne/voiceoct.orc
+./byrne/waveswarm.orc
+./Cascone/bc_4.orc
+./Cascone/bc_8.orc
+./Cascone/Bluecube.csd
+./Cascone/bluecube.orc
+./Cascone/pan.orc
+./Cascone/samphold.orc
+./clarke/timbre1.orc
+./clarke/timbre2.orc
+./clarke/timbre3.orc
+./clarke/timbre4.orc
+./Comajuncosas/303emu.csd
+./Comajuncosas/303emu.orc
+./Comajuncosas/cdelay.orc
+./Comajuncosas/directhammondv2.csd
+./Comajuncosas/drumkit1.orc
+./Comajuncosas/enhance.orc
+./Comajuncosas/guitar.orc
+./Comajuncosas/guitar2.orc
+./Comajuncosas/jcnvocodizer.csd
+./Comajuncosas/jcnvocodizergui.csd
+./Comajuncosas/lpf18.orc
+./Comajuncosas/megadist.orc
+./Comajuncosas/multifx.csd
+./Comajuncosas/seq303.orc
+./Comajuncosas/stringphaser.orc
+./Comajuncosas/sync.orc
+./Comajuncosas/synthtoot.csd
+./Comajuncosas/testttw.csd
+./Cook/12VoiceChorus.orc
+./Cook/2WaySplicer.orc
+./Cook/4WaySplicer.orc
+./Cook/808HiHat.orc
+./Cook/ADSR-Exp.orc
+./Cook/ADSR-Lin.orc
+./Cook/AnalogEcho.orc
+./Cook/Animator.orc
+./Cook/Barberpole.csd
+./Cook/Barberpole.orc
+./Cook/BoomBox.orc
+./Cook/Buzz.orc
+./Cook/Chant.orc
+./Cook/CircularPan.orc
+./Cook/Comparator.orc
+./Cook/Crossfade.orc
+./Cook/Decimator.orc
+./Cook/Divider.orc
+./Cook/DUY-Shape.orc
+./Cook/Dynamics.orc
+./Cook/Ensemble.orc
+./Cook/EnvelopeCopy.orc
+./Cook/EnvFilter.orc
+./Cook/FilterBank.orc
+./Cook/Flanger.orc
+./Cook/FlangerX.orc
+./Cook/FM-Synth.orc
+./Cook/FM.orc
+./Cook/FreqShift.orc
+./Cook/Function.orc
+./Cook/Gates.orc
+./Cook/Harmonics.orc
+./Cook/Harmoniser.orc
+./Cook/HyperFlanger.orc
+./Cook/Interpolator.orc
+./Cook/Logic.orc
+./Cook/LorenzChorus.orc
+./Cook/MultiFX1.orc
+./Cook/Multitap.orc
+./Cook/Mutator.orc
+./Cook/NoiseSweep.orc
+./Cook/NoisyOsc.orc
+./Cook/NonLinear.orc
+./Cook/PanningDelay.orc
+./Cook/PingPong.orc
+./Cook/Power.orc
+./Cook/Re-Envelope.orc
+./Cook/RectiFilter.orc
+./Cook/Resonators.orc
+./Cook/RhythmGate.orc
+./Cook/RingMod.orc
+./Cook/RndDelete.orc
+./Cook/RndHarm.orc
+./Cook/RndInvert.orc
+./Cook/RndRampChorus.orc
+./Cook/RndSample.orc
+./Cook/SampleHold.orc
+./Cook/SampleScan.orc
+./Cook/SampleTerrain.orc
+./Cook/Scanner.orc
+./Cook/Sequencer.orc
+./Cook/Shear.orc
+./Cook/Shuffler.orc
+./Cook/SlewLimiter.orc
+./Cook/Slicer.orc
+./Cook/Soprano.orc
+./Cook/SpatialPan.orc
+./Cook/StepFlanger.orc
+./Cook/StepReson.orc
+./Cook/StepWave.orc
+./Cook/StereoDelay.orc
+./Cook/Stop.orc
+./Cook/SubOctave.orc
+./Cook/Synth.orc
+./Cook/Test.orc
+./Cook/ThruZero.orc
+./Cook/Valve.orc
+./Cook/VCO-Pulse.orc
+./Cook/VCO-Ramp.orc
+./Cook/VCS3.orc
+./Cook/VectorMix.orc
+./Cook/VoiceBox.orc
+./Cook/WaveOsc.orc
+./Cook/WaveShaper1.orc
+./Cook/WaveShaper2.orc
+./Cook/Width.orc
+./Cook/Wierd1.orc
+./Corey/test.orc
+./Corey/twinkle.csd
+./Corey/twinkle4.orc
+./costello/beethoven.orc
+./costello/choir.orc
+./costello/gong.orc
+./costello/line.orc
+./costello/otis.orc
+./costello/pvguitar.orc
+./costello/space.orc
+./costello/stringphaser.orc
+./costello/surface.orc
+./csound-book/01/101.orc
+./csound-book/01/102.orc
+./csound-book/01/103.orc
+./csound-book/01/104.orc
+./csound-book/01/105.orc
+./csound-book/01/106.orc
+./csound-book/01/107.orc
+./csound-book/01/108.orc
+./csound-book/01/113.orc
+./csound-book/01/115.orc
+./csound-book/01/117.orc
+./csound-book/01/118.orc
+./csound-book/01/119.orc
+./csound-book/01/120.orc
+./csound-book/01/122.orc
+./csound-book/01/124.orc
+./csound-book/01/126.orc
+./csound-book/01/128.orc
+./csound-book/01/129.orc
+./csound-book/01/133.orc
+./csound-book/01/135.orc
+./csound-book/01/137.orc
+./csound-book/01/138.orc
+./csound-book/01/141.orc
+./csound-book/02/201.orc
+./csound-book/02/202.orc
+./csound-book/02/203.orc
+./csound-book/02/204.orc
+./csound-book/02/205.orc
+./csound-book/02/206.orc
+./csound-book/02/207.orc
+./csound-book/02/208.orc
+./csound-book/02/208a.orc
+./csound-book/02/209/209.orc
+./csound-book/02/210.orc
+./csound-book/02/2all.orc
+./csound-book/03/301.orc
+./csound-book/03/302.orc
+./csound-book/03/303.orc
+./csound-book/03/304.orc
+./csound-book/03/305.orc
+./csound-book/04/401.orc
+./csound-book/04/402.orc
+./csound-book/04/402_1.orc
+./csound-book/04/403.orc
+./csound-book/04/404.orc
+./csound-book/04/405.orc
+./csound-book/04/406.orc
+./csound-book/04/407.orc
+./csound-book/04/408.orc
+./csound-book/04/409.orc
+./csound-book/04/410.orc
+./csound-book/04/411.orc
+./csound-book/04/412.orc
+./csound-book/04/413.orc
+./csound-book/04/414.orc
+./csound-book/04/415.orc
+./csound-book/04/416.orc
+./csound-book/05/0513.orc
+./csound-book/05/0513b.orc
+./csound-book/05/0515.orc
+./csound-book/05/501.orc
+./csound-book/05/502.orc
+./csound-book/05/503.orc
+./csound-book/05/504.orc
+./csound-book/05/505.orc
+./csound-book/05/507.orc
+./csound-book/05/508.orc
+./csound-book/05/509.orc
+./csound-book/05/510.orc
+./csound-book/05/511.orc
+./csound-book/05/511a.orc
+./csound-book/05/511b.orc
+./csound-book/05/511c.orc
+./csound-book/05/512.orc
+./csound-book/05/513/0513.orc
+./csound-book/05/513b/0513b.orc
+./csound-book/05/514.orc
+./csound-book/05/515/0515.orc
+./csound-book/06/601.orc
+./csound-book/06/604.orc
+./csound-book/06/606.orc
+./csound-book/06/607.orc
+./csound-book/07/701.orc
+./csound-book/07/702.orc
+./csound-book/07/703.orc
+./csound-book/07/704.orc
+./csound-book/07/705.orc
+./csound-book/08/801.orc
+./csound-book/09/901.orc
+./csound-book/10/1001.orc
+./csound-book/10/1002.orc
+./csound-book/10/1007.orc
+./csound-book/11/1101.orc
+./csound-book/11/1102.orc
+./csound-book/11/1103.orc
+./csound-book/11/1104.orc
+./csound-book/11/1105.orc
+./csound-book/11/1106.orc
+./csound-book/11/1107.orc
+./csound-book/11/1109.orc
+./csound-book/11/1110.orc
+./csound-book/11/1110a.orc
+./csound-book/11/1111.orc
+./csound-book/11/1112.orc
+./csound-book/11/1113.orc
+./csound-book/11/1114.orc
+./csound-book/11/1114a.orc
+./csound-book/11/1115.orc
+./csound-book/11/1116.orc
+./csound-book/12/1201.orc
+./csound-book/12/1202.orc
+./csound-book/12/1203.orc
+./csound-book/12/1204.orc
+./csound-book/12/1205.orc
+./csound-book/13/1301.orc
+./csound-book/13/1302.orc
+./csound-book/13/1303/1303.orc
+./csound-book/13/1303.orc
+./csound-book/13/1304/1304.orc
+./csound-book/13/1306.orc
+./csound-book/13/13sine220.orc
+./csound-book/14/1401.orc
+./csound-book/14/1402.orc
+./csound-book/14/1403.orc
+./csound-book/14/1404.orc
+./csound-book/14/1405.orc
+./csound-book/14/1406.orc
+./csound-book/14/1408.orc
+./csound-book/14/1409.orc
+./csound-book/14/1410.orc
+./csound-book/14/1411.orc
+./csound-book/14/1412.orc
+./csound-book/14/1413.orc
+./csound-book/14/1414.orc
+./csound-book/14/1414a.orc
+./csound-book/14/1415.orc
+./csound-book/14/1416.orc
+./csound-book/15/1501.orc
+./csound-book/15/1502.orc
+./csound-book/15/1503.orc
+./csound-book/15/1504.orc
+./csound-book/15/1505.orc
+./csound-book/15/1506.orc
+./csound-book/15/1507.orc
+./csound-book/15/1508.orc
+./csound-book/15/1509.orc
+./csound-book/15/1510.orc
+./csound-book/15/1511.orc
+./csound-book/15/1512.orc
+./csound-book/16/1601.orc
+./csound-book/16/1602.orc
+./csound-book/16/1603.orc
+./csound-book/16/1604.orc
+./csound-book/16/1605.orc
+./csound-book/17/1701.orc
+./csound-book/17/1702.orc
+./csound-book/17/1703.orc
+./csound-book/17/1704.orc
+./csound-book/17/1705.orc
+./csound-book/17/1706.orc
+./csound-book/18/1801.orc
+./csound-book/18/1802.orc
+./csound-book/18/1803.orc
+./csound-book/18/1804.orc
+./csound-book/18/1805.orc
+./csound-book/18/1806.orc
+./csound-book/18/1807.orc
+./csound-book/18/1808.orc
+./csound-book/18/1809.orc
+./csound-book/18/1810.orc
+./csound-book/18/1811.orc
+./csound-book/18/1812.orc
+./csound-book/18/1813/1813.orc
+./csound-book/18/1813.orc
+./csound-book/18/1816/1816.orc
+./csound-book/18/1818.orc
+./csound-book/18/1820/1820.orc
+./csound-book/18/1820.orc
+./csound-book/18/1821/1821.orc
+./csound-book/18/1821.orc
+./csound-book/18/1823.orc
+./csound-book/18/1825/1825.orc
+./csound-book/18/1825.orc
+./csound-book/19/1901.orc
+./csound-book/19/1902.orc
+./csound-book/19/1903.orc
+./csound-book/19/1904.orc
+./csound-book/19/1908.orc
+./csound-book/19/1909.orc
+./csound-book/19/1910.orc
+./csound-book/20/2001.orc
+./csound-book/20/2002.orc
+./csound-book/20/2003.orc
+./csound-book/20/2004.orc
+./csound-book/20/2005.orc
+./csound-book/20/2006/2006.orc
+./csound-book/20/2006.orc
+./csound-book/20/2007.orc
+./csound-book/20/2009/2009.orc
+./csound-book/20/2009.orc
+./csound-book/20/2010/2010.orc
+./csound-book/20/2010.orc
+./csound-book/20/2011.orc
+./csound-book/20/2012.orc
+./csound-book/20/2013/2013.orc
+./csound-book/20/2013.orc
+./csound-book/20/2014/2014.orc
+./csound-book/20/2014.orc
+./csound-book/21/2101/2102.orc
+./csound-book/21/2101.orc
+./csound-book/21/2102.orc
+./csound-book/22/2201.orc
+./csound-book/22/2202.orc
+./csound-book/22/2204.orc
+./csound-book/22/2205.orc
+./csound-book/22/2207.orc
+./csound-book/22/2208.orc
+./csound-book/23/2301.orc
+./csound-book/23/2303.orc
+./csound-book/23/2305.orc
+./csound-book/23/2306.orc
+./csound-book/23/2307.orc
+./csound-book/23/2309.orc
+./csound-book/23/2310.orc
+./csound-book/23/2311/2311.orc
+./csound-book/23/2311.orc
+./csound-book/23/2312.orc
+./csound-book/23/2313.orc
+./csound-book/23/2314.orc
+./csound-book/23/2315.orc
+./csound-book/23/2316.orc
+./csound-book/24/2402.orc
+./csound-book/24/2403.orc
+./csound-book/24/2404.orc
+./csound-book/24/2405.orc
+./csound-book/25/2501.orc
+./csound-book/26/2601.orc
+./csound-book/26/2601a.orc
+./csound-book/26/2602/2602.orc
+./csound-book/26/2602.orc
+./csound-book/26/2603/2603.orc
+./csound-book/26/2603.orc
+./csound-book/26/2603a.orc
+./csound-book/26/2603b.orc
+./csound-book/26/2603c.orc
+./csound-book/26/2604/2604.orc
+./csound-book/26/2604.orc
+./csound-book/26/2605a.orc
+./csound-book/26/2605b.orc
+./csound-book/26/2605c.orc
+./csound-book/26/2606a.orc
+./csound-book/26/2606b.orc
+./csound-book/26/2606c.orc
+./csound-book/26/2610/2610.orc
+./csound-book/26/2610.orc
+./csound-book/29/2901.orc
+./csound-book/29/2902.orc
+./csound-book/29/2903.orc
+./csound-book/29/2904.orc
+./csound-book/30/3001.orc
+./csound-book/30/3009.orc
+./csound-book/30/3010.orc
+./csound-book/30/3011.orc
+./csound-book/30/3012.orc
+./csound-book/30/3013.orc
+./csound-book/30/3014.orc
+./csound-book/30/3015.orc
+./csound-book/30/3016.orc
+./csound-book/30/3017.orc
+./csound-book/30/3018.orc
+./csound-book/30/3019.orc
+./csound-book/30/3020.orc
+./csound-book/30/3021.orc
+./csound-book/30/3022.orc
+./csound-book/30/3023.orc
+./csound-book/30/3024.orc
+./csound-book/30/3030.orc
+./csound-book/30/3035.orc
+./csound-book/30/3037.orc
+./csound-book/30/3040.orc
+./csound-book/30/3045.orc
+./csound-book/30/3099/3099.orc
+./csound-book/30/3099.orc
+./csound-manual/0dbfs-1.csd
+./csound-manual/0dbfs.csd
+./csound-manual/abs.csd
+./csound-manual/active.csd
+./csound-manual/active_k.csd
+./csound-manual/adds.csd
+./csound-manual/adsr.csd
+./csound-manual/adsyn.csd
+./csound-manual/adsynt.csd
+./csound-manual/aftouch.csd
+./csound-manual/alpass.csd
+./csound-manual/ampdb.csd
+./csound-manual/ampdbfs.csd
+./csound-manual/ampmidi.csd
+./csound-manual/areson.csd
+./csound-manual/assign.csd
+./csound-manual/atone.csd
+./csound-manual/babo.csd
+./csound-manual/babo_expert.csd
+./csound-manual/balance.csd
+./csound-manual/bamboo.csd
+./csound-manual/barmodel.csd
+./csound-manual/bbcutm.csd
+./csound-manual/betarand.csd
+./csound-manual/bexprnd.csd
+./csound-manual/bformenc.csd
+./csound-manual/biquad-2.csd
+./csound-manual/biquad.csd
+./csound-manual/birnd.csd
+./csound-manual/bqrez.csd
+./csound-manual/butterbp.csd
+./csound-manual/butterbr.csd
+./csound-manual/butterhp.csd
+./csound-manual/butterlp.csd
+./csound-manual/buzz.csd
+./csound-manual/cabasa.csd
+./csound-manual/cauchy.csd
+./csound-manual/cent.csd
+./csound-manual/cggoto.csd
+./csound-manual/changed.csd
+./csound-manual/checkbox.csd
+./csound-manual/cigoto.csd
+./csound-manual/ckgoto.csd
+./csound-manual/clfilt_highpass.csd
+./csound-manual/clfilt_lowpass.csd
+./csound-manual/clip.csd
+./csound-manual/cngoto.csd
+./csound-manual/comb.csd
+./csound-manual/cos.csd
+./csound-manual/cosh.csd
+./csound-manual/cosinv.csd
+./csound-manual/cps2pch.csd
+./csound-manual/cps2pch_19et.csd
+./csound-manual/cps2pch_ftable.csd
+./csound-manual/cpsmidi.csd
+./csound-manual/cpsmidib.csd
+./csound-manual/cpsmidinn.csd
+./csound-manual/cpsoct.csd
+./csound-manual/cpspch.csd
+./csound-manual/cpstmid.csd
+./csound-manual/cpstun.csd
+./csound-manual/cpstuni.csd
+./csound-manual/cpsxpch.csd
+./csound-manual/cpsxpch_105et.csd
+./csound-manual/cpsxpch_pierce.csd
+./csound-manual/cpuprc.csd
+./csound-manual/cross2.csd
+./csound-manual/crunch.csd
+./csound-manual/dam.csd
+./csound-manual/dam_expanded.csd
+./csound-manual/date.csd
+./csound-manual/db.csd
+./csound-manual/dbamp.csd
+./csound-manual/dbfsamp.csd
+./csound-manual/dcblock.csd
+./csound-manual/dconv.csd
+./csound-manual/define.csd
+./csound-manual/define_args.csd
+./csound-manual/delay.csd
+./csound-manual/delayw.csd
+./csound-manual/diff.csd
+./csound-manual/diskgrain.csd
+./csound-manual/diskin.csd
+./csound-manual/diskin2.csd
+./csound-manual/dispfft.csd
+./csound-manual/display.csd
+./csound-manual/distort1.csd
+./csound-manual/divides.csd
+./csound-manual/divz.csd
+./csound-manual/downsamp.csd
+./csound-manual/dripwater.csd
+./csound-manual/dssi4cs.csd
+./csound-manual/dssievent.csd
+./csound-manual/endin.csd
+./csound-manual/envlpx.csd
+./csound-manual/equals.csd
+./csound-manual/event.csd
+./csound-manual/event_named.csd
+./csound-manual/exp.csd
+./csound-manual/expcurve.csd
+./csound-manual/expon.csd
+./csound-manual/exprand.csd
+./csound-manual/expseg.csd
+./csound-manual/expsega.csd
+./csound-manual/expsegr.csd
+./csound-manual/filelen.csd
+./csound-manual/filenchnls.csd
+./csound-manual/filepeak.csd
+./csound-manual/filesr.csd
+./csound-manual/flanger.csd
+./csound-manual/flashtxt.csd
+./csound-manual/FLbox.csd
+./csound-manual/FLbutBank.csd
+./csound-manual/FLbutton.csd
+./csound-manual/FLcount.csd
+./csound-manual/FLexecButton.csd
+./csound-manual/FLhvsBox.csd
+./csound-manual/FLjoy.csd
+./csound-manual/FLkeyIn.csd
+./csound-manual/FLknob-2.csd
+./csound-manual/FLknob.csd
+./csound-manual/FLmeter.csd
+./csound-manual/FLmouse.csd
+./csound-manual/FLpanel-sensekey.csd
+./csound-manual/FLpanel-sensekey2.csd
+./csound-manual/FLpanel.csd
+./csound-manual/FLroller.csd
+./csound-manual/FLsavesnap.csd
+./csound-manual/FLsavesnap_simple.csd
+./csound-manual/FLscroll.csd
+./csound-manual/FLsetcolor.csd
+./csound-manual/FLsetText.csd
+./csound-manual/FLsetVal.csd
+./csound-manual/FLslidBnk-2.csd
+./csound-manual/FLslidBnk.csd
+./csound-manual/FLslidBnk2.csd
+./csound-manual/FLslidBnk2Setk.csd
+./csound-manual/FLslider-2.csd
+./csound-manual/FLslider.csd
+./csound-manual/FLtabs.csd
+./csound-manual/FLtext.csd
+./csound-manual/fluid-2.orc
+./csound-manual/fluid.orc
+./csound-manual/fluidAllOut.orc
+./csound-manual/fluidcomplex.csd
+./csound-manual/FLvalue.csd
+./csound-manual/FLvslidBnk-2.csd
+./csound-manual/FLvslidBnk.csd
+./csound-manual/FLxyin-2.csd
+./csound-manual/FLxyin.csd
+./csound-manual/fmb3.csd
+./csound-manual/fmbell.csd
+./csound-manual/fmmetal.csd
+./csound-manual/fmpercfl.csd
+./csound-manual/fmrhode.csd
+./csound-manual/fmvoice.csd
+./csound-manual/fmwurlie.csd
+./csound-manual/fof.csd
+./csound-manual/fof2-2.csd
+./csound-manual/fof2.csd
+./csound-manual/fold.csd
+./csound-manual/follow.csd
+./csound-manual/follow2.csd
+./csound-manual/foscil.csd
+./csound-manual/foscili.csd
+./csound-manual/fout.csd
+./csound-manual/fout_ftable.csd
+./csound-manual/fout_poly.csd
+./csound-manual/fprintks-2.csd
+./csound-manual/fprintks.csd
+./csound-manual/fprints.csd
+./csound-manual/frac.csd
+./csound-manual/freeverb.csd
+./csound-manual/ftchnls.csd
+./csound-manual/ftconv.csd
+./csound-manual/ftgen-2.csd
+./csound-manual/ftgen.csd
+./csound-manual/ftlen.csd
+./csound-manual/ftlptim.csd
+./csound-manual/ftmorf.csd
+./csound-manual/ftsave.csd
+./csound-manual/ftsr.csd
+./csound-manual/gainslider.csd
+./csound-manual/gauss.csd
+./csound-manual/gbuzz.csd
+./csound-manual/gen01.csd
+./csound-manual/gen01computed.csd
+./csound-manual/gen02.csd
+./csound-manual/gen03.csd
+./csound-manual/gen05.csd
+./csound-manual/gen06.csd
+./csound-manual/gen07.csd
+./csound-manual/gen08.csd
+./csound-manual/gen09.csd
+./csound-manual/gen09square.csd
+./csound-manual/gen10.csd
+./csound-manual/gen11.csd
+./csound-manual/gen12.csd
+./csound-manual/gen13.csd
+./csound-manual/gen14.csd
+./csound-manual/gen16.csd
+./csound-manual/gen19.csd
+./csound-manual/gogobel.csd
+./csound-manual/goto.csd
+./csound-manual/grain.csd
+./csound-manual/grain2.csd
+./csound-manual/grain3.csd
+./csound-manual/granule.csd
+./csound-manual/greaterequal.csd
+./csound-manual/greaterthan.csd
+./csound-manual/guiro.csd
+./csound-manual/harmon.csd
+./csound-manual/hilbert.csd
+./csound-manual/hilbert_barberpole.csd
+./csound-manual/hrtfer.csd
+./csound-manual/hsboscil.csd
+./csound-manual/hsboscil_midi.csd
+./csound-manual/hvs1.csd
+./csound-manual/hvs2.csd
+./csound-manual/ifthen.csd
+./csound-manual/igoto.csd
+./csound-manual/ihold.csd
+./csound-manual/include.csd
+./csound-manual/insremot.csd
+./csound-manual/insremotM.csd
+./csound-manual/instr.csd
+./csound-manual/int.csd
+./csound-manual/integ.csd
+./csound-manual/interp.csd
+./csound-manual/jitter.csd
+./csound-manual/jitter2.csd
+./csound-manual/kgoto.csd
+./csound-manual/lessequal.csd
+./csound-manual/lessthan.csd
+./csound-manual/lfo.csd
+./csound-manual/line.csd
+./csound-manual/linrand.csd
+./csound-manual/linseg.csd
+./csound-manual/linsegr.csd
+./csound-manual/log.csd
+./csound-manual/log10.csd
+./csound-manual/logbtwo.csd
+./csound-manual/logcurve.csd
+./csound-manual/loopseg.csd
+./csound-manual/lorenz.csd
+./csound-manual/loscil.csd
+./csound-manual/loscil3.csd
+./csound-manual/lowpass2.csd
+./csound-manual/lowres.csd
+./csound-manual/lowresx.csd
+./csound-manual/lpf18.csd
+./csound-manual/lphasor.csd
+./csound-manual/lpshold.csd
+./csound-manual/madsr.csd
+./csound-manual/mandol.csd
+./csound-manual/marimba.csd
+./csound-manual/maxalloc.csd
+./csound-manual/mdelay.csd
+./csound-manual/metro.csd
+./csound-manual/midichannelaftertouch.csd
+./csound-manual/midichn.csd
+./csound-manual/midichn_advanced.csd
+./csound-manual/midiin.csd
+./csound-manual/midinoteoff.csd
+./csound-manual/midinoteoncps.csd
+./csound-manual/midinoteonkey.csd
+./csound-manual/midinoteonoct.csd
+./csound-manual/midinoteonpch.csd
+./csound-manual/midion_scale.csd
+./csound-manual/midion_simple.csd
+./csound-manual/midipitchbend.csd
+./csound-manual/midremot.csd
+./csound-manual/mode.csd
+./csound-manual/modulus.csd
+./csound-manual/moog.csd
+./csound-manual/moogvcf.csd
+./csound-manual/moogvcf2.csd
+./csound-manual/moscil.csd
+./csound-manual/mpulse.csd
+./csound-manual/multiplies.csd
+./csound-manual/mute.csd
+./csound-manual/nestedap.csd
+./csound-manual/noise-2.csd
+./csound-manual/noise.csd
+./csound-manual/noteondur.csd
+./csound-manual/noteondur2.csd
+./csound-manual/notequal.csd
+./csound-manual/notnum.csd
+./csound-manual/notnum_complex.csd
+./csound-manual/nreverb.csd
+./csound-manual/nreverb_ftable.csd
+./csound-manual/nsamp.csd
+./csound-manual/octave.csd
+./csound-manual/octcps.csd
+./csound-manual/octmidi.csd
+./csound-manual/octmidib.csd
+./csound-manual/octpch.csd
+./csound-manual/opa.csd
+./csound-manual/opcode_example.csd
+./csound-manual/oscbnk.csd
+./csound-manual/oscil.csd
+./csound-manual/oscil3.csd
+./csound-manual/oscili.csd
+./csound-manual/oscilikt.csd
+./csound-manual/osciliktp.csd
+./csound-manual/oscilikts.csd
+./csound-manual/oscils.csd
+./csound-manual/OSCmidircv.csd
+./csound-manual/OSCmidisend.csd
+./csound-manual/outkpc fltk.csd
+./csound-manual/outkpc.csd
+./csound-manual/outkpc_fltk.csd
+./csound-manual/p.csd
+./csound-manual/pareq.csd
+./csound-manual/partikkel.csd
+./csound-manual/partikkel_softsync.csd
+./csound-manual/pcauchy.csd
+./csound-manual/pchbend.csd
+./csound-manual/pchmidi.csd
+./csound-manual/pchmidib.csd
+./csound-manual/pchoct.csd
+./csound-manual/pcount.csd
+./csound-manual/peak.csd
+./csound-manual/pgmassign.csd
+./csound-manual/pgmassign_advanced.csd
+./csound-manual/pgmassign_ignore.csd
+./csound-manual/phaser1.csd
+./csound-manual/phaser2.csd
+./csound-manual/phasor.csd
+./csound-manual/phasorbnk.csd
+./csound-manual/pindex.csd
+./csound-manual/pinkish.csd
+./csound-manual/pitch.csd
+./csound-manual/pitchamdf.csd
+./csound-manual/planet.csd
+./csound-manual/pluck.csd
+./csound-manual/poisson.csd
+./csound-manual/polyaft.csd
+./csound-manual/portk.csd
+./csound-manual/poscil.csd
+./csound-manual/poscil3.csd
+./csound-manual/pow.csd
+./csound-manual/powoftwo.csd
+./csound-manual/prealloc.csd
+./csound-manual/prepiano.csd
+./csound-manual/print.csd
+./csound-manual/printk.csd
+./csound-manual/printk2.csd
+./csound-manual/printks.csd
+./csound-manual/prints.csd
+./csound-manual/ptrack.csd
+./csound-manual/pvsbin.csd
+./csound-manual/pvsdisp.csd
+./csound-manual/pvsfwrite.csd
+./csound-manual/pvsosc.csd
+./csound-manual/pvspitch.csd
+./csound-manual/r.csd
+./csound-manual/raises.csd
+./csound-manual/rand.csd
+./csound-manual/randh.csd
+./csound-manual/randi.csd
+./csound-manual/random.csd
+./csound-manual/randomh.csd
+./csound-manual/randomi.csd
+./csound-manual/rbjeq.csd
+./csound-manual/readclock.csd
+./csound-manual/reinit.csd
+./csound-manual/repluck.csd
+./csound-manual/reson.csd
+./csound-manual/resonr.csd
+./csound-manual/resony.csd
+./csound-manual/reverb.csd
+./csound-manual/reverbsc.csd
+./csound-manual/rezzy.csd
+./csound-manual/rms.csd
+./csound-manual/rnd.csd
+./csound-manual/rnd31.csd
+./csound-manual/rnd31_krate.csd
+./csound-manual/rnd31_seed7.csd
+./csound-manual/rnd31_time.csd
+./csound-manual/rtclock.csd
+./csound-manual/sandpaper.csd
+./csound-manual/scale.csd
+./csound-manual/scans.csd
+./csound-manual/scantable.csd
+./csound-manual/schedkwhen.csd
+./csound-manual/schedkwhennamed.csd
+./csound-manual/schedule.csd
+./csound-manual/schedwhen.csd
+./csound-manual/schottstaedt.orc
+./csound-manual/scogen.csd
+./csound-manual/sekere.csd
+./csound-manual/semitone.csd
+./csound-manual/sensekey.csd
+./csound-manual/seqtime.csd
+./csound-manual/setctrl.csd
+./csound-manual/shaker.csd
+./csound-manual/sin.csd
+./csound-manual/sinh.csd
+./csound-manual/sininv.csd
+./csound-manual/sleighbells.csd
+./csound-manual/sndwarp.csd
+./csound-manual/soundin.csd
+./csound-manual/spat3d_quad.csd
+./csound-manual/spat3d_stereo.csd
+./csound-manual/spat3d_UHJ.csd
+./csound-manual/sprintfk.csd
+./csound-manual/sqrt.csd
+./csound-manual/stix.csd
+./csound-manual/streson.csd
+./csound-manual/strsub.csd
+./csound-manual/subinstr.csd
+./csound-manual/subinstr_named.csd
+./csound-manual/subtracts.csd
+./csound-manual/svfilter.csd
+./csound-manual/system.csd
+./csound-manual/table.csd
+./csound-manual/tableng.csd
+./csound-manual/tablexkt.csd
+./csound-manual/tambourine.csd
+./csound-manual/tan.csd
+./csound-manual/tanh.csd
+./csound-manual/taninv.csd
+./csound-manual/taninv2.csd
+./csound-manual/tbvcf.csd
+./csound-manual/tempest.csd
+./csound-manual/tempo.csd
+./csound-manual/tempoval.csd
+./csound-manual/timeinstk.csd
+./csound-manual/timeinsts.csd
+./csound-manual/timek.csd
+./csound-manual/times.csd
+./csound-manual/trigger.csd
+./csound-manual/trirand.csd
+./csound-manual/turnoff.csd
+./csound-manual/unirand.csd
+./csound-manual/vadd.csd
+./csound-manual/vaddv.csd
+./csound-manual/vadd_i.csd
+./csound-manual/vaget.csd
+./csound-manual/vaset.csd
+./csound-manual/vbap8.csd
+./csound-manual/vbap8move.csd
+./csound-manual/vcella.csd
+./csound-manual/vco.csd
+./csound-manual/vco2.csd
+./csound-manual/vcomb.csd
+./csound-manual/vcopy.csd
+./csound-manual/vdivv.csd
+./csound-manual/veloc.csd
+./csound-manual/vexp.csd
+./csound-manual/vexpseg.csd
+./csound-manual/vexpv.csd
+./csound-manual/vexp_i.csd
+./csound-manual/vibes.csd
+./csound-manual/vibr.csd
+./csound-manual/vibrato.csd
+./csound-manual/virtual.csd
+./csound-manual/vlinseg.csd
+./csound-manual/vlowres.csd
+./csound-manual/vmap.csd
+./csound-manual/vmult-2.csd
+./csound-manual/vmult.csd
+./csound-manual/vmultv.csd
+./csound-manual/vmult_i.csd
+./csound-manual/voice.csd
+./csound-manual/vpow.csd
+./csound-manual/vpowv.csd
+./csound-manual/vpow_i.csd
+./csound-manual/vrandh.csd
+./csound-manual/vrandi.csd
+./csound-manual/vstaudio.csd
+./csound-manual/vsubv.csd
+./csound-manual/vtable1k.csd
+./csound-manual/vtablei.csd
+./csound-manual/vtablek.csd
+./csound-manual/vtablewa.csd
+./csound-manual/vtablewk.csd
+./csound-manual/waveset.csd
+./csound-manual/weibull.csd
+./csound-manual/wgbow.csd
+./csound-manual/wgbowedbar.csd
+./csound-manual/wgbrass.csd
+./csound-manual/wgclar.csd
+./csound-manual/wgflute.csd
+./csound-manual/wgpluck.csd
+./csound-manual/wgpluck2.csd
+./csound-manual/wgpluck_brighter.csd
+./csound-manual/wguide1.csd
+./csound-manual/wguide2.csd
+./csound-manual/wterrain.csd
+./csound-manual/xtratim-2.csd
+./csound-manual/xtratim.csd
+./csound-manual/xyin.csd
+./csound-manual/zacl.csd
+./csound-manual/zakinit.csd
+./csound-manual/zamod.csd
+./csound-manual/zar.csd
+./csound-manual/zarg.csd
+./csound-manual/zaw.csd
+./csound-manual/zawm.csd
+./csound-manual/zir.csd
+./csound-manual/ziw.csd
+./csound-manual/ziwm.csd
+./csound-manual/zkcl.csd
+./csound-manual/zkmod.csd
+./csound-manual/zkr.csd
+./csound-manual/zkw.csd
+./csound-manual/zkwm.csd
+./curtin/leapfrog.orc
+./dal-porto/aliens1.orc
+./dal-porto/aliens2.orc
+./dal-porto/aliens3.orc
+./dal-porto/aliens4.orc
+./dal-porto/difftone.orc
+./dal-porto/hurican1.orc
+./dal-porto/hurican2.orc
+./dal-porto/triads.orc
+./dal-porto/tuning.orc
+./debug/repeat.orc
+./Diaz/bay.csd
+./Diaz/bay.orc
+./Diaz/csound[2005-02-05][19.02.47].csd
+./Diaz/TransMed10-03.orc
+./diffamator/Diffamator.csd
+./dobson/basic1.orc
+./dobson/basic2.orc
+./dobson/basic4.orc
+./dobson/basic5.orc
+./dobson/basic6.orc
+./dobson/basic7.orc
+./dobson/basic8.orc
+./dodge/326a.orc
+./dodge/326b.orc
+./dodge/327.orc
+./dodge/328.orc
+./dodge/411b.orc
+./dodge/428.orc
+./dodge/48br1.orc
+./dodge/48br2.orc
+./dodge/48cl.orc
+./dodge/48long.orc
+./dodge/48rep.orc
+./dodge/48wd1.orc
+./dodge/48wd2.orc
+./dodge/521.orc
+./dodge/524a.orc
+./dodge/526.orc
+./dodge/basicfm.orc
+./dodge/dodgefig325.orc
+./dodge/dodgefig326.orc
+./dodge/dodgefig327.orc
+./dodge/dodgefig329.orc
+./dodge/dodgefig330.orc
+./dodge/dodgefig331.orc
+./dodge/dodgep100.orc
+./dodge/dodgep187.orc
+./dodge/dodsoprano.orc
+./dodge/dubcar.orc
+./dodge/fig3_26.orc
+./dodge/fig4_13.orc
+./dodge/filtdemo.orc
+./dodge/filter.orc
+./dodge/fmchowninga.orc
+./dodge/fmchowningb.orc
+./dodge/glsnse.orc
+./dodge/intro.orc
+./dodge/karpls.orc
+./dodge/karplus.orc
+./dodge/karstr.orc
+./dodge/krstr.orc
+./dodge/morl1.orc
+./dodge/morl2.orc
+./dodge/plkmath.orc
+./dodge/string.orc
+./dodge/thick.orc
+./dodge/trumpet.orc
+./dodge/vibrato.orc
+./dodge/wavedrum.orc
+./dodge/waves.orc
+./dodge/wavmodfm.orc
+./dx7/harrington/dx701.orc
+./dx7/harrington/dx702.orc
+./dx7/harrington/dx703.orc
+./dx7/harrington/dx704.orc
+./dx7/harrington/dx705.orc
+./dx7/harrington/dx706.orc
+./dx7/harrington/dx707.orc
+./dx7/harrington/dx708.orc
+./dx7/harrington/dx709.orc
+./dx7/harrington/dx710.orc
+./dx7/harrington/dx711.orc
+./dx7/harrington/dx712.orc
+./dx7/harrington/dx713.orc
+./dx7/harrington/dx714.orc
+./dx7/harrington/dx715.orc
+./dx7/harrington/dx716.orc
+./dx7/harrington/dx717.orc
+./dx7/harrington/dx718.orc
+./dx7/harrington/dx719.orc
+./dx7/harrington/dx720.orc
+./dx7/harrington/dx721.orc
+./dx7/harrington/dx722.orc
+./dx7/harrington/dx723.orc
+./dx7/harrington/dx724.orc
+./dx7/harrington/dx725.orc
+./dx7/harrington/dx726.orc
+./dx7/harrington/dx727.orc
+./dx7/harrington/dx728.orc
+./dx7/harrington/dx729.orc
+./dx7/harrington/dx730.orc
+./dx7/harrington/dx731.orc
+./dx7/harrington/dx732.orc
+./dx7/newdx701.orc
+./dx7/newdx702.orc
+./dx7/newdx703.orc
+./dx7/newdx704.orc
+./dx7/newdx705.orc
+./dx7/newdx706.orc
+./dx7/newdx707.orc
+./dx7/newdx708.orc
+./dx7/newdx709.orc
+./dx7/newdx710.orc
+./dx7/newdx711.orc
+./dx7/newdx712.orc
+./dx7/newdx714.orc
+./dx7/newdx715.orc
+./dx7/newdx716.orc
+./dx7/newdx717.orc
+./dx7/newdx718.orc
+./dx7/newdx719.orc
+./dx7/newdx722.orc
+./dx7/newdx724.orc
+./dx7-pinkston-varo/001acousticpno.orc
+./dx7-pinkston-varo/002brtacpiano.orc
+./dx7-pinkston-varo/003egrand.orc
+./dx7-pinkston-varo/005elecpiano1.orc
+./dx7-pinkston-varo/006elecpiano2.orc
+./dx7-pinkston-varo/007harpsichord.orc
+./dx7-pinkston-varo/008clavinet.orc
+./dx7-pinkston-varo/009celeste.orc
+./dx7-pinkston-varo/010glockenspiel.orc
+./dx7-pinkston-varo/011musicbox.orc
+./dx7-pinkston-varo/012vibraphone.orc
+./dx7-pinkston-varo/013marimba.orc
+./dx7-pinkston-varo/014xylophone.orc
+./dx7-pinkston-varo/015bells.orc
+./dx7-pinkston-varo/017drawbar.orc
+./dx7-pinkston-varo/018percorgan.orc
+./dx7-pinkston-varo/019rockorgan.orc
+./dx7-pinkston-varo/020church.orc
+./dx7-pinkston-varo/021reedorgan.orc
+./dx7-pinkston-varo/025nylonguit.orc
+./dx7-pinkston-varo/026steelstr.orc
+./dx7-pinkston-varo/027jazzguitar.orc
+./dx7-pinkston-varo/028elecguitar1.orc
+./dx7-pinkston-varo/029synguitar.orc
+./dx7-pinkston-varo/030ovrdrvguit.orc
+./dx7-pinkston-varo/031distortion.orc
+./dx7-pinkston-varo/032softsolo.orc
+./dx7-pinkston-varo/033bass1.orc
+./dx7-pinkston-varo/034fingerbass.orc
+./dx7-pinkston-varo/035pluckbass.orc
+./dx7-pinkston-varo/036fretless.orc
+./dx7-pinkston-varo/037slapbass1.orc
+./dx7-pinkston-varo/038slapbass2.orc
+./dx7-pinkston-varo/039synbass1.orc
+./dx7-pinkston-varo/040synbass2.orc
+./dx7-pinkston-varo/041violin.orc
+./dx7-pinkston-varo/042viola.orc
+./dx7-pinkston-varo/043cello.orc
+./dx7-pinkston-varo/044contrabass.orc
+./dx7-pinkston-varo/047harp.orc
+./dx7-pinkston-varo/049strings1.orc
+./dx7-pinkston-varo/050strings2.orc
+./dx7-pinkston-varo/051synstrings1.orc
+./dx7-pinkston-varo/052synstrings2.orc
+./dx7-pinkston-varo/053synvocals1.orc
+./dx7-pinkston-varo/054synvocals2.orc
+./dx7-pinkston-varo/057trumpet.orc
+./dx7-pinkston-varo/058trombone.orc
+./dx7-pinkston-varo/059tuba.orc
+./dx7-pinkston-varo/060trumpet2.orc
+./dx7-pinkston-varo/061frhorn.orc
+./dx7-pinkston-varo/062brasssection.orc
+./dx7-pinkston-varo/063synbrass1.orc
+./dx7-pinkston-varo/064synbrass2.orc
+./dx7-pinkston-varo/073piccolo.orc
+./dx7-pinkston-varo/074flute.orc
+./dx7-pinkston-varo/075recorder.orc
+./dx7-pinkston-varo/076panflute.orc
+./dx7-pinkston-varo/123seashore.orc
+./dx7-pinkston-varo/124bird.orc
+./dx7-pinkston-varo/126helicopter.orc
+./eastman/example1-1.orc
+./eastman/example1-2.orc
+./eastman/example1-3.orc
+./eastman/example2-1.orc
+./eastman/example2-2.orc
+./eastman/example2-3.orc
+./eastman/example2-4.orc
+./eastman/example2-5.orc
+./eastman/example3-1.orc
+./eastman/example3-2.orc
+./eastman/example3-3.orc
+./eastman/example3-4.orc
+./eastman/example4-1.orc
+./eastman/example4-2.orc
+./eastman/example4-3.orc
+./eastman/example4-4.orc
+./eastman/example4-5.orc
+./eastman/example4-6.orc
+./eastman/example4-7.orc
+./eastman/example4-8.orc
+./eastman/example5-1.orc
+./eastman/example5-10.orc
+./eastman/example5-2.orc
+./eastman/example5-3.orc
+./eastman/example5-4.orc
+./eastman/example5-5.orc
+./eastman/example5-6.orc
+./eastman/example5-7.orc
+./eastman/example5-8.orc
+./eastman/example5-9.orc
+./eastman/example6-1.orc
+./eastman/example6-2.orc
+./expon_test.csd
+./ffitch/303.orc
+./ffitch/beast1.orc
+./ffitch/brass.orc
+./ffitch/distance.orc
+./ffitch/gruneber.orc
+./ffitch/gruneberg.orc
+./ffitch/henon.orc
+./ffitch/mando.orc
+./ffitch/phymodcook.orc
+./ffitch/prelude.orc
+./ffitch/wayne.orc
+./ffitch/wg1.orc
+./ffitch/wg3mac.orc
+./ffitch/wgbow.orc
+./ffitch/wgclar.orc
+./ffitch/wgflute.orc
+./ffitch/wgpluck2.orc
+./ffitch/wgstring.orc
+./fischman/mb1.orc
+./fischman/mb2.orc
+./fischman/mb3.orc
+./fischman/mb4.orc
+./fischman/mb5.orc
+./fischman/mb6.orc
+./fischman/mb7.orc
+./fischman/Tscst1.orc
+./fischman/Tscst10.orc
+./fischman/Tscst11.orc
+./fischman/Tscst12.orc
+./fischman/Tscst13.orc
+./fischman/tscst14.orc
+./fischman/tscst15.orc
+./fischman/tscst16.orc
+./fischman/Tscst2.orc
+./fischman/Tscst3.orc
+./fischman/Tscst4.orc
+./fischman/Tscst5.orc
+./fischman/Tscst6.orc
+./fischman/Tscst7.orc
+./fischman/Tscst8.orc
+./fischman/Tscst9.orc
+./flavio/lullaby.orc
+./FLOSS Manual Examples/01A01_Aliasing.csd
+./FLOSS Manual Examples/01B01_BordersForHearing.csd
+./FLOSS Manual Examples/01B02_Adding_vs_ratio.csd
+./FLOSS Manual Examples/01C01_db_vs_linear.csd
+./FLOSS Manual Examples/01C02_rms_feedback_system.csd
+./FLOSS Manual Examples/01C03_FletcherMunson.csd
+./FLOSS Manual Examples/01D01_different_seed.csd
+./FLOSS Manual Examples/01D02_white_noises.csd
+./FLOSS Manual Examples/01D03_linrand.csd
+./FLOSS Manual Examples/01D04_trirand.csd
+./FLOSS Manual Examples/01D05_more_lin_tri_units.csd
+./FLOSS Manual Examples/01D06_scalings.csd
+./FLOSS Manual Examples/01D07_markov_basics.csd
+./FLOSS Manual Examples/01D08_markov_music.csd
+./FLOSS Manual Examples/01D09_random_walk.csd
+./FLOSS Manual Examples/01D10_Rejection_Sampling.csd
+./FLOSS Manual Examples/01D11_random02_Random_Walk.csd
+./FLOSS Manual Examples/01D11_Random_Walk2.csd
+./FLOSS Manual Examples/01D12_humanising.csd
+./FLOSS Manual Examples/01D13_simple_algorithmic_note_generator.csd
+./FLOSS Manual Examples/02A01_HelloWorld.csd
+./FLOSS Manual Examples/02B01_DocStruct.csd
+./FLOSS Manual Examples/02C01_Midi_Keybd_in.csd
+./FLOSS Manual Examples/02C02_Midi_Ctl_in.csd
+./FLOSS Manual Examples/02C03_Midi_all_in.csd
+./FLOSS Manual Examples/02D01_GetDeviceList.csd
+./FLOSS Manual Examples/02D02_LiveInput.csd
+./FLOSS Manual Examples/02E01_Render.csd
+./FLOSS Manual Examples/02E02_RecordRT.csd
+./FLOSS Manual Examples/03A01_Init-pass.csd
+./FLOSS Manual Examples/03A02_Perf-pass_incr.csd
+./FLOSS Manual Examples/03A03_Perf-pass_incr_listen.csd
+./FLOSS Manual Examples/03A04_Perf-pass_no_incr.csd
+./FLOSS Manual Examples/03A05_Audio_vector.csd
+./FLOSS Manual Examples/03A06_Init_perf_audio.csd
+./FLOSS Manual Examples/03A07_Init-values_of_k-variables.csd
+./FLOSS Manual Examples/03A08_Init_no_incr.csd
+./FLOSS Manual Examples/03A09_Re-init.csd
+./FLOSS Manual Examples/03A10_Order_of_calc.csd
+./FLOSS Manual Examples/03A11_Order_of_calc_named.csd
+./FLOSS Manual Examples/03A12_Random_at_ika.csd
+./FLOSS Manual Examples/03A13_Zipper.csd
+./FLOSS Manual Examples/03A14_Time_Impossible.csd
+./FLOSS Manual Examples/03B01_Variable_types.csd
+./FLOSS Manual Examples/03B02_Local_scope.csd
+./FLOSS Manual Examples/03B03_Global_scope.csd
+./FLOSS Manual Examples/03B04_Global_audio_intro.csd
+./FLOSS Manual Examples/03B05_Global_audio_overwritten.csd
+./FLOSS Manual Examples/03B06_Global_audio_added.csd
+./FLOSS Manual Examples/03B07_Global_control_added.csd
+./FLOSS Manual Examples/03B08_Local_audio_add.csd
+./FLOSS Manual Examples/03B09_Global_audio_add.csd
+./FLOSS Manual Examples/03B10_Global_with_clear.csd
+./FLOSS Manual Examples/03B11_Chn_demo.csd
+./FLOSS Manual Examples/03C01_IfThen_i.csd
+./FLOSS Manual Examples/03C02_IfThen_k.csd
+./FLOSS Manual Examples/03C03_IfThen_short_form.csd
+./FLOSS Manual Examples/03C04_IfGoto_i.csd
+./FLOSS Manual Examples/03C05_IfGoto_ik.csd
+./FLOSS Manual Examples/03C06_IfGoto_k.csd
+./FLOSS Manual Examples/03C07_Loops_with_if.csd
+./FLOSS Manual Examples/03C08_Loop_opcodes_i.csd
+./FLOSS Manual Examples/03C09_Random_string.csd
+./FLOSS Manual Examples/03C10_Random_ftable_fill.csd
+./FLOSS Manual Examples/03C11_Table_random_dev.csd
+./FLOSS Manual Examples/03C12_Timout_pre.csd
+./FLOSS Manual Examples/03C13_Timout_basics.csd
+./FLOSS Manual Examples/03C14_Timeloop_and_not.csd
+./FLOSS Manual Examples/03C15_Timout_different_durations.csd
+./FLOSS Manual Examples/03C16_Timout_random_durations.csd
+./FLOSS Manual Examples/03C17_Timout_trigger_events.csd
+./FLOSS Manual Examples/03C18_Timout_random_envelope.csd
+./FLOSS Manual Examples/03C19_Timeloop_metro.csd
+./FLOSS Manual Examples/03C20_Metro_trigger_events.csd
+./FLOSS Manual Examples/03D01_Table_norm_notNorm.csd
+./FLOSS Manual Examples/03D02_Table_ftgen.csd
+./FLOSS Manual Examples/03D03_Sample_to_table.csd
+./FLOSS Manual Examples/03D04_Standard_waveforms_with_GEN10.csd
+./FLOSS Manual Examples/03D05_Write_Fibo_to_table.csd
+./FLOSS Manual Examples/03D06_Record_ksig_to_table.csd
+./FLOSS Manual Examples/03D07_Record_audio_to_table.csd
+./FLOSS Manual Examples/03D08_RecPlay_ak_signals.csd
+./FLOSS Manual Examples/03D09_ftsave.csd
+./FLOSS Manual Examples/03D10_Table_to_soundfile.csd
+./FLOSS Manual Examples/03E01_i_k_arrays.csd
+./FLOSS Manual Examples/03E02_Local_vs_global_arrays.csd
+./FLOSS Manual Examples/03E03_String_arrays.csd
+./FLOSS Manual Examples/03E04_Anagram.csd
+./FLOSS Manual Examples/03E05_Local_audio_array.csd
+./FLOSS Manual Examples/03E06_Global_audio_array.csd
+./FLOSS Manual Examples/03E07_Fill_multidim_array.csd
+./FLOSS Manual Examples/03E08_lenarray.csd
+./FLOSS Manual Examples/03E09_slicearray.csd
+./FLOSS Manual Examples/03E10_copyf2array.csd
+./FLOSS Manual Examples/03E11_copya2ftab.csd
+./FLOSS Manual Examples/03E12_pvs_to_from_array.csd
+./FLOSS Manual Examples/03E13_fft_peaks_arpegg.csd
+./FLOSS Manual Examples/03E14_array_scalar_math.csd
+./FLOSS Manual Examples/03E15_array_array_math.csd
+./FLOSS Manual Examples/03E16_min_max_array.csd
+./FLOSS Manual Examples/03E17_sumarray.csd
+./FLOSS Manual Examples/03E18_scalearray.csd
+./FLOSS Manual Examples/03E19_maparray.csd
+./FLOSS Manual Examples/03E20_array_UDO.csd
+./FLOSS Manual Examples/03E21_print_array.csd
+./FLOSS Manual Examples/03F01_OrderOfExc_event_i.csd
+./FLOSS Manual Examples/03F02_OrderOfExc_event_k.csd
+./FLOSS Manual Examples/03F03_Score_tricks.csd
+./FLOSS Manual Examples/03F04_Midi_triggered_events.csd
+./FLOSS Manual Examples/03F05_FLTK_triggered_events.csd
+./FLOSS Manual Examples/03F06_Commandline_rt_events.csd
+./FLOSS Manual Examples/03F07_Event_by_condition.csd
+./FLOSS Manual Examples/03F08_Generate_event_pool.csd
+./FLOSS Manual Examples/03F09_Events_sprintf.csd
+./FLOSS Manual Examples/03F10_Events_collected.csd
+./FLOSS Manual Examples/03F11_Events_time_loop.csd
+./FLOSS Manual Examples/03F12_compileorc.csd
+./FLOSS Manual Examples/03F13_compilestr.csd
+./FLOSS Manual Examples/03F14_Recompile_in_CsoundQt.csd
+./FLOSS Manual Examples/03G01_Pre_UDO.csd
+./FLOSS Manual Examples/03G02_All_to_UDO.csd
+./FLOSS Manual Examples/03G03_UDO_more_flex.csd
+./FLOSS Manual Examples/03G04_UDO_calls_UDO.csd
+./FLOSS Manual Examples/03G06_UDO_setksmps.csd
+./FLOSS Manual Examples/03G07_UDO_default_args.csd
+./FLOSS Manual Examples/03G08_Recursive_UDO.csd
+./FLOSS Manual Examples/03G09_UDO_FilePlay.csd
+./FLOSS Manual Examples/03G10_UDO_rand_dev.csd
+./FLOSS Manual Examples/03G11_TabPermRnd.csd
+./FLOSS Manual Examples/03G12_TableDumpSimp.csd
+./FLOSS Manual Examples/03G13_UDO_Recursive_AddSynth.csd
+./FLOSS Manual Examples/03H01_Macros_basic.csd
+./FLOSS Manual Examples/03H02_Macro_6partials.csd
+./FLOSS Manual Examples/03H03_Score_macro.csd
+./FLOSS Manual Examples/04A01_AddSynth_simple.csd
+./FLOSS Manual Examples/04A02_AddSynth_score.csd
+./FLOSS Manual Examples/04A03_AddSynth_GEN.csd
+./FLOSS Manual Examples/04A04_Standard_waveforms.csd
+./FLOSS Manual Examples/04A05_Flexible_number_of_partials.csd
+./FLOSS Manual Examples/04A06_Play_it_with_Midi.csd
+./FLOSS Manual Examples/04A07_Risset_variations.csd
+./FLOSS Manual Examples/04A08_Risset_played_by_Midi.csd
+./FLOSS Manual Examples/04A09_Wobble_bass.csd
+./FLOSS Manual Examples/04A10_gbuzz.csd
+./FLOSS Manual Examples/04A11_gbuzz_partials_rise.csd
+./FLOSS Manual Examples/04A12_gbuzz_amp_coeff_rise.csd
+./FLOSS Manual Examples/04A13_hsboscil.csd
+./FLOSS Manual Examples/04B01_Subtractive_Midi.csd
+./FLOSS Manual Examples/04B02_Subtractive_timbres.csd
+./FLOSS Manual Examples/04B03_Subtractive_vowels.csd
+./FLOSS Manual Examples/04E01_Simple_waveshaping.csd
+./FLOSS Manual Examples/04E02_powershape.csd
+./FLOSS Manual Examples/04F01_GranSynth_basic.csd
+./FLOSS Manual Examples/04F02_Fof_vowels.csd
+./FLOSS Manual Examples/04F03_Asynchronous_GS.csd
+./FLOSS Manual Examples/04F04_grain3.csd
+./FLOSS Manual Examples/04F05_grain3_random.csd
+./FLOSS Manual Examples/04G010_wgbow_enhanced.csd
+./FLOSS Manual Examples/04G011_barmodel.csd
+./FLOSS Manual Examples/04G01_Mass_spring_sine.csd
+./FLOSS Manual Examples/04G02_MS_sine_audible.csd
+./FLOSS Manual Examples/04G03_MS_variable_constant.csd
+./FLOSS Manual Examples/04G04_lin_reson.csd
+./FLOSS Manual Examples/04G05_nonlin_reson.csd
+./FLOSS Manual Examples/04G06_van_der_pol.csd
+./FLOSS Manual Examples/04G07_KarplusStrong.csd
+./FLOSS Manual Examples/04G08_Plucked.csd
+./FLOSS Manual Examples/04G09_wgbow.csd
+./FLOSS Manual Examples/04G12_PhiSEM.csd
+./FLOSS Manual Examples/04H01_scantable.csd
+./FLOSS Manual Examples/04H02_Dynamic_tables.csd
+./FLOSS Manual Examples/04H03_Scantable_pvsmaska.csd
+./FLOSS Manual Examples/04H04_Hammer.csd
+./FLOSS Manual Examples/04H05_Scan_trajectories.csd
+./FLOSS Manual Examples/04H06_Scan_trajectories2.csd
+./FLOSS Manual Examples/04H07_Scan_matrices.csd
+./FLOSS Manual Examples/04H08_Scan_tablesize.csd
+./FLOSS Manual Examples/04H09_Scan_extreme_amplitude.csd
+./FLOSS Manual Examples/04H10_Scan_balanced_amplitudes.csd
+./FLOSS Manual Examples/05A01_line.csd
+./FLOSS Manual Examples/05A02_line_p3.csd
+./FLOSS Manual Examples/05A03_linseg.csd
+./FLOSS Manual Examples/05A04_linseg_p3_fractions.csd
+./FLOSS Manual Examples/05A05_line_vs_linseg.csd
+./FLOSS Manual Examples/05A06_line_vs_expon.csd
+./FLOSS Manual Examples/05A07_expon_pings.csd
+./FLOSS Manual Examples/05A08_linsegr.csd
+./FLOSS Manual Examples/05A09_sine_env.csd
+./FLOSS Manual Examples/05A10_lpshold_loopseg.csd
+./FLOSS Manual Examples/05B01_Pan_stereo.csd
+./FLOSS Manual Examples/05B02_pan2.csd
+./FLOSS Manual Examples/05B03_Different_pan_layers.csd
+./FLOSS Manual Examples/05B04_hrtfmove.csd
+./FLOSS Manual Examples/05B05_VBAP_circle.csd
+./FLOSS Manual Examples/05B06_VBAP_spread.csd
+./FLOSS Manual Examples/05B07_VBAP_new.csd
+./FLOSS Manual Examples/05B08_Ambi_circle.csd
+./FLOSS Manual Examples/05B09_Ambi_orders.csd
+./FLOSS Manual Examples/05B10_udo_ambisonics2D_1.csd
+./FLOSS Manual Examples/05B11_udo_ambisonics2D_2.csd
+./FLOSS Manual Examples/05B12_udo_ambisonics2D_3.csd
+./FLOSS Manual Examples/05B13_udo_ambisonics2D_4.csd
+./FLOSS Manual Examples/05B14_udo_ambisonics2D_5.csd
+./FLOSS Manual Examples/05B15_udo_ambisonics_1.csd
+./FLOSS Manual Examples/05B16_udo_ambisonics_2.csd
+./FLOSS Manual Examples/05B17_udo_ambisonics_3.csd
+./FLOSS Manual Examples/05B18_udo_ambisonics_4.csd
+./FLOSS Manual Examples/05B19_udo_AEP.csd
+./FLOSS Manual Examples/05C01_tone_butlp_moogladder.csd
+./FLOSS Manual Examples/05C02_atone_buthp_bqrez.csd
+./FLOSS Manual Examples/05C03_reson_butbp.csd
+./FLOSS Manual Examples/05C04_comb.csd
+./FLOSS Manual Examples/05D01_delay.csd
+./FLOSS Manual Examples/05D02_delay_feedback.csd
+./FLOSS Manual Examples/05D03_deltapi.csd
+./FLOSS Manual Examples/05D04_multi-tap_delay.csd
+./FLOSS Manual Examples/05D05_flanger.csd
+./FLOSS Manual Examples/05E01_freeverb.csd
+./FLOSS Manual Examples/05E02_reverbsc.csd
+./FLOSS Manual Examples/05E03_reverb_with_chn.csd
+./FLOSS Manual Examples/05E04_schroeder_reverb.csd
+./FLOSS Manual Examples/05F02_Wvshp_bit_crunch.csd
+./FLOSS Manual Examples/05F03_Wvshp_different_transfer_funs.csd
+./FLOSS Manual Examples/05F04_distort.csd
+./FLOSS Manual Examples/05G01_sndwarp.csd
+./FLOSS Manual Examples/05G02_selfmade_grain.csd
+./FLOSS Manual Examples/05G03_granule.csd
+./FLOSS Manual Examples/05G04_grain_delay.csd
+./FLOSS Manual Examples/05G05_grain.csd
+./FLOSS Manual Examples/05H01_pconvolve.csd
+./FLOSS Manual Examples/05I01_pvsanal.csd
+./FLOSS Manual Examples/05I02_pvscale.csd
+./FLOSS Manual Examples/05I04_phase_vocoder.csd
+./FLOSS Manual Examples/05I05_pvscross.csd
+./FLOSS Manual Examples/05I06_pvsfilter.csd
+./FLOSS Manual Examples/05K01_ats_header.csd
+./FLOSS Manual Examples/05K02_atsread.csd
+./FLOSS Manual Examples/05K03_atsread2.csd
+./FLOSS Manual Examples/05K04_atsreadnz.csd
+./FLOSS Manual Examples/05K05_atsinterpread.csd
+./FLOSS Manual Examples/05K06_atspartialtap.csd
+./FLOSS Manual Examples/05K07_atsadd.csd
+./FLOSS Manual Examples/05K08_atsaddnz.csd
+./FLOSS Manual Examples/05K09_atssinnoi.csd
+./FLOSS Manual Examples/05K10_atscross.csd
+./FLOSS Manual Examples/06A01_Play_soundfile.csd
+./FLOSS Manual Examples/06A02_Write_soundfile.csd
+./FLOSS Manual Examples/06A06_pdcs_tabset_tabget.csd
+./FLOSS Manual Examples/06B01_flooper2.csd
+./FLOSS Manual Examples/06B02_sndloop.csd
+./FLOSS Manual Examples/06B03_RecPlayToTable.csd
+./FLOSS Manual Examples/06B04_BufRecPlay_UDO.csd
+./FLOSS Manual Examples/06B05_BufRecPlay_complex.csd
+./FLOSS Manual Examples/07A01_midiin_print.csd
+./FLOSS Manual Examples/07B01_MidiInstrTrigger.csd
+./FLOSS Manual Examples/07B04_MidiMultiTrigg.csd
+./FLOSS Manual Examples/07D01_ReadMidiFile.csd
+./FLOSS Manual Examples/07E01_midiout.csd
+./FLOSS Manual Examples/07E02_score_to_midiout.csd
+./FLOSS Manual Examples/07E03_midiout_cc.csd
+./FLOSS Manual Examples/07E04_midion.csd
+./FLOSS Manual Examples/07E05_midion2.csd
+./FLOSS Manual Examples/07E06_moscil.csd
+./FLOSS Manual Examples/08B01_Pd_to_Csound.csd
+./FLOSS Manual Examples/08B02_Processing_to_Csound.csd
+./FLOSS Manual Examples/08B03_Serial_Read.csd
+./FLOSS Manual Examples/09A01_pdcs_control_in.csd
+./FLOSS Manual Examples/09A02_pdcs_live_in.csd
+./FLOSS Manual Examples/09A03_pdcs_midi.csd
+./FLOSS Manual Examples/09A04_pdcs_events.csd
+./FLOSS Manual Examples/09A05_pdcs_control_out.csd
+./FLOSS Manual Examples/09B01_maxcs_helloworld.csd
+./FLOSS Manual Examples/09B02_maxcs_audio_io.csd
+./FLOSS Manual Examples/09B03_maxcs_control_in.csd
+./FLOSS Manual Examples/09B04_maxcs_midi.csd
+./FLOSS Manual Examples/09B05_maxcs_events.csd
+./FLOSS Manual Examples/12B01_pyinit.csd
+./FLOSS Manual Examples/12B02_python_global.csd
+./FLOSS Manual Examples/12B03_pyrun.csd
+./FLOSS Manual Examples/12B04_pyevali.csd
+./FLOSS Manual Examples/12B05_pyassigni.csd
+./FLOSS Manual Examples/12B06_pycall.csd
+./FLOSS Manual Examples/12B07_local_vs_global.csd
+./FLOSS Manual Examples/12B08_markov.csd
+./FLOSS Manual Examples/12C01_run_pause_stop.csd
+./FLOSS Manual Examples/12C02_score_generated.csd
+./FLOSS Manual Examples/12C03_presets.csd
+./FLOSS Manual Examples/12C04_dialog.csd
+./FLOSS Manual Examples/12C05_string_sound.csd
+./FLOSS Manual Examples/12C06_color_controller.csd
+./FLOSS Manual Examples/Score_methods_01.csd
+./FLOSS Manual Examples/Score_methods_02.csd
+./FLOSS Manual Examples/Score_methods_03.csd
+./For_Ann_Rising,csd.csd
+./fredrics/2grain.orc
+./fredrics/2ndtripl.orc
+./fredrics/form.orc
+./fredrics/grain.orc
+./fredrics/granular2.orc
+./fredrics/granular3.orc
+./fredrics/granular4.orc
+./fredrics/granularnd1.orc
+./fredrics/granularnd2.orc
+./fredrics/granularnd3.orc
+./fredrics/granularnd4.orc
+./fredrics/granularnd5.orc
+./fredrics/granularnd6.orc
+./fredrics/web2.orc
+./fredrics/web3.orc
+./fredrics/webfin.orc
+./Giorgio-Z/test.orc
+./Grigorovici/HouseOrgan.csd
+./Grigorovici/Westkreuz28.orc
+./gui/classic-synthesis-techniques.csd
+./Hall/tal4.orc
+./hamel/week10-1.orc
+./hamel/week10-2.orc
+./hamel/week10-3.orc
+./hamel/week10-4.orc
+./hamel/week10-5.orc
+./hamel/week10-6.orc
+./hamel/week10-7.orc
+./hamel/week11-1.orc
+./hamel/week11-2.orc
+./hamel/week11-3.orc
+./hamel/week11-4.orc
+./hamel/week11-5.orc
+./hamel/week11-6.orc
+./hamel/week11-7.orc
+./hamel/week12-1.orc
+./hamel/week12-2.orc
+./hamel/week12-3.orc
+./hamel/week12-4.orc
+./hamel/week2.orc
+./hamel/week3-2a.orc
+./hamel/week3-2b.orc
+./hamel/week3-2c.orc
+./hamel/week3-2d.orc
+./hamel/week3-3a.orc
+./hamel/week3-3b.orc
+./hamel/week3-3c.orc
+./hamel/week3-4a.orc
+./hamel/week3-4b.orc
+./hamel/week3-4c.orc
+./hamel/week3-5a.orc
+./hamel/week3-5b.orc
+./hamel/week3-5c.orc
+./hamel/week3-5d.orc
+./hamel/week3-5e.orc
+./hamel/week3-6.orc
+./hamel/week3-7.orc
+./hamel/week4-1.orc
+./hamel/week4-2.orc
+./hamel/week4-3.orc
+./hamel/week4-4.orc
+./hamel/week4-5.orc
+./hamel/week4-6.orc
+./hamel/week4-7.orc
+./hamel/week5-1.orc
+./hamel/week5-2.orc
+./hamel/week6-1.orc
+./hamel/week6-10.orc
+./hamel/week6-11.orc
+./hamel/week6-2.orc
+./hamel/week6-3.orc
+./hamel/week6-4.orc
+./hamel/week6-5.orc
+./hamel/week6-6.orc
+./hamel/week6-7.orc
+./hamel/week6-8.orc
+./hamel/week6-9.orc
+./hamel/week7-1.orc
+./hamel/week7-2.orc
+./hamel/week7-3.orc
+./hamel/week7-4.orc
+./hamel/week7-5.orc
+./hamel/week7-6.orc
+./hamel/week7-7.orc
+./hamel/week7-8.orc
+./hamel/week7-9.orc
+./hamel/week8-1.orc
+./hamel/week8-2.orc
+./hamel/week8-3.orc
+./hamel/week8-4.orc
+./hamel/week8-5.orc
+./hamel/week9-1.orc
+./hamel/week9-2.orc
+./hamel/week9-3.orc
+./hamel/week9-4.orc
+./hamel/week9-5.orc
+./hamel/week9-6.orc
+./hamel/week9-7.orc
+./hamel/week9-8.orc
+./harrington/acidbach0.orc
+./harrington/acidbach1.orc
+./harrington/acidbach2.orc
+./harrington/acidbach3.orc
+./harrington/acidbach4.orc
+./harris/1in1out.orc
+./harris/fm.orc
+./harris/harfm.orc
+./harris/harreson.orc
+./harris/harreson2.orc
+./harris/reson.orc
+./harris/reson2.orc
+./Howe/pi.csd
+./Hubbard/ratsmfperc.orc
+./Hubbard/smfcsoundtest.csd
+./Hubbard/test.orc
+./huber/night.orc
+./Hudson/samplefeedback.csd
+./Hunkins/gifts.orc
+./Hunkins/lux.orc
+./Hunkins/SpiritusSanctus2FLTK.csd
+./Hunkins/via.orc
+./Hunkins/vitam.orc
+./jamary/muta1.orc
+./jamary/muta2.orc
+./Joaquin/Electronic_Bubbles.csd
+./Joaquin/Electronic_Bubbles.orc
+./Joaquin/Message.csd
+./Joaquin/Message.orc
+./Joaquin/Nuclear.csd
+./Joaquin/nuclear.orc
+./Karlheinz Stockhausen/STUDIEIA.csd
+./keller/bubblesine.orc
+./keller/fracaddress.orc
+./keller/iter.orc
+./keller/jspluck.orc
+./keller/kspluck.orc
+./keller/scrape.orc
+./Kerr/diving.csd
+./Kerr/Diving_I.csd
+./king/condition.orc
+./king/king1.orc
+./king/king5.orc
+./king/king6.orc
+./king/kingfof1.orc
+./king/xmas.orc
+./Klapper/collage.orc
+./kozar/doriangray.orc
+./Kung/test.orc
+./Kung/xanadu.csd
+./Kung/xanadu.orc
+./Kung/xanadumidi.csd
+./Kung/xanaduscore.csd
+./Lazzarini/ModFM.csd
+./Lazzarini/test.csd
+./Livingston/guitar.csd
+./Livingston/phmguit.orc
+./Lyon/drnoi.orc
+./Lyon/echo1.orc
+./Lyon/echo2.orc
+./Lyon/eric/control/orch.orc
+./Lyon/eric/control/respy1.orc
+./Lyon/eric/control/stepfunc.orc
+./Lyon/eric/control/vib1.orc
+./Lyon/eric/control/vib2.orc
+./Lyon/eric/diagnostics/orch.orc
+./Lyon/eric/don/class1.orc
+./Lyon/eric/don/d1.orc
+./Lyon/eric/don/d2.orc
+./Lyon/eric/don/d3.orc
+./Lyon/eric/don/d4.orc
+./Lyon/eric/don/d5.orc
+./Lyon/eric/don/d5st.orc
+./Lyon/eric/don/d6.orc
+./Lyon/eric/don/d7.orc
+./Lyon/eric/don/d7st.orc
+./Lyon/eric/don/d8.orc
+./Lyon/eric/don/d9.orc
+./Lyon/eric/don/dd1.orc
+./Lyon/eric/don/futon1.orc
+./Lyon/eric/don/futon2.orc
+./Lyon/eric/don/orch.orc
+./Lyon/eric/imp/orch.orc
+./Lyon/eric/mixer/env.orc
+./Lyon/eric/mixer/envst.orc
+./Lyon/eric/mixer/fmix.orc
+./Lyon/eric/mixer/fmixst.orc
+./Lyon/eric/mixer/godzilla.orc
+./Lyon/eric/mixer/harm.orc
+./Lyon/eric/mixer/ltest.orc
+./Lyon/eric/mixer/mix.orc
+./Lyon/eric/mixer/mixst.orc
+./Lyon/eric/mixer/orch.orc
+./Lyon/eric/mixer/rmix.orc
+./Lyon/eric/mixer/xfadest.orc
+./Lyon/eric/mixer/xmix.orc
+./Lyon/eric/port/acid.orc
+./Lyon/eric/port/acid2.orc
+./Lyon/eric/port/eli_rev.orc
+./Lyon/eric/port/orch.orc
+./Lyon/eric/port/stoch1.orc
+./Lyon/eric/proc/chorus.orc
+./Lyon/eric/proc/chorus2.orc
+./Lyon/eric/proc/chorus2st.orc
+./Lyon/eric/proc/chorus3.orc
+./Lyon/eric/proc/comb1.orc
+./Lyon/eric/proc/comb2.orc
+./Lyon/eric/proc/cows.orc
+./Lyon/eric/proc/cutface.orc
+./Lyon/eric/proc/disco.orc
+./Lyon/eric/proc/dmach.orc
+./Lyon/eric/proc/drnoi.orc
+./Lyon/eric/proc/drnoi10.orc
+./Lyon/eric/proc/drnoi11.orc
+./Lyon/eric/proc/drnoi12.orc
+./Lyon/eric/proc/drnoi13.orc
+./Lyon/eric/proc/drnoi2.orc
+./Lyon/eric/proc/drnoi3.orc
+./Lyon/eric/proc/drnoi4.orc
+./Lyon/eric/proc/drnoi5.orc
+./Lyon/eric/proc/drnoi6.orc
+./Lyon/eric/proc/drnoi7.orc
+./Lyon/eric/proc/drnoi8.orc
+./Lyon/eric/proc/drnoi9.orc
+./Lyon/eric/proc/echo-scone.orc
+./Lyon/eric/proc/echopan.orc
+./Lyon/eric/proc/feed.orc
+./Lyon/eric/proc/fl1.orc
+./Lyon/eric/proc/flange.orc
+./Lyon/eric/proc/flast.orc
+./Lyon/eric/proc/fread.orc
+./Lyon/eric/proc/freadst.orc
+./Lyon/eric/proc/gate.orc
+./Lyon/eric/proc/glnoi.orc
+./Lyon/eric/proc/grain.orc
+./Lyon/eric/proc/grinder.orc
+./Lyon/eric/proc/grinder_st.orc
+./Lyon/eric/proc/grinder_st_highQ.orc
+./Lyon/eric/proc/hirms.orc
+./Lyon/eric/proc/hpf.orc
+./Lyon/eric/proc/hpfst.orc
+./Lyon/eric/proc/iphase.orc
+./Lyon/eric/proc/iread.orc
+./Lyon/eric/proc/kiss.orc
+./Lyon/eric/proc/kore.orc
+./Lyon/eric/proc/lpc.orc
+./Lyon/eric/proc/lpf.orc
+./Lyon/eric/proc/lpfl.orc
+./Lyon/eric/proc/lpfst.orc
+./Lyon/eric/proc/m2scho.orc
+./Lyon/eric/proc/mcho.orc
+./Lyon/eric/proc/nev.orc
+./Lyon/eric/proc/newtrem.orc
+./Lyon/eric/proc/onoff.orc
+./Lyon/eric/proc/phasor.orc
+./Lyon/eric/proc/phasor3.orc
+./Lyon/eric/proc/phasor4.orc
+./Lyon/eric/proc/phasor5.orc
+./Lyon/eric/proc/punish.orc
+./Lyon/eric/proc/reassure.orc
+./Lyon/eric/proc/res.orc
+./Lyon/eric/proc/resst.orc
+./Lyon/eric/proc/rhfeedback.orc
+./Lyon/eric/proc/ringfeed.orc
+./Lyon/eric/proc/ringfeedst.orc
+./Lyon/eric/proc/rmix.orc
+./Lyon/eric/proc/rmixst.orc
+./Lyon/eric/proc/rmod3.orc
+./Lyon/eric/proc/rmodel.orc
+./Lyon/eric/proc/rmodelst.orc
+./Lyon/eric/proc/rndread.orc
+./Lyon/eric/proc/rndreadst.orc
+./Lyon/eric/proc/rnoi.orc
+./Lyon/eric/proc/scho.orc
+./Lyon/eric/proc/scone.orc
+./Lyon/eric/proc/sfspin.orc
+./Lyon/eric/proc/sgate.orc
+./Lyon/eric/proc/sineflange.orc
+./Lyon/eric/proc/sineflangest.orc
+./Lyon/eric/proc/spinach.orc
+./Lyon/eric/proc/spinach2.orc
+./Lyon/eric/proc/sreadst.orc
+./Lyon/eric/proc/stfeed.orc
+./Lyon/eric/proc/stflast.orc
+./Lyon/eric/proc/stphasor.orc
+./Lyon/eric/proc/stv.orc
+./Lyon/eric/proc/sweep.orc
+./Lyon/eric/proc/tempofeed.orc
+./Lyon/eric/proc/testfunc.orc
+./Lyon/eric/proc/trans.orc
+./Lyon/eric/proc/transst.orc
+./Lyon/eric/proc/vomit.orc
+./Lyon/eric/proc/voxproc.orc
+./Lyon/eric/proc/voxprocst.orc
+./Lyon/eric/proc/vread.orc
+./Lyon/eric/proc/vreadst.orc
+./Lyon/eric/proc/wave.orc
+./Lyon/eric/proc/ws.orc
+./Lyon/eric/proc/wsnew.orc
+./Lyon/eric/proc/wsst.orc
+./Lyon/eric/proc/xfade.orc
+./Lyon/eric/proc/xpan.orc
+./Lyon/eric/proc/zombie.orc
+./Lyon/eric/pvoc/bather.orc
+./Lyon/eric/pvoc/carp.orc
+./Lyon/eric/pvoc/fossil.orc
+./Lyon/eric/pvoc/karp.orc
+./Lyon/eric/pvoc/orch.orc
+./Lyon/eric/pvoc/piano.orc
+./Lyon/eric/pvoc/reson.orc
+./Lyon/eric/pvoc/sinetest.orc
+./Lyon/eric/pvoc/stereo.orc
+./Lyon/eric/reverb/rcos.orc
+./Lyon/eric/reverb/rev1.orc
+./Lyon/eric/reverb/rev10.orc
+./Lyon/eric/reverb/rev11.orc
+./Lyon/eric/reverb/rev2.orc
+./Lyon/eric/reverb/rev3.orc
+./Lyon/eric/reverb/rev4.orc
+./Lyon/eric/reverb/rev5.orc
+./Lyon/eric/reverb/rev6.orc
+./Lyon/eric/reverb/rev7.orc
+./Lyon/eric/reverb/rev8.orc
+./Lyon/eric/reverb/rev9.orc
+./Lyon/eric/reverb/stem.orc
+./Lyon/eric/stereo/orch.orc
+./Lyon/eric/tones/bass1.orc
+./Lyon/eric/tones/bass2.orc
+./Lyon/eric/tones/bass3.orc
+./Lyon/eric/tones/bass4.orc
+./Lyon/eric/tones/bather.orc
+./Lyon/eric/tones/bubble.orc
+./Lyon/eric/tones/bugtest.orc
+./Lyon/eric/tones/carp.orc
+./Lyon/eric/tones/chameleon.orc
+./Lyon/eric/tones/cycle.orc
+./Lyon/eric/tones/dopey-st.orc
+./Lyon/eric/tones/dopey.orc
+./Lyon/eric/tones/drm.orc
+./Lyon/eric/tones/drnoi.orc
+./Lyon/eric/tones/drnoi2.orc
+./Lyon/eric/tones/eppler.orc
+./Lyon/eric/tones/feedcrap.orc
+./Lyon/eric/tones/flt-synth.orc
+./Lyon/eric/tones/fmdemo.orc
+./Lyon/eric/tones/fullsweet.orc
+./Lyon/eric/tones/girth.orc
+./Lyon/eric/tones/glide.orc
+./Lyon/eric/tones/glnoi.orc
+./Lyon/eric/tones/groovy1.orc
+./Lyon/eric/tones/guitar.orc
+./Lyon/eric/tones/harmsine.orc
+./Lyon/eric/tones/harmsine2.orc
+./Lyon/eric/tones/junk.orc
+./Lyon/eric/tones/newst.orc
+./Lyon/eric/tones/noise.orc
+./Lyon/eric/tones/noisynote.orc
+./Lyon/eric/tones/orch.orc
+./Lyon/eric/tones/piano.orc
+./Lyon/eric/tones/pulser-demo.orc
+./Lyon/eric/tones/pulser.orc
+./Lyon/eric/tones/seedy-synth.orc
+./Lyon/eric/tones/shave.orc
+./Lyon/eric/tones/silence.orc
+./Lyon/eric/tones/sine.orc
+./Lyon/eric/tones/sinest.orc
+./Lyon/eric/tones/smooth.orc
+./Lyon/eric/tones/sweet.orc
+./Lyon/eric/tones/tone.orc
+./Lyon/eric/tones/wacktrump.orc
+./Lyon/eric/tones/ws.orc
+./Lyon/eric/tones/zeit.orc
+./Lyon/flt-synt.csd
+./Lyon/flt-synt.orc
+./Lyon/fltsynth.orc
+./Lyon/fmdemo.csd
+./Lyon/fmdemo.orc
+./Lyon/gator.orc
+./Lyon/gator2.orc
+./Lyon/girth.orc
+./Lyon/glnoi.csd
+./Lyon/glnoi.orc
+./Lyon/lmultitap.orc
+./Lyon/lmultitap2.orc
+./Lyon/pulse.orc
+./Lyon/rev1.orc
+./Lyon/rev10.orc
+./Lyon/rev2.orc
+./Lyon/rev3.orc
+./Lyon/rev4.orc
+./Lyon/rev5.orc
+./Lyon/rev6.orc
+./Lyon/rev7.orc
+./Lyon/rev8.orc
+./Lyon/rev9.orc
+./Lyon/reverb11.orc
+./Lyon/reverb12.orc
+./Lyon/reverb2.orc
+./Lyon/ringmod.orc
+./Lyon/sine.csd
+./Lyon/sine.orc
+./Lyon/stem.orc
+./Lyon/websynth1.orc
+./Lyon/websynth2.orc
+./Lyon/websynth3.orc
+./Lyon/websynth4.orc
+./Lyon/websynth5.orc
+./Lyon/websynth6.orc
+./Lyon/websynth7.orc
+./Lyon/websynth8.orc
+./maldonado/303emu.csd
+./maldonado/bmscan.orc
+./maldonado/flprintk.orc
+./maldonado/fof.csd
+./maldonado/fog-slider.csd
+./maldonado/fog-slider2.csd
+./maldonado/fourier.csd
+./maldonado/grain.csd
+./maldonado/lineto.orc
+./maldonado/loopseg.orc
+./maldonado/lpshold.orc
+./maldonado/macro3.orc
+./maldonado/modifyapparence.orc
+./maldonado/multipleshifter.orc
+./maldonado/resony-loscil2.orc
+./maldonado/shiftersimple2.orc
+./maldonado/showvalues.orc
+./maldonado/simplebutton.orc
+./maldonado/simplebuttonbank.orc
+./maldonado/simplecounter.orc
+./maldonado/simplejoystick.orc
+./maldonado/simpleknob.orc
+./maldonado/simpleroller.orc
+./maldonado/simplescroll.orc
+./maldonado/simpleslider.orc
+./maldonado/simpletabs.orc
+./maldonado/simpletextfield.orc
+./maldonado/snapshots.orc
+./Mariano/vestige.orc
+./McAlpine/electro.csd
+./McAlpine/electro.orc
+./McCurdy/01delayw_delayr_deltap.csd
+./McCurdy/01FLPanel.csd
+./McCurdy/01FMSynthesisVibratoToSideBands.csd
+./McCurdy/02delayportamento.csd
+./McCurdy/02FLSlider.csd
+./McCurdy/02SimpleModulatorCarrier.csd
+./McCurdy/03delayfeedback.csd
+./McCurdy/03FLKnob.csd
+./McCurdy/03ModulatorCarrier.csd
+./McCurdy/04delayfiltersinloop.csd
+./McCurdy/04FLRoller.csd
+./McCurdy/04ModulatorCarrierWithEnvelopes.csd
+./McCurdy/05delayflanger.csd
+./McCurdy/05FLtext.csd
+./McCurdy/05_2xModulatorCarrierWithEnvelopes.csd
+./McCurdy/06delayThruZeroFlanger.csd
+./McCurdy/06FLjoy.csd
+./McCurdy/07delayStereoChorus.csd
+./McCurdy/07FLcount.csd
+./McCurdy/08delaySimplePitchShifter.csd
+./McCurdy/08FLtabsFLgroup.csd
+./McCurdy/09delayCompletedPitchShifter.csd
+./McCurdy/09FLsetVal_i.csd
+./McCurdy/10FLbutton.csd
+./McCurdy/11FLbox.csd
+./McCurdy/12FLscroll.csd
+./McCurdy/13FLvalue.csd
+./McCurdy/14FLsetColor.csd
+./McCurdy/areson.csd
+./McCurdy/atone.csd
+./McCurdy/atonex.csd
+./McCurdy/babo.csd
+./McCurdy/bamboo.csd
+./McCurdy/bqrez.csd
+./McCurdy/butterbp.csd
+./McCurdy/butterbr.csd
+./McCurdy/butterhp.csd
+./McCurdy/butterlp.csd
+./McCurdy/buzz.csd
+./McCurdy/clfilt.csd
+./McCurdy/dripwater.csd
+./McCurdy/flooper2.csd
+./McCurdy/fof.csd
+./McCurdy/fofx6.csd
+./McCurdy/fog.csd
+./McCurdy/freeverb.csd
+./McCurdy/gbuzz.csd
+./McCurdy/grain3.csd
+./McCurdy/granule.csd
+./McCurdy/guiro.csd
+./McCurdy/HarmonicAdditiveSynthesis1.csd
+./McCurdy/HarmonicAdditiveSynthesis2.csd
+./McCurdy/hrtfer.csd
+./McCurdy/InharmonicAdditiveSynthesis.csd
+./McCurdy/lowpass2.csd
+./McCurdy/lowres.csd
+./McCurdy/lowresx.csd
+./McCurdy/lpf18.csd
+./McCurdy/MIDI&FLTK_Combined.csd
+./McCurdy/moogladder.csd
+./McCurdy/moogvcf.csd
+./McCurdy/nreverb.csd
+./McCurdy/PhaseModulationSynthesis.csd
+./McCurdy/Phaser1.csd
+./McCurdy/Phaser2.csd
+./McCurdy/pluck.csd
+./McCurdy/pvadd.csd
+./McCurdy/pvoc.csd
+./McCurdy/RandomMovingSlider.csd
+./McCurdy/RandomMovingXY.csd
+./McCurdy/reson.csd
+./McCurdy/reverb.csd
+./McCurdy/screverb.csd
+./McCurdy/sekere.csd
+./McCurdy/sleighbells.csd
+./McCurdy/SliderMultiVariable.csd
+./McCurdy/SliderNonLinear.csd
+./McCurdy/SlidersHorizontal.csd
+./McCurdy/SlidersVertical.csd
+./McCurdy/Snapshots.csd
+./McCurdy/sndwarp.csd
+./McCurdy/syncgrain.csd
+./McCurdy/tambourine.csd
+./McCurdy/tbvcf.csd
+./McCurdy/tone.csd
+./McCurdy/tonex.csd
+./McCurdy/vco.csd
+./McCurdy/vco_with_PWM_LFO_and_LPF.csd
+./McCurdy/vlowres.csd
+./McCurdy/wgbow.csd
+./McCurdy/wgbowedbar.csd
+./McCurdy/wgclar.csd
+./McCurdy/wgflute.csd
+./McCurdy/wgpluck2.csd
+./McCurdy Collection/3DAudio/hrtfer_hrtfmove_hrtfmove2_hrftstat.csd
+./McCurdy Collection/3DAudio/hrtfer_hrtfmove_hrtfmove2_hrftstat_1.csd
+./McCurdy Collection/AdditiveSynthesis/AdditiveSynthesisSpectralSketching.csd
+./McCurdy Collection/AdditiveSynthesis/AdditiveSynthesisSpectralSketching_1.csd
+./McCurdy Collection/AdditiveSynthesis/adsynt_adsynt2.csd
+./McCurdy Collection/AdditiveSynthesis/ftmorph.csd
+./McCurdy Collection/AdditiveSynthesis/ftmorph_1.csd
+./McCurdy Collection/AdditiveSynthesis/GEN09InharmonicTable.csd
+./McCurdy Collection/AdditiveSynthesis/GEN09InharmonicTable_1.csd
+./McCurdy Collection/AdditiveSynthesis/HarmonicAdditiveSynthesis1.csd
+./McCurdy Collection/AdditiveSynthesis/HarmonicAdditiveSynthesis1_1.csd
+./McCurdy Collection/AdditiveSynthesis/HarmonicAdditiveSynthesis2.csd
+./McCurdy Collection/AdditiveSynthesis/HarmonicAdditiveSynthesis2_1.csd
+./McCurdy Collection/AdditiveSynthesis/InharmonicAdditiveSynthesis.csd
+./McCurdy Collection/AdditiveSynthesis/InharmonicAdditiveSynthesis_1.csd
+./McCurdy Collection/AdditiveSynthesis/ModalAddSyn.csd
+./McCurdy Collection/AdditiveSynthesis/ModalAddSyn_1.csd
+./McCurdy Collection/AdditiveSynthesis/PartialStrengthsEnvelope.csd
+./McCurdy Collection/AdditiveSynthesis/PartialStrengthsEnvelope_1.csd
+./McCurdy Collection/AdditiveSynthesis/SpectrumAnalyser.csd
+./McCurdy Collection/AdditiveSynthesis/SpectrumAnalyser100.csd
+./McCurdy Collection/AdditiveSynthesis/SpectrumAnalyser100_1.csd
+./McCurdy Collection/AdditiveSynthesis/SpectrumAnalyser_1.csd
+./McCurdy Collection/AdditiveSynthesis/StretchedHarmonicPartials.csd
+./McCurdy Collection/AdditiveSynthesis/StretchedHarmonicPartials_1.csd
+./McCurdy Collection/ArduinoProcessingOSC/Arduino_Processing_OSC_Csound.csd
+./McCurdy Collection/ArduinoProcessingOSC/Arduino_Processing_OSC_CsoundQT.csd
+./McCurdy Collection/ArduinoProcessingOSC/Arduino_Processing_OSC_CsoundQT_1.csd
+./McCurdy Collection/ArduinoProcessingOSC/Arduino_Processing_OSC_Csound_1.csd
+./McCurdy Collection/Cabbage/Effects/AutopanTremolo.csd
+./McCurdy Collection/Cabbage/Effects/AutopanTremolo_1.csd
+./McCurdy Collection/Cabbage/Effects/Ball_in_a_Box.csd
+./McCurdy Collection/Cabbage/Effects/BandFilter.csd
+./McCurdy Collection/Cabbage/Effects/BandFilterII.csd
+./McCurdy Collection/Cabbage/Effects/BandFilter_1.csd
+./McCurdy Collection/Cabbage/Effects/BounceDelay.csd
+./McCurdy Collection/Cabbage/Effects/BreakBeatCutter.csd
+./McCurdy Collection/Cabbage/Effects/BreakBeatCutter_1.csd
+./McCurdy Collection/Cabbage/Effects/clfilt.csd
+./McCurdy Collection/Cabbage/Effects/clfilt_1.csd
+./McCurdy Collection/Cabbage/Effects/clip.csd
+./McCurdy Collection/Cabbage/Effects/clip_1.csd
+./McCurdy Collection/Cabbage/Effects/CompressorExpander.csd
+./McCurdy Collection/Cabbage/Effects/ConvolutionReverb.csd
+./McCurdy Collection/Cabbage/Effects/ConvolutionReverb_1.csd
+./McCurdy Collection/Cabbage/Effects/DelayGrain.csd
+./McCurdy Collection/Cabbage/Effects/DelayGrain2.csd
+./McCurdy Collection/Cabbage/Effects/DelayGrain_1.csd
+./McCurdy Collection/Cabbage/Effects/DistanceEmulator.csd
+./McCurdy Collection/Cabbage/Effects/Doppler.csd
+./McCurdy Collection/Cabbage/Effects/DopplerSpin.csd
+./McCurdy Collection/Cabbage/Effects/DopplerSpin_1.csd
+./McCurdy Collection/Cabbage/Effects/Doppler_1.csd
+./McCurdy Collection/Cabbage/Effects/EnvelopeFollower.csd
+./McCurdy Collection/Cabbage/Effects/EnvelopeFollower_1.csd
+./McCurdy Collection/Cabbage/Effects/Exciter.csd
+./McCurdy Collection/Cabbage/Effects/FilterLFO.csd
+./McCurdy Collection/Cabbage/Effects/FilterLFO_1.csd
+./McCurdy Collection/Cabbage/Effects/FilterShaper.csd
+./McCurdy Collection/Cabbage/Effects/Flanger.csd
+./McCurdy Collection/Cabbage/Effects/Flanger_1.csd
+./McCurdy Collection/Cabbage/Effects/FormantFilter.csd
+./McCurdy Collection/Cabbage/Effects/FormantFilter_1.csd
+./McCurdy Collection/Cabbage/Effects/FrequencyShifter.csd
+./McCurdy Collection/Cabbage/Effects/FrequencyShifter_1.csd
+./McCurdy Collection/Cabbage/Effects/Gate.csd
+./McCurdy Collection/Cabbage/Effects/GateReverb.csd
+./McCurdy Collection/Cabbage/Effects/HarpFilter.csd
+./McCurdy Collection/Cabbage/Effects/HighpassFilter.csd
+./McCurdy Collection/Cabbage/Effects/HighpassFilter_1.csd
+./McCurdy Collection/Cabbage/Effects/HRTF3D.csd
+./McCurdy Collection/Cabbage/Effects/HRTF3D_1.csd
+./McCurdy Collection/Cabbage/Effects/LiveBufferDisplay.csd
+./McCurdy Collection/Cabbage/Effects/LiveSndwarp.csd
+./McCurdy Collection/Cabbage/Effects/LiveSndwarp_1.csd
+./McCurdy Collection/Cabbage/Effects/LoFi.csd
+./McCurdy Collection/Cabbage/Effects/LoFi_1.csd
+./McCurdy Collection/Cabbage/Effects/LowpassFilter.csd
+./McCurdy Collection/Cabbage/Effects/LowpassFilter_1.csd
+./McCurdy Collection/Cabbage/Effects/ModeFilters.csd
+./McCurdy Collection/Cabbage/Effects/ModulatingDelays.csd
+./McCurdy Collection/Cabbage/Effects/ModulatingDelays_1.csd
+./McCurdy Collection/Cabbage/Effects/MultiModeDelay.csd
+./McCurdy Collection/Cabbage/Effects/MultiReverb.csd
+./McCurdy Collection/Cabbage/Effects/MultiReverb_1.csd
+./McCurdy Collection/Cabbage/Effects/MultitapDelay.csd
+./McCurdy Collection/Cabbage/Effects/pdclip.csd
+./McCurdy Collection/Cabbage/Effects/pdclip_1.csd
+./McCurdy Collection/Cabbage/Effects/Peeaaoooh.csd
+./McCurdy Collection/Cabbage/Effects/Phaser.csd
+./McCurdy Collection/Cabbage/Effects/Phaser1.csd
+./McCurdy Collection/Cabbage/Effects/Phaser1_1.csd
+./McCurdy Collection/Cabbage/Effects/Phaser2.csd
+./McCurdy Collection/Cabbage/Effects/Phaser2_1.csd
+./McCurdy Collection/Cabbage/Effects/PhaserLFO.csd
+./McCurdy Collection/Cabbage/Effects/PingPongDelay.csd
+./McCurdy Collection/Cabbage/Effects/PitchShifter.csd
+./McCurdy Collection/Cabbage/Effects/Powershape.csd
+./McCurdy Collection/Cabbage/Effects/Powershape_1.csd
+./McCurdy Collection/Cabbage/Effects/pvsAdsyn.csd
+./McCurdy Collection/Cabbage/Effects/pvsAdsyn_1.csd
+./McCurdy Collection/Cabbage/Effects/pvsBandp.csd
+./McCurdy Collection/Cabbage/Effects/pvsBandr.csd
+./McCurdy Collection/Cabbage/Effects/pvsBlur.csd
+./McCurdy Collection/Cabbage/Effects/pvsBlur_1.csd
+./McCurdy Collection/Cabbage/Effects/pvsBuffer.csd
+./McCurdy Collection/Cabbage/Effects/pvsBuffer_1.csd
+./McCurdy Collection/Cabbage/Effects/pvScale.csd
+./McCurdy Collection/Cabbage/Effects/pvScale_1.csd
+./McCurdy Collection/Cabbage/Effects/pvsCross.csd
+./McCurdy Collection/Cabbage/Effects/pvsEffects.csd
+./McCurdy Collection/Cabbage/Effects/pvsFreeze.csd
+./McCurdy Collection/Cabbage/Effects/pvsFreeze_1.csd
+./McCurdy Collection/Cabbage/Effects/pvShift.csd
+./McCurdy Collection/Cabbage/Effects/pvShift_1.csd
+./McCurdy Collection/Cabbage/Effects/pvSmooth.csd
+./McCurdy Collection/Cabbage/Effects/pvSmooth_1.csd
+./McCurdy Collection/Cabbage/Effects/pvsWarp.csd
+./McCurdy Collection/Cabbage/Effects/pvsWarp_1.csd
+./McCurdy Collection/Cabbage/Effects/resony.csd
+./McCurdy Collection/Cabbage/Effects/resony_1.csd
+./McCurdy Collection/Cabbage/Effects/Reverse.csd
+./McCurdy Collection/Cabbage/Effects/Reverse_1.csd
+./McCurdy Collection/Cabbage/Effects/RingModulator.csd
+./McCurdy Collection/Cabbage/Effects/RingModulator_1.csd
+./McCurdy Collection/Cabbage/Effects/StereoChorus.csd
+./McCurdy Collection/Cabbage/Effects/StereoChorus_1.csd
+./McCurdy Collection/Cabbage/Effects/StuckBuffer.csd
+./McCurdy Collection/Cabbage/Effects/StutterFilter.csd
+./McCurdy Collection/Cabbage/Effects/TempoDelay.csd
+./McCurdy Collection/Cabbage/Effects/TempoDelay_1.csd
+./McCurdy Collection/Cabbage/Effects/TimeSlip.csd
+./McCurdy Collection/Cabbage/Effects/TriggerDelay.csd
+./McCurdy Collection/Cabbage/Effects/Vocoder.csd
+./McCurdy Collection/Cabbage/Effects/Vocoder_1.csd
+./McCurdy Collection/Cabbage/Effects/waveset.csd
+./McCurdy Collection/Cabbage/Effects/waveset_1.csd
+./McCurdy Collection/Cabbage/Effects/wguide1.csd
+./McCurdy Collection/Cabbage/Effects/wguide1_1.csd
+./McCurdy Collection/Cabbage/Effects/wguide2.csd
+./McCurdy Collection/Cabbage/Effects/wguide2_1.csd
+./McCurdy Collection/Cabbage/FilePlayers/DiskinFilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/FileRecorder.csd
+./McCurdy Collection/Cabbage/FilePlayers/FileStretcher.csd
+./McCurdy Collection/Cabbage/FilePlayers/Flooper2FilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/FogFilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/Grain3FilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/LoscilFilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/MincerFilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/SoundwarpFilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/SyncgrainFilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/Table3FilePlayer.csd
+./McCurdy Collection/Cabbage/FilePlayers/TemposcalFilePlayer.csd
+./McCurdy Collection/Cabbage/FunAndGames/Bubbles.csd
+./McCurdy Collection/Cabbage/FunAndGames/Electricity.csd
+./McCurdy Collection/Cabbage/FunAndGames/PebblesInAPond.csd
+./McCurdy Collection/Cabbage/FunAndGames/PingClang.csd
+./McCurdy Collection/Cabbage/FunAndGames/Rhythmicon.csd
+./McCurdy Collection/Cabbage/FunAndGames/sonic_lava_lamp.csd
+./McCurdy Collection/Cabbage/FunAndGames/Splat!.csd
+./McCurdy Collection/Cabbage/FunAndGames/Windmills.csd
+./McCurdy Collection/Cabbage/GEN/Calculated_F_Tables.csd
+./McCurdy Collection/Cabbage/GEN/FFTSpectrum.csd
+./McCurdy Collection/Cabbage/GEN/GEN02.csd
+./McCurdy Collection/Cabbage/GEN/GEN02_1.csd
+./McCurdy Collection/Cabbage/GEN/GEN02_MidiMonitor.csd
+./McCurdy Collection/Cabbage/GEN/GEN05.csd
+./McCurdy Collection/Cabbage/GEN/GEN07.csd
+./McCurdy Collection/Cabbage/GEN/GEN08.csd
+./McCurdy Collection/Cabbage/GEN/GEN08_Envelopes.csd
+./McCurdy Collection/Cabbage/GEN/GEN09.csd
+./McCurdy Collection/Cabbage/GEN/GEN09_1.csd
+./McCurdy Collection/Cabbage/GEN/GEN10.csd
+./McCurdy Collection/Cabbage/GEN/GEN10_1.csd
+./McCurdy Collection/Cabbage/GEN/GEN16.csd
+./McCurdy Collection/Cabbage/GEN/GEN16_1.csd
+./McCurdy Collection/Cabbage/GEN/GEN17.csd
+./McCurdy Collection/Cabbage/GEN/GEN19.csd
+./McCurdy Collection/Cabbage/GEN/GEN20.csd
+./McCurdy Collection/Cabbage/GEN/GEN21.csd
+./McCurdy Collection/Cabbage/GEN/GEN30.csd
+./McCurdy Collection/Cabbage/GEN/GEN33.csd
+./McCurdy Collection/Cabbage/GEN/GEN40.csd
+./McCurdy Collection/Cabbage/GEN/GEN41.csd
+./McCurdy Collection/Cabbage/GEN/GEN42.csd
+./McCurdy Collection/Cabbage/GEN/Log_Curves.csd
+./McCurdy Collection/Cabbage/GEN/Oscilloscope.csd
+./McCurdy Collection/Cabbage/GEN/RandomNumberGenerators.csd
+./McCurdy Collection/Cabbage/Instructional/ADSR_Envelope.csd
+./McCurdy Collection/Cabbage/Instructional/ModifyingWidgetAppearance.csd
+./McCurdy Collection/Cabbage/Instructional/MouseSense.csd
+./McCurdy Collection/Cabbage/Instructional/RealtimeScoreEvents.csd
+./McCurdy Collection/Cabbage/LiveSampling/DiskRecPlay.csd
+./McCurdy Collection/Cabbage/LiveSampling/DiskRecPlay_1.csd
+./McCurdy Collection/Cabbage/LiveSampling/LiveLooper.csd
+./McCurdy Collection/Cabbage/LiveSampling/PvsRecPlay.csd
+./McCurdy Collection/Cabbage/LiveSampling/PvsRecPlay_1.csd
+./McCurdy Collection/Cabbage/LiveSampling/TabRecPlay.csd
+./McCurdy Collection/Cabbage/LiveSampling/TabRecPlay_1.csd
+./McCurdy Collection/Cabbage/MIDI/FunctionGenerator.csd
+./McCurdy Collection/Cabbage/MIDI/MIDI_Arpeggiator.csd
+./McCurdy Collection/Cabbage/MIDI/MIDI_Delay.csd
+./McCurdy Collection/Cabbage/MIDI/MIDI_Monitor.csd
+./McCurdy Collection/Cabbage/Synths/Arpeggiator.csd
+./McCurdy Collection/Cabbage/Synths/Arpeggiator_1.csd
+./McCurdy Collection/Cabbage/Synths/BarModel.csd
+./McCurdy Collection/Cabbage/Synths/BassGuitar.csd
+./McCurdy Collection/Cabbage/Synths/BassGuitar_1.csd
+./McCurdy Collection/Cabbage/Synths/bassline.csd
+./McCurdy Collection/Cabbage/Synths/bassline_1.csd
+./McCurdy Collection/Cabbage/Synths/Bounce.csd
+./McCurdy Collection/Cabbage/Synths/BouncingObject.csd
+./McCurdy Collection/Cabbage/Synths/BreakBeatCutter.csd
+./McCurdy Collection/Cabbage/Synths/CellularAutomata.csd
+./McCurdy Collection/Cabbage/Synths/Choir.csd
+./McCurdy Collection/Cabbage/Synths/Choir_1.csd
+./McCurdy Collection/Cabbage/Synths/Clavinet.csd
+./McCurdy Collection/Cabbage/Synths/Clavinet_1.csd
+./McCurdy Collection/Cabbage/Synths/CZSynth.csd
+./McCurdy Collection/Cabbage/Synths/DrumPads.csd
+./McCurdy Collection/Cabbage/Synths/Dust.csd
+./McCurdy Collection/Cabbage/Synths/Dust_1.csd
+./McCurdy Collection/Cabbage/Synths/FM_Clang.csd
+./McCurdy Collection/Cabbage/Synths/FractalNoise.csd
+./McCurdy Collection/Cabbage/Synths/GaussianDust.csd
+./McCurdy Collection/Cabbage/Synths/GaussianDust_1.csd
+./McCurdy Collection/Cabbage/Synths/gbuzz_synth.csd
+./McCurdy Collection/Cabbage/Synths/gbuzz_synth_1.csd
+./McCurdy Collection/Cabbage/Synths/GuitarChords.csd
+./McCurdy Collection/Cabbage/Synths/GuitarChords_1.csd
+./McCurdy Collection/Cabbage/Synths/Harmonics.csd
+./McCurdy Collection/Cabbage/Synths/Honk.csd
+./McCurdy Collection/Cabbage/Synths/hsboscil_synth.csd
+./McCurdy Collection/Cabbage/Synths/hsboscil_synth_1.csd
+./McCurdy Collection/Cabbage/Synths/ImageSliders.csd
+./McCurdy Collection/Cabbage/Synths/ImageSwitches.csd
+./McCurdy Collection/Cabbage/Synths/InharmonicAdditiveSynth.csd
+./McCurdy Collection/Cabbage/Synths/InharmonicAdditiveSynth_1.csd
+./McCurdy Collection/Cabbage/Synths/LorenzSynth.csd
+./McCurdy Collection/Cabbage/Synths/Metronome.csd
+./McCurdy Collection/Cabbage/Synths/Metronome_1.csd
+./McCurdy Collection/Cabbage/Synths/MiniPops.csd
+./McCurdy Collection/Cabbage/Synths/MouseChord.csd
+./McCurdy Collection/Cabbage/Synths/oscbnk_synth.csd
+./McCurdy Collection/Cabbage/Synths/oscbnk_synth_1.csd
+./McCurdy Collection/Cabbage/Synths/Parp.csd
+./McCurdy Collection/Cabbage/Synths/PinkNoise.csd
+./McCurdy Collection/Cabbage/Synths/PinkNoise_1.csd
+./McCurdy Collection/Cabbage/Synths/RingModSynth.csd
+./McCurdy Collection/Cabbage/Synths/RubbedResonators.csd
+./McCurdy Collection/Cabbage/Synths/RubbedResonators_1.csd
+./McCurdy Collection/Cabbage/Synths/sonic_lava_lamp.csd
+./McCurdy Collection/Cabbage/Synths/StringFeedback.csd
+./McCurdy Collection/Cabbage/Synths/StringFeedback_1.csd
+./McCurdy Collection/Cabbage/Synths/Strum.csd
+./McCurdy Collection/Cabbage/Synths/TR-808.csd
+./McCurdy Collection/Cabbage/Synths/TR-808_1.csd
+./McCurdy Collection/Cabbage/Synths/WavetableSynth.csd
+./McCurdy Collection/Cabbage/Synths/WavetableSynth_1.csd
+./McCurdy Collection/Cabbage/Synths/WhiteNoise.csd
+./McCurdy Collection/Cabbage/Synths/WhiteNoise_1.csd
+./McCurdy Collection/Convolution/convolve.csd
+./McCurdy Collection/Convolution/convolve_1.csd
+./McCurdy Collection/Convolution/dconv.csd
+./McCurdy Collection/Convolution/dconv_1.csd
+./McCurdy Collection/Convolution/ftconv.csd
+./McCurdy Collection/Convolution/ftconv_1.csd
+./McCurdy Collection/Convolution/pconvolve.csd
+./McCurdy Collection/Convolution/pconvolve_1.csd
+./McCurdy Collection/Delays/delayCompletedPitchShifter.csd
+./McCurdy Collection/Delays/delayCompletedPitchShifter_1.csd
+./McCurdy Collection/Delays/DelayDoppler.csd
+./McCurdy Collection/Delays/DelayDoppler_1.csd
+./McCurdy Collection/Delays/delayfeedback.csd
+./McCurdy Collection/Delays/delayfeedback_1.csd
+./McCurdy Collection/Delays/delayfiltersinloop.csd
+./McCurdy Collection/Delays/delayfiltersinloop_1.csd
+./McCurdy Collection/Delays/delayflanger.csd
+./McCurdy Collection/Delays/delayflanger_1.csd
+./McCurdy Collection/Delays/delayportamento.csd
+./McCurdy Collection/Delays/delayportamento_1.csd
+./McCurdy Collection/Delays/Delays.csd
+./McCurdy Collection/Delays/delaySimplePitchShifter.csd
+./McCurdy Collection/Delays/delaySimplePitchShifter_1.csd
+./McCurdy Collection/Delays/delayStereoChorus.csd
+./McCurdy Collection/Delays/delayStereoChorus_1.csd
+./McCurdy Collection/Delays/Delays_1.csd
+./McCurdy Collection/Delays/delayThruZeroFlanger.csd
+./McCurdy Collection/Delays/delayThruZeroFlanger_1.csd
+./McCurdy Collection/Delays/delayw_delayr_deltap.csd
+./McCurdy Collection/Delays/delayw_delayr_deltap_1.csd
+./McCurdy Collection/Delays/Delay_PitchShiftInLoop.csd
+./McCurdy Collection/Delays/Delay_PitchShiftInLoop_1.csd
+./McCurdy Collection/Delays/DoubleDelayCrossedFeedback.csd
+./McCurdy Collection/Delays/DoubleDelayCrossedFeedback_1.csd
+./McCurdy Collection/Delays/MultitapDelay.csd
+./McCurdy Collection/Delays/MultitapDelay_1.csd
+./McCurdy Collection/Delays/pvsdelay.csd
+./McCurdy Collection/Delays/pvsdelay_1.csd
+./McCurdy Collection/Delays/StereoPingPongDelay.csd
+./McCurdy Collection/Delays/StereoPingPongDelay_1.csd
+./McCurdy Collection/Distortion/BitDepthReduction.csd
+./McCurdy Collection/Distortion/BitDepthReduction_1.csd
+./McCurdy Collection/Distortion/clip.csd
+./McCurdy Collection/Distortion/clip_1.csd
+./McCurdy Collection/Distortion/distort.csd
+./McCurdy Collection/Distortion/distort1.csd
+./McCurdy Collection/Distortion/distort1_1.csd
+./McCurdy Collection/Distortion/distort_1.csd
+./McCurdy Collection/Distortion/fold.csd
+./McCurdy Collection/Distortion/fold_1.csd
+./McCurdy Collection/Distortion/pdclip.csd
+./McCurdy Collection/Distortion/pdclip_1.csd
+./McCurdy Collection/Distortion/powershape.csd
+./McCurdy Collection/Distortion/powershape_1.csd
+./McCurdy Collection/DynamicsProcessing/compress.csd
+./McCurdy Collection/DynamicsProcessing/compress_1.csd
+./McCurdy Collection/DynamicsProcessing/dam.csd
+./McCurdy Collection/DynamicsProcessing/dam_1.csd
+./McCurdy Collection/DynamicsProcessing/exciter.csd
+./McCurdy Collection/DynamicsProcessing/NoiseGate.csd
+./McCurdy Collection/DynamicsProcessing/NoiseGate_1.csd
+./McCurdy Collection/FFT/ATSadd.csd
+./McCurdy Collection/FFT/ATSadd_1.csd
+./McCurdy Collection/FFT/mincer.csd
+./McCurdy Collection/FFT/mincer_1.csd
+./McCurdy Collection/FFT/pvadd.csd
+./McCurdy Collection/FFT/pvadd_1.csd
+./McCurdy Collection/FFT/pvoc.csd
+./McCurdy Collection/FFT/pvoc_1.csd
+./McCurdy Collection/FFT/pvsadsyn.csd
+./McCurdy Collection/FFT/pvsadsyn_1.csd
+./McCurdy Collection/FFT/pvsanal_pvsynth.csd
+./McCurdy Collection/FFT/pvsanal_pvsynth_1.csd
+./McCurdy Collection/FFT/pvsarp.csd
+./McCurdy Collection/FFT/pvsarp_1.csd
+./McCurdy Collection/FFT/pvsbandp.csd
+./McCurdy Collection/FFT/pvsbandp_1.csd
+./McCurdy Collection/FFT/pvsbandr.csd
+./McCurdy Collection/FFT/pvsbandr_1.csd
+./McCurdy Collection/FFT/pvsblur.csd
+./McCurdy Collection/FFT/pvsblur_1.csd
+./McCurdy Collection/FFT/pvsbufread.csd
+./McCurdy Collection/FFT/pvsbufread2.csd
+./McCurdy Collection/FFT/pvsbufread_1.csd
+./McCurdy Collection/FFT/pvscale.csd
+./McCurdy Collection/FFT/pvscale_1.csd
+./McCurdy Collection/FFT/pvscross.csd
+./McCurdy Collection/FFT/pvscross_1.csd
+./McCurdy Collection/FFT/pvsfilter.csd
+./McCurdy Collection/FFT/pvsfilter_1.csd
+./McCurdy Collection/FFT/pvsfread.csd
+./McCurdy Collection/FFT/pvsfread_1.csd
+./McCurdy Collection/FFT/pvsfreeze.csd
+./McCurdy Collection/FFT/pvsfreeze_1.csd
+./McCurdy Collection/FFT/pvshift.csd
+./McCurdy Collection/FFT/pvshift_1.csd
+./McCurdy Collection/FFT/pvsifd_partials_resyn.csd
+./McCurdy Collection/FFT/pvsifd_partials_resyn_1.csd
+./McCurdy Collection/FFT/pvsmooth.csd
+./McCurdy Collection/FFT/pvsmooth_1.csd
+./McCurdy Collection/FFT/pvsmorph.csd
+./McCurdy Collection/FFT/pvsmorph_1.csd
+./McCurdy Collection/FFT/pvspitch.csd
+./McCurdy Collection/FFT/pvspitch_1.csd
+./McCurdy Collection/FFT/pvstanal.csd
+./McCurdy Collection/FFT/pvstanal_1.csd
+./McCurdy Collection/FFT/pvstencil.csd
+./McCurdy Collection/FFT/pvstencil_1.csd
+./McCurdy Collection/FFT/pvsvoc.csd
+./McCurdy Collection/FFT/pvsvoc_1.csd
+./McCurdy Collection/FFT/pvswarp.csd
+./McCurdy Collection/FFT/pvswarp_1.csd
+./McCurdy Collection/FFT/pvswrite.csd
+./McCurdy Collection/FFT/pvswrite_1.csd
+./McCurdy Collection/FFT/temposcal.csd
+./McCurdy Collection/FFT/temposcal_1.csd
+./McCurdy Collection/Filters/areson.csd
+./McCurdy Collection/Filters/areson_1.csd
+./McCurdy Collection/Filters/atone.csd
+./McCurdy Collection/Filters/atonex.csd
+./McCurdy Collection/Filters/atonex_1.csd
+./McCurdy Collection/Filters/atone_1.csd
+./McCurdy Collection/Filters/bandpass.csd
+./McCurdy Collection/Filters/bandpass_1.csd
+./McCurdy Collection/Filters/bqrez.csd
+./McCurdy Collection/Filters/bqrez_1.csd
+./McCurdy Collection/Filters/butterbp.csd
+./McCurdy Collection/Filters/butterbp_1.csd
+./McCurdy Collection/Filters/butterbr.csd
+./McCurdy Collection/Filters/butterbr_1.csd
+./McCurdy Collection/Filters/butterhp.csd
+./McCurdy Collection/Filters/butterhp_1.csd
+./McCurdy Collection/Filters/butterlp.csd
+./McCurdy Collection/Filters/butterlp_1.csd
+./McCurdy Collection/Filters/clfilt.csd
+./McCurdy Collection/Filters/clfilt_1.csd
+./McCurdy Collection/Filters/compare_standard_filters.csd
+./McCurdy Collection/Filters/compare_standard_filters_1.csd
+./McCurdy Collection/Filters/eqfil.csd
+./McCurdy Collection/Filters/eqfil_1.csd
+./McCurdy Collection/Filters/FormantFilter.csd
+./McCurdy Collection/Filters/FormantFilter_1.csd
+./McCurdy Collection/Filters/hilbert.csd
+./McCurdy Collection/Filters/hilbert_1.csd
+./McCurdy Collection/Filters/lowpass2.csd
+./McCurdy Collection/Filters/lowpass2_1.csd
+./McCurdy Collection/Filters/lowres.csd
+./McCurdy Collection/Filters/lowresx.csd
+./McCurdy Collection/Filters/lowresx_1.csd
+./McCurdy Collection/Filters/lowres_1.csd
+./McCurdy Collection/Filters/lpf18.csd
+./McCurdy Collection/Filters/lpf18_1.csd
+./McCurdy Collection/Filters/moogladder.csd
+./McCurdy Collection/Filters/moogladder_1.csd
+./McCurdy Collection/Filters/moogvcf.csd
+./McCurdy Collection/Filters/moogvcf_1.csd
+./McCurdy Collection/Filters/pareq.csd
+./McCurdy Collection/Filters/pareq_1.csd
+./McCurdy Collection/Filters/rbjeq.csd
+./McCurdy Collection/Filters/rbjeq_1.csd
+./McCurdy Collection/Filters/reson.csd
+./McCurdy Collection/Filters/resony.csd
+./McCurdy Collection/Filters/resony_1.csd
+./McCurdy Collection/Filters/reson_1.csd
+./McCurdy Collection/Filters/reson_resonr_resonz.csd
+./McCurdy Collection/Filters/reson_resonr_resonz_1.csd
+./McCurdy Collection/Filters/rezzy.csd
+./McCurdy Collection/Filters/rezzy_1.csd
+./McCurdy Collection/Filters/statevar.csd
+./McCurdy Collection/Filters/statevar_1.csd
+./McCurdy Collection/Filters/svfilter.csd
+./McCurdy Collection/Filters/svfilter_1.csd
+./McCurdy Collection/Filters/tbvcf.csd
+./McCurdy Collection/Filters/tbvcf_1.csd
+./McCurdy Collection/Filters/tone.csd
+./McCurdy Collection/Filters/tonex.csd
+./McCurdy Collection/Filters/tonex_1.csd
+./McCurdy Collection/Filters/tone_1.csd
+./McCurdy Collection/Filters/vlowres.csd
+./McCurdy Collection/Filters/vlowres_1.csd
+./McCurdy Collection/FLTK/DynamicGUIBuilder.csd
+./McCurdy Collection/FLTK/DynamicGUIBuilder_1.csd
+./McCurdy Collection/FLTK/FLbox.csd
+./McCurdy Collection/FLTK/FLbox_1.csd
+./McCurdy Collection/FLTK/FLbutBank.csd
+./McCurdy Collection/FLTK/FLbutBank_1.csd
+./McCurdy Collection/FLTK/FLbutton.csd
+./McCurdy Collection/FLTK/FLbutton_1.csd
+./McCurdy Collection/FLTK/FLcount.csd
+./McCurdy Collection/FLTK/FLcount_1.csd
+./McCurdy Collection/FLTK/FLjoy.csd
+./McCurdy Collection/FLTK/FLjoy_1.csd
+./McCurdy Collection/FLTK/FLkeyIn.csd
+./McCurdy Collection/FLTK/FLkeyIn_1.csd
+./McCurdy Collection/FLTK/FLknob.csd
+./McCurdy Collection/FLTK/FLknob_1.csd
+./McCurdy Collection/FLTK/FLkybd.csd
+./McCurdy Collection/FLTK/FLkybd_1.csd
+./McCurdy Collection/FLTK/FLmouse1.csd
+./McCurdy Collection/FLTK/FLmouse1_1.csd
+./McCurdy Collection/FLTK/FLmouse2.csd
+./McCurdy Collection/FLTK/FLmouse2_1.csd
+./McCurdy Collection/FLTK/FLmouse3.csd
+./McCurdy Collection/FLTK/FLmouse3_1.csd
+./McCurdy Collection/FLTK/FLpanel.csd
+./McCurdy Collection/FLTK/FLpanel_1.csd
+./McCurdy Collection/FLTK/FLroller.csd
+./McCurdy Collection/FLTK/FLroller_1.csd
+./McCurdy Collection/FLTK/FLscroll.csd
+./McCurdy Collection/FLTK/FLscroll_1.csd
+./McCurdy Collection/FLTK/FLsetColor.csd
+./McCurdy Collection/FLTK/FLsetColor_1.csd
+./McCurdy Collection/FLTK/FLsetPosition_FLsetSize.csd
+./McCurdy Collection/FLTK/FLsetPosition_FLsetSize_1.csd
+./McCurdy Collection/FLTK/FLsetVal_i FLsetVal.csd
+./McCurdy Collection/FLTK/FLsetVal_i FLsetVal_1.csd
+./McCurdy Collection/FLTK/FLslider.csd
+./McCurdy Collection/FLTK/FLslider_1.csd
+./McCurdy Collection/FLTK/FLtabsFLgroup.csd
+./McCurdy Collection/FLTK/FLtabsFLgroup_1.csd
+./McCurdy Collection/FLTK/FLtext.csd
+./McCurdy Collection/FLTK/FLtext_1.csd
+./McCurdy Collection/FLTK/FLTKPitchBendWheel.csd
+./McCurdy Collection/FLTK/FLTKPitchBendWheel_1.csd
+./McCurdy Collection/FLTK/FLvalue.csd
+./McCurdy Collection/FLTK/FLvalue_1.csd
+./McCurdy Collection/FLTK/FLvslidBnk.csd
+./McCurdy Collection/FLTK/FLvslidBnk_1.csd
+./McCurdy Collection/FLTK/FLWidgetAppearanceExplorer.csd
+./McCurdy Collection/FLTK/FLWidgetAppearanceExplorer_1.csd
+./McCurdy Collection/FLTK/FLxyin.csd
+./McCurdy Collection/FLTK/FLxyin_1.csd
+./McCurdy Collection/FLTK/MIDI&FLTK_Combined.csd
+./McCurdy Collection/FLTK/MIDI&FLTK_Combined_1.csd
+./McCurdy Collection/FLTK/PositionSensitveFLbutton.csd
+./McCurdy Collection/FLTK/PositionSensitveFLbutton_1.csd
+./McCurdy Collection/FLTK/RandomMovingFLjoy.csd
+./McCurdy Collection/FLTK/RandomMovingFLjoy_1.csd
+./McCurdy Collection/FLTK/SliderMultiVariable.csd
+./McCurdy Collection/FLTK/SliderMultiVariable_1.csd
+./McCurdy Collection/FLTK/xyin.csd
+./McCurdy Collection/FLTK/xyin_1.csd
+./McCurdy Collection/FM_PM_RM_AM/2xModulatorCarrierWithEnvelopes.csd
+./McCurdy Collection/FM_PM_RM_AM/2xModulatorCarrierWithEnvelopes_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FM2ModCar.csd
+./McCurdy Collection/FM_PM_RM_AM/FM2ModCar_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FM3ModCar.csd
+./McCurdy Collection/FM_PM_RM_AM/FM3ModCar_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FMMod2Car.csd
+./McCurdy Collection/FM_PM_RM_AM/FMMod2Car_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FMModCarModCar.csd
+./McCurdy Collection/FM_PM_RM_AM/FMModCarModCar_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FMModModCar.csd
+./McCurdy Collection/FM_PM_RM_AM/FMModModCarEnvelopes.csd
+./McCurdy Collection/FM_PM_RM_AM/FMModModCarEnvelopes_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FMModModCar_1.csd
+./McCurdy Collection/FM_PM_RM_AM/FMSynthesisVibratoToSideBands.csd
+./McCurdy Collection/FM_PM_RM_AM/FMSynthesisVibratoToSideBands_1.csd
+./McCurdy Collection/FM_PM_RM_AM/foscil_foscili.csd
+./McCurdy Collection/FM_PM_RM_AM/foscil_foscili_1.csd
+./McCurdy Collection/FM_PM_RM_AM/ModulatorCarrier.csd
+./McCurdy Collection/FM_PM_RM_AM/ModulatorCarrierWithEnvelopes.csd
+./McCurdy Collection/FM_PM_RM_AM/ModulatorCarrierWithEnvelopes_1.csd
+./McCurdy Collection/FM_PM_RM_AM/ModulatorCarrier_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisCf.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisCf_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMCf.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMCf_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMfC.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMfC_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMMC.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMMC_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMMMC.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMMMC_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMMM_C.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMMM_C_1.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMM_C.csd
+./McCurdy Collection/FM_PM_RM_AM/PhaseModulationSynthesisMM_C_1.csd
+./McCurdy Collection/FM_PM_RM_AM/RingModulationAmplitudeModulation.csd
+./McCurdy Collection/FM_PM_RM_AM/RingModulationAmplitudeModulation_1.csd
+./McCurdy Collection/FM_PM_RM_AM/SimpleModulatorCarrier.csd
+./McCurdy Collection/FM_PM_RM_AM/SimpleModulatorCarrier_1.csd
+./McCurdy Collection/FM_PM_RM_AM/TX81Z.csd
+./McCurdy Collection/FM_PM_RM_AM/TX81Z_1.csd
+./McCurdy Collection/GEN/GEN01.csd
+./McCurdy Collection/GEN/GEN01_1.csd
+./McCurdy Collection/GEN/GEN02.csd
+./McCurdy Collection/GEN/GEN02_1.csd
+./McCurdy Collection/GEN/GEN03.csd
+./McCurdy Collection/GEN/GEN03_1.csd
+./McCurdy Collection/GEN/GEN05_07.csd
+./McCurdy Collection/GEN/GEN05_07_1.csd
+./McCurdy Collection/GEN/GEN06.csd
+./McCurdy Collection/GEN/GEN06_1.csd
+./McCurdy Collection/GEN/GEN08.csd
+./McCurdy Collection/GEN/GEN08_1.csd
+./McCurdy Collection/GEN/GEN09.csd
+./McCurdy Collection/GEN/GEN09_1.csd
+./McCurdy Collection/GEN/GEN10.csd
+./McCurdy Collection/GEN/GEN10_1.csd
+./McCurdy Collection/GEN/GEN11.csd
+./McCurdy Collection/GEN/GEN11_1.csd
+./McCurdy Collection/GEN/GEN12.csd
+./McCurdy Collection/GEN/GEN12_1.csd
+./McCurdy Collection/GEN/GEN16.csd
+./McCurdy Collection/GEN/GEN16_1.csd
+./McCurdy Collection/GEN/GEN17.csd
+./McCurdy Collection/GEN/GEN17_1.csd
+./McCurdy Collection/GEN/GEN18.csd
+./McCurdy Collection/GEN/GEN18_1.csd
+./McCurdy Collection/GEN/GEN19.csd
+./McCurdy Collection/GEN/GEN19_1.csd
+./McCurdy Collection/GEN/GEN20.csd
+./McCurdy Collection/GEN/GEN20_1.csd
+./McCurdy Collection/GEN/GEN21.csd
+./McCurdy Collection/GEN/GEN21_1.csd
+./McCurdy Collection/GEN/GEN25_27.csd
+./McCurdy Collection/GEN/GEN25_27_1.csd
+./McCurdy Collection/GEN/GEN30.csd
+./McCurdy Collection/GEN/GEN41.csd
+./McCurdy Collection/GEN/GEN41_1.csd
+./McCurdy Collection/GEN/GEN42.csd
+./McCurdy Collection/GEN/GEN42_1.csd
+./McCurdy Collection/GranularSynthesis/diskgrain.csd
+./McCurdy Collection/GranularSynthesis/diskgrain_1.csd
+./McCurdy Collection/GranularSynthesis/fof.csd
+./McCurdy Collection/GranularSynthesis/fof2.csd
+./McCurdy Collection/GranularSynthesis/fof2_1.csd
+./McCurdy Collection/GranularSynthesis/fofx5.csd
+./McCurdy Collection/GranularSynthesis/fofx5_1.csd
+./McCurdy Collection/GranularSynthesis/fof_1.csd
+./McCurdy Collection/GranularSynthesis/fog.csd
+./McCurdy Collection/GranularSynthesis/fog_1.csd
+./McCurdy Collection/GranularSynthesis/grain.csd
+./McCurdy Collection/GranularSynthesis/grain2.csd
+./McCurdy Collection/GranularSynthesis/grain2_1.csd
+./McCurdy Collection/GranularSynthesis/grain3.csd
+./McCurdy Collection/GranularSynthesis/grain3_1.csd
+./McCurdy Collection/GranularSynthesis/grain_1.csd
+./McCurdy Collection/GranularSynthesis/granule.csd
+./McCurdy Collection/GranularSynthesis/granule_1.csd
+./McCurdy Collection/GranularSynthesis/LiveSndwarp.csd
+./McCurdy Collection/GranularSynthesis/LiveSndwarp_1.csd
+./McCurdy Collection/GranularSynthesis/MorphingPresets.csd
+./McCurdy Collection/GranularSynthesis/MorphingPresets_1.csd
+./McCurdy Collection/GranularSynthesis/SchedkwhenGranulation.csd
+./McCurdy Collection/GranularSynthesis/SchedkwhenGranulation_1.csd
+./McCurdy Collection/GranularSynthesis/sndwarp.csd
+./McCurdy Collection/GranularSynthesis/sndwarp_1.csd
+./McCurdy Collection/GranularSynthesis/syncgrain.csd
+./McCurdy Collection/GranularSynthesis/syncgrain_1.csd
+./McCurdy Collection/GranularSynthesis/syncloop.csd
+./McCurdy Collection/GranularSynthesis/syncloop_1.csd
+./McCurdy Collection/GranularSynthesis/WaveletGapping.csd
+./McCurdy Collection/GranularSynthesis/WaveletGapping_1.csd
+./McCurdy Collection/GranularSynthesis/wavelets.csd
+./McCurdy Collection/GranularSynthesis/wavelets_1.csd
+./McCurdy Collection/HeadMouse/MouseBass.csd
+./McCurdy Collection/HeadMouse/MouseBass_1.csd
+./McCurdy Collection/HeadMouse/MouseChord.csd
+./McCurdy Collection/HeadMouse/MouseChord_1.csd
+./McCurdy Collection/HeadMouse/MouseKeyboard1Octave.csd
+./McCurdy Collection/HeadMouse/MouseKeyboard1Octave_1.csd
+./McCurdy Collection/HeadMouse/MouseKeyboard2Octave.csd
+./McCurdy Collection/HeadMouse/MouseKeyboard2Octave_1.csd
+./McCurdy Collection/LiveAudioIn/follow2EnvelopeFilter.csd
+./McCurdy Collection/LiveAudioIn/follow2EnvelopeFilter_1.csd
+./McCurdy Collection/LiveAudioIn/ins.csd
+./McCurdy Collection/LiveAudioIn/ins_1.csd
+./McCurdy Collection/LiveAudioIn/meters.csd
+./McCurdy Collection/LiveAudioIn/meters_1.csd
+./McCurdy Collection/LiveSampling/DiskRecAndPlayback.csd
+./McCurdy Collection/LiveSampling/DiskRecAndPlayback_1.csd
+./McCurdy Collection/LiveSampling/DynamicTriggeredRecord.csd
+./McCurdy Collection/LiveSampling/DynamicTriggeredRecord_1.csd
+./McCurdy Collection/LiveSampling/MultiTableAutoRecord.csd
+./McCurdy Collection/LiveSampling/MultiTableAutoRecord_1.csd
+./McCurdy Collection/LiveSampling/MultiTableRec.csd
+./McCurdy Collection/LiveSampling/MultiTableRec_1.csd
+./McCurdy Collection/LiveSampling/sndloop.csd
+./McCurdy Collection/LiveSampling/sndloop_1.csd
+./McCurdy Collection/LiveSampling/TableRecBasic.csd
+./McCurdy Collection/LiveSampling/TableRecBasic_1.csd
+./McCurdy Collection/McCurdy Realtime C/3DAudio/hrtfer_hrtfmove_hrtfmove2_hrftstat.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/AdditiveSynthesisSpectralSketching.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/ftmorph.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/GEN09InharmonicTable.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/HarmonicAdditiveSynthesis1.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/HarmonicAdditiveSynthesis2.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/InharmonicAdditiveSynthesis.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/ModalAddSyn.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/PartialStrengthsEnvelope.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/SpectrumAnalyser.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/SpectrumAnalyser100.csd
+./McCurdy Collection/McCurdy Realtime C/AdditiveSynthesis/StretchedHarmonicPartials.csd
+./McCurdy Collection/McCurdy Realtime C/ArduinoProcessingOSC/Arduino_Processing_OSC_Csound.csd
+./McCurdy Collection/McCurdy Realtime C/ArduinoProcessingOSC/Arduino_Processing_OSC_CsoundQT.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/AutopanTremolo.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/BandFilter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/BreakBeatCutter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/clfilt.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/clip.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/ConvolutionReverb.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/DelayGrain.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Doppler.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/DopplerSpin.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/EnvelopeFollower.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/FilterLFO.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Flanger.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/FormantFilter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/FrequencyShifter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/HighpassFilter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/HRTF3D.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/LiveSndwarp.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/LoFi.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/LowpassFilter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/ModulatingDelays.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/MultiReverb.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pdclip.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Phaser.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Phaser1.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Phaser2.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/PingPongDelay.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Powershape.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsAdsyn.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsBandp.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsBandr.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsBlur.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsBuffer.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvScale.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsEffects.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsFreeze.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvShift.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvSmooth.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/pvsWarp.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/resony.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Reverse.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/RingModulator.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/StereoChorus.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/StutterFilter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/TempoDelay.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/Vocoder.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/waveset.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/wguide1.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Effects/wguide2.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/GEN/GEN02.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/GEN/GEN09.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/GEN/GEN10.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/GEN/GEN16.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/LiveSampling/DiskRecPlay.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/LiveSampling/PvsRecPlay.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/LiveSampling/TabRecPlay.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/Arpeggiator.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/BassGuitar.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/bassline.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/BreakBeatCutter.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/Choir.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/Clavinet.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/Dust.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/GaussianDust.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/gbuzz_synth.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/GuitarChords.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/hsboscil_synth.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/InharmonicAdditiveSynth.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/Metronome.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/oscbnk_synth.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/PinkNoise.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/RubbedResonators.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/sonic_lava_lamp.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/StringFeedback.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/TR-808.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/WavetableSynth.csd
+./McCurdy Collection/McCurdy Realtime C/Cabbage/Synths/WhiteNoise.csd
+./McCurdy Collection/McCurdy Realtime C/Convolution/convolve.csd
+./McCurdy Collection/McCurdy Realtime C/Convolution/dconv.csd
+./McCurdy Collection/McCurdy Realtime C/Convolution/ftconv.csd
+./McCurdy Collection/McCurdy Realtime C/Convolution/pconvolve.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayCompletedPitchShifter.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/DelayDoppler.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayfeedback.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayfiltersinloop.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayflanger.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayportamento.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/Delays.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delaySimplePitchShifter.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayStereoChorus.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayThruZeroFlanger.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/delayw_delayr_deltap.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/Delay_PitchShiftInLoop.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/DoubleDelayCrossedFeedback.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/MultitapDelay.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/pvsdelay.csd
+./McCurdy Collection/McCurdy Realtime C/Delays/StereoPingPongDelay.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/BitDepthReduction.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/clip.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/distort.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/distort1.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/fold.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/pdclip.csd
+./McCurdy Collection/McCurdy Realtime C/Distortion/powershape.csd
+./McCurdy Collection/McCurdy Realtime C/DynamicsProcessing/compress.csd
+./McCurdy Collection/McCurdy Realtime C/DynamicsProcessing/dam.csd
+./McCurdy Collection/McCurdy Realtime C/DynamicsProcessing/NoiseGate.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/ATSadd.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/mincer.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvadd.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvoc.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsadsyn.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsanal_pvsynth.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsarp.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsbandp.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsbandr.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsblur.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsbufread.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvscale.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvscross.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsfilter.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsfread.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsfreeze.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvshift.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsifd_partials_resyn.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsmooth.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsmorph.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvspitch.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvstanal.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvstencil.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvsvoc.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvswarp.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/pvswrite.csd
+./McCurdy Collection/McCurdy Realtime C/FFT/temposcal.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/areson.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/atone.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/atonex.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/bandpass.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/bqrez.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/butterbp.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/butterbr.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/butterhp.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/butterlp.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/clfilt.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/compare_standard_filters.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/eqfil.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/FormantFilter.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/hilbert.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/lowpass2.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/lowres.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/lowresx.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/lpf18.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/moogladder.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/moogvcf.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/pareq.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/rbjeq.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/reson.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/resony.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/reson_resonr_resonz.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/rezzy.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/statevar.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/svfilter.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/tbvcf.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/tone.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/tonex.csd
+./McCurdy Collection/McCurdy Realtime C/Filters/vlowres.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/DynamicGUIBuilder.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLbox.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLbutBank.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLbutton.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLcount.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLjoy.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLkeyIn.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLknob.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLkybd.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLmouse1.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLmouse2.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLmouse3.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLpanel.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLroller.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLscroll.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLsetColor.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLsetPosition_FLsetSize.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLsetVal_i FLsetVal.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLslider.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLtabsFLgroup.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLtext.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLTKPitchBendWheel.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLvalue.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLvslidBnk.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLWidgetAppearanceExplorer.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/FLxyin.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/MIDI&FLTK_Combined.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/PositionSensitveFLbutton.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/RandomMovingFLjoy.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/SliderMultiVariable.csd
+./McCurdy Collection/McCurdy Realtime C/FLTK/xyin.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/2xModulatorCarrierWithEnvelopes.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FM2ModCar.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FM3ModCar.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FMMod2Car.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FMModCarModCar.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FMModModCar.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FMModModCarEnvelopes.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/FMSynthesisVibratoToSideBands.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/foscil_foscili.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/ModulatorCarrier.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/ModulatorCarrierWithEnvelopes.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisCf.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisMCf.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisMfC.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisMMC.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisMMMC.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisMMM_C.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/PhaseModulationSynthesisMM_C.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/RingModulationAmplitudeModulation.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/SimpleModulatorCarrier.csd
+./McCurdy Collection/McCurdy Realtime C/FM_PM_RM_AM/TX81Z.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN01.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN02.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN03.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN05_07.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN06.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN08.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN09.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN10.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN11.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN12.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN16.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN17.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN18.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN19.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN20.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN21.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN25_27.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN41.csd
+./McCurdy Collection/McCurdy Realtime C/GEN/GEN42.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/diskgrain.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/fof.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/fof2.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/fofx5.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/fog.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/grain.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/grain2.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/grain3.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/granule.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/LiveSndwarp.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/MorphingPresets.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/SchedkwhenGranulation.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/sndwarp.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/syncgrain.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/syncloop.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/WaveletGapping.csd
+./McCurdy Collection/McCurdy Realtime C/GranularSynthesis/wavelets.csd
+./McCurdy Collection/McCurdy Realtime C/HeadMouse/MouseBass.csd
+./McCurdy Collection/McCurdy Realtime C/HeadMouse/MouseChord.csd
+./McCurdy Collection/McCurdy Realtime C/HeadMouse/MouseKeyboard1Octave.csd
+./McCurdy Collection/McCurdy Realtime C/HeadMouse/MouseKeyboard2Octave.csd
+./McCurdy Collection/McCurdy Realtime C/LiveAudioIn/follow2EnvelopeFilter.csd
+./McCurdy Collection/McCurdy Realtime C/LiveAudioIn/ins.csd
+./McCurdy Collection/McCurdy Realtime C/LiveAudioIn/meters.csd
+./McCurdy Collection/McCurdy Realtime C/LiveSampling/DiskRecAndPlayback.csd
+./McCurdy Collection/McCurdy Realtime C/LiveSampling/DynamicTriggeredRecord.csd
+./McCurdy Collection/McCurdy Realtime C/LiveSampling/MultiTableAutoRecord.csd
+./McCurdy Collection/McCurdy Realtime C/LiveSampling/MultiTableRec.csd
+./McCurdy Collection/McCurdy Realtime C/LiveSampling/sndloop.csd
+./McCurdy Collection/McCurdy Realtime C/LiveSampling/TableRecBasic.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/Arpeggiator.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/BasicMonophonicSynth.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/cpstmid.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/DisplayMIDICCsAsFLSliders.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/LinsegrExpsegr.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/LiveQuantize.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDIController.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDIControllerInitialisation.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDIInstrActivate.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/midiin_MIDI_monitor.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/midiin_trigger_notes.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDIOneControllerTwoOutputs.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDIReadPitchAndVelocity.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDIRemappedController.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MIDITapTempo.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/MonoPolySynth.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/moscil_outipc.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/pchbend1.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/pchbend2.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/pchbend3.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/PolyphonyControl.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/portamento.csd
+./McCurdy Collection/McCurdy Realtime C/MIDI/VelocityCurve.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/AnalogueVocoder.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/beating.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/Clavinet.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/CsoundIsListening.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/DbToAmp.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/doppler.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/expcurve_logcurve_gainslider_scale.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/ftsave_ftload.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/GuitarStrum.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/humanizing.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/isorhythm.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/limit_mirror_wrap.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/lpshold_loopseg.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/max_min_maxabs_minabs.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/monitor_fout.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/MultiFX.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/OctaveDivider.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/pan2.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/PianoPhaseDemo.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/PitchFormats.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/planet.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/Rhythmicon.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/risset_rhythms.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/samphold.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/sensekey.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/ShuffleTableContents.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/ssplinek.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/StereoToMono(Offline).csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/StereoToMono.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/SyncLoopPlayers.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/TapTempo.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/TapTempoAudio.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/TB303.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/TR-808.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/trigger.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/TuningSystems.csd
+./McCurdy Collection/McCurdy Realtime C/Miscellaneous/waveset.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/bamboo.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/barmodel.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/cabasa.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/crunch.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/dripwater.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/gogobel.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/guiro.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/mandol.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/marimba.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/moog.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/pluck.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/PrePiano.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/repluck.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/sandpaper.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/sekere.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/shaker.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/sleighbells.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/stix.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/STKopcodes.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/tambourine.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/vibes.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgbow.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgbowedbar.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgbrass.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgclar.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgflute.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgpluck.csd
+./McCurdy Collection/McCurdy Realtime C/PhysicalModels/wgpluck2.csd
+./McCurdy Collection/McCurdy Realtime C/PitchTracking/pitch.csd
+./McCurdy Collection/McCurdy Realtime C/PitchTracking/pitchamdf.csd
+./McCurdy Collection/McCurdy Realtime C/PitchTracking/ptrack.csd
+./McCurdy Collection/McCurdy Realtime C/PitchTracking/pvspitch.csd
+./McCurdy Collection/McCurdy Realtime C/RandomNumberGenerators/DisplayRandomDistributions.csd
+./McCurdy Collection/McCurdy Realtime C/RandomNumberGenerators/PrintRandomDistributions.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/DrumSequencerVariableLength.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/DrunkWalk.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/NoteClusters.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/SelfTriggeringInstrument.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/SimpleDrumSequencer.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/SimpleLoopSequencer.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/SimpleSchedkwhenNoteGenerator.csd
+./McCurdy Collection/McCurdy Realtime C/RealtimeScoreGeneration/timedseq/timedseq.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/alpass.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/babo.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/comb_combinv.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/freeverb.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/GatedReverb.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/nreverb.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/reverb.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/SchroederReverb.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/screverb.csd
+./McCurdy Collection/McCurdy Realtime C/Reverbs/vcomb.csd
+./McCurdy Collection/McCurdy Realtime C/SoundFilePlayback/bbcut.csd
+./McCurdy Collection/McCurdy Realtime C/SoundFilePlayback/flooper_flooper2.csd
+./McCurdy Collection/McCurdy Realtime C/SoundFilePlayback/loscil_loscil3.csd
+./McCurdy Collection/McCurdy Realtime C/SoundFilePlayback/lposcil_lposcil3_lposcila_lposcilsa lposcilsa2.csd
+./McCurdy Collection/McCurdy Realtime C/SoundFilePlayback/soundin_diskin_diskin2.csd
+./McCurdy Collection/McCurdy Realtime C/SoundFilePlayback/table_tablei_table3.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/BowedMode.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/buzz.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/gbuzz.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/gendy_gendyc_gendyx.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/hsboscil.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/mode.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/mpulse_dust2_gausstrig.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/oscbnk.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/pdhalf.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/vco.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/vco2.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/vco_with_PWM_LFO_and_LPF.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/WhitePinkFractalNoise.csd
+./McCurdy Collection/McCurdy Realtime C/SoundGenerators/wterrain.csd
+./McCurdy Collection/McCurdy Realtime C/SpecializedFilters/Phaser1.csd
+./McCurdy Collection/McCurdy Realtime C/SpecializedFilters/Phaser2.csd
+./McCurdy Collection/McCurdy Realtime C/Time/bars_beats_ticks.csd
+./McCurdy Collection/McCurdy Realtime C/Time/clockon_clockoff_readclock.csd
+./McCurdy Collection/McCurdy Realtime C/Time/dates_parsed.csd
+./McCurdy Collection/McCurdy Realtime C/Time/date_dates.csd
+./McCurdy Collection/McCurdy Realtime C/Time/rtclock.csd
+./McCurdy Collection/McCurdy Realtime C/Time/timeinsts_timeinstk.csd
+./McCurdy Collection/McCurdy Realtime C/Time/times_timek.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/cpstun2.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/cpstuni2.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/fofx5.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/ftmorphi.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/LayerInstruments.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/modeSynth.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/StartStopInstruments.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/SwitchPort.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/TableOperations.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/UnlatchedToLatched.csd
+./McCurdy Collection/McCurdy Realtime C/UDOs/vowel_filter.csd
+./McCurdy Collection/McCurdy Realtime C/Waveguides/streson.csd
+./McCurdy Collection/McCurdy Realtime C/Waveguides/wguide1.csd
+./McCurdy Collection/McCurdy Realtime C/Waveguides/wguide1stack.csd
+./McCurdy Collection/McCurdy Realtime C/Waveguides/wguide2.csd
+./McCurdy Collection/MIDI/Arpeggiator.csd
+./McCurdy Collection/MIDI/Arpeggiator_1.csd
+./McCurdy Collection/MIDI/BasicMonophonicSynth.csd
+./McCurdy Collection/MIDI/BasicMonophonicSynth_1.csd
+./McCurdy Collection/MIDI/cpstmid.csd
+./McCurdy Collection/MIDI/cpstmid_1.csd
+./McCurdy Collection/MIDI/DisplayMIDICCsAsFLSliders.csd
+./McCurdy Collection/MIDI/DisplayMIDICCsAsFLSliders_1.csd
+./McCurdy Collection/MIDI/LinsegrExpsegr.csd
+./McCurdy Collection/MIDI/LinsegrExpsegr_1.csd
+./McCurdy Collection/MIDI/LiveQuantize.csd
+./McCurdy Collection/MIDI/LiveQuantize_1.csd
+./McCurdy Collection/MIDI/MIDIController.csd
+./McCurdy Collection/MIDI/MIDIControllerInitialisation.csd
+./McCurdy Collection/MIDI/MIDIControllerInitialisation_1.csd
+./McCurdy Collection/MIDI/MIDIController_1.csd
+./McCurdy Collection/MIDI/MIDIInstrActivate.csd
+./McCurdy Collection/MIDI/MIDIInstrActivate_1.csd
+./McCurdy Collection/MIDI/midiin_MIDI_monitor.csd
+./McCurdy Collection/MIDI/midiin_MIDI_monitor_1.csd
+./McCurdy Collection/MIDI/midiin_trigger_notes.csd
+./McCurdy Collection/MIDI/midiin_trigger_notes_1.csd
+./McCurdy Collection/MIDI/MIDIOneControllerTwoOutputs.csd
+./McCurdy Collection/MIDI/MIDIOneControllerTwoOutputs_1.csd
+./McCurdy Collection/MIDI/MIDIReadPitchAndVelocity.csd
+./McCurdy Collection/MIDI/MIDIReadPitchAndVelocity_1.csd
+./McCurdy Collection/MIDI/MIDIRemappedController.csd
+./McCurdy Collection/MIDI/MIDIRemappedController_1.csd
+./McCurdy Collection/MIDI/MIDITapTempo.csd
+./McCurdy Collection/MIDI/MIDITapTempo_1.csd
+./McCurdy Collection/MIDI/MonoPolySynth.csd
+./McCurdy Collection/MIDI/MonoPolySynth_1.csd
+./McCurdy Collection/MIDI/moscil_outipc.csd
+./McCurdy Collection/MIDI/moscil_outipc_1.csd
+./McCurdy Collection/MIDI/pchbend1.csd
+./McCurdy Collection/MIDI/pchbend1_1.csd
+./McCurdy Collection/MIDI/pchbend2.csd
+./McCurdy Collection/MIDI/pchbend2_1.csd
+./McCurdy Collection/MIDI/pchbend3.csd
+./McCurdy Collection/MIDI/pchbend3_1.csd
+./McCurdy Collection/MIDI/PolyphonyControl.csd
+./McCurdy Collection/MIDI/PolyphonyControl_1.csd
+./McCurdy Collection/MIDI/portamento.csd
+./McCurdy Collection/MIDI/portamento_1.csd
+./McCurdy Collection/MIDI/VelocityCurve.csd
+./McCurdy Collection/MIDI/VelocityCurve_1.csd
+./McCurdy Collection/Miscellaneous/AnalogueVocoder.csd
+./McCurdy Collection/Miscellaneous/AnalogueVocoder_1.csd
+./McCurdy Collection/Miscellaneous/Arrays.csd
+./McCurdy Collection/Miscellaneous/beating.csd
+./McCurdy Collection/Miscellaneous/beating_1.csd
+./McCurdy Collection/Miscellaneous/bitshift.csd
+./McCurdy Collection/Miscellaneous/bitwise.csd
+./McCurdy Collection/Miscellaneous/CelloPluck.csd
+./McCurdy Collection/Miscellaneous/Clavinet.csd
+./McCurdy Collection/Miscellaneous/Clavinet_1.csd
+./McCurdy Collection/Miscellaneous/CsoundIsListening.csd
+./McCurdy Collection/Miscellaneous/CsoundIsListening_1.csd
+./McCurdy Collection/Miscellaneous/DbToAmp.csd
+./McCurdy Collection/Miscellaneous/DbToAmp_1.csd
+./McCurdy Collection/Miscellaneous/doppler.csd
+./McCurdy Collection/Miscellaneous/doppler_1.csd
+./McCurdy Collection/Miscellaneous/expcurve_logcurve_gainslider_scale.csd
+./McCurdy Collection/Miscellaneous/expcurve_logcurve_gainslider_scale_1.csd
+./McCurdy Collection/Miscellaneous/ftsave_ftload.csd
+./McCurdy Collection/Miscellaneous/ftsave_ftload_1.csd
+./McCurdy Collection/Miscellaneous/GuitarStrum.csd
+./McCurdy Collection/Miscellaneous/GuitarStrum_1.csd
+./McCurdy Collection/Miscellaneous/humanizing.csd
+./McCurdy Collection/Miscellaneous/humanizing_1.csd
+./McCurdy Collection/Miscellaneous/int_round_abs_ceil_frac.csd
+./McCurdy Collection/Miscellaneous/isorhythm.csd
+./McCurdy Collection/Miscellaneous/isorhythm_1.csd
+./McCurdy Collection/Miscellaneous/limit_mirror_wrap.csd
+./McCurdy Collection/Miscellaneous/limit_mirror_wrap_1.csd
+./McCurdy Collection/Miscellaneous/lpshold_loopseg.csd
+./McCurdy Collection/Miscellaneous/lpshold_loopseg_1.csd
+./McCurdy Collection/Miscellaneous/max_min_maxabs_minabs.csd
+./McCurdy Collection/Miscellaneous/max_min_maxabs_minabs_1.csd
+./McCurdy Collection/Miscellaneous/mediank.csd
+./McCurdy Collection/Miscellaneous/modulus.csd
+./McCurdy Collection/Miscellaneous/monitor_fout.csd
+./McCurdy Collection/Miscellaneous/monitor_fout_1.csd
+./McCurdy Collection/Miscellaneous/MultiFX.csd
+./McCurdy Collection/Miscellaneous/MultiFX_1.csd
+./McCurdy Collection/Miscellaneous/NoteMatrix.csd
+./McCurdy Collection/Miscellaneous/OctaveDivider.csd
+./McCurdy Collection/Miscellaneous/OctaveDivider_1.csd
+./McCurdy Collection/Miscellaneous/pan2.csd
+./McCurdy Collection/Miscellaneous/pan2_1.csd
+./McCurdy Collection/Miscellaneous/peak.csd
+./McCurdy Collection/Miscellaneous/PianoPhaseDemo.csd
+./McCurdy Collection/Miscellaneous/PianoPhaseDemo_1.csd
+./McCurdy Collection/Miscellaneous/PitchFormats.csd
+./McCurdy Collection/Miscellaneous/PitchFormats_1.csd
+./McCurdy Collection/Miscellaneous/planet.csd
+./McCurdy Collection/Miscellaneous/planet_1.csd
+./McCurdy Collection/Miscellaneous/RecordControllerGesture.csd
+./McCurdy Collection/Miscellaneous/Rhythmicon.csd
+./McCurdy Collection/Miscellaneous/Rhythmicon_1.csd
+./McCurdy Collection/Miscellaneous/risset_rhythms.csd
+./McCurdy Collection/Miscellaneous/risset_rhythms_1.csd
+./McCurdy Collection/Miscellaneous/samphold.csd
+./McCurdy Collection/Miscellaneous/samphold_1.csd
+./McCurdy Collection/Miscellaneous/sensekey.csd
+./McCurdy Collection/Miscellaneous/sensekey_1.csd
+./McCurdy Collection/Miscellaneous/ShuffleTableContents.csd
+./McCurdy Collection/Miscellaneous/ssplinek.csd
+./McCurdy Collection/Miscellaneous/ssplinek_1.csd
+./McCurdy Collection/Miscellaneous/StereoToMono(Offline).csd
+./McCurdy Collection/Miscellaneous/StereoToMono.csd
+./McCurdy Collection/Miscellaneous/SyncLoopPlayers.csd
+./McCurdy Collection/Miscellaneous/SyncLoopPlayers_1.csd
+./McCurdy Collection/Miscellaneous/table_sizes_and_opcodes.csd
+./McCurdy Collection/Miscellaneous/TapTempo.csd
+./McCurdy Collection/Miscellaneous/TapTempoAudio.csd
+./McCurdy Collection/Miscellaneous/TapTempoAudio_1.csd
+./McCurdy Collection/Miscellaneous/TapTempo_1.csd
+./McCurdy Collection/Miscellaneous/TB303.csd
+./McCurdy Collection/Miscellaneous/TB303_1.csd
+./McCurdy Collection/Miscellaneous/TR-808.csd
+./McCurdy Collection/Miscellaneous/TR-808_1.csd
+./McCurdy Collection/Miscellaneous/TransformTableContents.csd
+./McCurdy Collection/Miscellaneous/trigger.csd
+./McCurdy Collection/Miscellaneous/trigger_1.csd
+./McCurdy Collection/Miscellaneous/TuningSystems.csd
+./McCurdy Collection/Miscellaneous/TuningSystems_1.csd
+./McCurdy Collection/Miscellaneous/ViolinPluck.csd
+./McCurdy Collection/Miscellaneous/waveset.csd
+./McCurdy Collection/Miscellaneous/waveset_1.csd
+./McCurdy Collection/PhysicalModels/bamboo.csd
+./McCurdy Collection/PhysicalModels/bamboo_1.csd
+./McCurdy Collection/PhysicalModels/barmodel.csd
+./McCurdy Collection/PhysicalModels/barmodel_1.csd
+./McCurdy Collection/PhysicalModels/cabasa.csd
+./McCurdy Collection/PhysicalModels/cabasa_1.csd
+./McCurdy Collection/PhysicalModels/crunch.csd
+./McCurdy Collection/PhysicalModels/crunch_1.csd
+./McCurdy Collection/PhysicalModels/dripwater.csd
+./McCurdy Collection/PhysicalModels/dripwater_1.csd
+./McCurdy Collection/PhysicalModels/gogobel.csd
+./McCurdy Collection/PhysicalModels/gogobel_1.csd
+./McCurdy Collection/PhysicalModels/guiro.csd
+./McCurdy Collection/PhysicalModels/guiro_1.csd
+./McCurdy Collection/PhysicalModels/mandol.csd
+./McCurdy Collection/PhysicalModels/mandol_1.csd
+./McCurdy Collection/PhysicalModels/marimba.csd
+./McCurdy Collection/PhysicalModels/marimba_1.csd
+./McCurdy Collection/PhysicalModels/moog.csd
+./McCurdy Collection/PhysicalModels/moog_1.csd
+./McCurdy Collection/PhysicalModels/pluck.csd
+./McCurdy Collection/PhysicalModels/pluck_1.csd
+./McCurdy Collection/PhysicalModels/PrePiano.csd
+./McCurdy Collection/PhysicalModels/PrePiano_1.csd
+./McCurdy Collection/PhysicalModels/repluck.csd
+./McCurdy Collection/PhysicalModels/repluck_1.csd
+./McCurdy Collection/PhysicalModels/sandpaper.csd
+./McCurdy Collection/PhysicalModels/sandpaper_1.csd
+./McCurdy Collection/PhysicalModels/sekere.csd
+./McCurdy Collection/PhysicalModels/sekere_1.csd
+./McCurdy Collection/PhysicalModels/shaker.csd
+./McCurdy Collection/PhysicalModels/shaker_1.csd
+./McCurdy Collection/PhysicalModels/sleighbells.csd
+./McCurdy Collection/PhysicalModels/sleighbells_1.csd
+./McCurdy Collection/PhysicalModels/stix.csd
+./McCurdy Collection/PhysicalModels/stix_1.csd
+./McCurdy Collection/PhysicalModels/STKopcodes.csd
+./McCurdy Collection/PhysicalModels/STKopcodes_1.csd
+./McCurdy Collection/PhysicalModels/tambourine.csd
+./McCurdy Collection/PhysicalModels/tambourine_1.csd
+./McCurdy Collection/PhysicalModels/vibes.csd
+./McCurdy Collection/PhysicalModels/vibes_1.csd
+./McCurdy Collection/PhysicalModels/wgbow.csd
+./McCurdy Collection/PhysicalModels/wgbowedbar.csd
+./McCurdy Collection/PhysicalModels/wgbowedbar_1.csd
+./McCurdy Collection/PhysicalModels/wgbow_1.csd
+./McCurdy Collection/PhysicalModels/wgbrass.csd
+./McCurdy Collection/PhysicalModels/wgbrass_1.csd
+./McCurdy Collection/PhysicalModels/wgclar.csd
+./McCurdy Collection/PhysicalModels/wgclar_1.csd
+./McCurdy Collection/PhysicalModels/wgflute.csd
+./McCurdy Collection/PhysicalModels/wgflute_1.csd
+./McCurdy Collection/PhysicalModels/wgpluck.csd
+./McCurdy Collection/PhysicalModels/wgpluck2.csd
+./McCurdy Collection/PhysicalModels/wgpluck2_1.csd
+./McCurdy Collection/PhysicalModels/wgpluck_1.csd
+./McCurdy Collection/PitchTracking/centroid.csd
+./McCurdy Collection/PitchTracking/pitch.csd
+./McCurdy Collection/PitchTracking/pitchamdf.csd
+./McCurdy Collection/PitchTracking/pitchamdf_1.csd
+./McCurdy Collection/PitchTracking/pitch_1.csd
+./McCurdy Collection/PitchTracking/plltrack.csd
+./McCurdy Collection/PitchTracking/ptrack.csd
+./McCurdy Collection/PitchTracking/ptrack_1.csd
+./McCurdy Collection/PitchTracking/pvscent.csd
+./McCurdy Collection/PitchTracking/pvspitch.csd
+./McCurdy Collection/PitchTracking/pvspitch_1.csd
+./McCurdy Collection/RandomNumberGenerators/DisplayRandomDistributions.csd
+./McCurdy Collection/RandomNumberGenerators/DisplayRandomDistributions_1.csd
+./McCurdy Collection/RandomNumberGenerators/PrintRandomDistributions.csd
+./McCurdy Collection/RandomNumberGenerators/PrintRandomDistributions_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/DrumSequencerVariableLength.csd
+./McCurdy Collection/RealtimeScoreGeneration/DrumSequencerVariableLength_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/DrunkWalk.csd
+./McCurdy Collection/RealtimeScoreGeneration/DrunkWalk_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/NoteClusters.csd
+./McCurdy Collection/RealtimeScoreGeneration/NoteClusters_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/SelfTriggeringInstrument.csd
+./McCurdy Collection/RealtimeScoreGeneration/SelfTriggeringInstrument_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/seqtime_seqtime2.csd
+./McCurdy Collection/RealtimeScoreGeneration/SimpleDrumSequencer.csd
+./McCurdy Collection/RealtimeScoreGeneration/SimpleDrumSequencer_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/SimpleLoopSequencer.csd
+./McCurdy Collection/RealtimeScoreGeneration/SimpleLoopSequencer_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/SimpleSchedkwhenNoteGenerator.csd
+./McCurdy Collection/RealtimeScoreGeneration/SimpleSchedkwhenNoteGenerator_1.csd
+./McCurdy Collection/RealtimeScoreGeneration/timedseq/timedseq.csd
+./McCurdy Collection/RealtimeScoreGeneration/timedseq/timedseq_1.csd
+./McCurdy Collection/Reverbs/alpass.csd
+./McCurdy Collection/Reverbs/babo.csd
+./McCurdy Collection/Reverbs/babo_1.csd
+./McCurdy Collection/Reverbs/comb_combinv.csd
+./McCurdy Collection/Reverbs/comb_combinv_1.csd
+./McCurdy Collection/Reverbs/freeverb.csd
+./McCurdy Collection/Reverbs/freeverb_1.csd
+./McCurdy Collection/Reverbs/GatedReverb.csd
+./McCurdy Collection/Reverbs/GatedReverb_1.csd
+./McCurdy Collection/Reverbs/nreverb.csd
+./McCurdy Collection/Reverbs/nreverb_1.csd
+./McCurdy Collection/Reverbs/reverb.csd
+./McCurdy Collection/Reverbs/reverb_1.csd
+./McCurdy Collection/Reverbs/SchroederReverb.csd
+./McCurdy Collection/Reverbs/SchroederReverb_1.csd
+./McCurdy Collection/Reverbs/screverb.csd
+./McCurdy Collection/Reverbs/screverb_1.csd
+./McCurdy Collection/Reverbs/vcomb.csd
+./McCurdy Collection/Reverbs/vcomb_1.csd
+./McCurdy Collection/SoundFilePlayback/bbcut.csd
+./McCurdy Collection/SoundFilePlayback/bbcut_1.csd
+./McCurdy Collection/SoundFilePlayback/flooper_flooper2.csd
+./McCurdy Collection/SoundFilePlayback/flooper_flooper2_1.csd
+./McCurdy Collection/SoundFilePlayback/loscil_loscil3.csd
+./McCurdy Collection/SoundFilePlayback/loscil_loscil3_1.csd
+./McCurdy Collection/SoundFilePlayback/lposcil_lposcil3_lposcila_lposcilsa lposcilsa2.csd
+./McCurdy Collection/SoundFilePlayback/lposcil_lposcil3_lposcila_lposcilsa lposcilsa2_1.csd
+./McCurdy Collection/SoundFilePlayback/soundin_diskin_diskin2.csd
+./McCurdy Collection/SoundFilePlayback/soundin_diskin_diskin2_1.csd
+./McCurdy Collection/SoundFilePlayback/table_tablei_table3.csd
+./McCurdy Collection/SoundFilePlayback/table_tablei_table3_1.csd
+./McCurdy Collection/SoundGenerators/BowedMode.csd
+./McCurdy Collection/SoundGenerators/BowedMode_1.csd
+./McCurdy Collection/SoundGenerators/buzz.csd
+./McCurdy Collection/SoundGenerators/buzz_1.csd
+./McCurdy Collection/SoundGenerators/gbuzz.csd
+./McCurdy Collection/SoundGenerators/gbuzz_1.csd
+./McCurdy Collection/SoundGenerators/gendy_gendyc_gendyx.csd
+./McCurdy Collection/SoundGenerators/gendy_gendyc_gendyx_1.csd
+./McCurdy Collection/SoundGenerators/hsboscil.csd
+./McCurdy Collection/SoundGenerators/hsboscil_1.csd
+./McCurdy Collection/SoundGenerators/mode.csd
+./McCurdy Collection/SoundGenerators/mode_1.csd
+./McCurdy Collection/SoundGenerators/mpulse_dust2_gausstrig.csd
+./McCurdy Collection/SoundGenerators/mpulse_dust2_gausstrig_1.csd
+./McCurdy Collection/SoundGenerators/oscbnk.csd
+./McCurdy Collection/SoundGenerators/oscbnk_1.csd
+./McCurdy Collection/SoundGenerators/PadSynth.csd
+./McCurdy Collection/SoundGenerators/pdhalf.csd
+./McCurdy Collection/SoundGenerators/pdhalf_1.csd
+./McCurdy Collection/SoundGenerators/vco.csd
+./McCurdy Collection/SoundGenerators/vco2.csd
+./McCurdy Collection/SoundGenerators/vco2_1.csd
+./McCurdy Collection/SoundGenerators/vco_1.csd
+./McCurdy Collection/SoundGenerators/vco_with_PWM_LFO_and_LPF.csd
+./McCurdy Collection/SoundGenerators/vco_with_PWM_LFO_and_LPF_1.csd
+./McCurdy Collection/SoundGenerators/WhitePinkFractalNoise.csd
+./McCurdy Collection/SoundGenerators/WhitePinkFractalNoise_1.csd
+./McCurdy Collection/SoundGenerators/wterrain.csd
+./McCurdy Collection/SoundGenerators/wterrain_1.csd
+./McCurdy Collection/SpecializedFilters/Phaser1.csd
+./McCurdy Collection/SpecializedFilters/Phaser1_1.csd
+./McCurdy Collection/SpecializedFilters/Phaser2.csd
+./McCurdy Collection/SpecializedFilters/Phaser2_1.csd
+./McCurdy Collection/Time/bars_beats_ticks.csd
+./McCurdy Collection/Time/bars_beats_ticks_1.csd
+./McCurdy Collection/Time/clockon_clockoff_readclock.csd
+./McCurdy Collection/Time/clockon_clockoff_readclock_1.csd
+./McCurdy Collection/Time/dates_parsed.csd
+./McCurdy Collection/Time/dates_parsed_1.csd
+./McCurdy Collection/Time/date_dates.csd
+./McCurdy Collection/Time/date_dates_1.csd
+./McCurdy Collection/Time/rtclock.csd
+./McCurdy Collection/Time/rtclock_1.csd
+./McCurdy Collection/Time/timeinsts_timeinstk.csd
+./McCurdy Collection/Time/timeinsts_timeinstk_1.csd
+./McCurdy Collection/Time/times_timek.csd
+./McCurdy Collection/Time/times_timek_1.csd
+./McCurdy Collection/UDOs/ActiveFrac.csd
+./McCurdy Collection/UDOs/AmpLimit.csd
+./McCurdy Collection/UDOs/Changed2.csd
+./McCurdy Collection/UDOs/cpstun2.csd
+./McCurdy Collection/UDOs/cpstun2_1.csd
+./McCurdy Collection/UDOs/cpstuni2.csd
+./McCurdy Collection/UDOs/cpstuni2_1.csd
+./McCurdy Collection/UDOs/fofx5.csd
+./McCurdy Collection/UDOs/fofx5_1.csd
+./McCurdy Collection/UDOs/ftmorphi.csd
+./McCurdy Collection/UDOs/ftmorphi_1.csd
+./McCurdy Collection/UDOs/LayerInstruments.csd
+./McCurdy Collection/UDOs/LayerInstruments_1.csd
+./McCurdy Collection/UDOs/lineto2.csd
+./McCurdy Collection/UDOs/modeSynth.csd
+./McCurdy Collection/UDOs/modeSynth_1.csd
+./McCurdy Collection/UDOs/NextPowerOf2i.csd
+./McCurdy Collection/UDOs/StartStopInstruments.csd
+./McCurdy Collection/UDOs/StartStopInstruments_1.csd
+./McCurdy Collection/UDOs/SwitchPort.csd
+./McCurdy Collection/UDOs/SwitchPort_1.csd
+./McCurdy Collection/UDOs/TableOperations.csd
+./McCurdy Collection/UDOs/TriggerToGatei.csd
+./McCurdy Collection/UDOs/TriggerToGatek.csd
+./McCurdy Collection/UDOs/UnlatchedToLatched.csd
+./McCurdy Collection/UDOs/UnlatchedToLatched_1.csd
+./McCurdy Collection/UDOs/vowel_filter.csd
+./McCurdy Collection/UDOs/vowel_filter_1.csd
+./McCurdy Collection/Waveguides/streson.csd
+./McCurdy Collection/Waveguides/streson_1.csd
+./McCurdy Collection/Waveguides/wguide1.csd
+./McCurdy Collection/Waveguides/wguide1stack.csd
+./McCurdy Collection/Waveguides/wguide1stack_1.csd
+./McCurdy Collection/Waveguides/wguide1_1.csd
+./McCurdy Collection/Waveguides/wguide2.csd
+./McCurdy Collection/Waveguides/wguide2_1.csd
+./Midi/bach59.orc
+./Midi/bachvoic.orc
+./Midi/chowning-midi/mchowbll.orc
+./Midi/chowning-midi/mchowd.orc
+./Midi/chowning-midi/mchown1.orc
+./Midi/chowning-midi/mchown2.orc
+./Midi/chowning-midi/mchowning.orc
+./Midi/chowning-midi/mchowsop.orc
+./Midi/chowning-midi/mstring.orc
+./Midi/chowning-midi/mtrumpet.orc
+./Midi/fugue2.orc
+./Midi/internet-midi/madd1.orc
+./Midi/internet-midi/mam.orc
+./Midi/internet-midi/marperc1.orc
+./Midi/internet-midi/mchsp.orc
+./Midi/internet-midi/mclar.orc
+./Midi/internet-midi/md9.orc
+./Midi/internet-midi/mdigi.orc
+./Midi/internet-midi/mdistort.orc
+./Midi/internet-midi/meql.orc
+./Midi/internet-midi/mfinal.orc
+./Midi/internet-midi/mfinal1.orc
+./Midi/internet-midi/mfinal2.orc
+./Midi/internet-midi/mfinal3.orc
+./Midi/internet-midi/mfinal4.orc
+./Midi/internet-midi/mfinal5.orc
+./Midi/internet-midi/mfinal6.orc
+./Midi/internet-midi/mfinal7.orc
+./Midi/internet-midi/mfm1.orc
+./Midi/internet-midi/mfm2.orc
+./Midi/internet-midi/mfm3.orc
+./Midi/internet-midi/mfm9.orc
+./Midi/internet-midi/mfm92.orc
+./Midi/internet-midi/mfm93.orc
+./Midi/internet-midi/mfmgen.orc
+./Midi/internet-midi/mfof.orc
+./Midi/internet-midi/mgranule.orc
+./Midi/internet-midi/mguit.orc
+./Midi/internet-midi/mguit2.orc
+./Midi/internet-midi/mguit3.orc
+./Midi/internet-midi/mheart.orc
+./Midi/internet-midi/miditest.orc
+./Midi/internet-midi/morgan.orc
+./Midi/internet-midi/mseedy2.orc
+./Midi/internet-midi/msine1.orc
+./Midi/internet-midi/msine2.orc
+./Midi/internet-midi/msmooth.orc
+./Midi/internet-midi/mtrans5.orc
+./Midi/internet-midi/mtriangl.orc
+./Midi/internet-midi/mwh1.orc
+./Midi/internet-midi/mwh2.orc
+./Midi/internet-midi/mwind.orc
+./Midi/maldonado-midi/layer.orc
+./Midi/maldonado-midi/miditst.orc
+./Midi/maldonado-midi/midi_in1.orc
+./Midi/maldonado-midi/midi_in2.orc
+./Midi/maldonado-midi/midi_in3.orc
+./Midi/maldonado-midi/midi_in44.orc
+./Midi/maldonado-midi/stereotst.orc
+./Midi/maldonado-midi/stereotst1.orc
+./Midi/maldonado-midi/timberseq.orc
+./Midi/midify.csd
+./Midi/midify1.orc
+./Midi/miditest.orc
+./Midi/miller-midi/mflare.orc
+./Midi/miller-midi/mmiller1.orc
+./Midi/miller-midi/mmiller5.orc
+./Midi/miller-midi/mmiller6.orc
+./Midi/mit-midi/mbztlk1.orc
+./Midi/mit-midi/mjimi.orc
+./Midi/mit-midi/mproj3.orc
+./Midi/mit-midi/prel1.orc
+./Midi/pinkston-midi/mfmfilt.orc
+./Midi/pinkston-midi/mfmfilt1.orc
+./Midi/pinkston-midi/mfmfilt2.orc
+./Midi/pinkston-midi/mgatchor.orc
+./Midi/pinkston-midi/mkoto1.orc
+./Midi/pinkston-midi/mkoto2.orc
+./Midi/pinkston-midi/mkoto3.orc
+./Midi/pinkston-midi/mmixer1.orc
+./Midi/pinkston-midi/mnew3.orc
+./Midi/pinkston-midi/mpiano2.orc
+./Midi/pinkston-midi/mplucky.orc
+./Midi/pinkston-midi/mratchet.orc
+./Midi/plckmid.csd
+./Midi/plckmid.orc
+./Midi/pldrumid.csd
+./Midi/pldrumid.orc
+./Midi/prelude1.csd
+./Midi/prelude1.orc
+./Midi/risset-midi/marpeg.orc
+./Midi/risset-midi/marpeggio.orc
+./Midi/risset-midi/marpregg.orc
+./Midi/risset-midi/mclrnet.orc
+./Midi/risset-midi/mdrum.orc
+./Midi/risset-midi/mdrum2.orc
+./Midi/risset-midi/mflute.orc
+./Midi/risset-midi/mharmony.orc
+./Midi/risset-midi/mreed.orc
+./Midi/risset-midi/mringmod.orc
+./Midi/smaragdis-midi/a1.orc
+./Midi/smaragdis-midi/csmid.orc
+./Midi/smaragdis-midi/dem1.orc
+./Midi/smaragdis-midi/dem2.orc
+./Midi/smaragdis-midi/drum.orc
+./Midi/smaragdis-midi/fugue2.orc
+./Midi/smaragdis-midi/fx.orc
+./Midi/smaragdis-midi/midi2.orc
+./Midi/smaragdis-midi/midi3.orc
+./Midi/smaragdis-midi/midi33.orc
+./Midi/smaragdis-midi/midi4.orc
+./Midi/smaragdis-midi/midi5.orc
+./Midi/smaragdis-midi/midi6.orc
+./Midi/smaragdis-midi/midi7.orc
+./Midi/smaragdis-midi/midi8.orc
+./Midi/smaragdis-midi/midi9.orc
+./Midi/smaragdis-midi/midiall.orc
+./Midi/smaragdis-midi/midify1.orc
+./Midi/smaragdis-midi/midimodel.orc
+./Midi/smaragdis-midi/midiprelude2.orc
+./Midi/smaragdis-midi/misty.orc
+./Midi/smaragdis-midi/parismixer.orc
+./Midi/smaragdis-midi/plk1.orc
+./Midi/smaragdis-midi/plk2.orc
+./Midi/smaragdis-midi/plk3.orc
+./Midi/smaragdis-midi/plk4.orc
+./Midi/smaragdis-midi/plk5.orc
+./Midi/smaragdis-midi/plk6.orc
+./Midi/smaragdis-midi/rhysectmid.orc
+./Midi/smaragdis-midi/s1.orc
+./Midi/smaragdis-midi/sl.orc
+./Midi/smaragdis-midi/square.orc
+./Midi/smaragdis-midi/wg.orc
+./Midi/smaragdis-midi/ws.orc
+./Midi/smaragdis-midi/z1.orc
+./Midi/square.csd
+./Midi/square.orc
+./Midi/waveshap.orc
+./Midi/waveshape.csd
+./Mikelson/anmod.csd
+./Mikelson/anmod.orc
+./Mikelson/comborg.orc
+./Mikelson/dopplr.orc
+./Mikelson/drone.csd
+./Mikelson/drummach.orc
+./Mikelson/explode.orc
+./Mikelson/fbfilter.orc
+./Mikelson/fractals.orc
+./Mikelson/gardverb.orc
+./Mikelson/granulr.orc
+./Mikelson/granulr2.orc
+./Mikelson/hallown.orc
+./Mikelson/industry.orc
+./Mikelson/industry1.orc
+./Mikelson/kidsahh.orc
+./Mikelson/modular.orc
+./Mikelson/multifx.csd
+./Mikelson/multifx.orc
+./Mikelson/multifx1.orc
+./Mikelson/multifx2.csd
+./Mikelson/multifx2.orc
+./Mikelson/multifx3.csd
+./Mikelson/multifx3.orc
+./Mikelson/newage.orc
+./Mikelson/parosc.csd
+./Mikelson/parosc.orc
+./Mikelson/percussion.csd
+./Mikelson/physmodl.csd
+./Mikelson/physmodl.orc
+./Mikelson/popcorn.csd
+./Mikelson/rezfilter.csd
+./Mikelson/rezfiltr.orc
+./Mikelson/rotorlsl.csd
+./Mikelson/rotorlsl.orc
+./Mikelson/rotormid.csd
+./Mikelson/rotormid.orc
+./Mikelson/spirogr.csd
+./Mikelson/spirogr.orc
+./Mikelson/spirogr1.orc
+./Mikelson/strummer.csd
+./Mikelson/strummer.orc
+./Mikelson/surface.orc
+./Mikelson/tb303.orc
+./Mikelson/tb305.csd
+./Mikelson/tb305.orc
+./Mikelson/tekbbl.orc
+./Mikelson/temple.orc
+./Mikelson/valentine.orc
+./Mikelson/wvguide.orc
+./miller/adclar.orc
+./miller/blast1.orc
+./miller/blast2.orc
+./miller/bongos.orc
+./miller/buzztalk.orc
+./miller/clarbong.orc
+./miller/cldrps.orc
+./miller/clrnetta.orc
+./miller/flare.orc
+./miller/fmsweep.orc
+./miller/gensond.orc
+./miller/milleretude.orc
+./miller/paner.orc
+./miller/pluck15.orc
+./miller/synclar.orc
+./Miscellaneous/123.orc
+./Miscellaneous/123s.orc
+./Miscellaneous/adsyn.orc
+./Miscellaneous/adsyn1.orc
+./Miscellaneous/adsyn2.orc
+./Miscellaneous/altoflute.csd
+./Miscellaneous/altoflute.orc
+./Miscellaneous/apf.csd
+./Miscellaneous/Apf.orc
+./Miscellaneous/areson.orc
+./Miscellaneous/atonex.csd
+./Miscellaneous/atonex.orc
+./Miscellaneous/autorun.orc
+./Miscellaneous/bach.orc
+./Miscellaneous/bach30.orc
+./Miscellaneous/bachm.orc
+./Miscellaneous/bachx.orc
+./Miscellaneous/bachy.orc
+./Miscellaneous/band.csd
+./Miscellaneous/band.orc
+./Miscellaneous/bandshiftednoise.orc
+./Miscellaneous/bassdrum.csd
+./Miscellaneous/bassdrum.orc
+./Miscellaneous/bd1601.orc
+./Miscellaneous/bd4004m.orc
+./Miscellaneous/bd5000.orc
+./Miscellaneous/bellfunc.orc
+./Miscellaneous/bif.orc
+./Miscellaneous/bluenoise.csd
+./Miscellaneous/bluenoise.orc
+./Miscellaneous/brass.orc
+./Miscellaneous/bug.orc
+./Miscellaneous/bug2.orc
+./Miscellaneous/buzzsweep.orc
+./Miscellaneous/chowning.orc
+./Miscellaneous/circle.csd
+./Miscellaneous/circle.orc
+./Miscellaneous/comb1.orc
+./Miscellaneous/comb2.orc
+./Miscellaneous/comb3.csd
+./Miscellaneous/comb3.orc
+./Miscellaneous/cond.orc
+./Miscellaneous/conrev.orc
+./Miscellaneous/conv0.orc
+./Miscellaneous/conv3.orc
+./Miscellaneous/cpspch.orc
+./Miscellaneous/csoundpiece.csd
+./Miscellaneous/csoundpiece.orc
+./Miscellaneous/cubic2.orc
+./Miscellaneous/cubic3.orc
+./Miscellaneous/Dashow.csd
+./Miscellaneous/dashow.orc
+./Miscellaneous/delay1.orc
+./Miscellaneous/delay2.orc
+./Miscellaneous/delpuls.csd
+./Miscellaneous/delpuls.orc
+./Miscellaneous/dft.orc
+./Miscellaneous/diff.orc
+./Miscellaneous/drum.orc
+./Miscellaneous/DrumFilt.orc
+./Miscellaneous/dx16.orc
+./Miscellaneous/dx16a.orc
+./Miscellaneous/dx5.orc
+./Miscellaneous/endless.orc
+./Miscellaneous/envlp.orc
+./Miscellaneous/ex1.orc
+./Miscellaneous/ex7.orc
+./Miscellaneous/example1.orc
+./Miscellaneous/experiments.orc
+./Miscellaneous/fft.orc
+./Miscellaneous/FltBuzz.orc
+./Miscellaneous/Fm1.orc
+./Miscellaneous/Fm101.orc
+./Miscellaneous/Fm103.orc
+./Miscellaneous/fm105.csd
+./Miscellaneous/Fm105.orc
+./Miscellaneous/Fm2.orc
+./Miscellaneous/Fm3.orc
+./Miscellaneous/Fm4.orc
+./Miscellaneous/Fm5.orc
+./Miscellaneous/fmfeed1a.orc
+./Miscellaneous/fmfeed1b.orc
+./Miscellaneous/fof.orc
+./Miscellaneous/fof2.orc
+./Miscellaneous/fofog.orc
+./Miscellaneous/fog1.orc
+./Miscellaneous/foo.orc
+./Miscellaneous/FX.orc
+./Miscellaneous/gbuzz.orc
+./Miscellaneous/gen.orc
+./Miscellaneous/graintoot.orc
+./Miscellaneous/guitar.orc
+./Miscellaneous/guitar22.orc
+./Miscellaneous/harm.csd
+./Miscellaneous/harm.orc
+./Miscellaneous/haunt.csd
+./Miscellaneous/haunt.orc
+./Miscellaneous/hihat.orc
+./Miscellaneous/in.orc
+./Miscellaneous/in08.orc
+./Miscellaneous/in22.orc
+./Miscellaneous/in44.orc
+./Miscellaneous/ins.orc
+./Miscellaneous/insoundi.orc
+./Miscellaneous/inspecdi.orc
+./Miscellaneous/inspecpt.orc
+./Miscellaneous/introsbu.orc
+./Miscellaneous/Iringmod.orc
+./Miscellaneous/james.orc
+./Miscellaneous/jd.orc
+./Miscellaneous/jn.orc
+./Miscellaneous/karstr.orc
+./Miscellaneous/kdump.orc
+./Miscellaneous/Kelley-mkg.csd
+./Miscellaneous/Kelley.csd
+./Miscellaneous/kelley.orc
+./Miscellaneous/kelley22.orc
+./Miscellaneous/kim1.csd
+./Miscellaneous/kim1.orc
+./Miscellaneous/ks1.orc
+./Miscellaneous/ks3.orc
+./Miscellaneous/line.orc
+./Miscellaneous/linseg.orc
+./Miscellaneous/loco.orc
+./Miscellaneous/lp1.orc
+./Miscellaneous/lp2.orc
+./Miscellaneous/lp3.orc
+./Miscellaneous/lpf.csd
+./Miscellaneous/Lpf.orc
+./Miscellaneous/lptest.orc
+./Miscellaneous/lpxy.orc
+./Miscellaneous/mcadams.orc
+./Miscellaneous/Miller.csd
+./Miscellaneous/miller.orc
+./Miscellaneous/Nelson.csd
+./Miscellaneous/nelson.orc
+./Miscellaneous/noise2.orc
+./Miscellaneous/noise3.orc
+./Miscellaneous/noise5.orc
+./Miscellaneous/noise6.orc
+./Miscellaneous/notenum.orc
+./Miscellaneous/numnotetest.orc
+./Miscellaneous/p0.orc
+./Miscellaneous/pan.orc
+./Miscellaneous/pan1.orc
+./Miscellaneous/pareq.orc
+./Miscellaneous/pc.orc
+./Miscellaneous/phasorsample.orc
+./Miscellaneous/piano.orc
+./Miscellaneous/pink.orc
+./Miscellaneous/pink1.orc
+./Miscellaneous/pinkston.orc
+./Miscellaneous/pkmeth.orc
+./Miscellaneous/plk1.orc
+./Miscellaneous/plkguit.orc
+./Miscellaneous/pluck.orc
+./Miscellaneous/pluckvoice.orc
+./Miscellaneous/print.orc
+./Miscellaneous/ptrk.orc
+./Miscellaneous/ptrk44in.orc
+./Miscellaneous/ptrkin.orc
+./Miscellaneous/ptrkind.orc
+./Miscellaneous/pvoc.orc
+./Miscellaneous/Q1.orc
+./Miscellaneous/rb1.orc
+./Miscellaneous/rb2.orc
+./Miscellaneous/reinit.orc
+./Miscellaneous/resonx.orc
+./Miscellaneous/risset1.orc
+./Miscellaneous/risset2.orc
+./Miscellaneous/risset3.orc
+./Miscellaneous/risset4.orc
+./Miscellaneous/rttest.orc
+./Miscellaneous/sadly.csd
+./Miscellaneous/sadly.orc
+./Miscellaneous/schedwhen.csd
+./Miscellaneous/seed.orc
+./Miscellaneous/seg.orc
+./Miscellaneous/show1.orc
+./Miscellaneous/simplefof.orc
+./Miscellaneous/sine.orc
+./Miscellaneous/sine2.orc
+./Miscellaneous/sone.orc
+./Miscellaneous/sonetest.orc
+./Miscellaneous/sopdod.orc
+./Miscellaneous/sopink.orc
+./Miscellaneous/soundin.orc
+./Miscellaneous/soundin1.orc
+./Miscellaneous/soundins.orc
+./Miscellaneous/string.orc
+./Miscellaneous/strings.orc
+./Miscellaneous/strset.orc
+./Miscellaneous/sweep.orc
+./Miscellaneous/tap.orc
+./Miscellaneous/test.orc
+./Miscellaneous/testone1.orc
+./Miscellaneous/testone2.orc
+./Miscellaneous/tonex.orc
+./Miscellaneous/toot13.orc
+./Miscellaneous/trapped.orc
+./Miscellaneous/tulip.csd
+./Miscellaneous/tulip.orc
+./Miscellaneous/turnon.orc
+./Miscellaneous/unary.orc
+./Miscellaneous/upsamp.orc
+./Miscellaneous/wayne.csd
+./Miscellaneous/wayne.orc
+./Miscellaneous/wgpluck2a.orc
+./Miscellaneous/xanadu.orc
+./Miscellaneous/xanadu08.orc
+./Miscellaneous/xanadu11.orc
+./Miscellaneous/xanadu22.orc
+./Miscellaneous/xanadu40.orc
+./Miscellaneous/xanadu44.orc
+./molyneux/am.orc
+./molyneux/ambuzz.orc
+./molyneux/crickets.orc
+./molyneux/d9.orc
+./molyneux/delay1.orc
+./molyneux/delay2.orc
+./molyneux/delay3.orc
+./molyneux/delay4.orc
+./molyneux/delay5.orc
+./molyneux/delay6.orc
+./molyneux/delay7.orc
+./molyneux/delay9.orc
+./molyneux/fmfilt.orc
+./molyneux/fmstrings.orc
+./molyneux/kr1.orc
+./molyneux/mixer1.orc
+./molyneux/molpiano.orc
+./molyneux/molpiano1.orc
+./molyneux/molpiano2.orc
+./molyneux/molproject1.orc
+./molyneux/ndrm.orc
+./molyneux/pnb2.orc
+./molyneux/pno1.orc
+./molyneux/sine.orc
+./molyneux/wdrum.orc
+./molyneux/xen1.orc
+./molyneux/xen2.orc
+./Mortimer/gns003.csd
+./moss/additiv.orc
+./moss/chant.csd
+./moss/descent.orc
+./moss/etude1.orc
+./moss/moss1.orc
+./moss/moss2.orc
+./moss/noise.csd
+./Mossey/5trombones.csd
+./Mossey/master.orc
+./noorden/Deutsch1.orc
+./noorden/Deutsch2.orc
+./noorden/Noorden1.orc
+./noorden/Noorden10.orc
+./noorden/Noorden11.orc
+./noorden/Noorden2.orc
+./noorden/Noorden3.orc
+./noorden/Noorden4.orc
+./noorden/Noorden5.orc
+./noorden/Noorden6.orc
+./noorden/Noorden7.orc
+./noorden/Noorden8.orc
+./noorden/Noorden9.orc
+./oi/chordproclaimerdemo.orc
+./oi/frenchhornsdemo.orc
+./oi/harmonygeneratordemo.orc
+./oi/melodyproclaimer.orc
+./oi/strummerdemo.orc
+./oi/tuningdemo.orc
+./others_examples/123.orc
+./others_examples/123s.orc
+./others_examples/adsyn.orc
+./others_examples/areson.orc
+./others_examples/bach.orc
+./others_examples/bach30.orc
+./others_examples/bachm.orc
+./others_examples/bachx.orc
+./others_examples/bachy.orc
+./others_examples/bellfunc.orc
+./others_examples/brass.orc
+./others_examples/bug.orc
+./others_examples/bug2.orc
+./others_examples/chowning.orc
+./others_examples/cond.orc
+./others_examples/cpspch.orc
+./others_examples/Dashow.csd
+./others_examples/dashow.orc
+./others_examples/delpuls.csd
+./others_examples/delpuls.orc
+./others_examples/dft.orc
+./others_examples/diff.orc
+./others_examples/drum.orc
+./others_examples/dx16.orc
+./others_examples/dx16a.orc
+./others_examples/dx5.orc
+./others_examples/endless.orc
+./others_examples/envlp.orc
+./others_examples/fft.orc
+./others_examples/fof.orc
+./others_examples/foo.orc
+./others_examples/gbuzz.orc
+./others_examples/gen.orc
+./others_examples/guitar.orc
+./others_examples/guitar22.orc
+./others_examples/harm.csd
+./others_examples/harm.orc
+./others_examples/in.orc
+./others_examples/in08.orc
+./others_examples/in22.orc
+./others_examples/in44.orc
+./others_examples/ins.orc
+./others_examples/insoundi.orc
+./others_examples/inspecdi.orc
+./others_examples/inspecpt.orc
+./others_examples/introsbu.orc
+./others_examples/james.orc
+./others_examples/jd.orc
+./others_examples/jn.orc
+./others_examples/karstr.orc
+./others_examples/kdump.orc
+./others_examples/Kelley-mkg.csd
+./others_examples/Kelley.csd
+./others_examples/kelley.orc
+./others_examples/kelley22.orc
+./others_examples/line.orc
+./others_examples/linseg.orc
+./others_examples/lp1.orc
+./others_examples/lp2.orc
+./others_examples/lp3.orc
+./others_examples/lptest.orc
+./others_examples/lpxy.orc
+./others_examples/mcadams.orc
+./others_examples/Miller.csd
+./others_examples/miller.orc
+./others_examples/Nelson.csd
+./others_examples/nelson.orc
+./others_examples/p0.orc
+./others_examples/pan.orc
+./others_examples/pc.orc
+./others_examples/piano.orc
+./others_examples/pinkston.orc
+./others_examples/pluck.orc
+./others_examples/print.orc
+./others_examples/ptrk.orc
+./others_examples/ptrk44in.orc
+./others_examples/ptrkin.orc
+./others_examples/ptrkind.orc
+./others_examples/pvoc.orc
+./others_examples/rb1.orc
+./others_examples/rb2.orc
+./others_examples/reinit.orc
+./others_examples/risset1.orc
+./others_examples/risset2.orc
+./others_examples/risset3.orc
+./others_examples/risset4.orc
+./others_examples/rttest.orc
+./others_examples/seg.orc
+./others_examples/sine.orc
+./others_examples/sine2.orc
+./others_examples/sopdod.orc
+./others_examples/sopink.orc
+./others_examples/soundin.orc
+./others_examples/soundin1.orc
+./others_examples/soundins.orc
+./others_examples/string.orc
+./others_examples/strings.orc
+./others_examples/tap.orc
+./others_examples/trapped.orc
+./others_examples/unary.orc
+./others_examples/upsamp.orc
+./others_examples/wayne.csd
+./others_examples/wayne.orc
+./others_examples/xanadu.orc
+./others_examples/xanadu08.orc
+./others_examples/xanadu11.orc
+./others_examples/xanadu22.orc
+./others_examples/xanadu40.orc
+./others_examples/xanadu44.orc
+./pagano/pagano-piece.orc
+./Pavan/circle.orc
+./Pavan/dechor.orc
+./Pavan/GUI_lib.csd
+./Pavan/noorde11.orc
+./Pavan/noorden1.orc
+./Pavan/noorden2.orc
+./Pavan/noorden3.orc
+./Pavan/noorden4.orc
+./Pavan/noorden5.orc
+./Pavan/noorden6.orc
+./Pavan/noorden7.orc
+./Pavan/noorden8.orc
+./Pavan/noorden9.orc
+./Pavan/planet.orc
+./pena/._pluck_instrument.csd
+./pena/pluck_instrument.csd
+./Peterson/contrapunctus1_corrected.csd
+./Phillips/p04-080517-rt.csd
+./pianoteq-test/test1.orc
+./pianoteq-test/VST.csd
+./piche/incantation.orc
+./pierce/dyngran.orc
+./pierce/dynpitch.orc
+./pierce/invade.orc
+./pierce/sndwarp.orc
+./Pinkston/additiv.orc
+./Pinkston/amexamp.orc
+./Pinkston/amod.orc
+./Pinkston/bankoflt.orc
+./Pinkston/basic_granular.orc
+./Pinkston/bellfunc.csd
+./Pinkston/bpsweep.orc
+./Pinkston/buzztest.orc
+./Pinkston/chorus1.orc
+./Pinkston/chowning.orc
+./Pinkston/combtest.orc
+./Pinkston/conga.csd
+./Pinkston/crossfad.orc
+./Pinkston/crossfade.orc
+./Pinkston/dblcarws.orc
+./Pinkston/delay.orc
+./Pinkston/delins1.orc
+./Pinkston/delins23.orc
+./Pinkston/delins4.orc
+./Pinkston/delins56.orc
+./Pinkston/delins7.orc
+./Pinkston/delins89.orc
+./Pinkston/doppler.orc
+./Pinkston/doppler1.orc
+./Pinkston/drumcomb.orc
+./Pinkston/drummer.orc
+./Pinkston/dxalg16.orc
+./Pinkston/dxalg5.orc
+./Pinkston/effects.orc
+./Pinkston/endless2.orc
+./Pinkston/eventide.csd
+./Pinkston/eventst.orc
+./Pinkston/fazex.orc
+./Pinkston/filters.orc
+./Pinkston/filttest.orc
+./Pinkston/first.orc
+./Pinkston/fltrdemo.csd
+./Pinkston/fltrdemo.orc
+./Pinkston/fm1.orc
+./Pinkston/fm2.orc
+./Pinkston/fm2a.orc
+./Pinkston/fm3.orc
+./Pinkston/fm4.orc
+./Pinkston/fmdrum.orc
+./Pinkston/fof2demo.orc
+./Pinkston/fofdemo.orc
+./Pinkston/foggynew.orc
+./Pinkston/gatexamp.orc
+./Pinkston/grfader.orc
+./Pinkston/heart.orc
+./Pinkston/ins2-4.orc
+./Pinkston/ins5.orc
+./Pinkston/ins6.orc
+./Pinkston/ins7.orc
+./Pinkston/karplus2.csd
+./Pinkston/karplus2.orc
+./Pinkston/koto.orc
+./Pinkston/logic2a.orc
+./Pinkston/mapping.orc
+./Pinkston/midibach.orc
+./Pinkston/midifm3.orc
+./Pinkston/miditest.orc
+./Pinkston/miditst1.orc
+./Pinkston/miditst2.orc
+./Pinkston/miditst3.orc
+./Pinkston/miditst4.orc
+./Pinkston/miditst5.orc
+./Pinkston/mixture.csd
+./Pinkston/newgran.orc
+./Pinkston/newpan.orc
+./Pinkston/newws.orc
+./Pinkston/ourdrum.orc
+./Pinkston/ourgrain.orc
+./Pinkston/ourgran2.orc
+./Pinkston/ourpareq2.orc
+./Pinkston/ourport.orc
+./Pinkston/ourvoice.orc
+./Pinkston/panner2.orc
+./Pinkston/pchamp.orc
+./Pinkston/pinkston-vocoder.orc
+./Pinkston/popcorn3.orc
+./Pinkston/portass.orc
+./Pinkston/portrfp.orc
+./Pinkston/pulser.orc
+./Pinkston/randamod.orc
+./Pinkston/randgate.orc
+./Pinkston/randmap.orc
+./Pinkston/randpit.orc
+./Pinkston/randsfun.orc
+./Pinkston/ratchet.orc
+./Pinkston/resample.orc
+./Pinkston/ringmod.orc
+./Pinkston/rpwavter.orc
+./Pinkston/rvbtest.orc
+./Pinkston/sample3.orc
+./Pinkston/schdgran.orc
+./Pinkston/schednew.orc
+./Pinkston/scheds.orc
+./Pinkston/scorefun.orc
+./Pinkston/sequence.orc
+./Pinkston/slopes.orc
+./Pinkston/sndin.orc
+./Pinkston/soprano.orc
+./Pinkston/soundins.orc
+./Pinkston/tabletst.orc
+./Pinkston/template.orc
+./Pinkston/ticker3.orc
+./Pinkston/tickers.orc
+./Pinkston/tremolo.orc
+./Pinkston/tstretch.orc
+./Pinkston/vamsound.orc
+./Pinkston/varyvowl.orc
+./Pinkston/vgrain.orc
+./Pinkston/vibexamp.orc
+./Pinkston/vocoder.csd
+./Pinkston/vocoder.orc
+./Pinkston/voice.orc
+./Pinkston/waveshap.orc
+./Pinkston/wavestat.orc
+./Pinkston/wgplucks.orc
+./pocino/juno.orc
+./pocino/pocsuboct.orc
+./pocino/pwmsynth.orc
+./pocino/randcrd.orc
+./pocino/shflang.orc
+./pocino/space.orc
+./pocino/stepfeedback.orc
+./real-time-mccurdy/3daudio/hrtfer.csd
+./real-time-mccurdy/additivesynthesis/harmonicadditivesynthesis1.csd
+./real-time-mccurdy/additivesynthesis/harmonicadditivesynthesis2.csd
+./real-time-mccurdy/additivesynthesis/inharmonicadditivesynthesis.csd
+./real-time-mccurdy/delays/01delayw_delayr_deltap.csd
+./real-time-mccurdy/delays/02delayportamento.csd
+./real-time-mccurdy/delays/03delayfeedback.csd
+./real-time-mccurdy/delays/04delayfiltersinloop.csd
+./real-time-mccurdy/delays/05delayflanger.csd
+./real-time-mccurdy/delays/06delayThruZeroFlanger.csd
+./real-time-mccurdy/delays/07delayStereoChorus.csd
+./real-time-mccurdy/delays/08delaySimplePitchShifter.csd
+./real-time-mccurdy/delays/09delayCompletedPitchShifter.csd
+./real-time-mccurdy/fft/pvadd.csd
+./real-time-mccurdy/fft/pvoc.csd
+./real-time-mccurdy/filters/areson.csd
+./real-time-mccurdy/filters/atone.csd
+./real-time-mccurdy/filters/atonex.csd
+./real-time-mccurdy/filters/bqrez.csd
+./real-time-mccurdy/filters/butterbp.csd
+./real-time-mccurdy/filters/butterbr.csd
+./real-time-mccurdy/filters/butterhp.csd
+./real-time-mccurdy/filters/butterlp.csd
+./real-time-mccurdy/filters/clfilt.csd
+./real-time-mccurdy/filters/lowpass2.csd
+./real-time-mccurdy/filters/lowres.csd
+./real-time-mccurdy/filters/lowresx.csd
+./real-time-mccurdy/filters/lpf18.csd
+./real-time-mccurdy/filters/moogladder.csd
+./real-time-mccurdy/filters/moogvcf.csd
+./real-time-mccurdy/filters/reson.csd
+./real-time-mccurdy/filters/tbvcf.csd
+./real-time-mccurdy/filters/tone.csd
+./real-time-mccurdy/filters/tonex.csd
+./real-time-mccurdy/filters/vlowres.csd
+./real-time-mccurdy/fltk/01FLPanel.csd
+./real-time-mccurdy/fltk/02FLSlider.csd
+./real-time-mccurdy/fltk/03FLKnob.csd
+./real-time-mccurdy/fltk/04FLRoller.csd
+./real-time-mccurdy/fltk/05FLtext.csd
+./real-time-mccurdy/fltk/06FLjoy.csd
+./real-time-mccurdy/fltk/07FLcount.csd
+./real-time-mccurdy/fltk/08FLtabsFLgroup.csd
+./real-time-mccurdy/fltk/09FLsetVal_i.csd
+./real-time-mccurdy/fltk/10FLbutton.csd
+./real-time-mccurdy/fltk/11FLbox.csd
+./real-time-mccurdy/fltk/12FLscroll.csd
+./real-time-mccurdy/fltk/13FLvalue.csd
+./real-time-mccurdy/fltk/14FLsetColor.csd
+./real-time-mccurdy/fltk/MIDI_FLTK_Combined.csd
+./real-time-mccurdy/fltk/RandomMovingSlider.csd
+./real-time-mccurdy/fltk/SliderMultiVariable.csd
+./real-time-mccurdy/fltk/SliderNonLinear.csd
+./real-time-mccurdy/fltk/SlidersHorizontal.csd
+./real-time-mccurdy/fltk/SlidersVertical.csd
+./real-time-mccurdy/fltk/Snapshots.csd
+./real-time-mccurdy/fm/01FMSynthesisVibratoToSideBands.csd
+./real-time-mccurdy/fm/02SimpleModulatorCarrier.csd
+./real-time-mccurdy/fm/03ModulatorCarrier.csd
+./real-time-mccurdy/fm/04ModulatorCarrierWithEnvelopes.csd
+./real-time-mccurdy/fm/05_2xModulatorCarrierWithEnvelopes.csd
+./real-time-mccurdy/granularsynthesis/fof.csd
+./real-time-mccurdy/granularsynthesis/fofx6.csd
+./real-time-mccurdy/granularsynthesis/fog.csd
+./real-time-mccurdy/granularsynthesis/grain3.csd
+./real-time-mccurdy/granularsynthesis/granule.csd
+./real-time-mccurdy/granularsynthesis/sndwarp.csd
+./real-time-mccurdy/granularsynthesis/syncgrain.csd
+./real-time-mccurdy/miscellaneouswaveformoscillators/buzz.csd
+./real-time-mccurdy/miscellaneouswaveformoscillators/gbuzz.csd
+./real-time-mccurdy/miscellaneouswaveformoscillators/vco.csd
+./real-time-mccurdy/miscellaneouswaveformoscillators/vco_with_PWM_LFO_and_LPF.csd
+./real-time-mccurdy/physicalmodels/bamboo.csd
+./real-time-mccurdy/physicalmodels/dripwater.csd
+./real-time-mccurdy/physicalmodels/guiro.csd
+./real-time-mccurdy/physicalmodels/pluck.csd
+./real-time-mccurdy/physicalmodels/sekere.csd
+./real-time-mccurdy/physicalmodels/sleighbells.csd
+./real-time-mccurdy/physicalmodels/tambourine.csd
+./real-time-mccurdy/physicalmodels/wgbow.csd
+./real-time-mccurdy/physicalmodels/wgbowedbar.csd
+./real-time-mccurdy/physicalmodels/wgclar.csd
+./real-time-mccurdy/physicalmodels/wgflute.csd
+./real-time-mccurdy/physicalmodels/wgpluck2.csd
+./real-time-mccurdy/reverbs/babo.csd
+./real-time-mccurdy/reverbs/freeverb.csd
+./real-time-mccurdy/reverbs/nreverb.csd
+./real-time-mccurdy/reverbs/reverb.csd
+./real-time-mccurdy/reverbs/screverb.csd
+./real-time-mccurdy/soundfileplayback/flooper2.csd
+./real-time-mccurdy/specializedfilters/Phaser1.csd
+./real-time-mccurdy/specializedfilters/Phaser2.csd
+./Risset/arpeggio.orc
+./Risset/bell.orc
+./Risset/bell1.orc
+./Risset/brass.orc
+./Risset/clarinet.orc
+./Risset/drum1.orc
+./Risset/drum2.orc
+./Risset/flute.orc
+./Risset/harmony.orc
+./Risset/inharm1.orc
+./Risset/mutation1.orc
+./Risset/octave.orc
+./Risset/reed.orc
+./Risset/ringmod.orc
+./Risset/ringmod1.orc
+./Risset/ringmod2.orc
+./Risset/risbel.orc
+./Risset/risset-flute-mkg.csd
+./Risset/Risset.orc
+./Risset/risset1.orc
+./Risset/risset2.orc
+./Risset/RissetBell.orc
+./Risset/RissetBrass.orc
+./Risset/RissetClarinet.orc
+./Risset/RissetDrum.orc
+./Risset/Rissetflute.orc
+./Risset/RissetReed.orc
+./Risset/siren.orc
+./Rodgers/bosenm5.orc
+./rossing/Analytic_SyntheticPitch.orc
+./rossing/AsymOfMaskingPulsedTones.orc
+./rossing/AuditoryIllusion.orc
+./rossing/AuralCombinationTones.orc
+./rossing/BinauralBeats.orc
+./rossing/BinauralLaterization.orc
+./rossing/CancelledHarmonics.orc
+./rossing/CircularPitch.orc
+./rossing/DecibelScale.orc
+./rossing/Experiment1Sones.orc
+./rossing/Experiment2.orc
+./rossing/FreqResponseOfEar.orc
+./rossing/InflMaskingNoisePitch.orc
+./rossing/JND.orc
+./rossing/Masking.orc
+./rossing/MaskingLevelDifferences.orc
+./rossing/MaskingVirtualPitch.orc
+./rossing/OctaveMatching.orc
+./rossing/PitchDiscrim.orc
+./rossing/Pitchstreaming.orc
+./rossing/PITCH_DURATION.orc
+./rossing/PITCH_INTENSITY.orc
+./rossing/PrimarySecondaryBeats.orc
+./rossing/PulsationThreshold.orc
+./rossing/TempIntegration.orc
+./rossing/VirtPitchRandHarm.orc
+./rossing/VirtualPitch.orc
+./Sarkissian/ModularTemplateMaster.csd
+./schertzer/tt6d.orc
+./Seidel/A_Door_Into_Spring.csd
+./Seidel/csound.2006-01-19.01-33-41.csd
+./Seidel/LawOfOctaves.csd
+./Seidel/sublimation.csd
+./Selected/bassoon.csd
+./Selected/BayAtNight.csd
+./Selected/bluecube.csd
+./Selected/bluenoise.csd
+./Selected/CaveWaterSpirits.csd
+./Selected/CyclicBells.csd
+./Selected/dashow.csd
+./Selected/Descent.csd
+./Selected/Deserted.csd
+./Selected/drone.csd
+./Selected/electronic_bubbles.csd
+./Selected/FaceOnMars.csd
+./Selected/guitar_vst.csd
+./Selected/Halloween.csd
+./Selected/Incantation.csd
+./Selected/InWinterShine.csd
+./Selected/ks3.csd
+./Selected/Maple7.csd
+./Selected/message.csd
+./Selected/moog.csd
+./Selected/nuclear.csd
+./Selected/NuclearEnergy.csd
+./Selected/Study2.csd
+./Selected/TangledInTheLorenzAttractor.csd
+./Selected/test.orc
+./Selected/TextfileFunk.csd
+./Selected/TheHeartbeat.csd
+./Selected/TheHennonAttractor.csd
+./Selected/TheSwarm.csd
+./Selected/tobiah.csd
+./Selected/TrappedInConvert.csd
+./Selected/VestigeOfTime.csd
+./Selected/xanadu.csd
+./Selected/You_Know_I_Know.csd
+./smaragdis/alg4.orc
+./smaragdis/alg5.orc
+./smaragdis/altfm.orc
+./smaragdis/anagrain.orc
+./smaragdis/anagrain2.orc
+./smaragdis/bachx.orc
+./smaragdis/bachy.orc
+./smaragdis/butter.orc
+./smaragdis/buttest.orc
+./smaragdis/cannon.orc
+./smaragdis/chirp.orc
+./smaragdis/chsp.orc
+./smaragdis/chsp2.orc
+./smaragdis/clariguide.orc
+./smaragdis/class.orc
+./smaragdis/cross3.orc
+./smaragdis/dem1.orc
+./smaragdis/dem2.orc
+./smaragdis/dist.orc
+./smaragdis/drumsand.orc
+./smaragdis/eddie.orc
+./smaragdis/eflw.orc
+./smaragdis/feed.orc
+./smaragdis/filcompare.orc
+./smaragdis/filtex.orc
+./smaragdis/flang.orc
+./smaragdis/fltbank.orc
+./smaragdis/fltcomp.orc
+./smaragdis/fmsimp1.orc
+./smaragdis/fofchor.orc
+./smaragdis/fofgrain.orc
+./smaragdis/fofrale.orc
+./smaragdis/ftable_test.orc
+./smaragdis/fts.orc
+./smaragdis/gra.orc
+./smaragdis/grain2.orc
+./smaragdis/grain3.orc
+./smaragdis/grainex.orc
+./smaragdis/grainsamp.orc
+./smaragdis/grainstd.orc
+./smaragdis/graint1.orc
+./smaragdis/graint10.orc
+./smaragdis/graint11.orc
+./smaragdis/graint2.orc
+./smaragdis/graint3.orc
+./smaragdis/graint4.orc
+./smaragdis/graint5.orc
+./smaragdis/graint6.orc
+./smaragdis/graint7.orc
+./smaragdis/graint8.orc
+./smaragdis/graint9.orc
+./smaragdis/graintoot.orc
+./smaragdis/grainvox.orc
+./smaragdis/granproc.orc
+./smaragdis/granrev1.orc
+./smaragdis/granular.orc
+./smaragdis/gtest.orc
+./smaragdis/homep 2.orc
+./smaragdis/midctl1.orc
+./smaragdis/midi.orc
+./smaragdis/midify1.orc
+./smaragdis/midiguide.orc
+./smaragdis/morrill tr.orc
+./smaragdis/morrill.orc
+./smaragdis/ok.orc
+./smaragdis/oscilx.orc
+./smaragdis/parisfm.orc
+./smaragdis/parisft.orc
+./smaragdis/pdel.orc
+./smaragdis/physmod.orc
+./smaragdis/pof3.orc
+./smaragdis/pow.orc
+./smaragdis/powdel.orc
+./smaragdis/revex.orc
+./smaragdis/sine.orc
+./smaragdis/slingpling.orc
+./smaragdis/smod.orc
+./smaragdis/smphld.orc
+./smaragdis/stanverb.orc
+./smaragdis/streams.orc
+./smaragdis/streams2.orc
+./smaragdis/testmid.orc
+./smaragdis/tootp2.orc
+./smaragdis/vdel.orc
+./smaragdis/Waveshap.orc
+./smaragdis/wguidecl.orc
+./smaragdis/xhome2.orc
+./smaragdis/xhome3.orc
+./smaragdis/xincode.orc
+./smarag~1.2/altfm.orc
+./smarag~1.2/clarguid.orc
+./smarag~1.2/flange.orc
+./smarag~1.2/fltbank.orc
+./smarag~1.2/fltcompr.orc
+./smarag~1.2/grainstd.csd
+./smarag~1.2/grainstd.orc
+./smarag~1.2/granproc.orc
+./smarag~1.2/granstd.orc
+./smarag~1.2/granular.csd
+./smarag~1.2/granular.orc
+./smarag~1.2/slingpng.orc
+./sofia/mir.orc
+./spectral-processing/accci-60-22-1b.orc
+./spectral-processing/accci-60-22-1c.orc
+./spectral-processing/accci-60-22-2.orc
+./spectral-processing/accci-60-22-3.orc
+./spectral-processing/accci-60-23-1.orc
+./spectral-processing/accci-60-23-2.orc
+./spectral-processing/karpen-2803.orc
+./spectral-processing/karpen-2804.orc
+./spectral-processing/karpen-2805.orc
+./spectral-processing/karpen-2806.orc
+./spectral-processing/karpen-2807.orc
+./spectral-processing/karpen-2808.orc
+./spectral-processing/karpen-2809.orc
+./spectral-processing/karpen-2810.orc
+./spectral-processing/karpen-2811.orc
+./spectral-processing/karpen-2816.orc
+./spectral-processing/karpen-2817.orc
+./spectral-processing/karpen-2818.orc
+./spectral-processing/karpen-2821.orc
+./spectral-processing/karpen-2821a.orc
+./spectral-processing/karpen-2822.orc
+./spectral-processing/klapper-2701.orc
+./spectral-processing/klapper-2702.orc
+./spectral-processing/klapper-2703.orc
+./spectral-processing/klapper-2704.orc
+./spectral-processing/klapper-2705.orc
+./spectral-processing/klapper-2706.orc
+./spectral-processing/klapper-2707.orc
+./spectral-processing/klapper-2708.orc
+./spectral-processing/klapper-2709.orc
+./spectral-processing/klapper-2710.orc
+./spectral-processing/klapper-2711.orc
+./spectral-processing/klapper-2712.orc
+./spectral-processing/klapper-2713.orc
+./spectral-processing/klapper-2714.orc
+./spectral-processing/klapper-2715.orc
+./spectral-processing/klapper-2716.orc
+./spectral-processing/klapper-2717.orc
+./spectral-processing/klapper-2718.orc
+./spectral-processing/klapper-2719.orc
+./spectral-processing/klapper-2720.orc
+./spectral-processing/klapper-2721.orc
+./spectral-processing/klapper-2722.orc
+./spectral-processing/klapper-2723.orc
+./spectral-processing/klapper-2724.orc
+./spectral-processing/klapper-2725.orc
+./spectral-processing/klapper-2726.orc
+./spectral-processing/klapper-2727.orc
+./spectral-processing/klapper-2728.orc
+./spectral-processing/klapper-2729.orc
+./spectral-processing/klapper-2730.orc
+./spectral-processing/klapper-2731.orc
+./spectral-processing/pinkston-adsyn.orc
+./spectral-processing/pinkston-convolve.orc
+./spectral-processing/pinkston-convunit.orc
+./spectral-processing/pinkston-lpc.orc
+./spectral-processing/pinkston-pvadd.orc
+./spectral-processing/pinkston-pvoc1.orc
+./spectral-processing/pinkston-pvoc2.orc
+./spectral-processing/pinkston-pvoc3.orc
+./spectral-processing/pinkston-vpvoc1.orc
+./spectral-processing/pinkston-vpvoc2.orc
+./spectral-processing/pvoc-01.orc
+./spectral-processing/pvoc-02.orc
+./spectral-processing/pvoc-03.orc
+./spectral-processing/pvoc-04.orc
+./spjut/alias.orc
+./spjut/am_example.orc
+./spjut/brightmusicdemos.orc
+./spjut/butter1.orc
+./spjut/buzz.orc
+./spjut/chebychev.orc
+./spjut/chebychev1.orc
+./spjut/convolvetest.orc
+./spjut/directexample.orc
+./spjut/echodemos.orc
+./spjut/filt.orc
+./spjut/filterresponse.orc
+./spjut/fir.orc
+./spjut/fir_example.orc
+./spjut/flt2order.orc
+./spjut/fm_example.orc
+./spjut/highpassdemos.orc
+./spjut/iir_example.orc
+./spjut/impulse.orc
+./spjut/instrumentdemos.orc
+./spjut/jurepw.orc
+./spjut/lowpassdemos.orc
+./spjut/lpc2.orc
+./spjut/mixreverb.orc
+./spjut/musicdemos.orc
+./spjut/periodic_example.orc
+./spjut/sine.orc
+./spjut/sine1.orc
+./spjut/sinedemos.orc
+./spjut/spjutpw.orc
+./themis/butter3rdlow.orc
+./themis/butter5thhigh.orc
+./themis/cheby2ndpass.orc
+./themis/cheby2ndreject.orc
+./Tobias/tobias.csd
+./Tobias/tobias.orc
+./Tossavainen/moog.csd
+./Tossavainen/moog.orc
+./turner/StudyInAdditiveSynth.csd
+./VanPeteghem/PadSynth.csd
+./varga/bassline/bassline1.orc
+./varga/bassline/bsln1.orc
+./varga/bassline/bsln1a.orc
+./varga/bassline/bsln2.orc
+./varga/bassline/bsln_1a.orc
+./varga/bassline/bsln_2.orc
+./varga/bd/bd01.orc
+./varga/bd/bd02.orc
+./varga/bd/bd03.orc
+./varga/bd/bd10.orc
+./varga/bd/bd10_01.orc
+./varga/bd/bd11.orc
+./varga/bd/bd14_01.orc
+./varga/bd/bd4004m-01.orc
+./varga/bd/bd4004m-02.orc
+./varga/bd/bd4004m-03.orc
+./varga/bd/bd4004m-04.orc
+./varga/bd/bd4004m-05.orc
+./varga/bd/bd4004m-06.orc
+./varga/bd/bd4006.orc
+./varga/bd/bd5000.orc
+./varga/bd/bd_1600.orc
+./varga/bd/bd_4014m.orc
+./varga/bd/drum_05_04.orc
+./varga/bd/drum_0600.orc
+./varga/bd/drum_06_01.orc
+./varga/bd/drum_08.orc
+./varga/bd/hcbd_0001.orc
+./varga/bd/hcbd_0002.orc
+./varga/drums/clap1.orc
+./varga/drums/crash.orc
+./varga/drums/crash2.orc
+./varga/drums/cym_sample.orc
+./varga/drums/drum_08.orc
+./varga/drums/hihat1.orc
+./varga/drums/hihat1a.orc
+./varga/drums/hihat2.orc
+./varga/drums/ride1.orc
+./varga/drums/ride2.orc
+./varga/drums/rimshot.orc
+./varga/drums/snare1.orc
+./varga/drums/tom.orc
+./varga/drums2/cvgen.orc
+./varga/drums2/drums.orc
+./varga/drums2/reverb.orc
+./varga/Include/base_macros.h.orc
+./varga/Include/base_macros.include.orc
+./varga/Include/ctrl.h.orc
+./varga/Include/Delays.include.orc
+./varga/Include/Effects.Header.orc
+./varga/Include/EventMod.include.orc
+./varga/Include/fgen.h.orc
+./varga/Include/formant_table.include.orc
+./varga/Include/HRTF_Stereo.include.orc
+./varga/Include/Plain_Stereo.include.orc
+./varga/Include/spat.h.orc
+./varga/Include/Spatial_Stereo.include.orc
+./varga/Include/spat_def.h.orc
+./varga/Include/uhjmacros.h.orc
+./varga/instr1/cymbal.orc
+./varga/instr1/guitar.orc
+./varga/instr1/perc.orc
+./varga/instr1/strings_01.orc
+./varga/instr1/strings_01a.orc
+./varga/instr1/synth3.orc
+./varga/instr1/synth4.orc
+./varga/instr1/synth_01.orc
+./varga/instr1/t3.orc
+./varga/instr1/voice1.orc
+./varga/instr2/aaah1.orc
+./varga/instr2/strings_02.orc
+./varga/instr2/synth_12_2.orc
+./varga/instr2/voice_10.orc
+./varga/instr2/voice_121.orc
+./varga/instr3/bassline2.orc
+./varga/instr3/strings_03.orc
+./varga/tekbass1/bass_01.orc
+./varga/tekbass1/bass_02.orc
+./varga/tekbass1/bass_03.orc
+./varga/tekbass1/bass_04.orc
+./varga/tekbass1/bass_05.orc
+./varga/tekbass1/bass_06.orc
+./varios/bass-drum.orc
+./varios/btsine.orc
+./varios/circle01.orc
+./varios/circle02.orc
+./varios/covell-new-granular.orc
+./varios/darremont.orc
+./varios/dexter-morrill-trumpet.orc
+./varios/glissando-textures.orc
+./varios/hrtfer-test.orc
+./varios/isequencer.orc
+./varios/leapfrog.orc
+./varios/markov.orc
+./varios/moog.orc
+./varios/polytie.orc
+./varios/resipluck.orc
+./varios/sndwarp1.orc
+./varios/stanford-reverb.orc
+./varios/stereo-enhancer.orc
+./varios/stochastic-granulator.orc
+./varios/stsine.orc
+./varios/switch.orc
+./varios/tekno-bass-drum.orc
+./varios/tienote1.orc
+./varios/tienote2.orc
+./varios/vocode-pan.orc
+./varios/wavmodfm.orc
+./varios/webcompress.orc
+./varios/williams.orc
+./varios/winkelfm.orc
+./Various/adsyn1.orc
+./Various/adsyn2.orc
+./Various/altoflute.csd
+./Various/altoflute.orc
+./Various/apf.csd
+./Various/Apf.orc
+./Various/atonex.csd
+./Various/atonex.orc
+./Various/autorun.orc
+./Various/band.csd
+./Various/band.orc
+./Various/bandshiftednoise.orc
+./Various/bassdrum.csd
+./Various/bassdrum.orc
+./Various/bd1601.orc
+./Various/bd4004m.orc
+./Various/bd5000.orc
+./Various/bif.orc
+./Various/bluenoise.csd
+./Various/bluenoise.orc
+./Various/buzzsweep.orc
+./Various/circle.csd
+./Various/circle.orc
+./Various/comb1.orc
+./Various/comb2.orc
+./Various/comb3.csd
+./Various/comb3.orc
+./Various/conrev.orc
+./Various/conv0.orc
+./Various/conv3.orc
+./Various/csoundpiece.csd
+./Various/csoundpiece.orc
+./Various/cubic2.orc
+./Various/cubic3.orc
+./Various/delay1.orc
+./Various/delay2.orc
+./Various/DrumFilt.orc
+./Various/ex1.orc
+./Various/ex7.orc
+./Various/example1.orc
+./Various/experiments.orc
+./Various/FltBuzz.orc
+./Various/Fm1.orc
+./Various/Fm101.orc
+./Various/Fm103.orc
+./Various/fm105.csd
+./Various/Fm105.orc
+./Various/Fm2.orc
+./Various/Fm3.orc
+./Various/Fm4.orc
+./Various/Fm5.orc
+./Various/fmfeed1a.orc
+./Various/fmfeed1b.orc
+./Various/fof2.orc
+./Various/fofog.orc
+./Various/fog1.orc
+./Various/FX.orc
+./Various/gbuzz.orc
+./Various/graintoot.orc
+./Various/haunt.csd
+./Various/haunt.orc
+./Various/hihat.orc
+./Various/Iringmod.orc
+./Various/kim1.csd
+./Various/kim1.orc
+./Various/ks1.orc
+./Various/ks3.orc
+./Various/loco.orc
+./Various/lpf.csd
+./Various/Lpf.orc
+./Various/noise2.orc
+./Various/noise3.orc
+./Various/noise5.orc
+./Various/noise6.orc
+./Various/notenum.orc
+./Various/numnotetest.orc
+./Various/pan1.orc
+./Various/pareq.orc
+./Various/phasorsample.orc
+./Various/pink.orc
+./Various/pink1.orc
+./Various/pkmeth.orc
+./Various/plk1.orc
+./Various/plkguit.orc
+./Various/pluckvoice.orc
+./Various/Q1.orc
+./Various/resonx.orc
+./Various/sadly.csd
+./Various/sadly.orc
+./Various/schedwhen.csd
+./Various/seed.orc
+./Various/show1.orc
+./Various/simplefof.orc
+./Various/sone.orc
+./Various/sonetest.orc
+./Various/strset.orc
+./Various/sweep.orc
+./Various/test.orc
+./Various/testone1.orc
+./Various/testone2.orc
+./Various/tonex.orc
+./Various/toot13.orc
+./Various/tulip.csd
+./Various/tulip.orc
+./Various/turnon.orc
+./Various/wgpluck2a.orc
+./vectro/vectrosynth o.91.csd
+./volkov/shaman.orc
+./volkov/x.orc
+./Wade/Block.csd
+./Wade/block.orc
+./whittle/sl_one_a.orc
+./whittle/spareluxuryone.orc
+./winkler/pw.orc
+./winkler/pwm2.orc
+./winkler/subharm.orc
+./winkler/winklerdrum.orc
+./xscanned/XScanned  Midi 0.9.csd
+./xscanned/XScanned Step-sequencer(Prototypes) 0.9.csd
+./yi/2007_03_19_fof_voice.csd
+./yi/Copy of 2007_03_19_fof_voice.csd
+./yi/feldman.csd

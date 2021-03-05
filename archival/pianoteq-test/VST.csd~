@@ -1,0 +1,39 @@
+<CsoundSynthesizer>
+<CsOptions>
+csound -m0 -d -odac temp.orc temp.sco
+</CsOptions>
+<CsInstruments>
+/* orc */
+
+sr = 44100
+ksmps = 100
+nchnls = 2
+gihandle1 vstinit "C:\\Program Files\\Steinberg\\VstPlugins\\Pianoteq 3.0 Trial\\Pianoteq30 Trial.dll",1
+;gihandle1 vstinit "C:\\Program Files\\Pianoteq 3.0 Trial\\Pianoteq30 Trial.dll",1
+vstinfo gihandle1
+; vstedit gihandle1
+
+instr 2
+ain1 = 0
+aoutleft, aoutright vstaudio gihandle1, ain1, ain1
+outs aoutleft, aoutright
+endin
+
+instr 1
+vstparamset gihandle1, 4, 60
+vstnote gihandle1, 1, p4, p5, p6
+endin
+
+</CsInstruments>
+<CsScore>
+/* sco */
+i 2 0 -1
+i 1 10 10 60 70 10
+i 1 20 10 63 70 10
+i 1 33 1 67 70 10 
+
+e
+
+
+</CsScore>
+</CsoundSynthesizer>

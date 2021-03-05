@@ -1,0 +1,52 @@
+CSOUND BENCHMARKS
+=================
+
+This is the first attempt at the creation of a small set of benchmarks.
+
+There are currently 6 tests, three of which are repeated with different
+options.
+
+The files you need are the following ASCII files
+bach.orc	bach.sco	risset1.orc	risset1.sco
+guitar.orc	guitar.sco	james.orc	james.sco
+
+and the two binary files pvtest.aif and lptest.aif
+
+The files bench.bat and timer.exe are helper files for MSDOS, and bench.sh
+is a similar script for unix.
+
+1.  BACH	A short passage of Bach with a simple orchestra.
+
+2.  RISSET1	A collection of complex instruments taken from the Risset set
+
+3.  GUITAR	Modestly complex instrument, using builtin algorithms (pluck)
+
+4.  JAMES	Very short 2 note section.
+
+5.  PVANAL	Phase-vocoding analysis of a short file
+
+6.  LPANAL	Linear-predictive coding of the same file
+
+
+Please run the following scripts, recording elapsed time, and report the
+times, machine and csound implementation.
+
+==John ffitch
+  jpff@maths.bath.ac.uk
+
+csound -d 	bach.orc bach.sco
+csound -m0 -d	bach.orc bach.sco
+csound -g 	risset1.orc risset1.sco
+csound -m0 -d	risset1.orc risset1.sco
+csound -d 	guitar.orc guitar.sco
+csound -m0 -d	guitar.orc guitar.sco
+csound -g 	james.orc james.sco
+pvanal pvtest.aif foo
+lpanal lptest.aif foo
+
+Please use whatever is the "natural" sound file format for your
+machine (eg WAV on PC, AIFF on Mac and SGI etc).  
+
+
+==John ffitch
+  9 October 1994

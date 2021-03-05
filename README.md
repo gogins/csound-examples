@@ -15,6 +15,12 @@ programs, and extensions that can be used with:
  - My [csound-extended-wasm](https://github.com/gogins/csound-extended/tree/develop/WebAssembly) including Csound and CsoundAC for WebAssembly. 
  - My [Csound VST3 opcodes](https://github.com/gogins/csound-vst3-opcodes).
  - My [Csound for Android](https://github.com/gogins/csound-android) app.
+ - `archival`, a _haphazard_ directory of _almost all_ the Csound pieces and examples that 
+   I have collected from the World Wide Web over many years. _This directory 
+   contains many of the Csound pieces or examples I could find online._ In 
+   many cases newer versions of the pieces may be found in other repositories (such as the 
+   McCurdy examples found in CsoundQt or the examples found in the FLOSS Manual 
+   for Csound. I have omitted renderings and larger soundfiles.
 
 These pieces are more or less segregated by directories named by programming 
 language or Csound runtime environment.
@@ -26,7 +32,17 @@ For more information, please read the examples themselves.
 #### Please note!
 
 Not all of these examples or tests actually work. Some are of archival 
-interest only.
+or historical interest only.
+
+I have not secured explicit permission for most of the pieces in the `archival`
+directory. Rather, if they did not come with a license, I have interpreted 
+their having been made available by their authors on the Web, or sent in 
+emails, as permission to redistribute them. And of course, many of these 
+pieces may be found in other places as well, for example in the examples menus 
+of the CsoundQt program.
+
+Anyone who finds their work in this repository but would like to have it 
+removed, simply notify me,and I will remove it.
 
 Please feel free to contribute new pieces, examples, or extensions by pull 
 request.

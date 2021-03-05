@@ -1,0 +1,111 @@
+Csound instruments can now be activated by MIDI events stemming from a local
+MIDI_FILE (standard or MPU401) and/or from an external MIDI_DEVICE (keyboard).
+You can try the first feature by synthesizing an ordinary soundfile and hearing
+it back with your normal Play command.  You can try both of these features
+if your machine is A) fast enough to generate audio in realtime, B) has an
+audio output device to which the Csound user program can send audio directly,
+and C) has a serial port that can take in converted MIDI data.
+
+This directory contains orchestra files that make use of new Csound statements,
+recently added to handle MIDI information.  While their use is illustrated here,
+you should consult the new Csound manual for a more complete description.
+
+The directory also contains some midi scorefiles (filenames ending in .mf),
+which serve to illustrate the use of midi-oriented instruments.
+
+To have Csound read a midifile and create a normal soundfile:
+
+	csound -o soundfilename -FPrelude#1.mf sine.orc sine.sco
+
+To have Csound read a midifile and send its output to the local audio device:
+
+	csound -o /dev/audio -dm6 -FPrelude#1.mf sine.orc sine.sco
+
+In the above, Prelude#1.mf is a midifile encoding a performance of the
+first Prelude from J.S.Bach's Well Tempered Clavier.
+The file sine.orc defines an instrument (called a 'program' in MIDI),
+and sine.sco defines the stored function tables it needs.
+The latter also sets a time limit (here 10 minutes) for listening on the
+midi input channels.  Use Control-C to stop Csound after a performance.
+The flags -d and -m6 above will suppress displays and amplitude messages,
+which can compromise realtime performance.  Leave them on if interested.
+The flag -F holds the midifile name.  This flag will take either standard
+midifiles or MPU401 files--Csound will accept either format.
+
+If the above works for you, try
+
+	csound -o/dev/audio -dm6 -FPastoral.mf sine.*
+
+The file Pastoral.mf is actually an MPU401 file.  It is an exerpt from Liszt's
+piano transcription of Beethoven's Pastoral Symphony (no. 6), as played by
+Mike Hawley on our Boesendorfer downstairs.  The file is 90% sustain pedal data
+you probably don't want to know about.   Csound has a pedal threshold flag -P,
+whose default value -P128 will filter out all pedal information.  Use -P127 or
+perhaps -P120 to retain some of this.  Note that the normal MIDI-switch setting
+of -P64 will grind the system almost to a halt.
+
+If you have a midi-to-serial converter (Midiator) and a 38400-baud input port,
+you might prefer to play the Beethoven yourself on a midi keyboard.   Type
+something like:
+
+	csound -odevaudio -dm6 -M/dev/tty00 sine.*
+
+and the rest is up to you.  The -M flag holds the device name which is
+to receive the serialized midi data.  It should have a system-supplied
+interrupt handler that simply stores the midi characters for Csound to read.
+No time-stamping is necessary.
+
+If you have a really fast machine, you might try the following:
+
+	csound -odevaudio -dm6 -M/dev/tty00 -Fpastoral.mf sine.*
+
+since Csound can be driven by a midifile and a midi-keyboard simultaneously.
+This means you can add to Beethoven, play music-minus-one with Mike Hawley ...
+
+You may have noticed that Pastoral.mf came in on midi channel 9, yet was
+assigned instrument 1.  Instruments are assigned by channel no. when available
+(instr 1 to chnl 1, instr 2 to chnl 2, etc.), but if a requested instrument is
+absent then instr 1 is substituted.
+
+THE NEW GENERATORS
+
+The MIDI-oriented unit generators have names and functionality like:
+
+ ival	notnum		;get midi note_number at note_on time
+ ival	veloc		;get midi veloc at note_on time
+ icps	cpsmidi		;get cps of note_num, at note_on time
+ iamp	ampmidi	  n	;get velocity (0-127), and linearly rescale 0 to n
+ kaft	aftouch	  n	;get aftertouch (0-127), and rescale 0 to n
+ kbend	pchbend	  n	;get pitch-bend semitones (-64, +63), scale by n
+
+See the Csound Manual for a complete listing.  These units can be freely mixed
+with standard csound generators.  You may wish to convert your favorite-sounding
+current instrument to a midi-controllable one;  conversely, you may find that
+MIDI keyboard control provides a convenient way of testing a new instrument
+under development.  The main difference will be that p3-dependent envelopes
+are replaced by MIDI note-off dependent ones, and that other parameters will
+come from controllers.  As was always the case in Csound, the mapping of
+controller information to signal-processing effect is entirely up to you.
+
+You'll find there's a new ftable generator, GEN17, which creates a step
+function useful for mapping note-numbers into different sampled data tables.
+You'll also notice some .sco files request function tables whose size is 0,
+and whose parameters include a "quoted string name".  These are new features
+of GEN01, whose size can be deferred for automatic allocation when reading an
+AIFF file, optionally named by an ascii string.  Since AIFF sampled sound can
+be mono or stereo, orchestras can too.  The new LOSCIL unit operates as either.
+The FTP directory contains two sets of mono AIFF files (Guitar, TRUMP) and two
+stereo (Bosendorfer, Violins).  These are tar files -- uncompressed since that
+makes little difference.  Each will create a unique subdirectory when untarred.
+Their use is illustrated in various orchestra/score pairs of this directory.
+Set an environment variable SSDIR to the master directory that contains them.
+If your machine has sufficient memory, you might try the composite orchestras
+123.orc and 123s.orc.  These will come up using instrument 1 (from sine.orc),
+but if you have a MIDI keyboard connected you can invoke other instruments
+by sending MIDI program changes (1, 2, 3).
+
+Although the above is not a proper tutorial, I hope you get the idea from this.
+There should be enough info here for you to start building interesting things.
+
+Barry Vercoe
+

@@ -1,0 +1,83 @@
+Csound Benchmark results
+========================
+[All times in seconds elapsed]
+
+Test	Bach-d	Bach-m	Riss-g	Riss-m	Guit-d	Guit-m	Jame-g	pvanal	lpanal
+Length	115.73s	115.73s	 63.75s	 63.75s  87.75s	 87.75s	  6.75s	  6.75s	  5.00s
+------------------------------------------------------------------------------
+ALPHA     5.1     5.0     4.9     4.1    30.2    30.1     2.9     -        -
+R4400     7.5     6.6     4.0     3.7    11.1    10.7     0.9     9.0     3.7
+INDY2     8.47    8.09    5.23    5.00   10.53   10.42    0.90    -        -
+R4000	 17.25	 10.00	 06.84	 05.94	 17.26	 16.02	  1.78	 10.99	  5.54
+R3000	 27.45	 21.06	 15.50	 12.52	 42.86	 35.04	  2.82	 22.23	 11.13
+586-90   27.57   25.05   16.03   14.05   38.12   33.23    2.02    -        -
+586-90W  30.00   21.00   16.00   10.00   29.00   21.00    2.00    -        -
+SPARC	 34.8	 33.1	 20.5	 20.2	 63.8	 62.3	  4.8	 39.9	 25.8
+Pent	 42.23	 39.71	 20.32	 18.29	 41.96	 38.39	  3.57	 32.03	 27.57
+486DX66	 96.72	 91.40	 55.53   52.24	126.38	119.14	  9.39	 82.56   75.14
+486D50c	155.21	143.09	 62.50	 59.59	128.86	119.41	 12.96	102.16	 70.47
+486D50b	116.55	113.37	 83.10	 85.68	134.57	117.54	 13.13	146.54	 71.51
+Acrn310 181.90  173.14   85.22   82.84  210.90  203.39   11.23
+Mac/040	764.30	533.50	236.2	227.10	236.90	222.30	 52.90	535.70  104.10
+386-25  899.95	863.26 2347.85 2314.40 7558.63 7447.45	362.92 3964.00 3351.61
+
+Notes:
+
+R4000 -- SGI Indigo R4000 (), running Irix 4.0.5F and beta
+	version of csound (v3.14) (AIFF)
+	Tested by John Fitch (jpff@maths.bath.ac.uk)
+
+R3000 -- SGI Indigo R3000 (33MHz IP12), running Irix 4.0.5F and beta
+	version of csound (v3.14) (AIFF)
+	Tested by John Fitch (jpff@maths.bath.ac.uk)
+
+386-25 -- PC Clone 80386 25MHz, running MSDOS 6.1 on compressed disk;
+	no floating point processor Bath 386v3.14.8 (WAV)
+	Tested by John Fitch (jpff@maths.bath.ac.uk)
+
+586-90 -- PC Pentium 90MHz, running MSDOS 6.2 on uncompressed disk;
+	used 486 bath version 3.6 (WAV)
+	Tested by Marc Resibois (mr@nit.be)
+
+586-90W -- PC Pentium 90MHz, running WFW3.11 on uncomp. disk (w/ 32bit acces );
+	used Windows csound version 3.6.2 (WAV). -m tests performed minimized
+	Tested by Marc Resibois (mr@nit.be)
+
+INDY2 -- SGI's SGI running IRIX 5.2
+	IRIX 5.2 recompiled csound beta
+	Tested by Marc Resibois (mr@nit.be)
+
+SPARC -- Sparc Sun 4/25 at 33MHz
+	Tested by John Fitch (jpff@maths.bath.ac.uk)
+
+486DX66 -- Siemens-Nixdorf PCD-4T 486DX 66MHz 16MB MS-DOS6.2 WFW3.11 17"VGA
+	in a MS-DOS Window under WFW3.11 on an uncompressed harddisk.
+	Tested by Ruediger Borrmann (RuBo@sietec.de)
+
+Acrn310 Acorn Archimedes A310, 25MHz ARM3 processor, FPA10 floating point
+        accelerator, run from command line (non-multitasking mode) of
+        RiscOS operating system.  csound exectable from Bath (!ArcSound
+        distribution 1992 version). Writing shorts.
+        Tested by Alan Fitch (alan@cycle.demon.co.uk)
+
+Mac/040/33 -- Macintosh IIci with Daystar Turbo 040/33MHz accelerator, 8MB ram,
+	running system 7.01, csound:  version 2.0 (Macintosh) created Sun., 
+	July 31, 1994. Tested by Bill Kleinsasser (kleinsasser-w@toe.towson.edu)
+
+Pent --	Phoenix Pentium(TM) 48MB , PCI Bus, SCSI AHA-2940, 
+	AIC-7870Driver/Seagate ST31200N, Windows 3.1, Csound in a MS-DOS Window
+	Tested by Ruediger Borrmann <RuBo@de.sietec>
+
+486D50b	486DX/50MHz 20MB American Megatrends Bios 11/11/92
+	MS-DOS 6.20 Windows 3.1 (Smartdrv ON)
+	Tested by Ruediger Borrmann <RuBo@de.sietec>
+
+486D50c	486DX/50MHz 20MB American Megatrends Bios 11/11/92
+	MS-DOS 6.20 Windows 3.1 (Smartdrv OFF)
+	Tested by Ruediger Borrmann <RuBo@de.sietec>
+
+r4400 	150Mhz Indigo
+	Tested by James Andrews (james@uk.ac.ex.maths)
+
+Alpha	Dec Alpha (unknown model)
+	Tested by Marc Resibois <mr@be.nit> on 13 Feb 95

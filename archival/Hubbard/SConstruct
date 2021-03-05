@@ -1,0 +1,12 @@
+import os
+# Because I have both Visual C++ and MinGW on my computer, I have to force SCons to use MinGW tools.
+commonEnvironment = Environment(ENV = os.environ, tools = ['mingw', 'swig', 'javac', 'jar'])
+# I copied csound64.dll.5.2 to csound64.dll.
+commonEnvironment.Append(LIBS = Split('csound64 csnd'))
+# The following option is required because, for no reason I can see, and Google didn't help,
+# linking with the Csound dlls produces multiple definitions of _onexit and _atexit;
+# I am guessing this is because we somewhat wrongly handle signals in DLLs.
+commonEnvironment.Append(LINKFLAGS = Split('-Wl,--allow-multiple-definition'))
+commonEnvironment.Append(CPPPATH = Split('D:/utah/opt/Csound/include'))
+commonEnvironment.Append(LIBPATH = Split('D:/utah/opt/Csound/bin'))
+hubbard_test = commonEnvironment.Program("hubbard_test.cpp")
