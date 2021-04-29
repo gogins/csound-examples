@@ -4,7 +4,7 @@
 Arranged for Csound by Michael Gogins
 </CsLicense>
 <CsOptions>
--odac -m195 -d
+-odac:plughw:1,0 -m195 -d
 </CsOptions>
 <CsInstruments>
 
@@ -325,7 +325,7 @@ outleta "outright", a_out_right
 prints "Guitar         i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", p1, p2, p3, p4, p5, p1/6, active(p1)
 endin
 
-gk_YiString_level init -2
+gk_YiString_level init 6
 gk_YiString_reverb_send init .5
 gk_YiString_chorus_send init .5
 gi_YiString_overlap init .1
@@ -382,7 +382,7 @@ outleta "chorusright", a_out_right * gk_YiString_chorus_send
 prints  "YiString       i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", p1, p2, p3, p4, p5, p1/6, active(p1)
 endin
 
-gk_Bower_level init 9
+gk_Bower_level init 20
 gk_Bower_pressure init 4.2
 gisine ftgen 0,0,65536,10,1
 instr Bower
