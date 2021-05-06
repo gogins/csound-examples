@@ -3,8 +3,8 @@
 -d -R -W -Z -f -odac
 </CsOptions>
 <CsInstruments>
-sr          =           88200
-ksmps       =           1
+sr          =           48000
+ksmps       =           128
 nchnls      =           2
 ;--------------------------------------------------------
 ;Instrument 1 : plucked strings chorused left/right and
