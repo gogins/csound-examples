@@ -56,6 +56,22 @@ WebAssembly, and in csound.node for NW.js.
 
 ### WebAssembly Examples
 
+## Important Note
+
+In order for Csound to use audio, the microphone, and MIDI, the user must 
+grant these permissions for the site hosting Csound to the Web browser 
+(usually by right-clicking on the lock symbol to the left of the URL, or 
+on a permissions icon to the left of the URL).
+
+At this time, for reasons not yet known to me, the csound-extended-wasm build 
+of Csound does not always run in Google Chrome, even after granting 
+permissions. I have opened an issue to fix this.
+
+In the meantime, after granting permissions, everything works fine in 
+Firefox.
+
+### Hosted Examples
+
 Some of the examples herein will run from the [GitHub pages of this 
 repository](https://gogins.github.io/csound-examples/). 
 
