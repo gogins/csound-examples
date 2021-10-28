@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
-csound -RWfo dac
+csound -RWfo dac:plughw:2,0
 </CsOptions>
 <CsInstruments>
 ;*******************************************

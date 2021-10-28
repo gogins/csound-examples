@@ -253,7 +253,7 @@ int main(int argc, char *argv[])
     CsoundThreaded csound;
     csound.SetOption("-d");
     csound.SetOption("-m0");
-    csound.SetOption("-odac:plughw:1,0");
+    csound.SetOption("-odac:plughw:2,0");
     csound.CompileCsdText(csd_text);
     csound.Start();
     int thread = csound.Perform();
