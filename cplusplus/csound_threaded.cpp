@@ -4,12 +4,12 @@
 
 /**
  * Example of using the _threaded_ C++ API. Compile with something like:
- * g++ --std=c++11 -Wno-write-strings -O2 -g csound_threaded.cpp -ocsound_threaded -lcsound64 -lpthread -lm 
+ * g++ --std=c++11 -Wno-write-strings -O2 -g csound_threaded.cpp -ocsound_threaded -lcsound64 -lpthread -lm
  */
-
 const char csd_text[] = R"(
 <CsoundSynthesizer>
 <CsOptions>
+-+msg_color=0 -odac:plughw:1,0
 </CsOptions>
 <CsInstruments>
 sr          =           48000

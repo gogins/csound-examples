@@ -1,6 +1,6 @@
 <CsoundSynthesizer>
 <CsOptions>
--d -m231 -H0 -R -Z -f -W --expression-opt --sample-accurate -o trapped-high-resolution.wav
+-+msg_color=0 -d -m231 -H0 -R -Z -f -W --expression-opt --sample-accurate -o trapped-high-resolution.wav
 </CsOptions>
 <CsInstruments>
 ;============================================================================;
