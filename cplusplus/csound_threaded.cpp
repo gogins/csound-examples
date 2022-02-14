@@ -1,4 +1,4 @@
-#include <csound/csound_threaded.hpp>
+#include <csound_threaded.hpp>
 #include <iostream>
 #include <string>
 
@@ -9,7 +9,7 @@
 const char csd_text[] = R"(
 <CsoundSynthesizer>
 <CsOptions>
--+msg_color=0 -odac:plughw:1,0
+-+msg_color=0 -m165 -dfotest.wav
 </CsOptions>
 <CsInstruments>
 sr          =           48000
@@ -250,9 +250,6 @@ i1 45.5 . . 11.04   ;E
 int main(int argc, char *argv[])
 {
     CsoundThreaded csound;
-    csound.SetOption("-d");
-    csound.SetOption("-m0");
-    csound.SetOption("-odac:plughw:2,0");
     csound.CompileCsdText(csd_text);
     csound.Start();
     int thread = csound.Perform();
