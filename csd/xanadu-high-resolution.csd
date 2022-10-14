@@ -1,4 +1,4 @@
- <CsoundSynthesizer>
+<CsoundSynthesizer>
 <CsOptions>
 -d -R -W -Z -f --sample-accurate -oxanadu-high-resolution.wav
 </CsOptions>
@@ -72,11 +72,11 @@ a1          =           amodi*(amodr-1/amodr)/2
 a1ndx       =           abs(a1*2/20)            ;a1*2 is normalized from 0-1.
 a2          =           amodi*(amodr+1/amodr)/2
 a3          tablei      a1ndx, 3, 1             ;lookup tbl in f3, normal index
-ao1         poscil3      a1, ipch, 2             ;cosine
+ao1         poscil3     a1, ipch, 2             ;cosine
 a4          =           exp(-0.5*a3+ao1)
-ao2         poscil3      a2*ipch, ipch, 2        ;cosine
-aoutl       poscil3      1000*aadsr*a4, ao2+cpsoct(ioct+ishift), 1 ;fnl outleft
-aoutr       poscil3      1000*aadsr*a4, ao2+cpsoct(ioct-ishift), 1 ;fnl outright
+ao2         poscil3     a2*ipch, ipch, 2        ;cosine
+aoutl       poscil3     1000*aadsr*a4, ao2+cpsoct(ioct+ishift), 1 ;fnl outleft
+aoutr       poscil3     1000*aadsr*a4, ao2+cpsoct(ioct-ishift), 1 ;fnl outright
             outs        aoutl, aoutr
             endin
 
@@ -187,7 +187,7 @@ i3 . . . 9.04 . .   ;E
 ; section.
 
 ;F#7addB chord on a guitar
-i1 0 10 0 8.06  ;F#
+i1 0  10 0 8.06  ;F#
 i1 0.1 . . 9.01 ;C# above
 i1 0.2 . . 9.06 ;F# octave above 1st one
 i1 0.3 . . 9.10 ;Bb next one up
@@ -236,7 +236,6 @@ i2 38.0 . . 10.04   ;E
 
 ;F#7addB chord on a guitar
 i1 45 10 0 9.06     ;F#
-i1 45.1 . . 10.01   ;C# above
 i1 45.2 . . 10.06   ;F# octave above 1st one
 i1 45.3 . . 10.10   ;Bb next one up
 i1 45.4 . . 10.11   ;B
