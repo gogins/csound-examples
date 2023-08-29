@@ -44,7 +44,8 @@ fluidProgramSelect giFluidsynth, 3, giFluidGM, 0, 40
 fluidProgramSelect giFluidsynth, 4, giFluidGM, 0, 32
 
 instr 1, 2, 3, 4
-i_gain ampmidicurve p5, gi_ampmidicurve_dynamic_range, gi_ampmidicurve_exponent
+; The ampmidicurve opcode is not in the current Android for Csound app.
+i_gain init .8 ; ampmidicurve p5, gi_ampmidicurve_dynamic_range, gi_ampmidicurve_exponent
 i_p5 = i_gain * 60
 fluidNote giFluidsynth, floor(p1), p4, i_p5
 prints "fluidNote i %9.4f t %9.4f d %9.4f k %9.4f v (%9.4f) %9.4f p %9.4f #%3d\\n", p1, p2, p3, p4, p5, i_p5, p1/6, active(p1)
