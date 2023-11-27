@@ -2,17 +2,19 @@
 # with an embedded Csound CSD file.
 # Note the use of Python's triple quotes to embed literal text within the script.
 # Author: Michael Gogins
-import ctcsound
 import sys
+print(sys.version)
+print(sys.path)
+
+import ctcsound
 # Create an instance of Csound (actually, CppSound).
 csound = ctcsound.Csound()
 # Set the Csound file.
 print(help(csound))
-print(sys.version)
 csound.compileCsdText('''
 <CsoundSynthesizer>
 <CsOptions>
--odac:plughw:1,0
+-odac
 </CsOptions>
 <CsInstruments>
 ;============================================================================;

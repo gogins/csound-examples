@@ -31,17 +31,6 @@ import 	pickle
 import 	shutil
 import 	traceback
 
-'''
-Psyco (http://www.psyco.org) is a just-in-time compiler for Python.
-One imagines that using Psyco here will make execution
-faster and therefore smoother.
-'''
-try:
-	import psyco
-	print 'Imported pscyo.'
-except:
-	print 'Failed to import psyco.'
-
 from 	Tkinter import *
 import 	tkFileDialog
 import 	Tix

@@ -40,7 +40,10 @@ int csoundStop(void *csound);
 int csoundReset(void *csound);
 ]]
 print 'Loading the Csound shared library...'
-local csoundApi = ffi.load('csound64')
+-- Linux:
+-- local csoundApi = ffi.load('csound64')
+-- macOS:
+local csoundApi = ffi.load('/Library/Frameworks/CsoundLib64.framework/Versions/6.0/CsoundLib64')
 print(string.format('Csound version: %5.2f', csoundApi.csoundGetVersion() / 1000.0))
 print(string.format('Csound API version: %5.2f', csoundApi.csoundGetAPIVersion() / 100.0))
 print 'Calling csoundInitialize...'
@@ -55,7 +58,7 @@ print 'Compiling the Csound orchestra (note multi-line text in double brackets).
 result = csoundApi.csoundCompileCsdText(csound, [[
 <CsoundSynthesizer>
 <CsOptions>
--d -m195 -odac:plughw:1,0
+-d -m195 -odac
 </CsOptions>
 <CsInstruments>
 sr = 48000

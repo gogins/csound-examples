@@ -6,7 +6,7 @@ Arranged for Csound by Michael Gogins
 <CsOptions>
 -+msg_color=0 -odac:plughw:2,0 -m195 -d
 </CsOptions>
-<CsInstruments>
+<CsInstruments>c
 
 sr = 48000
 ksmps = 128
