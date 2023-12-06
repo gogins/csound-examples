@@ -1,8 +1,15 @@
+gk_STKBowed_vibrato_level chnexport "gk_STKBosed_vibrato_level", 3
+gk_STKBowed_bow_pressure chnexport "gk_STKBowed_bow_pressure", 3
+gk_STKBowed_bow_position chnexport "gk_STKBowed_bow_position", 3
+gk_STKBowed_vibrato_frequency chnexport "gk_STKBowed_vibrato_frequency", 3
+gk_STKBowed_level chnexport "gk_STKBowed_level", 3
+
 gk_STKBowed_vibrato_level init 2.8
 gk_STKBowed_bow_pressure init 110
 gk_STKBowed_bow_position init 20
 gk_STKBowed_vibrato_frequency init 50.2
 gk_STKBowed_level init 0
+
 instr STKBowed
 ; Author: Michael Gogins
 i_instrument = p1
@@ -27,6 +34,7 @@ i_release = 0.01
 xtratim i_attack + i_release
 a_declicking linsegr 0, i_attack, 1, i_sustain, 1, i_release, 0
 a_signal = a_signal * i_amplitude * a_declicking * k_gain 
+
 #ifdef USE_SPATIALIZATION
 a_spatial_reverb_send init 0
 a_bsignal[] init 16
@@ -38,5 +46,5 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin

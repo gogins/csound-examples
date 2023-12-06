@@ -1,9 +1,16 @@
+gk_BanchoffKleinBottle_level chnexport "gk_BanchoffKleinBottle_level", 3
+gi_BanchoffKleinBottle_attack chnexport "gi_BanchoffKleinBottle_attack", 3
+gi_BanchoffKleinBottle_release chnexport "gi_BanchoffKleinBottle_release", 3
+gk_BanchoffKleinBottle_midi_dynamic_range chnexport "gk_BanchoffKleinBottle_midi_dynamic_range", 3
+
 gk_BanchoffKleinBottle_level init 0
-gi_BanchoffKleinBottle_attack init 0.003
+gi_BanchoffKleinBottle_attack init 0.005
 gi_BanchoffKleinBottle_release init 0.01
 gk_BanchoffKleinBottle_midi_dynamic_range init 127
+
 gi_BanchoffKleinBottle_sine ftgen 0, 0, 65537, 10, 1
 gi_BanchoffKleinBottle_cosine ftgen 0, 0, 65537, 11, 1
+
 instr BanchoffKleinBottle
 //////////////////////////////////////////////
 // Original by Hans Mikelson.
@@ -11,7 +18,6 @@ instr BanchoffKleinBottle
 //////////////////////////////////////////////
 xtratim gi_BanchoffKleinBottle_attack + gi_BanchoffKleinBottle_release
 a_declicking linsegr 0, gi_BanchoffKleinBottle_attack, 1, p3, 1, gi_BanchoffKleinBottle_release, 0
-
 i_instrument = p1
 i_time = p2
 i_duration = p3
@@ -78,7 +84,7 @@ outleta "out", a_spatial_reverb_send
 a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
-#endif
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+#end
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 ;printks "BanchoffKleinB i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
 endin

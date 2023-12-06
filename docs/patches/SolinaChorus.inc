@@ -42,10 +42,16 @@ a3 vdelay3 aLeft, at2, imax
 xout (a1 + a2 + a3) / 3
 endop
 
+gk_SolinaChorus_chorus_lfo1_hz chnexport "gk_SolinaChorus_chorus_lfo1_hz", 3 ;  .18
+gk_SolinaChorus_chorus_lfo1_amp chnexport "gk_SolinaChorus_chorus_lfo1_amp", 3 ;  .6
+gk_SolinaChorus_chorus_lfo2_hz chnexport "gk_SolinaChorus_chorus_lfo2_hz", 3 ;  6
+gk_SolinaChorus_chorus_lfo2_amp chnexport "gk_SolinaChorus_chorus_lfo2_amp", 3 ;  .2
+
 gk_SolinaChorus_chorus_lfo1_hz init .18
 gk_SolinaChorus_chorus_lfo1_amp init .6
 gk_SolinaChorus_chorus_lfo2_hz init 6
 gk_SolinaChorus_chorus_lfo2_amp init .2
+
 instr SolinaChorus
 aleft inleta "inleft"
 aright inleta "inright"
@@ -53,6 +59,6 @@ aleft solina_chorus aleft, gk_SolinaChorus_chorus_lfo1_hz, gk_SolinaChorus_choru
 aright solina_chorus aright, gk_SolinaChorus_chorus_lfo1_hz, gk_SolinaChorus_chorus_lfo1_amp, gk_SolinaChorus_chorus_lfo2_hz, gk_SolinaChorus_chorus_lfo2_amp
 outleta "outleft", aleft
 outleta "outright", aright
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
 

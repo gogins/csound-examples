@@ -27,11 +27,18 @@ end:
 gi_WaveTerrainTables_index -= gi_WaveTerrainTables_size
 endop
 
+gk_WaveTerrain_level chnexport "gk_WaveTerrain_level", 3 ;  0
+gi_WaveTerrain_attack chnexport "gi_WaveTerrain_attack", 3 ;  0.003
+gi_WaveTerrain_release chnexport "gi_WaveTerrain_release", 3 ;  0.01
+gk_WaveTerrain_midi_dynamic_range chnexport "gk_WaveTerrain_midi_dynamic_range", 3 ;  20
+
 gk_WaveTerrain_level init 0
 gi_WaveTerrain_attack init 0.003
 gi_WaveTerrain_release init 0.01
-gk_WaveTerrain_midi_dynamic_range init 127
+gk_WaveTerrain_midi_dynamic_range init 20
+
 gi_WaveTerrain_sine ftgen 0, 0, 65537, 10, 1
+
 instr WaveTerrain
 //////////////////////////////////////////////
 //  Wave Terrain Synthesis by Josep Comajuncosas
@@ -56,11 +63,10 @@ k_space_bottom_to_top = p8
 i_phase = p9
 i_frequency = cpsmidinn(i_midi_key)
 //  Adjust the following value until "overall amps" at the end of performance is about -6 dB.
-i_level_correction = 160.5
+i_level_correction = 155
 i_normalization = ampdb(-i_level_correction) / 2
 i_amplitude = ampdb(i_midi_velocity) * i_normalization
 k_gain = ampdb(gk_WaveTerrain_level)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Orbit & waveform generator
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -88,9 +94,9 @@ az = (1-ay)*azdown + ay*azup
 ;final output & endin
 a_signal = iamp*az*kamp
 end:
-
 a_declicking linsegr 0, gi_WaveTerrain_attack, 1, i_sustain, 1, gi_WaveTerrain_release, 0
 a_signal = a_signal * i_amplitude * a_declicking * k_gain
+
 #ifdef USE_SPATIALIZATION
 a_spatial_reverb_send init 0
 a_bsignal[] init 16
@@ -102,6 +108,6 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 ;printks "WaveTerrain      i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d l%9.4f r%9.4f\n", 1, p1, p2, p3, p4, p5, p7, active(p1), dbamp(rms(a_out_left)), dbamp(rms(a_out_right))
 endin

@@ -1,11 +1,24 @@
-gk_WGPluck_midi_dynamic_range init 127
+gk_WGPluck_midi_dynamic_range chnexport "gk_WGPluck_midi_dynamic_range", 3 ;  127
+gk_WGPluck_level chnexport "gk_WGPluck_level", 3 ;  0
+gk_WGPluck_pick chnexport "gk_WGPluck_pick", 3 ;  .5
+gk_WGPluck_reflection chnexport "gk_WGPluck_reflection", 3 ;  .5
+gi_WGPluck_pluck chnexport "gi_WGPluck_pluck", 3 ;  0
+gi_WGPluck_damping chnexport "gi_WGPluck_damping", 3 ;  10
+gi_WGPluck_filter chnexport "gi_WGPluck_filter", 3 ;  1000
+
+gk_WGPluck_midi_dynamic_range init 20
 gk_WGPluck_level init 0
 gk_WGPluck_pick init .5
 gk_WGPluck_reflection init .5
 gi_WGPluck_pluck init 0
 gi_WGPluck_damping init 10
 gi_WGPluck_filter init 1000
-gi_WGPluck_sine ftgen 0, 0, 65536, 10, 1, 0, 1
+
+gk_WGPluck_space_left_to_right chnexport "gk_WGPluck_space_left_to_right", 3
+gk_WGPluck_space_left_to_right init .5
+
+gi_WGPluck_sine ftgen 0, 0, 65537, 10, 1, 0, 1
+
 instr WGPluck
 i_instrument = p1
 i_time = p2
@@ -14,12 +27,16 @@ i_midi_key = p4
 i_midi_dynamic_range = i(gk_WGPluck_midi_dynamic_range)
 i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.6 - i_midi_dynamic_range / 2)
 k_space_front_to_back = p6
+if p7 ==0 then
+k_space_left_to_right = gk_WGPluck_space_left_to_right
+else
 k_space_left_to_right = p7
+endif
 k_space_bottom_to_top = p8
 i_phase = p9
 i_frequency = cpsmidinn(i_midi_key)
 ; Adjust the following value until "overall amps" at the end of performance is about -6 dB.
-i_level_correction = 77
+i_level_correction = 71
 i_normalization = ampdb(-i_level_correction) / 2
 i_amplitude = ampdb(i_midi_velocity) * i_normalization
 k_gain = ampdb(gk_WGPluck_level)
@@ -35,6 +52,7 @@ i_release = 0.01
 xtratim i_attack + i_release
 a_declicking linsegr 0, i_attack, 1, i_sustain, 1, i_release, 0
 a_signal = a_signal * i_amplitude * a_declicking * k_gain
+
 #ifdef USE_SPATIALIZATION
 a_spatial_reverb_send init 0
 a_bsignal[] init 16
@@ -47,5 +65,5 @@ outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
 ;printks "WGPluck      %9.4f   %9.4f\n", 0.5, a_out_left, a_out_right
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin

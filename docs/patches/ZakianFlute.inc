@@ -1,17 +1,48 @@
+gk_ZakianFlute_midi_dynamic_range chnexport "gk_ZakianFlute_midi_dynamic_range", 3 ;  20
+gk_ZakianFlute_level chnexport "gk_ZakianFlute_level", 3 ;  0
+gk_ZakianFlute_pan chnexport "gk_ZakianFlute_pan", 3 ;  .5
+gi_ZakianFLute_seed chnexport "gi_ZakianFLute_seed", 3 ;  .5
+gi_ZakianFLute_space_left_to_front chnexport "gi_ZakianFLute_space_left_to_front", 3 ;  .5
+
 gk_ZakianFlute_midi_dynamic_range init 20
 gk_ZakianFlute_level init 0
 gk_ZakianFlute_pan init .5
 gi_ZakianFLute_seed init .5
+gi_ZakianFLute_space_left_to_front init .5
+
+gi_ZakianFLute_f2  ftgen 0, 0, 16, -2, 40, 40, 80, 160, 320, 640, 1280, 2560, 5120, 10240, 10240
+gi_ZakianFlute_f26 ftgen 0, 0, 65537, -10, 2000, 489, 74, 219, 125, 9, 33, 5, 5
+gi_ZakianFlute_f27 ftgen 0, 0, 65537, -10, 2729, 1926, 346, 662, 537, 110, 61, 29, 7
+gi_ZakianFlute_f28 ftgen 0, 0, 65537, -10, 2558, 2012, 390, 361, 534, 139, 53, 22, 10, 13, 10
+gi_ZakianFlute_f29 ftgen 0, 0, 65537, -10, 12318, 8844, 1841, 1636, 256, 150, 60, 46, 11
+gi_ZakianFlute_f30 ftgen 0, 0, 65537, -10, 1229, 16, 34, 57, 32
+gi_ZakianFlute_f31 ftgen 0, 0, 65537, -10, 163, 31, 1, 50, 31
+gi_ZakianFlute_f32 ftgen 0, 0, 65537, -10, 4128, 883, 354, 79, 59, 23
+gi_ZakianFlute_f33 ftgen 0, 0, 65537, -10, 1924, 930, 251, 50, 25, 14
+gi_ZakianFlute_f34 ftgen 0, 0, 65537, -10, 94, 6, 22, 8
+gi_ZakianFlute_f35 ftgen 0, 0, 65537, -10, 2661, 87, 33, 18
+gi_ZakianFlute_f36 ftgen 0, 0, 65537, -10, 174, 12
+gi_ZakianFlute_f37 ftgen 0, 0, 65537, -10, 314, 13
+gi_ZakianFlute_wtsin ftgen 0, 0, 65537, 10, 1
+
 instr ZakianFlute
 ; Author: Lee Zakian
 ; Adapted by: Michael Gogins
 i_instrument = p1
 i_time = p2
+if p3 == -1 then
+i_duration = 1000
+else
 i_duration = p3
+endif
 i_midi_key = p4
 i_midi_velocity = p5
 k_space_front_to_back = p6
+if p7 == 0 then
+k_space_left_to_right = gi_ZakianFLute_space_left_to_front
+else
 k_space_left_to_right = p7
+endif
 k_space_bottom_to_top = p8
 i_phase = p9
 i_overall_amps = 65.2
@@ -20,28 +51,13 @@ i_midi_dynamic_range = i(gk_ZakianFlute_midi_dynamic_range)
 i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.5 - i_midi_dynamic_range / 2)
 i_amplitude = ampdb(i_midi_velocity) * i_normalization
 k_gain = ampdb(gk_ZakianFlute_level)
-iattack = .002
-isustain = p3
-irelease = .3
-xtratim iattack + irelease
+;;;xtratim iattack + irelease
 iHz = cpsmidinn(i_midi_key)
 kHz = k(iHz)
+// Bug?
 aenvelope transeg 1.0, 20.0, -10.0, 0.05
-ip3 = (p3 < 3.0 ? p3 : 3.0)
-if2 ftgenonce 0, 0, 16, -2, 40, 40, 80, 160, 320, 640, 1280, 2560, 5120, 10240, 10240
-if26 ftgenonce 0, 0, 65537, -10, 2000, 489, 74, 219, 125, 9, 33, 5, 5
-if27 ftgenonce 0, 0, 65537, -10, 2729, 1926, 346, 662, 537, 110, 61, 29, 7
-if28 ftgenonce 0, 0, 65537, -10, 2558, 2012, 390, 361, 534, 139, 53, 22, 10, 13, 10
-if29 ftgenonce 0, 0, 65537, -10, 12318, 8844, 1841, 1636, 256, 150, 60, 46, 11
-if30 ftgenonce 0, 0, 65537, -10, 1229, 16, 34, 57, 32
-if31 ftgenonce 0, 0, 65537, -10, 163, 31, 1, 50, 31
-if32 ftgenonce 0, 0, 65537, -10, 4128, 883, 354, 79, 59, 23
-if33 ftgenonce 0, 0, 65537, -10, 1924, 930, 251, 50, 25, 14
-if34 ftgenonce 0, 0, 65537, -10, 94, 6, 22, 8
-if35 ftgenonce 0, 0, 65537, -10, 2661, 87, 33, 18
-if36 ftgenonce 0, 0, 65537, -10, 174, 12
-if37 ftgenonce 0, 0, 65537, -10, 314, 13
-iwtsin ftgenonce 0, 0, 65537, 10, 1
+///aenvelope transegr 1.0, 20.0, -10.0, 0.05
+ip3 = 3;;; (p3 < 3.0 ? p3 : 3.0)
 ; parameters
 ; p4 overall amplitude scaling factor
 ip4 init i_amplitude
@@ -71,11 +87,11 @@ iattack = ip7 * (1.1 - .2*gi_ZakianFLute_seed) ; attack time with up to +-10% ra
 gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947) ; reset gi_ZakianFLute_seed
 idecay = ip8 * (1.1 - .2*gi_ZakianFLute_seed) ; decay time with up to +-10% random deviation
 gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
-ifiltcut tablei ip9, if2 ; lowpass filter cutoff frequency
+ifiltcut tablei ip9, gi_ZakianFLute_f2 ; lowpass filter cutoff frequency
 iattack = (iattack < 6/kr ? 6/kr : iattack) ; minimal attack length
 idecay = (idecay < 6/kr ? 6/kr : idecay) ; minimal decay length
-isustain = p3 - iattack - idecay
-p3 = (isustain < 5/kr ? iattack+idecay+5/kr : p3) ; minimal sustain length
+isustain = i_duration - iattack - idecay
+;;;p3 = (isustain < 5/kr ? iattack+idecay+5/kr : i_duration) ; minimal sustain length
 isustain = (isustain < 5/kr ? 5/kr : isustain)
 iatt = iattack/6
 isus = isustain/4
@@ -94,17 +110,17 @@ gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
 ivibr2 = gi_ZakianFLute_seed
 gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
 if ip6 < 0 goto vibrato1
-kvibrate linseg 2.5+ivibr1, p3, 4.5+ivibr2 ; if p6 positive vibrato gets faster
- goto vibrato2
+kvibrate linseg 2.5+ivibr1, isustain, 4.5+ivibr2 ; if p6 positive vibrato gets faster
+goto vibrato2
 vibrato1:
 ivibr3 = gi_ZakianFLute_seed
 gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
-kvibrate linseg 3.5+ivibr1, .1, 4.5+ivibr2, p3-.1, 2.5+ivibr3 ; if p6 negative vibrato gets slower
+kvibrate linseg 3.5+ivibr1, .1, 4.5+ivibr2,isustain-.1, 2.5+ivibr3 ; if p6 negative vibrato gets slower
 vibrato2:
 kvibrater randi .1*kvibrate, 5, gi_ZakianFLute_seed ; up to 10% vibrato rate variation
 gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
 kvibrate = kvibrate + kvibrater
-kvib oscili kvibdepth, kvibrate, iwtsin
+kvib oscili kvibdepth, kvibrate, gi_ZakianFlute_wtsin
 ifdev1 = -.03 * gi_ZakianFLute_seed ; frequency deviation
 gi_ZakianFLute_seed = frac(gi_ZakianFLute_seed*105.947)
 ifdev2 = .003 * gi_ZakianFLute_seed
@@ -133,9 +149,9 @@ kamp3 linseg 0, iatt, 0.005, iatt, -0.026, iatt, 0.023, iatt, \
 0.133, iatt, 0.060, iatt, -1.245, isus, -0.760, isus, 1.000, isus, \
 0.360, isus, -0.526, idec, 0.165, idec, 0.184, idec, 0.060, idec, \
 0.010, idec, 0.013, idec, 0
-iwt1 = if26 ; wavetable numbers
-iwt2 = if27
-iwt3 = if28
+iwt1 = gi_ZakianFlute_f26 ; wavetable numbers
+iwt2 = gi_ZakianFlute_f27
+iwt3 = gi_ZakianFlute_f28
 inorm = 3949
 goto end
 range2: ; for low mid-range tones
@@ -151,9 +167,9 @@ kamp3 linseg 0, iatt, 1.000, iatt, 0.520, iatt, -0.303, iatt, \
 0.059, iatt, -4.103, iatt, -6.784, isus, 7.006, isus, 11, isus, \
 12.495, isus, -0.562, idec, -4.946, idec, -0.587, idec, 0.440, idec, \
 0.174, idec, -0.027, idec, 0
-iwt1 = if29
-iwt2 = if30
-iwt3 = if31
+iwt1 = gi_ZakianFlute_f29
+iwt2 = gi_ZakianFlute_f30
+iwt3 = gi_ZakianFlute_f31
 inorm = 27668.2
 goto end
 range3: ; for high mid-range tones
@@ -169,9 +185,9 @@ kamp3 linseg 0, iatt, 0.722, iatt, 1.500, iatt, 3.697, iatt, \
 0.080, iatt, -2.327, iatt, -0.684, isus, -2.638, isus, 0.000, isus, \
 1.347, isus, 0.485, idec, -0.419, idec, -.700, idec, -0.278, idec, \
 0.167, idec, -0.059, idec, 0
-iwt1 = if32
-iwt2 = if33
-iwt3 = if34
+iwt1 = gi_ZakianFlute_f32
+iwt2 = gi_ZakianFlute_f33
+iwt3 = gi_ZakianFlute_f34
 inorm = 3775
 goto end
 range4: ; for high range tones
@@ -187,9 +203,9 @@ kamp3 linseg 0, iatt, 0.000, iatt, 1.000, iatt, 0.426, iatt, \
 0.222, iatt, 0.175, iatt, -0.153, isus, 0.355, isus, 0.175, isus, \
 0.16, isus, -0.246, idec, -0.045, idec, -0.072, idec, 0.057, idec, \
 -0.024, idec, 0.002, idec, 0
-iwt1 = if35
-iwt2 = if36
-iwt3 = if37
+iwt1 = gi_ZakianFlute_f35
+iwt2 = gi_ZakianFlute_f36
+iwt3 = gi_ZakianFlute_f37
 inorm = 4909.05
 goto end
 end:
@@ -211,11 +227,18 @@ kcut linseg 0, iattack, ifiltcut, isustain, ifiltcut, idecay, 0 ; lowpass filter
 afilt tone asig, kcut
 a_signal balance afilt, asig
 i_attack = .002
-i_sustain = p3
+i_sustain = i_duration
 i_release = 0.01
-xtratim i_attack + i_sustain + i_release
-a_declicking linsegr 0, i_attack, 1, i_sustain, 1, i_release, 0
-a_signal = a_signal * i_amplitude * a_declicking * k_gain
+i_declick_attack = i_attack
+i_declick_release = i_declick_attack * 2
+; The end of the note must be extended _past_ the end of the release segment.
+xtratim 1
+a_declicking_envelope cossegr 0, i_declick_attack, 1,  i_duration, 1,  i_declick_release, 0
+; That envelope is then low-pass filtered to remove most discontinuities.
+a_filtered_envelope tonex a_declicking_envelope, 40, 4
+a_signal = a_signal * i_amplitude * a_filtered_envelope * k_gain 
+
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 #ifdef USE_SPATIALIZATION
 a_spatial_reverb_send init 0
 a_bsignal[] init 16
@@ -228,5 +251,4 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin

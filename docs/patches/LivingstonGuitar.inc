@@ -1,6 +1,20 @@
-gk_LivingstonGuitar_midi_dynamic_range init 127
+gk_LivingstonGuitar_level chnexport "gk_LivingstonGuitar_level", 3
+gk_LivingstonGuitar_midi_dynamic_range chnexport "gk_LivingstonGuitar_midi_dynamic_range", 3
+
 gk_LivingstonGuitar_level init 0
-instr LivingstonGuitar
+gk_LivingstonGuitar_midi_dynamic_range init 20
+
+gk_LivingstonGuitar_space_left_to_right chnexport "gk_LivingstonGuitar_space_left_to_right", 3
+gk_LivingstonGuitar_space_left_to_right init .5
+
+gi_LivingstonGuitar_sine ftgen 0, 0, 65537, 10, 1
+
+/**
+ * We put the body of the code into a user-defined opcode so that it will 
+ * always run at ksmps = 1.
+ */
+opcode LivingstonGuitar_, a, 0
+setksmps 1
 ; Author: Jeff Livingston
 ; Adapted by: Michael Gogins
 ;
@@ -40,26 +54,26 @@ instr LivingstonGuitar
 ; i01.1 0.25 0.75 5000 7.07 .75    0.9980 .0     .24       1          0    0    0
 ; inst st dur amp pch plksize(%) fbfac pickupPos(%) pluckPos(%)
 ; Initializations
-if p3 == -1 then
-  p3 = 1000000
-endif
 i_instrument = p1
 i_time = p2
 i_duration = p3
 i_midi_key = p4
+; Enforce the range of a standard classical guitar.
+while i_midi_key > 83 do
+  i_midi_key = i_midi_key - 12
+od
+while i_midi_key < 40 do
+  i_midi_key = i_midi_key + 12
+od
 i_midi_dynamic_range = i(gk_LivingstonGuitar_midi_dynamic_range)
 i_midi_velocity = p5 * i_midi_dynamic_range / 127 + (63.6 - i_midi_dynamic_range / 2)
-k_space_front_to_back = p6
-k_space_left_to_right = p7
-k_space_bottom_to_top = p8
 i_phase = p9
 i_frequency = cpsmidinn(i_midi_key)
 ; Adjust the following value until "overall amps" at the end of performance is about -6 dB.
-i_level_correction = 118
+i_level_correction = 80
 i_normalization = ampdb(-i_level_correction) / 2
 i_amplitude = ampdb(i_midi_velocity) * i_normalization
 k_gain = ampdb(gk_LivingstonGuitar_level)
-isine ftgenonce 0, 0, 65537, 10, 1
 // Protect against too short delay times.
 i_minimum_delay_seconds = ksmps / sr
 afwav init 0
@@ -69,7 +83,7 @@ afwdout init 0
 ip4 init i_amplitude
 ipch pchmidinn i_midi_key
 ip5 init ipch
-ip6 init .75
+ip6 init .075
 ip7 init .9980
 ip8 init 0
 ip9 init .24
@@ -78,11 +92,6 @@ ip11 init 0
 ip12 init 0
 ip13 init 0
 ip14 init 0
-isustain_ = p3
-iattack_ = .001
-irelease_ = .01
-xtratim isustain_ + iattack_ + irelease_
-adeclick linsegr 0, iattack_, 1, isustain_, 1, irelease_, 0
 iEstr = 1/cpspch(6.04)
 ifqc = cpspch(ip5)
 idlt = 1/(ifqc) ;note:delay time=2x length of string (time to traverse it)
@@ -161,7 +170,7 @@ ainputb tone aenvstrb,sr*.9/2
 ainputf tone ainputf,sr*.9/2
 ainputb tone ainputb,sr*.9/2
 ; Vibrato generator
-avib poscil ivibDepth, ivibRate,isine
+avib poscil ivibDepth, ivibRate,gi_LivingstonGuitar_sine
 ivibStDly max i_minimum_delay_seconds, ivibStDly
 avibdl delayr ivibStDly*1.1+.001
 avibrato deltapi ivibStDly
@@ -192,9 +201,21 @@ a_signal = 1500*(afwav+abkwav+aresbod*.000000000000000000003)
 i_attack = .002
 i_sustain = p3
 i_release = 0.01
-xtratim i_attack + i_sustain + i_release
+xtratim 1
 a_declicking linsegr 0, i_attack, 1, i_sustain, 1, i_release, 0
 a_signal = a_signal * i_amplitude * a_declicking * k_gain
+xout a_signal
+endop
+
+instr LivingstonGuitar
+k_space_front_to_back = p6
+if p7 ==0 then
+k_space_left_to_right = gk_LivingstonGuitar_space_left_to_right
+else
+k_space_left_to_right = p7
+endif
+k_space_bottom_to_top = p8
+a_signal LivingstonGuitar_
 #ifdef USE_SPATIALIZATION
 a_spatial_reverb_send init 0
 a_bsignal[] init 16
@@ -206,5 +227,5 @@ a_out_left, a_out_right pan2 a_signal, k_space_left_to_right
 outleta "outleft", a_out_left
 outleta "outright", a_out_right
 #endif
-prints "%-24.s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
+prints "%-24s i %9.4f t %9.4f d %9.4f k %9.4f v %9.4f p %9.4f #%3d\n", nstrstr(p1), p1, p2, p3, p4, p5, p7, active(p1)
 endin
