@@ -13,7 +13,7 @@ GNU Lesser General Public License, version 3.0.
 
 This file contains only instrument definitions that should work
 on all platforms. This file should run "as is" in CsoundVST in VST hosts,
-or to receive MIDI.
+or to receive Csound score events and/or MIDI events in standalone Csound.
 
 Instruments are fungible: they all use the same pfields, have their own
 ftables, do not use UDOs, use aoutlets, produce more or less the same output
